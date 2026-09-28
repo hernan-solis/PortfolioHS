@@ -3,170 +3,114 @@ import { getWhatsAppLink } from '../data/siteConfig';
 
 const services = [
   {
-    icon: "🛍️",
-    title: "Catálogos Online con Pedidos por WhatsApp",
-    subtitle: "El favorito de los comercios y tiendas",
-    description: "Tus productos organizados las 24hs con fotos claras, precios actualizados y botón de pedido con 1 clic directo a tu chat de WhatsApp. Olvidate de pasar listas de precios en PDF o responder precios por mensaje privado.",
-    benefits: [
-      "Sin comisiones por venta (0%)",
-      "Actualizaciones simples y rápidas",
-      "El cliente te escribe con el pedido ya listo"
+    colSpan: "md:col-span-8",
+    tag: "COMERCIOS & SHOWROOMS",
+    title: "Catálogo online con pedidos directos a WhatsApp",
+    desc: "Tus productos organizados las 24 horas con fotos optimizadas, variantes (talles, colores, modelos) y precios al día. El cliente elige lo que busca y con un clic te envía la orden armada a tu WhatsApp lista para coordinar el pago.",
+    features: [
+      "0% comisiones por venta",
+      "Experiencia rápida pensada para celular",
+      "Actualización ágil de precios y productos"
     ],
-    highlight: true,
-    badge: "Más Solicitado"
+    waQuery: "Hola Hernán, me interesa desarrollar un catálogo online con pedidos a WhatsApp para mi negocio."
   },
   {
-    icon: "🚀",
-    title: "Landing Pages de Alta Conversión",
-    subtitle: "Para campañas y ventas directas",
-    description: "Páginas de una sola sección diseñadas para convencer al visitante en segundos. Ideales si hacés publicidad en Instagram, Facebook o Google Ads y querés maximizar el retorno de tu inversión.",
-    benefits: [
-      "Estructura psicológica de ventas",
-      "Llamados a la acción estratégicos",
-      "Carga inmediata en celulares"
+    colSpan: "md:col-span-4",
+    tag: "VENTA DIRECTA & ANUNCIOS",
+    title: "Landing pages para campañas",
+    desc: "Páginas de una sola sección diseñadas para convencer en segundos. Pensadas para maximizar el retorno si hacés publicidad en Instagram, Facebook o Google Ads.",
+    features: [
+      "Estructura orientada a conversión",
+      "Carga en menos de 1 segundo",
+      "Sin elementos que distraigan la compra"
     ],
-    highlight: false,
-    badge: "Rápido Retorno"
+    waQuery: "Hola Hernán, quiero cotizar una landing page para pauta publicitaria."
   },
   {
-    icon: "🏛️",
-    title: "Sitios Institucionales & Profesionales",
-    subtitle: "Para empresas, estudios y servicios",
-    description: "Tu marca con un diseño serio, moderno y de alto nivel. Para profesionales de la salud, estudios legales, gestorías, inmobiliarias y pymes que necesitan transmitir máxima confianza y autoridad.",
-    benefits: [
-      "Diseño corporativo a medida",
-      "Integración de formularios y cotizadores",
-      "Correos corporativos y presencia oficial"
+    colSpan: "md:col-span-4",
+    tag: "PROFESIONALES & EMPRESAS",
+    title: "Sitios institucionales y corporativos",
+    desc: "Presencia sobria y formal para estudios, consultorios, gestorías y pymes que necesitan proyectar seriedad y confianza ante clientes corporativos.",
+    features: [
+      "Diseño a medida de tu identidad",
+      "Formularios de contacto directos",
+      "Correos con dominio corporativo"
     ],
-    highlight: false,
-    badge: "Confianza y Marca"
+    waQuery: "Hola Hernán, necesito una web institucional para mi empresa o estudio."
   },
   {
-    icon: "📍",
-    title: "Posicionamiento SEO Local en Zona Norte",
-    subtitle: "Aparecé cuando busquen lo que vendés",
-    description: "Optimizamos el código y los datos de tu sitio para que Google y Google Maps muestren tu negocio a las personas que buscan en Tortuguitas, Pilar, San Miguel, Tigre y toda Zona Norte.",
-    benefits: [
-      "Ficha de Google Maps vinculada",
-      "Metadatos geolocalizados de tu zona",
-      "Más consultas orgánicas sin pagar pauta"
+    colSpan: "md:col-span-8",
+    tag: "ZONA NORTE & GOOGLE MAPS",
+    title: "SEO local: aparecé cuando busquen lo que vendés",
+    desc: "Optimizamos el código con metadatos estructurados para Tortuguitas, Pilar, San Miguel y Zona Norte. Vinculamos tu página a tu ficha de Google Maps para atraer clientes en tu radio geográfico sin depender de pagar publicidad todo el tiempo.",
+    features: [
+      "Indexación técnica en Google Search Console",
+      "Etiquetas georreferenciadas de Zona Norte",
+      "Atracción de clientes locales cercanos"
     ],
-    highlight: false,
-    badge: "Visibilidad Local"
-  },
-  {
-    icon: "⚡",
-    title: "Rediseño & Aceleración de Sitios Lentos",
-    subtitle: "Si tu web tarda en cargar, perdés ventas",
-    description: "¿Tenés una web vieja o hecha en WordPress que anda pesada en el celular? La reconstruimos con tecnología moderna (Astro + Tailwind) para que vuele en menos de un segundo.",
-    benefits: [
-      "Hasta un 400% más rápida",
-      "Mejora inmediata de la experiencia del usuario",
-      "Menor tasa de rebote y más ventas"
-    ],
-    highlight: false,
-    badge: "Optimización"
-  },
-  {
-    icon: "🛡️",
-    title: "Soporte Local y Alojamiento Seguro",
-    subtitle: "Trato directo con quien hizo tu web",
-    description: "Tu web alojada en servidores de alta disponibilidad con certificado de seguridad SSL. Y ante cualquier cambio o duda, me mandás un mensaje y lo resolvemos en el día.",
-    benefits: [
-      "Seguridad SSL grado bancario",
-      "Respaldo en la nube sin caídas",
-      "Atención humana y de confianza"
-    ],
-    highlight: false,
-    badge: "Tranquilidad"
+    waQuery: "Hola Hernán, me gustaría optimizar mi web con SEO local para Zona Norte."
   }
 ];
 ---
 
-<section id="servicios" class="py-20 md:py-28 bg-dark-900/40 relative">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<section id="servicios" class="py-16 md:py-24 border-t border-white/[0.06]">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
     
     <!-- Section Header -->
-    <div class="text-center max-w-3xl mx-auto mb-16 sm:mb-20">
-      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-xs sm:text-sm text-emerald-300 font-semibold mb-4">
-        <span>💡 Soluciones Diseñadas para Negocios</span>
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 sm:mb-16 gap-4">
+      <div>
+        <div class="font-mono text-[11px] tracking-widest uppercase text-zinc-500 mb-2">
+          02 // Servicios
+        </div>
+        <h2 class="text-2xl sm:text-4xl font-bold text-white tracking-tightest">
+          Soluciones de desarrollo a medida
+        </h2>
       </div>
-      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight mb-4">
-        ¿Qué necesita tu negocio <br class="hidden sm:inline" />
-        <span class="text-gradient-emerald">para vender más por internet?</span>
-      </h2>
-      <p class="text-slate-300 text-base sm:text-lg leading-relaxed">
-        Soluciones prácticas, sin vueltas técnicas complicadas. Vos ponés los productos o servicios, yo me encargo de que tu web trabaje para vos las 24 horas.
+      <p class="text-xs sm:text-sm text-zinc-400 max-w-md font-normal leading-relaxed">
+        Desarrollo enfocado en resolver problemas comerciales reales: velocidad de carga, experiencia en celulares y canales directos de compra.
       </p>
     </div>
 
-    <!-- Services Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-      {services.map(service => {
-        const serviceWaLink = getWhatsAppLink(`¡Hola Hernán! Me interesa consultar por el servicio: "${service.title}". ¿Podrías darme más información?`);
+    <!-- Bento Grid Services -->
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-4">
+      {services.map(s => {
+        const waLink = getWhatsAppLink(s.waQuery);
         return (
-          <div class={`glass-card rounded-3xl p-6 sm:p-8 border flex flex-col justify-between transition-all duration-300 ${
-            service.highlight 
-              ? 'border-brand-primary/50 shadow-glow relative bg-dark-900/90' 
-              : 'border-slate-800/80 hover:border-slate-700'
-          }`}>
-            
-            {service.highlight && (
-              <div class="absolute -top-3.5 right-6 px-3 py-1 rounded-full bg-gradient-to-r from-brand-primary to-brand-cyan text-dark-950 font-extrabold text-[11px] uppercase tracking-wider shadow-sm">
-                ⭐ {service.badge}
-              </div>
-            )}
-
+          <div class={`bento-card p-6 sm:p-8 flex flex-col justify-between ${s.colSpan}`}>
             <div>
-              <div class="flex items-center justify-between mb-4">
-                <span class="text-3xl p-3 rounded-2xl bg-dark-950/70 border border-slate-800">
-                  {service.icon}
-                </span>
-                {!service.highlight && (
-                  <span class="text-[11px] font-semibold text-slate-400 bg-slate-800/60 px-2.5 py-1 rounded-full">
-                    {service.badge}
-                  </span>
-                )}
+              <div class="font-mono text-[11px] text-zinc-500 tracking-wider uppercase mb-3">
+                {s.tag}
               </div>
-
-              <h3 class="text-xl font-bold text-white mb-1">
-                {service.title}
+              <h3 class="text-xl sm:text-2xl font-bold text-white tracking-tight mb-3">
+                {s.title}
               </h3>
-              <p class="text-xs font-semibold text-brand-primary mb-3">
-                {service.subtitle}
+              <p class="text-xs sm:text-sm text-zinc-400 leading-relaxed mb-6">
+                {s.desc}
               </p>
-              <p class="text-slate-300 text-sm leading-relaxed mb-6">
-                {service.description}
-              </p>
-
-              <div class="space-y-2 mb-8 pt-4 border-t border-slate-800/60">
-                {service.benefits.map(benefit => (
-                  <div class="flex items-center gap-2 text-xs text-slate-300">
-                    <svg class="w-3.5 h-3.5 text-brand-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span>{benefit}</span>
+              
+              <div class="space-y-2 mb-8">
+                {s.features.map(f => (
+                  <div class="flex items-center gap-2.5 text-xs text-zinc-300">
+                    <span class="w-1 h-1 rounded-full bg-zinc-500"></span>
+                    <span>{f}</span>
                   </div>
                 ))}
               </div>
             </div>
 
-            <a 
-              href={serviceWaLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              class={`w-full flex items-center justify-center gap-2 py-3 rounded-xl font-bold text-xs sm:text-sm transition-all duration-300 ${
-                service.highlight
-                  ? 'bg-brand-primary hover:bg-emerald-400 text-dark-950 shadow-glow'
-                  : 'bg-dark-800 hover:bg-dark-700 text-slate-200 border border-slate-700'
-              }`}
-            >
-              <span>Consultar por este servicio</span>
-              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-              </svg>
-            </a>
-
+            <div class="pt-4 border-t border-white/[0.06]">
+              <a 
+                href={waLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 text-xs font-medium text-zinc-300 hover:text-white transition-colors"
+              >
+                <span>Consultar por este servicio</span>
+                <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </a>
+            </div>
           </div>
         );
       })}

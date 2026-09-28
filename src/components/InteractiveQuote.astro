@@ -2,19 +2,19 @@
 import { SITE_CONFIG } from '../data/siteConfig';
 
 const businessTypes = [
-  { id: "tienda-showroom", label: "👗 Showroom / Indumentaria / Calzado" },
-  { id: "tecnologia-accesorios", label: "📱 Tecnología / Celulares / Accesorios" },
-  { id: "gastronomia-comida", label: "🍔 Gastronomía / Restaurante / Delivery" },
-  { id: "profesional-servicios", label: "🏛️ Servicios Profesionales / Gestoría / Salud" },
-  { id: "comercio-general", label: "🛍️ Comercio Local / Venta Mayorista o Minorista" },
-  { id: "otro", label: "✨ Emprendimiento / Otro Rubro" }
+  { id: "showroom", label: "Indumentaria / Showroom / Calzado" },
+  { id: "tech", label: "Tecnología / Celulares / Accesorios" },
+  { id: "gastronomia", label: "Gastronomía / Café / Delivery" },
+  { id: "profesional", label: "Servicios / Gestoría / Estudio" },
+  { id: "comercio", label: "Comercio minorista / mayorista" },
+  { id: "otro", label: "Emprendimiento / Otro rubro" }
 ];
 
-const webTypes = [
-  { id: "catalogo-wa", label: "Catálogo Online con Pedidos a WhatsApp (0% comisión)" },
-  { id: "landing-page", label: "Landing Page de Alta Conversión (Venta Rápida)" },
-  { id: "web-institucional", label: "Sitio Web Institucional Completo" },
-  { id: "rediseno-speed", label: "Rediseñar o Acelerar una Web Existente" }
+const projectTypes = [
+  { id: "catalogo", label: "Catálogo online con pedidos a WhatsApp (0% comisiones)" },
+  { id: "landing", label: "Landing page de venta para publicidad en redes" },
+  { id: "institucional", label: "Sitio web institucional completo con formulario" },
+  { id: "rediseno", label: "Rediseñar o acelerar un sitio web existente" }
 ];
 
 const zones = [
@@ -25,117 +25,116 @@ const zones = [
   "Malvinas Argentinas",
   "Tigre / San Fernando",
   "San Isidro / Vte. López",
-  "Otra Zona / Remoto"
+  "Otra zona / Remoto"
 ];
 ---
 
-<section id="cotizador" class="py-20 md:py-28 bg-dark-900/50 relative overflow-hidden">
+<section id="cotizador" class="py-16 md:py-24 border-t border-white/[0.06]">
   <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
     
-    <!-- Header -->
+    <!-- Section Header -->
     <div class="text-center mb-12 sm:mb-16">
-      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-primary/10 border border-brand-primary/30 text-xs sm:text-sm text-brand-primary font-semibold mb-4">
-        <span>⚡ Cotizador Rápido en 3 Clics</span>
+      <div class="font-mono text-[11px] tracking-widest uppercase text-zinc-500 mb-2">
+        04 // Asistente de presupuesto
       </div>
-      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight mb-4">
-        Calculá el proyecto para <br class="hidden sm:inline" />
-        <span class="text-gradient-emerald">tu negocio en segundos</span>
+      <h2 class="text-2xl sm:text-4xl font-bold text-white tracking-tightest mb-3">
+        Cotizá tu proyecto en tres pasos
       </h2>
-      <p class="text-slate-300 text-sm sm:text-base max-w-xl mx-auto">
-        Seleccioná lo que necesitás y el asistente armará un mensaje personalizado para darte un presupuesto exacto por WhatsApp.
+      <p class="text-xs sm:text-sm text-zinc-400 max-w-lg mx-auto leading-relaxed">
+        Elegí las características de tu negocio y generá una consulta directa para recibir un presupuesto estimado por WhatsApp.
       </p>
     </div>
 
     <!-- Interactive Card -->
-    <div class="glass-card rounded-3xl p-6 sm:p-10 border border-slate-800 shadow-glow relative">
+    <div class="bento-card p-6 sm:p-10">
       
-      <!-- Step 1: Business Type -->
+      <!-- Step 1 -->
       <div class="mb-8">
-        <label class="block text-sm font-bold text-white mb-3">
-          1. ¿De qué rubro es tu negocio o comercio?
+        <label class="block text-xs font-mono uppercase tracking-wider text-zinc-400 mb-3">
+          1. Rubro o tipo de actividad
         </label>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5" id="business-options">
-          {businessTypes.map((item, idx) => (
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2" id="business-options">
+          {businessTypes.map((b, idx) => (
             <button 
               type="button"
-              class={`quote-option-btn text-left p-3.5 rounded-xl border text-xs sm:text-sm font-medium transition-all duration-200 ${
+              class={`quote-toggle text-left px-3.5 py-3 rounded-lg border text-xs transition-all ${
                 idx === 0 
-                  ? 'border-brand-primary bg-brand-primary/15 text-white active-option' 
-                  : 'border-slate-800 bg-dark-900/60 text-slate-300 hover:border-slate-700'
+                  ? 'border-white bg-white text-zinc-950 font-semibold active-choice' 
+                  : 'border-white/[0.08] bg-zinc-900/60 text-zinc-300 hover:border-zinc-700'
               }`}
               data-group="business"
-              data-value={item.label}
+              data-value={b.label}
             >
-              {item.label}
+              {b.label}
             </button>
           ))}
         </div>
       </div>
 
-      <!-- Step 2: Web Type -->
+      <!-- Step 2 -->
       <div class="mb-8">
-        <label class="block text-sm font-bold text-white mb-3">
-          2. ¿Qué tipo de página web te gustaría tener?
+        <label class="block text-xs font-mono uppercase tracking-wider text-zinc-400 mb-3">
+          2. Tipo de sitio web que necesitás
         </label>
-        <div class="grid grid-cols-1 gap-2.5" id="web-options">
-          {webTypes.map((item, idx) => (
+        <div class="grid grid-cols-1 gap-2" id="project-options">
+          {projectTypes.map((p, idx) => (
             <button 
               type="button"
-              class={`quote-option-btn text-left p-3.5 rounded-xl border text-xs sm:text-sm font-medium transition-all duration-200 ${
+              class={`quote-toggle text-left px-3.5 py-3 rounded-lg border text-xs transition-all ${
                 idx === 0 
-                  ? 'border-brand-primary bg-brand-primary/15 text-white active-option' 
-                  : 'border-slate-800 bg-dark-900/60 text-slate-300 hover:border-slate-700'
+                  ? 'border-white bg-white text-zinc-950 font-semibold active-choice' 
+                  : 'border-white/[0.08] bg-zinc-900/60 text-zinc-300 hover:border-zinc-700'
               }`}
-              data-group="web"
-              data-value={item.label}
+              data-group="project"
+              data-value={p.label}
             >
-              {item.label}
+              {p.label}
             </button>
           ))}
         </div>
       </div>
 
-      <!-- Step 3: Zone -->
+      <!-- Step 3 -->
       <div class="mb-10">
-        <label class="block text-sm font-bold text-white mb-3">
-          3. ¿En qué localidad te encontrás?
+        <label class="block text-xs font-mono uppercase tracking-wider text-zinc-400 mb-3">
+          3. Localidad en Zona Norte
         </label>
         <div class="grid grid-cols-2 sm:grid-cols-4 gap-2" id="zone-options">
-          {zones.map((zone, idx) => (
+          {zones.map((z, idx) => (
             <button 
               type="button"
-              class={`quote-option-btn text-center p-2.5 rounded-xl border text-xs font-medium transition-all duration-200 ${
+              class={`quote-toggle text-center px-3 py-2.5 rounded-lg border text-xs transition-all ${
                 idx === 0 
-                  ? 'border-brand-primary bg-brand-primary/15 text-white active-option' 
-                  : 'border-slate-800 bg-dark-900/60 text-slate-300 hover:border-slate-700'
+                  ? 'border-white bg-white text-zinc-950 font-semibold active-choice' 
+                  : 'border-white/[0.08] bg-zinc-900/60 text-zinc-300 hover:border-zinc-700'
               }`}
               data-group="zone"
-              data-value={zone}
+              data-value={z}
             >
-              📍 {zone}
+              {z}
             </button>
           ))}
         </div>
       </div>
 
-      <!-- Preview & Submit Button -->
-      <div class="p-4 sm:p-6 rounded-2xl bg-dark-950/80 border border-slate-800 text-center">
-        <div class="text-xs uppercase tracking-wider text-slate-400 font-bold mb-2">
-          Mensaje que se enviará a Hernán por WhatsApp:
+      <!-- Live Preview & Button -->
+      <div class="p-5 rounded-xl bg-zinc-900/90 border border-white/[0.06] text-center">
+        <div class="text-[11px] font-mono uppercase tracking-wider text-zinc-500 mb-2">
+          Mensaje que se enviará:
         </div>
-        <p id="quote-preview" class="text-xs sm:text-sm text-emerald-300 font-medium italic mb-6 max-w-lg mx-auto bg-dark-900/90 p-3 rounded-xl border border-slate-800/80">
-          "¡Hola Hernán! Tengo un negocio de Showroom / Indumentaria en Tortuguitas y me interesa desarrollar un Catálogo Online con Pedidos a WhatsApp. ¿Podrías pasarme un presupuesto estimado?"
+        <p id="quote-preview-text" class="text-xs text-zinc-200 font-mono italic mb-6 max-w-xl mx-auto p-3 bg-zinc-950 rounded border border-white/[0.05]">
+          "Hola Hernán, tengo un negocio de Indumentaria / Showroom / Calzado en Tortuguitas y me interesa desarrollar un Catálogo online con pedidos a WhatsApp (0% comisiones). ¿Podrías darme un presupuesto estimado?"
         </p>
 
         <button 
-          id="send-quote-wa-btn"
+          id="btn-send-quote"
           type="button"
-          class="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-whatsapp hover:bg-whatsapp-hover text-white font-extrabold text-base shadow-whatsapp transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98]"
+          class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-xl bg-zinc-100 hover:bg-white text-zinc-950 font-semibold text-xs sm:text-sm tracking-tight transition-all duration-200"
         >
-          <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+          <svg class="w-4 h-4 fill-current text-whatsapp" viewBox="0 0 24 24">
             <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
           </svg>
-          <span>Pedir Presupuesto por WhatsApp</span>
+          <span>Consultar presupuesto por WhatsApp</span>
         </button>
       </div>
 
@@ -145,49 +144,47 @@ const zones = [
 </section>
 
 <script define:vars={{ waNumber: SITE_CONFIG.whatsappNumber }}>
-  let selectedBusiness = "Showroom / Indumentaria / Calzado";
-  let selectedWeb = "Catálogo Online con Pedidos a WhatsApp (0% comisión)";
-  let selectedZone = "Tortuguitas";
+  let selBusiness = "Indumentaria / Showroom / Calzado";
+  let selProject = "Catálogo online con pedidos a WhatsApp (0% comisiones)";
+  let selZone = "Tortuguitas";
 
-  const previewEl = document.getElementById('quote-preview');
-  const sendBtn = document.getElementById('send-quote-wa-btn');
+  const preview = document.getElementById('quote-preview-text');
+  const sendBtn = document.getElementById('btn-send-quote');
 
-  function updatePreview() {
-    const text = `¡Hola Hernán! Tengo un negocio de ${selectedBusiness} en ${selectedZone} y me interesa desarrollar un ${selectedWeb}. ¿Podrías pasarme un presupuesto estimado?`;
-    if (previewEl) {
-      previewEl.textContent = `"${text}"`;
+  function update() {
+    const text = `Hola Hernán, tengo un negocio de ${selBusiness} en ${selZone} y me interesa desarrollar un ${selProject}. ¿Podrías darme un presupuesto estimado?`;
+    if (preview) {
+      preview.textContent = `"${text}"`;
     }
   }
 
-  document.querySelectorAll('.quote-option-btn').forEach(btn => {
+  document.querySelectorAll('.quote-toggle').forEach(btn => {
     btn.addEventListener('click', (e) => {
       const target = e.currentTarget;
       const group = target.getAttribute('data-group');
       const val = target.getAttribute('data-value');
 
-      // Unselect siblings
-      document.querySelectorAll(`.quote-option-btn[data-group="${group}"]`).forEach(b => {
-        b.classList.remove('border-brand-primary', 'bg-brand-primary/15', 'text-white', 'active-option');
-        b.classList.add('border-slate-800', 'bg-dark-900/60', 'text-slate-300');
+      document.querySelectorAll(`.quote-toggle[data-group="${group}"]`).forEach(b => {
+        b.classList.remove('border-white', 'bg-white', 'text-zinc-950', 'font-semibold', 'active-choice');
+        b.classList.add('border-white/[0.08]', 'bg-zinc-900/60', 'text-zinc-300');
       });
 
-      // Select clicked
-      target.classList.remove('border-slate-800', 'bg-dark-900/60', 'text-slate-300');
-      target.classList.add('border-brand-primary', 'bg-brand-primary/15', 'text-white', 'active-option');
+      target.classList.remove('border-white/[0.08]', 'bg-zinc-900/60', 'text-zinc-300');
+      target.classList.add('border-white', 'bg-white', 'text-zinc-950', 'font-semibold', 'active-choice');
 
-      if (group === 'business') selectedBusiness = val.replace(/^[^\w\s]+/, '').trim();
-      if (group === 'web') selectedWeb = val;
-      if (group === 'zone') selectedZone = val;
+      if (group === 'business') selBusiness = val;
+      if (group === 'project') selProject = val;
+      if (group === 'zone') selZone = val;
 
-      updatePreview();
+      update();
     });
   });
 
   if (sendBtn) {
     sendBtn.addEventListener('click', () => {
-      const message = `¡Hola Hernán! Estuve en el cotizador de tu web. Tengo un negocio de ${selectedBusiness} en ${selectedZone} y me gustaría consultar por ${selectedWeb}. ¿Podrías darme un presupuesto?`;
-      const waUrl = `https://wa.me/${waNumber}?text=${encodeURIComponent(message)}`;
-      window.open(waUrl, '_blank');
+      const msg = `Hola Hernán, estuve en el cotizador de tu web. Tengo un negocio de ${selBusiness} en ${selZone} y me gustaría consultar por ${selProject}. ¿Podrías darme un presupuesto?`;
+      const url = `https://wa.me/${waNumber}?text=${encodeURIComponent(msg)}`;
+      window.open(url, '_blank');
     });
   }
 </script>

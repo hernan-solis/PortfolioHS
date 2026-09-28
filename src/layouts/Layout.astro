@@ -10,8 +10,8 @@ interface Props {
 }
 
 const {
-  title = "Hernán Solís | Desarrollo Web y Tiendas Online en Tortuguitas y Zona Norte",
-  description = "Programador y desarrollador web en Tortuguitas y Zona Norte (GBA). Diseño páginas web modernas, tiendas online y catálogos con conexión directa a WhatsApp que aumentan las ventas de comercios y profesionales.",
+  title = "Hernán Solís — Desarrollo Web & Tiendas Online en Zona Norte",
+  description = "Desarrollador web independiente en Tortuguitas, Zona Norte. Creación de sitios web a medida, catálogos con pedidos directos a WhatsApp y posicionamiento en Google para comercios y profesionales.",
   canonical = SITE_CONFIG.siteUrl,
   image = `${SITE_CONFIG.siteUrl}/assets/img/imgFotoPerfilEditado_websize.jpg`,
 } = Astro.props;
@@ -25,8 +25,8 @@ const jsonLd = {
     {
       "@type": ["ProfessionalService", "LocalBusiness"],
       "@id": `${SITE_CONFIG.siteUrl}/#business`,
-      "name": "Hernán Solís - Desarrollo Web & Programación en Zona Norte",
-      "alternateName": "Hernán Solís Web Developer",
+      "name": "Hernán Solís — Desarrollo Web en Zona Norte",
+      "alternateName": "Hernán Solís Programador Web",
       "url": SITE_CONFIG.siteUrl,
       "logo": absoluteImageUrl,
       "image": absoluteImageUrl,
@@ -59,62 +59,19 @@ const jsonLd = {
           "opens": "09:00",
           "closes": "20:00"
         }
-      ],
-      "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "Servicios de Desarrollo Web",
-        "itemListElement": [
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Landing Pages de Alta Conversión"
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Tiendas Online y Catálogos con WhatsApp"
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Sitios Web Institucionales y Profesionales"
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Posicionamiento SEO Local en Tortuguitas y Zona Norte"
-            }
-          }
-        ]
-      }
+      ]
     },
     {
       "@type": "Person",
       "@id": `${SITE_CONFIG.siteUrl}/#person`,
-      "name": "Hernán Solís",
-      "jobTitle": "Programador y Desarrollador Web Full Stack",
+      "name": "Hernán Abel Solís",
+      "jobTitle": "Desarrollador Web & Programador",
       "url": SITE_CONFIG.siteUrl,
       "image": absoluteImageUrl,
       "sameAs": [
         SITE_CONFIG.linkedin,
         SITE_CONFIG.github
       ]
-    },
-    {
-      "@type": "WebSite",
-      "@id": `${SITE_CONFIG.siteUrl}/#website`,
-      "url": SITE_CONFIG.siteUrl,
-      "name": "Hernán Solís | Desarrollo Web",
-      "publisher": {
-        "@id": `${SITE_CONFIG.siteUrl}/#business`
-      }
     }
   ]
 };
@@ -130,7 +87,7 @@ const jsonLd = {
     <!-- SEO Meta Tags -->
     <title>{title}</title>
     <meta name="description" content={description} />
-    <meta name="keywords" content="desarrollo web tortuguitas, programador zona norte, paginas web para negocios, creador de tiendas online, paginas web pilar, desarrollo web san miguel, paginas web grand bourg, catalogo whatsapp argentina, diseno web profesional, hernan solis" />
+    <meta name="keywords" content="desarrollador web tortuguitas, paginas web zona norte, desarrollo web pilar, catalogo whatsapp negocios, diseno web san miguel, programador freelance argentina, hernan solis" />
     <meta name="author" content="Hernán Solís" />
     <link rel="canonical" href={canonicalURL} />
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
@@ -141,16 +98,14 @@ const jsonLd = {
     <meta name="geo.position" content="-34.4697;-58.7583" />
     <meta name="ICBM" content="-34.4697, -58.7583" />
 
-    <!-- Open Graph / Facebook / WhatsApp -->
+    <!-- Open Graph / WhatsApp / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={absoluteImageUrl} />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
     <meta property="og:locale" content="es_AR" />
-    <meta property="og:site_name" content="Hernán Solís | Desarrollo Web" />
+    <meta property="og:site_name" content="Hernán Solís — Desarrollo Web" />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -159,23 +114,22 @@ const jsonLd = {
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={absoluteImageUrl} />
 
-    <!-- Favicon & Icons -->
-    <link rel="icon" type="image/x-icon" href="/public/assets/img/favicon.ico" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon.ico" />
-    <meta name="theme-color" content="#060913" />
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/assets/img/favicon.ico" />
+    <meta name="theme-color" content="#09090b" />
 
-    <!-- Google Fonts Preconnect -->
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
 
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   </head>
-  <body class="bg-dark-950 text-slate-100 min-h-screen flex flex-col relative selection:bg-brand-primary/30 selection:text-white">
-    <!-- Ambient top glow -->
-    <div class="fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-96 bg-radial-glow pointer-events-none z-0"></div>
-    <div class="fixed inset-0 bg-grid-pattern opacity-40 pointer-events-none z-0"></div>
+  <body class="bg-canvas text-zinc-100 min-h-screen flex flex-col relative selection:bg-zinc-800 selection:text-white">
+    <!-- Subtle spotlight and fine grid -->
+    <div class="fixed inset-0 bg-subtle-grid pointer-events-none z-0 opacity-70"></div>
+    <div class="fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-6xl h-[600px] bg-spotlight pointer-events-none z-0"></div>
 
     <div class="relative z-10 flex flex-col min-h-screen">
       <slot />

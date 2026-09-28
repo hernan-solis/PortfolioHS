@@ -1,61 +1,51 @@
 ---
 const faqs = [
   {
-    q: "¿Cuánto tiempo demora tener mi página web lista?",
-    a: "Normalmente entre 5 y 12 días corridos, dependiendo de la cantidad de productos o secciones que tenga tu negocio. Trabajamos con plazos claros y entregas garantizadas."
+    q: "¿Cuánto tiempo demora el desarrollo de una web?",
+    a: "Para un catálogo de productos o una landing page comercial, el plazo habitual es de entre 5 y 12 días corridos. Trabajamos con entregas intermedias para que puedas ir probando los avances en tu teléfono."
   },
   {
     q: "¿Tengo que pagar comisiones por las ventas que realice?",
-    a: "¡No, jamás! A diferencia de plataformas como Tiendanube o MercadoLibre, en tu web el 100% del dinero de cada venta entra directamente a tu cuenta o billetera digital sin intermediarios."
+    a: "No. A diferencia de plataformas como Tiendanube o MercadoLibre, el sitio web es tuyo y no cobra comisiones por transacción. El dinero de tus ventas ingresa íntegramente a tu cuenta o billetera virtual."
   },
   {
-    q: "¿Cómo me llegan las compras y consultas de los clientes?",
-    a: "Cada vez que un cliente elige un producto o solicita un presupuesto, hace clic en el botón y se le abre automáticamente su WhatsApp con el mensaje estructurado con el nombre del producto, talle/color o servicio elegido."
+    q: "¿Cómo se comunican los clientes para comprar o consultar?",
+    a: "El sistema genera enlaces directos a tu WhatsApp con el mensaje estructurado (nombre del producto, variante o servicio consultado), lo que ahorra tiempo de ida y vuelta y facilita el cierre de ventas."
   },
   {
-    q: "¿Se ve rápido y perfecto en cualquier celular?",
-    a: "Totalmente. El desarrollo es 'Mobile-First' (pensado primero para celulares). Más del 85% de la gente hoy compra desde su teléfono navegando en Instagram o TikTok. El sitio carga en menos de 1 segundo en redes 4G/5G."
+    q: "¿Qué incluye el desarrollo del sitio?",
+    a: "Incluye el diseño a medida adaptado a celulares y computadoras, configuración técnica de SEO local en Google, vinculación de dominio propio (.com o .com.ar), certificado de seguridad SSL y soporte directo para dudas o ajustes."
   },
   {
-    q: "¿Puedo tener mi propio dominio (.com o .com.ar)?",
-    a: "Sí, claro. Te asesoro en el registro en NIC Argentina o dominios internacionales (.com) y realizamos toda la vinculación técnica y configuración de certificados SSL de seguridad."
-  },
-  {
-    q: "¿Cómo es la forma de pago del desarrollo?",
-    a: "Se abona un 50% al inicio para congelar presupuesto y comenzar el trabajo, y el 50% restante una vez que la página está terminada, aprobada por vos y lista para publicar."
+    q: "¿Cómo es el esquema de pago del proyecto?",
+    a: "Se abona un 50% de anticipo para fijar presupuesto y comenzar el trabajo, y el 50% restante una vez que la web está terminada, probada en tu celular y lista para publicar."
   }
 ];
 ---
 
-<section id="preguntas" class="py-20 md:py-28 relative">
+<section id="faq" class="py-16 md:py-24 border-t border-white/[0.06]">
   <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
     
-    <div class="text-center mb-16">
-      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-primary/10 border border-brand-primary/30 text-xs sm:text-sm text-brand-primary font-semibold mb-4">
-        <span>❓ Despejá tus Dudas</span>
+    <div class="mb-12">
+      <div class="font-mono text-[11px] tracking-widest uppercase text-zinc-500 mb-2">
+        05 // Preguntas frecuentes
       </div>
-      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight mb-4">
-        Preguntas Frecuentes <br class="hidden sm:inline" />
-        <span class="text-gradient-emerald">de dueños de negocios</span>
+      <h2 class="text-2xl sm:text-4xl font-bold text-white tracking-tightest">
+        Dudas habituales antes de empezar
       </h2>
-      <p class="text-slate-300 text-sm sm:text-base">
-        Todo lo que necesitás saber antes de dar el paso para potenciar tu presencia online.
-      </p>
     </div>
 
-    <!-- FAQ Accordion List -->
-    <div class="space-y-4">
-      {faqs.map((faq, idx) => (
-        <details class="group glass-card rounded-2xl border border-slate-800 p-5 sm:p-6 [&_summary::-webkit-details-marker]:hidden cursor-pointer transition-colors hover:border-slate-700">
-          <summary class="flex items-center justify-between gap-4 font-bold text-base sm:text-lg text-white select-none">
+    <!-- Minimal Accordion -->
+    <div class="divide-y divide-white/[0.08] border-y border-white/[0.08]">
+      {faqs.map(faq => (
+        <details class="group py-5 [&_summary::-webkit-details-marker]:hidden cursor-pointer">
+          <summary class="flex items-center justify-between gap-4 font-semibold text-sm sm:text-base text-zinc-200 group-hover:text-white select-none transition-colors">
             <span>{faq.q}</span>
-            <span class="p-1.5 rounded-lg bg-dark-900 border border-slate-800 text-slate-400 group-open:rotate-180 group-open:text-brand-primary transition-transform duration-300 flex-shrink-0">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
-              </svg>
+            <span class="text-zinc-500 group-open:rotate-45 transition-transform duration-200 text-lg font-mono">
+              +
             </span>
           </summary>
-          <div class="mt-4 pt-4 border-t border-slate-800/80 text-sm text-slate-300 leading-relaxed">
+          <div class="mt-3 text-xs sm:text-sm text-zinc-400 leading-relaxed max-w-2xl font-normal">
             {faq.a}
           </div>
         </details>

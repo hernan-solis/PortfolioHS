@@ -1,130 +1,93 @@
 ---
 import { SITE_CONFIG, getWhatsAppLink } from '../data/siteConfig';
 
-const aboutWaLink = getWhatsAppLink("¡Hola Hernán! Estuve leyendo sobre vos en tu web y me gustaría charlar sobre un proyecto.");
+const aboutWa = getWhatsAppLink("Hola Hernán, leí tu perfil en la web y me gustaría conversar sobre un proyecto.");
 ---
 
-<section id="sobre-mi" class="py-20 md:py-28 relative">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<section id="sobre-mi" class="py-16 md:py-24 border-t border-white/[0.06]">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
     
-    <div class="glass-card rounded-3xl p-6 sm:p-12 border border-slate-800 shadow-card">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 items-center">
+    <div class="bento-card p-6 sm:p-12 relative overflow-hidden">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
         
-        <!-- Left Column: Photo & Badges (4 cols) -->
-        <div class="lg:col-span-4 flex flex-col items-center text-center">
-          <div class="relative mb-6">
-            <div class="absolute -inset-2 bg-gradient-to-tr from-brand-primary to-brand-cyan rounded-full blur opacity-60"></div>
-            <div class="w-44 h-44 sm:w-52 sm:h-52 rounded-full overflow-hidden border-4 border-slate-800 relative z-10 bg-dark-900 shadow-2xl">
-              <img 
-                src="/assets/img/imgFotoPerfilEditado_websize.jpg" 
-                alt="Foto de perfil de Hernán Solís - Desarrollador Web" 
-                class="w-full h-full object-cover"
-                loading="lazy"
-                onerror="this.src='/assets/img/imgFotoPerfil.jpeg'"
-              />
-            </div>
-            <div class="absolute -bottom-2 left-1/2 -translate-x-1/2 z-20 px-3.5 py-1 rounded-full bg-dark-950 border border-emerald-500/40 text-[11px] font-bold text-emerald-400 whitespace-nowrap shadow-glow">
-              🟢 Tortuguitas, Zona Norte
-            </div>
+        <!-- Left Column: Portrait & Details (4 cols) -->
+        <div class="lg:col-span-4 flex flex-col items-center sm:items-start text-center sm:text-left">
+          <div class="relative w-36 h-36 sm:w-44 sm:h-44 rounded-2xl overflow-hidden border border-white/10 bg-zinc-900 mb-5">
+            <img 
+              src="/assets/img/imgFotoPerfilEditado_websize.jpg" 
+              alt="Hernán Solís - Desarrollador Web" 
+              class="w-full h-full object-cover"
+              loading="lazy"
+              onerror="this.src='/assets/img/imgFotoPerfil.jpeg'"
+            />
           </div>
 
-          <h3 class="text-xl sm:text-2xl font-extrabold text-white mb-1">
-            Hernán Abel Solís
-          </h3>
-          <p class="text-xs sm:text-sm text-brand-primary font-semibold mb-4">
-            Programador & Desarrollador Web
-          </p>
+          <h3 class="text-xl font-bold text-white tracking-tight">Hernán Abel Solís</h3>
+          <p class="text-xs font-mono text-zinc-400 mt-0.5">Programador & Desarrollador Web</p>
+          
+          <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded-md bg-zinc-900 border border-white/[0.06] text-[11px] font-mono text-zinc-300 mt-3">
+            <span class="status-dot"></span>
+            <span>Tortuguitas, Buenos Aires</span>
+          </div>
 
-          <!-- Social Links -->
-          <div class="flex items-center gap-3">
+          <div class="flex items-center gap-2 mt-5">
             <a 
               href={SITE_CONFIG.linkedin} 
               target="_blank" 
               rel="noopener noreferrer" 
-              class="p-2.5 rounded-xl bg-dark-900 border border-slate-800 hover:border-brand-primary text-slate-400 hover:text-white transition-all"
-              aria-label="LinkedIn de Hernán Solís"
+              class="px-3 py-1.5 rounded-lg bg-zinc-900 border border-white/[0.08] text-xs text-zinc-300 hover:text-white transition-colors"
             >
-              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
-                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-              </svg>
+              LinkedIn ↗
             </a>
             <a 
               href={SITE_CONFIG.github} 
               target="_blank" 
               rel="noopener noreferrer" 
-              class="p-2.5 rounded-xl bg-dark-900 border border-slate-800 hover:border-brand-primary text-slate-400 hover:text-white transition-all"
-              aria-label="GitHub de Hernán Solís"
+              class="px-3 py-1.5 rounded-lg bg-zinc-900 border border-white/[0.08] text-xs text-zinc-300 hover:text-white transition-colors"
             >
-              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
-                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-              </svg>
-            </a>
-            <a 
-              href={`mailto:${SITE_CONFIG.email}`} 
-              class="p-2.5 rounded-xl bg-dark-900 border border-slate-800 hover:border-brand-primary text-slate-400 hover:text-white transition-all"
-              aria-label="Email de Hernán Solís"
-            >
-              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
-                <path d="M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-9.458l4.623 3.746zm-4.141-5.929h19.035l-9.517 7.713-9.518-7.713zm5.694 7.188l3.824 3.099 3.83-3.104 5.612 6.817h-18.779l5.513-6.812zm9.208-1.264l4.616-3.741v9.348l-4.616-5.607z"/>
-              </svg>
+              GitHub ↗
             </a>
           </div>
         </div>
 
-        <!-- Right Column: Story & Principles (8 cols) -->
-        <div class="lg:col-span-8 flex flex-col">
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-primary/10 border border-brand-primary/20 text-xs text-brand-primary font-semibold w-fit mb-3">
-            <span>🤝 Tu Programador de Confianza en la Zona</span>
-          </div>
-
-          <h2 class="text-2xl sm:text-3xl font-extrabold text-white mb-4">
-            "No vendo páginas vacías. Construyo herramientas que traen ventas reales a los negocios locales."
-          </h2>
-
-          <div class="space-y-4 text-slate-300 text-sm sm:text-base leading-relaxed mb-6">
-            <p>
-              Soy Hernán Solís. Estudio la <strong class="text-white">Tecnicatura Universitaria en Programación en la UTN</strong> (Universidad Tecnológica Nacional) y me dedico al desarrollo de software y páginas web de alto rendimiento.
-            </p>
-            <p>
-              Durante mucho tiempo vi cómo comercios y profesionales de <strong class="text-white">Tortuguitas, Pilar y Zona Norte</strong> gastaban plata en agencias que les entregaban páginas lentas, plantillas clonadas o sistemas complicados que nadie usaba.
-            </p>
-            <p>
-              Por eso me especializo en desarrollar <strong class="text-emerald-400">sitios ultra rápidos (Astro + Tailwind)</strong> con conexión directa a <strong class="text-white">WhatsApp</strong> y preparados para que tus clientes te encuentren en Google. Sin comisiones sorpresa y con el respaldo de alguien que podés contactar en cualquier momento.
-            </p>
-          </div>
-
-          <!-- 3 Guarantees Grid -->
-          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-8">
-            <div class="p-3.5 rounded-xl bg-dark-900/80 border border-slate-800">
-              <div class="text-brand-primary font-bold text-sm mb-1">⏱️ Tiempos Claros</div>
-              <p class="text-xs text-slate-400">Entregas pactadas entre 5 y 12 días sin demoras eternas.</p>
+        <!-- Right Column: Narrative & Values (8 cols) -->
+        <div class="lg:col-span-8 flex flex-col justify-between">
+          <div>
+            <div class="font-mono text-[11px] tracking-widest uppercase text-zinc-500 mb-2">
+              03 // Sobre mí
             </div>
-            <div class="p-3.5 rounded-xl bg-dark-900/80 border border-slate-800">
-              <div class="text-brand-cyan font-bold text-sm mb-1">💬 Trato Directo</div>
-              <p class="text-xs text-slate-400">Hablás conmigo por WhatsApp, llamada o nos juntamos en la zona.</p>
-            </div>
-            <div class="p-3.5 rounded-xl bg-dark-900/80 border border-slate-800">
-              <div class="text-purple-400 font-bold text-sm mb-1">🚀 Cero Mantenimiento Tedioso</div>
-              <p class="text-xs text-slate-400">Sitios blindados en Cloudflare: no se caen ni se hackean.</p>
+            
+            <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight mb-4">
+              Desarrollo con criterio técnico y trato directo.
+            </h2>
+
+            <div class="space-y-3.5 text-xs sm:text-sm text-zinc-400 leading-relaxed font-normal">
+              <p>
+                Vivo en <strong class="text-zinc-200">Tortuguitas</strong> y estudio la <strong class="text-zinc-200">Tecnicatura Universitaria en Programación en la Universidad Tecnológica Nacional (UTN)</strong>.
+              </p>
+              <p>
+                Mi formación incluye tanto desarrollo de software y backend (C#, .NET, bases de datos SQL) como interfaces modernas de alta velocidad con Astro y Tailwind CSS. Esto significa que tu sitio web no se construye apilando plugins pesados o plantillas prediseñadas que se caen al primer cambio de versión: está programado con estándares limpios, livianos y seguros.
+              </p>
+              <p>
+                Trabajo de forma cercana con comercios y profesionales de Zona Norte. Podés escribirme en cualquier momento por WhatsApp para coordinar dudas, reuniones o modificaciones, con la tranquilidad de tratar siempre directamente con quien programa tu página.
+              </p>
             </div>
           </div>
 
-          <!-- Bottom Action -->
-          <div class="flex flex-wrap items-center gap-4">
-            <a 
-              href={aboutWaLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-brand-primary to-brand-cyan text-dark-950 font-bold text-sm shadow-glow hover:scale-[1.02] transition-transform"
-            >
-              <span>Hablemos de tu Proyecto</span>
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-              </svg>
-            </a>
-            <span class="text-xs text-slate-400">
-              📍 Tortuguitas, Buenos Aires • Cobertura en toda Zona Norte
-            </span>
+          <!-- Bottom Pillars -->
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-6 mt-6 border-t border-white/[0.06]">
+            <div>
+              <div class="font-mono text-xs text-zinc-200 font-semibold mb-1">Puntualidad</div>
+              <p class="text-[11px] text-zinc-500">Plazos acordados de antemano y entregas por etapas para que pruebes los avances.</p>
+            </div>
+            <div>
+              <div class="font-mono text-xs text-zinc-200 font-semibold mb-1">Sin letra chica</div>
+              <p class="text-[11px] text-zinc-500">El sitio y el dominio son 100% de tu propiedad. Sin mensualidades cautivas.</p>
+            </div>
+            <div>
+              <div class="font-mono text-xs text-zinc-200 font-semibold mb-1">Soporte local</div>
+              <p class="text-[11px] text-zinc-500">Atención en tu misma zona horaria y disponibilidad para juntarnos en la zona.</p>
+            </div>
           </div>
 
         </div>

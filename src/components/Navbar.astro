@@ -1,163 +1,124 @@
 ---
 import { SITE_CONFIG, getWhatsAppLink } from '../data/siteConfig';
 
-const defaultWaLink = getWhatsAppLink("¡Hola Hernán! Vi tu web y me gustaría consultar por un desarrollo web para mi negocio.");
+const defaultWaLink = getWhatsAppLink("Hola Hernán, vi tu web y me gustaría consultarte por el desarrollo de un sitio web.");
 ---
 
-<header class="sticky top-0 z-50 w-full glass-nav transition-all duration-300">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<header class="sticky top-0 z-50 w-full backdrop-blur-md bg-canvas/80 border-b border-white/[0.06] transition-all">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-16 sm:h-20">
       
-      <!-- Brand Logo -->
+      <!-- Logo / Monogram -->
       <a href="/" class="flex items-center gap-3 group">
-        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-primary to-brand-cyan p-0.5 shadow-glow group-hover:scale-105 transition-transform duration-300">
-          <div class="w-full h-full bg-dark-950 rounded-[10px] flex items-center justify-center">
-            <span class="font-extrabold text-white text-lg tracking-wider">HS</span>
-          </div>
+        <div class="w-8 h-8 rounded-lg bg-zinc-900 border border-white/10 flex items-center justify-center font-mono font-bold text-xs text-white group-hover:border-zinc-500 transition-colors">
+          HS
         </div>
         <div class="flex flex-col">
-          <span class="font-bold text-slate-100 text-base sm:text-lg leading-tight group-hover:text-brand-primary transition-colors">
+          <span class="font-semibold text-zinc-100 text-sm tracking-tight group-hover:text-white transition-colors">
             Hernán Solís
           </span>
-          <span class="text-xs text-slate-400 font-medium hidden sm:inline-block">
-            Desarrollo Web • Zona Norte
+          <span class="text-[11px] font-mono text-zinc-400">
+            Tortuguitas • Zona Norte
           </span>
         </div>
       </a>
 
-      <!-- Desktop Navigation -->
-      <nav class="hidden md:flex items-center gap-8">
-        <a href="#trabajos" class="text-sm font-medium text-slate-300 hover:text-brand-primary transition-colors">
-          Trabajos Reales
-        </a>
-        <a href="#servicios" class="text-sm font-medium text-slate-300 hover:text-brand-primary transition-colors">
-          Servicios
-        </a>
-        <a href="#cotizador" class="text-sm font-medium text-slate-300 hover:text-brand-primary transition-colors">
-          Cotizador Rápido
-        </a>
-        <a href="#sobre-mi" class="text-sm font-medium text-slate-300 hover:text-brand-primary transition-colors">
-          Sobre Mí
-        </a>
-        <a href="#preguntas" class="text-sm font-medium text-slate-300 hover:text-brand-primary transition-colors">
-          Preguntas
-        </a>
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex items-center gap-7 text-xs font-medium text-zinc-400">
+        <a href="#proyectos" class="hover:text-white transition-colors">Proyectos</a>
+        <a href="#servicios" class="hover:text-white transition-colors">Servicios</a>
+        <a href="#sobre-mi" class="hover:text-white transition-colors">Sobre mí</a>
+        <a href="#cotizador" class="hover:text-white transition-colors">Cotizador</a>
+        <a href="#faq" class="hover:text-white transition-colors">Preguntas</a>
       </nav>
 
-      <!-- Desktop CTA & Status -->
-      <div class="hidden md:flex items-center gap-4">
-        <div class="hidden xl:flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-xs text-emerald-400 font-medium">
-          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
-          <span>Disponible para proyectos</span>
+      <!-- Availability & CTA -->
+      <div class="hidden sm:flex items-center gap-4">
+        <div class="flex items-center gap-2 text-[11px] font-mono text-zinc-400 bg-zinc-900/80 px-3 py-1.5 rounded-full border border-white/[0.08]">
+          <span class="status-dot"></span>
+          <span>Disponible</span>
         </div>
 
         <a 
           href={defaultWaLink}
           target="_blank"
           rel="noopener noreferrer"
-          class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-brand-primary to-brand-cyan hover:from-emerald-500 hover:to-cyan-500 text-dark-950 font-bold text-sm shadow-glow transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
+          class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-zinc-100 hover:bg-white text-zinc-950 font-semibold text-xs tracking-tight transition-all duration-200"
         >
-          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
-            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
+          <span>Escribir por WhatsApp</span>
+          <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
           </svg>
-          <span>Pedir Presupuesto</span>
         </a>
       </div>
 
-      <!-- Mobile Hamburger Button -->
-      <div class="flex items-center gap-2 md:hidden">
-        <a 
-          href={defaultWaLink}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="p-2 rounded-lg bg-whatsapp/10 border border-whatsapp/30 text-whatsapp hover:bg-whatsapp/20 transition-colors"
-          aria-label="Contactar por WhatsApp"
-        >
-          <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
-            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
-          </svg>
-        </a>
-
-        <button 
-          id="mobile-menu-btn" 
-          type="button" 
-          class="p-2 rounded-xl text-slate-300 hover:text-white hover:bg-slate-800/60 focus:outline-none transition-colors"
-          aria-label="Abrir menú"
-        >
-          <svg id="menu-icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
-          <svg id="menu-icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-          </svg>
-        </button>
-      </div>
+      <!-- Mobile Menu Toggle -->
+      <button 
+        id="mobile-nav-toggle"
+        class="sm:hidden p-2 rounded-lg text-zinc-400 hover:text-white hover:bg-zinc-900 border border-white/[0.06] transition-colors"
+        aria-label="Abrir menú"
+      >
+        <svg id="icon-menu" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+        </svg>
+        <svg id="icon-close" class="w-5 h-5 hidden" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
 
     </div>
   </div>
 
-  <!-- Mobile Dropdown Menu -->
-  <div id="mobile-menu" class="hidden md:hidden glass-nav border-t border-slate-800 px-4 pt-3 pb-6 transition-all duration-300">
-    <div class="flex flex-col space-y-3">
-      <a href="#trabajos" class="mobile-nav-link px-3 py-2 rounded-lg text-base font-medium text-slate-200 hover:text-brand-primary hover:bg-slate-800/40 transition-colors">
-        🚀 Trabajos Reales
+  <!-- Mobile Dropdown -->
+  <div id="mobile-menu" class="hidden sm:hidden border-t border-white/[0.06] bg-canvas/95 px-5 py-5 space-y-3 font-medium text-sm text-zinc-300">
+    <a href="#proyectos" class="block py-1.5 hover:text-white">Proyectos</a>
+    <a href="#servicios" class="block py-1.5 hover:text-white">Servicios</a>
+    <a href="#sobre-mi" class="block py-1.5 hover:text-white">Sobre mí</a>
+    <a href="#cotizador" class="block py-1.5 hover:text-white">Cotizador de proyecto</a>
+    <a href="#faq" class="block py-1.5 hover:text-white">Preguntas frecuentes</a>
+    <a href="#contacto" class="block py-1.5 hover:text-white">Contacto</a>
+    <div class="pt-3">
+      <a 
+        href={defaultWaLink}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="w-full flex items-center justify-center gap-2 py-2.5 rounded-lg bg-zinc-100 text-zinc-950 font-semibold text-xs tracking-tight"
+      >
+        <span>Escribir por WhatsApp</span>
+        <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
       </a>
-      <a href="#servicios" class="mobile-nav-link px-3 py-2 rounded-lg text-base font-medium text-slate-200 hover:text-brand-primary hover:bg-slate-800/40 transition-colors">
-        💡 Servicios para Negocios
-      </a>
-      <a href="#cotizador" class="mobile-nav-link px-3 py-2 rounded-lg text-base font-medium text-slate-200 hover:text-brand-primary hover:bg-slate-800/40 transition-colors">
-        ⚡ Cotizador Rápido
-      </a>
-      <a href="#sobre-mi" class="mobile-nav-link px-3 py-2 rounded-lg text-base font-medium text-slate-200 hover:text-brand-primary hover:bg-slate-800/40 transition-colors">
-        👤 Sobre Hernán
-      </a>
-      <a href="#preguntas" class="mobile-nav-link px-3 py-2 rounded-lg text-base font-medium text-slate-200 hover:text-brand-primary hover:bg-slate-800/40 transition-colors">
-        ❓ Preguntas Frecuentes
-      </a>
-      <a href="#contacto" class="mobile-nav-link px-3 py-2 rounded-lg text-base font-medium text-slate-200 hover:text-brand-primary hover:bg-slate-800/40 transition-colors">
-        📬 Contacto Directo
-      </a>
-      
-      <div class="pt-3">
-        <a 
-          href={defaultWaLink}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-gradient-to-r from-brand-primary to-brand-cyan text-dark-950 font-bold text-sm shadow-glow"
-        >
-          <span>Escribirme por WhatsApp</span>
-        </a>
-      </div>
     </div>
   </div>
 </header>
 
 <script>
-  const btn = document.getElementById('mobile-menu-btn');
+  const toggle = document.getElementById('mobile-nav-toggle');
   const menu = document.getElementById('mobile-menu');
-  const openIcon = document.getElementById('menu-icon-open');
-  const closeIcon = document.getElementById('menu-icon-close');
-  const links = document.querySelectorAll('.mobile-nav-link');
+  const openI = document.getElementById('icon-menu');
+  const closeI = document.getElementById('icon-close');
+  const links = menu?.querySelectorAll('a');
 
-  if (btn && menu && openIcon && closeIcon) {
-    btn.addEventListener('click', () => {
-      const isExpanded = !menu.classList.contains('hidden');
-      if (isExpanded) {
-        menu.classList.add('hidden');
-        openIcon.classList.remove('hidden');
-        closeIcon.classList.add('hidden');
-      } else {
+  if (toggle && menu && openI && closeI) {
+    toggle.addEventListener('click', () => {
+      const isClosed = menu.classList.contains('hidden');
+      if (isClosed) {
         menu.classList.remove('hidden');
-        openIcon.classList.add('hidden');
-        closeIcon.classList.remove('hidden');
+        openI.classList.add('hidden');
+        closeI.classList.remove('hidden');
+      } else {
+        menu.classList.add('hidden');
+        openI.classList.remove('hidden');
+        closeI.classList.add('hidden');
       }
     });
 
-    links.forEach(link => {
+    links?.forEach(link => {
       link.addEventListener('click', () => {
         menu.classList.add('hidden');
-        openIcon.classList.remove('hidden');
-        closeIcon.classList.add('hidden');
+        openI.classList.remove('hidden');
+        closeI.classList.add('hidden');
       });
     });
   }
