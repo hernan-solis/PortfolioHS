@@ -3,107 +3,125 @@ import { getWhatsAppLink } from '../data/siteConfig';
 
 const services = [
   {
-    colSpan: "md:col-span-8",
+    colSpan: "lg:col-span-8",
     tag: "COMERCIOS & SHOWROOMS",
     title: "Catálogo online con pedidos directos a WhatsApp",
     desc: "Tus productos organizados las 24 horas con fotos optimizadas, variantes (talles, colores, modelos) y precios al día. El cliente elige lo que busca y con un clic te envía la orden armada a tu WhatsApp lista para coordinar el pago.",
     features: [
-      "0% comisiones por venta",
-      "Experiencia rápida pensada para celular",
-      "Actualización ágil de precios y productos"
+      "0% comisiones por venta (las ganancias son 100% tuyas)",
+      "Experiencia mobile-first ultra veloz (<0.5s de carga)",
+      "Actualización ágil de precios y productos sin complicaciones"
     ],
+    interactiveMockup: "catalog",
     waQuery: "Hola Hernán, me interesa desarrollar un catálogo online con pedidos a WhatsApp para mi negocio."
   },
   {
-    colSpan: "md:col-span-4",
-    tag: "VENTA DIRECTA & ANUNCIOS",
+    colSpan: "lg:col-span-4",
+    tag: "VENTA DIRECTA & PUBLICIDAD",
     title: "Landing pages para campañas",
     desc: "Páginas de una sola sección diseñadas para convencer en segundos. Pensadas para maximizar el retorno si hacés publicidad en Instagram, Facebook o Google Ads.",
     features: [
-      "Estructura orientada a conversión",
-      "Carga en menos de 1 segundo",
-      "Sin elementos que distraigan la compra"
+      "Estructura orientada a conversión directa",
+      "Carga instantánea en celulares 4G/5G",
+      "Llamados a la acción claros y medibles"
     ],
+    interactiveMockup: "landing",
     waQuery: "Hola Hernán, quiero cotizar una landing page para pauta publicitaria."
   },
   {
-    colSpan: "md:col-span-4",
+    colSpan: "lg:col-span-4",
     tag: "PROFESIONALES & EMPRESAS",
     title: "Sitios institucionales y corporativos",
-    desc: "Presencia sobria y formal para estudios, consultorios, gestorías y pymes que necesitan proyectar seriedad y confianza ante clientes corporativos.",
+    desc: "Presencia sobria y formal para estudios jurídicos, contables, consultorios, gestorías y empresas que necesitan proyectar seriedad ante clientes corporativos.",
     features: [
       "Diseño a medida de tu identidad",
       "Formularios de contacto directos",
-      "Correos con dominio corporativo"
+      "Correos con dominio corporativo oficial"
     ],
+    interactiveMockup: "corporate",
     waQuery: "Hola Hernán, necesito una web institucional para mi empresa o estudio."
   },
   {
-    colSpan: "md:col-span-8",
+    colSpan: "lg:col-span-8",
     tag: "ZONA NORTE & GOOGLE MAPS",
     title: "SEO local: aparecé cuando busquen lo que vendés",
     desc: "Optimizamos el código con metadatos estructurados para Tortuguitas, Pilar, San Miguel y Zona Norte. Vinculamos tu página a tu ficha de Google Maps para atraer clientes en tu radio geográfico sin depender de pagar publicidad todo el tiempo.",
     features: [
       "Indexación técnica en Google Search Console",
-      "Etiquetas georreferenciadas de Zona Norte",
-      "Atracción de clientes locales cercanos"
+      "Etiquetas georreferenciadas de Zona Norte (Schema.org)",
+      "Atracción de clientes locales cercanos a tu negocio"
     ],
+    interactiveMockup: "seo",
     waQuery: "Hola Hernán, me gustaría optimizar mi web con SEO local para Zona Norte."
   }
 ];
 ---
 
-<section id="servicios" class="py-16 md:py-24 border-t border-white/[0.06]">
+<section id="servicios" class="py-20 md:py-28 border-t border-white/[0.08] relative">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
     
     <!-- Section Header -->
-    <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 sm:mb-16 gap-4">
-      <div>
-        <div class="font-mono text-[11px] tracking-widest uppercase text-zinc-500 mb-2">
-          02 // Servicios
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-14 sm:mb-20 gap-6">
+      <div class="space-y-2">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-900 border border-white/10 font-mono text-[11px] tracking-wider uppercase text-zinc-400">
+          <span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>
+          <span>Servicios orientados a resultados</span>
         </div>
-        <h2 class="text-2xl sm:text-4xl font-bold text-white tracking-tightest">
+        <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tightest">
           Soluciones de desarrollo a medida
         </h2>
       </div>
-      <p class="text-xs sm:text-sm text-zinc-400 max-w-md font-normal leading-relaxed">
-        Desarrollo enfocado en resolver problemas comerciales reales: velocidad de carga, experiencia en celulares y canales directos de compra.
+      <p class="text-sm text-zinc-300 max-w-md font-normal leading-relaxed">
+        Soluciones prácticas para problemas comerciales: velocidad de carga, experiencia en celulares y canales directos de compra sin comisiones.
       </p>
     </div>
 
-    <!-- Bento Grid Services -->
-    <div class="grid grid-cols-1 md:grid-cols-12 gap-4">
+    <!-- Bento Grid Services with Visual Depth -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-5">
       {services.map(s => {
         const waLink = getWhatsAppLink(s.waQuery);
         return (
-          <div class={`bento-card p-6 sm:p-8 flex flex-col justify-between ${s.colSpan}`}>
+          <div class={`card-depth p-7 sm:p-9 flex flex-col justify-between ${s.colSpan} relative overflow-hidden group`}>
+            
+            <!-- Glow on hover -->
+            <div class="absolute top-0 right-0 w-64 h-64 bg-emerald-500/5 rounded-full blur-3xl group-hover:bg-emerald-500/10 transition-colors pointer-events-none"></div>
+
             <div>
-              <div class="font-mono text-[11px] text-zinc-500 tracking-wider uppercase mb-3">
-                {s.tag}
+              <div class="flex items-center justify-between mb-3">
+                <span class="font-mono text-[11px] text-zinc-400 tracking-wider uppercase">
+                  {s.tag}
+                </span>
+                <span class="w-2 h-2 rounded-full bg-zinc-700 group-hover:bg-emerald-400 transition-colors"></span>
               </div>
+
               <h3 class="text-xl sm:text-2xl font-bold text-white tracking-tight mb-3">
                 {s.title}
               </h3>
-              <p class="text-xs sm:text-sm text-zinc-400 leading-relaxed mb-6">
+
+              <p class="text-xs sm:text-sm text-zinc-300 leading-relaxed mb-6 font-normal">
                 {s.desc}
               </p>
-              
-              <div class="space-y-2 mb-8">
+
+              <!-- Feature Bullets with Checkmarks -->
+              <div class="space-y-2.5 mb-8">
                 {s.features.map(f => (
-                  <div class="flex items-center gap-2.5 text-xs text-zinc-300">
-                    <span class="w-1 h-1 rounded-full bg-zinc-500"></span>
+                  <div class="flex items-start gap-2.5 text-xs text-zinc-300">
+                    <svg class="w-4 h-4 text-emerald-400 flex-shrink-0 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                    </svg>
                     <span>{f}</span>
                   </div>
                 ))}
               </div>
             </div>
 
-            <div class="pt-4 border-t border-white/[0.06]">
+            <!-- Bottom CTA with depth -->
+            <div class="pt-5 border-t border-white/[0.08] flex items-center justify-between">
               <a 
                 href={waLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                class="inline-flex items-center gap-2 text-xs font-medium text-zinc-300 hover:text-white transition-colors"
+                class="inline-flex items-center gap-2 text-xs font-semibold text-white hover:text-emerald-400 transition-colors"
               >
                 <span>Consultar por este servicio</span>
                 <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -111,6 +129,7 @@ const services = [
                 </svg>
               </a>
             </div>
+
           </div>
         );
       })}

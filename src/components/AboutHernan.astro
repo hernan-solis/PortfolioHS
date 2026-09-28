@@ -4,38 +4,54 @@ import { SITE_CONFIG, getWhatsAppLink } from '../data/siteConfig';
 const aboutWa = getWhatsAppLink("Hola Hernán, leí tu perfil en la web y me gustaría conversar sobre un proyecto.");
 ---
 
-<section id="sobre-mi" class="py-16 md:py-24 border-t border-white/[0.06]">
+<section id="sobre-mi" class="py-20 md:py-28 border-t border-white/[0.08] relative">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
     
-    <div class="bento-card p-6 sm:p-12 relative overflow-hidden">
+    <div class="card-depth p-8 sm:p-12 relative overflow-hidden">
+      
+      <!-- Subtle internal ambient light -->
+      <div class="absolute -top-20 -right-20 w-80 h-80 bg-emerald-500/10 rounded-full blur-[100px] pointer-events-none"></div>
+
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
         
         <!-- Left Column: Portrait & Details (4 cols) -->
         <div class="lg:col-span-4 flex flex-col items-center sm:items-start text-center sm:text-left">
-          <div class="relative w-36 h-36 sm:w-44 sm:h-44 rounded-2xl overflow-hidden border border-white/10 bg-zinc-900 mb-5">
-            <img 
-              src="/assets/img/imgFotoPerfilEditado_websize.jpg" 
-              alt="Hernán Solís - Desarrollador Web" 
-              class="w-full h-full object-cover"
-              loading="lazy"
-              onerror="this.src='/assets/img/imgFotoPerfil.jpeg'"
-            />
+          
+          <div class="relative mb-5 group">
+            <div class="absolute -inset-1.5 bg-gradient-to-tr from-emerald-500/30 to-cyan-500/30 rounded-3xl blur-md opacity-75 group-hover:opacity-100 transition-opacity"></div>
+            <div class="relative w-40 h-40 sm:w-48 sm:h-48 rounded-2xl overflow-hidden border border-white/20 bg-zinc-950 shadow-2xl">
+              <img 
+                src="/assets/img/imgFotoPerfilEditado_websize.jpg" 
+                alt="Hernán Solís - Desarrollador Web" 
+                class="w-full h-full object-cover"
+                loading="lazy"
+                onerror="this.src='/assets/img/imgFotoPerfil.jpeg'"
+              />
+            </div>
+            
+            <div class="absolute -bottom-3 left-1/2 -translate-x-1/2 z-20 px-3 py-1 rounded-full bg-zinc-950 border border-emerald-500/50 text-[10px] font-mono text-emerald-300 font-bold whitespace-nowrap shadow-lg flex items-center gap-1.5">
+              <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+              <span>UTN Programación</span>
+            </div>
           </div>
 
-          <h3 class="text-xl font-bold text-white tracking-tight">Hernán Abel Solís</h3>
-          <p class="text-xs font-mono text-zinc-400 mt-0.5">Programador & Desarrollador Web</p>
+          <h3 class="text-2xl font-bold text-white tracking-tight mt-2">Hernán Abel Solís</h3>
+          <p class="text-xs font-mono text-emerald-400 mt-0.5">Programador & Desarrollador Web</p>
           
-          <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded-md bg-zinc-900 border border-white/[0.06] text-[11px] font-mono text-zinc-300 mt-3">
-            <span class="status-dot"></span>
+          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-zinc-900 border border-white/10 text-xs font-mono text-zinc-300 mt-4">
+            <span class="radar-pulse w-2 h-2">
+              <span class="radar-pulse-ring"></span>
+              <span class="radar-pulse-core"></span>
+            </span>
             <span>Tortuguitas, Buenos Aires</span>
           </div>
 
-          <div class="flex items-center gap-2 mt-5">
+          <div class="flex items-center gap-2.5 mt-5">
             <a 
               href={SITE_CONFIG.linkedin} 
               target="_blank" 
               rel="noopener noreferrer" 
-              class="px-3 py-1.5 rounded-lg bg-zinc-900 border border-white/[0.08] text-xs text-zinc-300 hover:text-white transition-colors"
+              class="px-3.5 py-1.5 rounded-lg bg-zinc-900 border border-white/10 text-xs text-zinc-300 hover:text-white hover:border-white/20 transition-all font-mono"
             >
               LinkedIn ↗
             </a>
@@ -43,7 +59,7 @@ const aboutWa = getWhatsAppLink("Hola Hernán, leí tu perfil en la web y me gus
               href={SITE_CONFIG.github} 
               target="_blank" 
               rel="noopener noreferrer" 
-              class="px-3 py-1.5 rounded-lg bg-zinc-900 border border-white/[0.08] text-xs text-zinc-300 hover:text-white transition-colors"
+              class="px-3.5 py-1.5 rounded-lg bg-zinc-900 border border-white/10 text-xs text-zinc-300 hover:text-white hover:border-white/20 transition-all font-mono"
             >
               GitHub ↗
             </a>
@@ -51,42 +67,42 @@ const aboutWa = getWhatsAppLink("Hola Hernán, leí tu perfil en la web y me gus
         </div>
 
         <!-- Right Column: Narrative & Values (8 cols) -->
-        <div class="lg:col-span-8 flex flex-col justify-between">
+        <div class="lg:col-span-8 flex flex-col justify-between space-y-6">
           <div>
-            <div class="font-mono text-[11px] tracking-widest uppercase text-zinc-500 mb-2">
-              03 // Sobre mí
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-900 border border-white/10 font-mono text-[11px] tracking-wider uppercase text-zinc-400 mb-3">
+              <span>03 // Sobre mí</span>
             </div>
             
-            <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight mb-4">
-              Desarrollo con criterio técnico y trato directo.
+            <h2 class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
+              Desarrollo con criterio técnico y trato personal directo.
             </h2>
 
-            <div class="space-y-3.5 text-xs sm:text-sm text-zinc-400 leading-relaxed font-normal">
+            <div class="space-y-4 text-xs sm:text-sm text-zinc-300 leading-relaxed font-normal mt-4">
               <p>
-                Vivo en <strong class="text-zinc-200">Tortuguitas</strong> y estudio la <strong class="text-zinc-200">Tecnicatura Universitaria en Programación en la Universidad Tecnológica Nacional (UTN)</strong>.
+                Vivo en <strong class="text-white">Tortuguitas</strong> y estudio la <strong class="text-white">Tecnicatura Universitaria en Programación en la Universidad Tecnológica Nacional (UTN)</strong>.
               </p>
               <p>
-                Mi formación incluye tanto desarrollo de software y backend (C#, .NET, bases de datos SQL) como interfaces modernas de alta velocidad con Astro y Tailwind CSS. Esto significa que tu sitio web no se construye apilando plugins pesados o plantillas prediseñadas que se caen al primer cambio de versión: está programado con estándares limpios, livianos y seguros.
+                Mi formación abarca tanto el desarrollo de software y backend (C#, .NET, bases de datos relacionales) como interfaces modernas de alta velocidad con Astro y Tailwind CSS. Esto asegura que tu sitio web no sea una plantilla inflada con plugins lentos que se caen en fechas clave: está programado desde cero con arquitectura limpia, rápida y segura.
               </p>
               <p>
-                Trabajo de forma cercana con comercios y profesionales de Zona Norte. Podés escribirme en cualquier momento por WhatsApp para coordinar dudas, reuniones o modificaciones, con la tranquilidad de tratar siempre directamente con quien programa tu página.
+                Trabajo codo a codo con comercios y profesionales de Zona Norte. Podés escribirme en cualquier momento por WhatsApp para coordinar dudas, reuniones o cambios, con la tranquilidad de tratar siempre directamente con quien escribe el código de tu página.
               </p>
             </div>
           </div>
 
-          <!-- Bottom Pillars -->
-          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-6 mt-6 border-t border-white/[0.06]">
-            <div>
-              <div class="font-mono text-xs text-zinc-200 font-semibold mb-1">Puntualidad</div>
-              <p class="text-[11px] text-zinc-500">Plazos acordados de antemano y entregas por etapas para que pruebes los avances.</p>
+          <!-- Bottom Pillars with Depth -->
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-6 border-t border-white/[0.08]">
+            <div class="p-4 rounded-xl bg-zinc-950/80 border border-white/[0.06]">
+              <div class="font-mono text-xs text-emerald-400 font-bold mb-1">⏱️ Plazos Claros</div>
+              <p class="text-[11px] text-zinc-400">Tiempos pactados de antemano y entregas por etapas para que pruebes los avances en tu celular.</p>
             </div>
-            <div>
-              <div class="font-mono text-xs text-zinc-200 font-semibold mb-1">Sin letra chica</div>
-              <p class="text-[11px] text-zinc-500">El sitio y el dominio son 100% de tu propiedad. Sin mensualidades cautivas.</p>
+            <div class="p-4 rounded-xl bg-zinc-950/80 border border-white/[0.06]">
+              <div class="font-mono text-xs text-cyan-400 font-bold mb-1">🔒 100% de tu Propiedad</div>
+              <p class="text-[11px] text-zinc-400">El sitio web y el dominio son totalmente tuyos. Sin mensualidades cautivas ni dependencias.</p>
             </div>
-            <div>
-              <div class="font-mono text-xs text-zinc-200 font-semibold mb-1">Soporte local</div>
-              <p class="text-[11px] text-zinc-500">Atención en tu misma zona horaria y disponibilidad para juntarnos en la zona.</p>
+            <div class="p-4 rounded-xl bg-zinc-950/80 border border-white/[0.06]">
+              <div class="font-mono text-xs text-white font-bold mb-1">🤝 Trato de Confianza</div>
+              <p class="text-[11px] text-zinc-400">Atención en tu misma zona y disponibilidad para coordinar reuniones en Zona Norte.</p>
             </div>
           </div>
 

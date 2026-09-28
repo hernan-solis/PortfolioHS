@@ -126,10 +126,11 @@ const jsonLd = {
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   </head>
-  <body class="bg-canvas text-zinc-100 min-h-screen flex flex-col relative selection:bg-zinc-800 selection:text-white">
-    <!-- Subtle spotlight and fine grid -->
-    <div class="fixed inset-0 bg-subtle-grid pointer-events-none z-0 opacity-70"></div>
-    <div class="fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-6xl h-[600px] bg-spotlight pointer-events-none z-0"></div>
+  <body class="bg-[#070709] text-zinc-100 min-h-screen flex flex-col relative selection:bg-emerald-500/20 selection:text-emerald-300">
+    <!-- Ambient multi-layered lighting and fine grid -->
+    <div class="fixed inset-0 subtle-dot-grid pointer-events-none z-0 opacity-40"></div>
+    <div class="fixed inset-0 mesh-ambient pointer-events-none z-0"></div>
+    <div class="fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[700px] bg-radial-glow pointer-events-none z-0 opacity-60"></div>
 
     <div class="relative z-10 flex flex-col min-h-screen">
       <slot />

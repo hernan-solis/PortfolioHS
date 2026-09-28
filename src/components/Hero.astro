@@ -1,48 +1,53 @@
 ---
 import { SITE_CONFIG, getWhatsAppLink } from '../data/siteConfig';
 
-const heroWa = getWhatsAppLink("Hola Hernán, vi tu web y me gustaría hablar sobre el desarrollo de una página para mi negocio.");
+const heroWa = getWhatsAppLink("Hola Hernán, estuve viendo tu web y me gustaría hablar sobre el desarrollo de una página para mi negocio.");
 ---
 
-<section class="pt-8 pb-14 md:pt-14 md:pb-20">
+<section class="relative pt-10 pb-16 md:pt-16 md:pb-24 overflow-hidden">
+  
+  <!-- Ambient Spotlight Glow behind Hero -->
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-emerald-500/10 rounded-full blur-[140px] pointer-events-none -z-10"></div>
+  <div class="absolute top-1/3 right-10 w-[400px] h-[400px] bg-cyan-500/10 rounded-full blur-[120px] pointer-events-none -z-10"></div>
+
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-    
-    <!-- Bento Grid Container -->
-    <div class="grid grid-cols-1 md:grid-cols-12 gap-4">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
       
-      <!-- Primary Main Hero Tile (8 cols) -->
-      <div class="bento-card p-7 sm:p-10 md:col-span-8 flex flex-col justify-between relative overflow-hidden">
-        <div class="space-y-6">
-          
-          <!-- Micro Label -->
-          <div class="flex items-center gap-2">
-            <span class="status-dot"></span>
-            <span class="font-mono text-[11px] tracking-wider uppercase text-zinc-400">
-              Desarrollador Web • Tortuguitas & Zona Norte
-            </span>
-          </div>
-
-          <!-- Main Title -->
-          <h1 class="text-3xl sm:text-5xl lg:text-[54px] font-bold text-white tracking-tightest leading-[1.08]">
-            Sitios web rápidos y tiendas con catálogo pensados para vender.
-          </h1>
-
-          <!-- Body Copy -->
-          <p class="text-sm sm:text-base text-zinc-400 font-normal leading-relaxed max-w-xl">
-            Creo páginas web a medida para comercios, marcas y profesionales locales. Carga instantánea en celulares, integración directa con WhatsApp y posicionamiento en Google, sin plantillas pesadas ni comisiones por venta.
-          </p>
-
+      <!-- Left Column: Copy & High-Converting Value (7 cols) -->
+      <div class="lg:col-span-7 flex flex-col items-start text-left space-y-6">
+        
+        <!-- Radar Location Badge -->
+        <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-zinc-900/90 border border-emerald-500/30 text-xs font-mono text-zinc-300 shadow-sm backdrop-blur-md">
+          <span class="radar-pulse w-2.5 h-2.5">
+            <span class="radar-pulse-ring"></span>
+            <span class="radar-pulse-core"></span>
+          </span>
+          <span>Tortuguitas, Buenos Aires • Cobertura en Zona Norte</span>
         </div>
 
-        <!-- Action CTAs -->
-        <div class="pt-8 mt-6 border-t border-white/[0.06] flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+        <!-- Main Headline -->
+        <h1 class="text-3xl sm:text-5xl lg:text-[54px] font-extrabold text-white tracking-tightest leading-[1.08]">
+          Páginas web a medida y <br class="hidden sm:inline" />
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400">
+            catálogos con WhatsApp
+          </span> <br class="hidden sm:inline" />
+          que generan ventas reales.
+        </h1>
+
+        <!-- Subtitle -->
+        <p class="text-sm sm:text-base text-zinc-300 font-normal leading-relaxed max-w-xl">
+          Desarrollo sitios web y tiendas online para comercios, marcas y profesionales en Tortuguitas y Zona Norte. Carga instantánea en celulares, pedidos directo a tu chat y cero comisiones por venta.
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 w-full sm:w-auto">
           <a 
             href={heroWa}
             target="_blank"
             rel="noopener noreferrer"
-            class="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl bg-zinc-100 hover:bg-white text-zinc-950 font-semibold text-xs sm:text-sm tracking-tight transition-all duration-200"
+            class="btn-juicy inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-xl font-bold text-sm tracking-tight shadow-whatsapp"
           >
-            <svg class="w-4 h-4 fill-current text-whatsapp" viewBox="0 0 24 24">
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
               <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
             </svg>
             <span>Consultar por WhatsApp</span>
@@ -50,105 +55,139 @@ const heroWa = getWhatsAppLink("Hola Hernán, vi tu web y me gustaría hablar so
 
           <a 
             href="#proyectos"
-            class="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl bg-zinc-900 hover:bg-zinc-800 text-zinc-300 hover:text-white border border-white/10 font-medium text-xs sm:text-sm transition-all duration-200"
+            class="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl bg-zinc-900/90 hover:bg-zinc-800 text-zinc-200 hover:text-white border border-white/10 font-semibold text-xs sm:text-sm transition-all"
           >
-            <span>Ver trabajos recientes</span>
+            <span>Ver trabajos reales</span>
             <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M7 13l5 5 5-5M7 6l5 5 5-5"/>
             </svg>
           </a>
         </div>
 
+        <!-- Trust Badges with Depth -->
+        <div class="grid grid-cols-3 gap-2.5 pt-4 w-full max-w-lg">
+          <div class="card-depth p-3 text-center">
+            <div class="text-sm sm:text-base font-bold text-white font-mono">&lt;0.5s</div>
+            <div class="text-[10px] text-zinc-400 font-mono mt-0.5">Carga móvil</div>
+          </div>
+          <div class="card-depth p-3 text-center">
+            <div class="text-sm sm:text-base font-bold text-emerald-400 font-mono">0%</div>
+            <div class="text-[10px] text-zinc-400 font-mono mt-0.5">Comisiones</div>
+          </div>
+          <div class="card-depth p-3 text-center">
+            <div class="text-sm sm:text-base font-bold text-cyan-400 font-mono">1 Clic</div>
+            <div class="text-[10px] text-zinc-400 font-mono mt-0.5">A tu WhatsApp</div>
+          </div>
+        </div>
+
       </div>
 
-      <!-- Identity & Location Tile (4 cols) -->
-      <div class="bento-card p-6 sm:p-7 md:col-span-4 flex flex-col justify-between">
+      <!-- Right Column: Visual 3D Mobile Device Mockup (5 cols) -->
+      <div class="lg:col-span-5 flex justify-center relative">
         
-        <div class="space-y-4">
-          <div class="flex items-center gap-4">
-            <div class="w-16 h-16 rounded-full overflow-hidden border border-white/10 bg-zinc-900 flex-shrink-0">
-              <img 
-                src="/assets/img/imgFotoPerfilEditado_websize.jpg" 
-                alt="Hernán Solís" 
-                class="w-full h-full object-cover"
-                loading="eager"
-                onerror="this.src='/assets/img/imgFotoPerfil.jpeg'"
-              />
+        <!-- Decorative Glow Ring behind device -->
+        <div class="absolute inset-0 bg-gradient-to-tr from-emerald-500/20 to-cyan-500/20 rounded-[50px] blur-2xl transform -rotate-3 scale-95 pointer-events-none"></div>
+
+        <!-- Realistic iPhone 16 Pro CSS Frame -->
+        <div class="iphone-frame relative z-10 transform sm:rotate-1 hover:rotate-0 transition-transform duration-500">
+          
+          <div class="iphone-screen">
+            <!-- Dynamic Island -->
+            <div class="iphone-island flex items-center justify-between px-3">
+              <span class="w-2.5 h-2.5 rounded-full bg-zinc-900 border border-zinc-800"></span>
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
             </div>
-            <div>
-              <h2 class="text-base font-semibold text-white tracking-tight">Hernán Solís</h2>
-              <p class="text-xs text-zinc-400 font-mono">Desarrollador Web</p>
-              <p class="text-[11px] text-zinc-500 font-mono mt-0.5">Tortuguitas, Buenos Aires</p>
+
+            <!-- Screen Header (Mockup of Tu iPhone Zona Norte) -->
+            <div class="pt-10 pb-4 px-4 bg-zinc-950 border-b border-white/[0.08] flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <div class="w-6 h-6 rounded-md bg-zinc-800 flex items-center justify-center text-[10px] font-bold text-white">
+                  📱
+                </div>
+                <div class="text-[11px] font-bold text-white tracking-tight">Tu iPhone Zona Norte</div>
+              </div>
+              <span class="text-[9px] font-mono px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+                En stock
+              </span>
             </div>
+
+            <!-- Mockup Content inside the Phone -->
+            <div class="p-4 space-y-3.5 bg-zinc-900/60">
+              
+              <!-- Featured Card inside phone -->
+              <div class="p-3.5 rounded-2xl bg-zinc-950 border border-white/10 shadow-md space-y-2.5">
+                <div class="flex items-center justify-between">
+                  <span class="text-[11px] font-bold text-white">iPhone 15 Pro Max</span>
+                  <span class="text-[10px] font-mono font-semibold text-emerald-400">Cotizador en vivo</span>
+                </div>
+
+                <div class="w-full aspect-[16/9] bg-zinc-900 rounded-xl overflow-hidden flex items-center justify-center p-2 border border-white/[0.05]">
+                  <img 
+                    src="/assets/projects/tuiphone-logo.jpg" 
+                    alt="Logo Tu iPhone Zona Norte" 
+                    class="h-14 w-auto object-contain"
+                  />
+                </div>
+
+                <!-- Battery Health Indicator -->
+                <div class="space-y-1">
+                  <div class="flex justify-between text-[9px] font-mono text-zinc-400">
+                    <span>Salud de batería</span>
+                    <span class="text-emerald-400 font-bold">100% Garantizada</span>
+                  </div>
+                  <div class="w-full h-1.5 rounded-full bg-zinc-800 overflow-hidden">
+                    <div class="w-full h-full bg-emerald-400 rounded-full"></div>
+                  </div>
+                </div>
+
+                <!-- WhatsApp Buy Button inside phone -->
+                <a 
+                  href="https://tuiphonezonanorte.com.ar"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="w-full flex items-center justify-center gap-1.5 py-2 rounded-xl bg-whatsapp text-white text-[11px] font-bold shadow-md hover:bg-whatsapp-hover transition-colors"
+                >
+                  <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                    <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
+                  </svg>
+                  <span>Pedir Cotización al WhatsApp</span>
+                </a>
+              </div>
+
+              <!-- Mini Feature Row inside phone -->
+              <div class="grid grid-cols-2 gap-2 text-center text-[9px] font-mono">
+                <div class="p-2 rounded-xl bg-zinc-950 border border-white/[0.05] text-zinc-300">
+                  Plan Canje Activo
+                </div>
+                <div class="p-2 rounded-xl bg-zinc-950 border border-white/[0.05] text-zinc-300">
+                  Garantía Escrita
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Home indicator bar -->
+            <div class="py-2 flex justify-center bg-zinc-950">
+              <div class="w-24 h-1 bg-zinc-600 rounded-full"></div>
+            </div>
+
           </div>
-
-          <div class="p-3.5 rounded-xl bg-zinc-900/60 border border-white/[0.05] space-y-2">
-            <div class="text-[11px] font-mono text-zinc-400 uppercase tracking-wider">Formación & Enfoque</div>
-            <p class="text-xs text-zinc-300 leading-relaxed">
-              Estudiante de Tecnicatura en Programación en la <strong>UTN</strong>. Desarrollo enfocado en rendimiento, código limpio y trato directo.
-            </p>
-          </div>
         </div>
 
-        <div class="pt-4 border-t border-white/[0.06] flex items-center justify-between text-xs">
-          <span class="text-zinc-500 font-mono">Zona de cobertura:</span>
-          <span class="text-zinc-300 font-medium">Zona Norte & Remoto</span>
+        <!-- Floating Glass Badge: Instagram +18K -->
+        <div class="hidden sm:flex glass-badge absolute -top-4 -right-4 z-20 px-3.5 py-2 rounded-xl items-center gap-2 text-xs font-mono text-white shadow-xl animate-float-slow">
+          <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+          <span>+18K seguidores en Instagram</span>
         </div>
 
-      </div>
+        <!-- Floating Glass Badge: Real Time Quote -->
+        <div class="hidden sm:flex glass-badge absolute -bottom-4 -left-4 z-20 px-3.5 py-2 rounded-xl items-center gap-2 text-xs font-mono text-zinc-200 shadow-xl">
+          <span class="text-emerald-400">✓</span>
+          <span>Pedidos directos a WhatsApp</span>
+        </div>
 
-      <!-- Metric Tile 1: Architecture & Speed (4 cols) -->
-      <div class="bento-card p-6 md:col-span-4 flex flex-col justify-between">
-        <div class="flex items-center justify-between text-zinc-500 font-mono text-xs mb-3">
-          <span>RENDIMIENTO MÓVIL</span>
-          <span class="text-emerald-400 font-bold">100/100</span>
-        </div>
-        <div>
-          <div class="text-3xl sm:text-4xl font-mono font-bold text-white tracking-tight mb-1">&lt;0.5s</div>
-          <p class="text-xs text-zinc-400 leading-relaxed">
-            Velocidad de carga real en redes 4G y 5G. Los usuarios no esperan ni abandonan tu sitio.
-          </p>
-        </div>
-        <div class="pt-4 mt-4 border-t border-white/[0.06] text-[11px] font-mono text-zinc-500">
-          Stack: Astro • Tailwind • Cloudflare
-        </div>
-      </div>
-
-      <!-- Metric Tile 2: Zero Commissions (4 cols) -->
-      <div class="bento-card p-6 md:col-span-4 flex flex-col justify-between">
-        <div class="flex items-center justify-between text-zinc-500 font-mono text-xs mb-3">
-          <span>MODELO INDEPENDIENTE</span>
-          <span class="text-zinc-400">100% tuyo</span>
-        </div>
-        <div>
-          <div class="text-3xl sm:text-4xl font-mono font-bold text-white tracking-tight mb-1">0%</div>
-          <p class="text-xs text-zinc-400 leading-relaxed">
-            Sin comisiones por venta ni cargos mensuales abusivos. Las ganancias de tu negocio son tuyas.
-          </p>
-        </div>
-        <div class="pt-4 mt-4 border-t border-white/[0.06] text-[11px] font-mono text-zinc-500">
-          Sin intermediarios de pago forzados
-        </div>
-      </div>
-
-      <!-- Metric Tile 3: WhatsApp Direct Conversion (4 cols) -->
-      <div class="bento-card p-6 md:col-span-4 flex flex-col justify-between">
-        <div class="flex items-center justify-between text-zinc-500 font-mono text-xs mb-3">
-          <span>CANAL DE VENTA</span>
-          <span class="text-emerald-400 font-mono">WhatsApp</span>
-        </div>
-        <div>
-          <div class="text-3xl sm:text-4xl font-mono font-bold text-white tracking-tight mb-1">1 Clic</div>
-          <p class="text-xs text-zinc-400 leading-relaxed">
-            El cliente arma su pedido en la web y te llega estructurado directo a tu chat para cerrar la venta.
-          </p>
-        </div>
-        <div class="pt-4 mt-4 border-t border-white/[0.06] text-[11px] font-mono text-zinc-500">
-          Pedidos claros con nombre, talle y precio
-        </div>
       </div>
 
     </div>
-
   </div>
 </section>

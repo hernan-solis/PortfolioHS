@@ -8,92 +8,156 @@
     font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     color-scheme: dark;
     -webkit-tap-highlight-color: transparent;
-    background-color: #09090b;
+    background-color: #070709;
   }
 
   body {
-    @apply bg-canvas text-zinc-100 antialiased overflow-x-hidden selection:bg-zinc-800 selection:text-white;
-  }
-
-  ::selection {
-    background-color: #27272a;
-    color: #ffffff;
+    @apply bg-[#070709] text-zinc-100 antialiased overflow-x-hidden selection:bg-emerald-500/20 selection:text-emerald-300;
   }
 }
 
-/* Bento Card Style */
-.bento-card {
-  background-color: #111115;
-  border: 1px solid rgba(255, 255, 255, 0.07);
-  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.06), 0 20px 40px -15px rgba(0, 0, 0, 0.6);
+/* Layered Depth Card System */
+.card-depth {
+  background: linear-gradient(180deg, rgba(26, 26, 34, 0.8) 0%, rgba(15, 15, 20, 0.9) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 
+    0 20px 40px -15px rgba(0, 0, 0, 0.7),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.12);
   border-radius: 1.25rem;
-  transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.bento-card:hover {
-  border-color: rgba(255, 255, 255, 0.16);
-  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.1), 0 25px 50px -12px rgba(0, 0, 0, 0.85);
+.card-depth:hover {
+  border-color: rgba(255, 255, 255, 0.18);
+  box-shadow: 
+    0 25px 50px -12px rgba(0, 0, 0, 0.85),
+    0 0 30px -10px rgba(16, 185, 129, 0.12),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
 }
 
-.bento-subtle {
-  background-color: #0e0e12;
+/* Gradient Border Cards */
+.card-glow-emerald {
+  position: relative;
+  background: #0d0d12;
+  border-radius: 1.5rem;
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  box-shadow: 
+    0 20px 50px -10px rgba(0, 0, 0, 0.8),
+    0 0 40px -10px rgba(16, 185, 129, 0.15),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+/* Ambient Lighting Backgrounds */
+.mesh-ambient {
+  background: 
+    radial-gradient(circle at 15% 15%, rgba(16, 185, 129, 0.08) 0%, transparent 40%),
+    radial-gradient(circle at 85% 25%, rgba(6, 182, 212, 0.07) 0%, transparent 40%),
+    radial-gradient(circle at 50% 60%, rgba(99, 102, 241, 0.05) 0%, transparent 50%);
+}
+
+.subtle-dot-grid {
+  background-size: 32px 32px;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px);
+}
+
+/* Radar Pulse Location Dot */
+.radar-pulse {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.radar-pulse-core {
+  width: 8px;
+  height: 8px;
+  border-radius: 9999px;
+  background-color: #10b981;
+}
+.radar-pulse-ring {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 9999px;
+  background-color: rgba(16, 185, 129, 0.4);
+  animation: radar-wave 2s infinite cubic-bezier(0.36, 0.11, 0.89, 0.32);
+}
+
+@keyframes radar-wave {
+  0% { transform: scale(0.9); opacity: 1; }
+  100% { transform: scale(2.8); opacity: 0; }
+}
+
+/* Realistic iPhone Mockup in Pure CSS */
+.iphone-frame {
+  position: relative;
+  width: 100%;
+  max-width: 320px;
+  background: #1c1c1f;
+  border-radius: 46px;
+  padding: 11px;
+  box-shadow: 
+    0 0 0 2px #2c2c30,
+    0 0 0 5px #121214,
+    0 25px 60px -15px rgba(0, 0, 0, 0.9),
+    0 0 40px -10px rgba(16, 185, 129, 0.2);
+}
+
+.iphone-screen {
+  position: relative;
+  background: #09090b;
+  border-radius: 36px;
+  overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-/* Sophisticated Subtle Grid */
-.bg-subtle-grid {
-  background-size: 40px 40px;
-  background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-}
-
-/* Radial spotlight effect */
-.bg-spotlight {
-  background: radial-gradient(1000px circle at 50% 0%, rgba(255, 255, 255, 0.035) 0%, transparent 60%);
-}
-
-/* Status Pulse Dot */
-.status-dot {
-  position: relative;
-  display: inline-block;
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background-color: #10b981;
-}
-
-.status-dot::after {
-  content: '';
+.iphone-island {
   position: absolute;
-  inset: -3px;
-  border-radius: 50%;
-  background-color: rgba(16, 185, 129, 0.4);
-  animation: pulse-ring 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 85px;
+  height: 22px;
+  background: #000;
+  border-radius: 20px;
+  z-index: 30;
 }
 
-@keyframes pulse-ring {
-  0% {
-    transform: scale(0.8);
-    opacity: 0.8;
-  }
-  100% {
-    transform: scale(2.2);
-    opacity: 0;
-  }
+/* Realistic Browser Mockup */
+.browser-frame {
+  position: relative;
+  background: #111116;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 
+    0 25px 50px -12px rgba(0, 0, 0, 0.85),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.12);
+  overflow: hidden;
 }
 
-/* Custom Minimal Scrollbar */
-::-webkit-scrollbar {
-  width: 6px;
+/* Floating Glass Badges */
+.glass-badge {
+  background: rgba(20, 20, 26, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5), inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
 }
-::-webkit-scrollbar-track {
-  background: #09090b;
+
+/* Primary Juicy Button */
+.btn-juicy {
+  background: linear-gradient(180deg, #2ae06f 0%, #1fb857 100%);
+  color: #05260f;
+  box-shadow: 
+    0 10px 25px -5px rgba(37, 211, 102, 0.4),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.35);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
-::-webkit-scrollbar-thumb {
-  background: #27272a;
-  border-radius: 9999px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #3f3f46;
+
+.btn-juicy:hover {
+  background: linear-gradient(180deg, #32eb78 0%, #22c55e 100%);
+  box-shadow: 
+    0 15px 35px -5px rgba(37, 211, 102, 0.55),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.45);
+  transform: translateY(-1px);
 }
