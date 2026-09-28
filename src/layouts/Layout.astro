@@ -1,0 +1,184 @@
+---
+import '../styles/global.css';
+import { SITE_CONFIG } from '../data/siteConfig';
+
+interface Props {
+  title?: string;
+  description?: string;
+  canonical?: string;
+  image?: string;
+}
+
+const {
+  title = "Hernán Solís | Desarrollo Web y Tiendas Online en Tortuguitas y Zona Norte",
+  description = "Programador y desarrollador web en Tortuguitas y Zona Norte (GBA). Diseño páginas web modernas, tiendas online y catálogos con conexión directa a WhatsApp que aumentan las ventas de comercios y profesionales.",
+  canonical = SITE_CONFIG.siteUrl,
+  image = `${SITE_CONFIG.siteUrl}/assets/img/imgFotoPerfilEditado_websize.jpg`,
+} = Astro.props;
+
+const canonicalURL = canonical.startsWith('http') ? canonical : `${SITE_CONFIG.siteUrl}${canonical}`;
+const absoluteImageUrl = image.startsWith('http') ? image : `${SITE_CONFIG.siteUrl}${image}`;
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": ["ProfessionalService", "LocalBusiness"],
+      "@id": `${SITE_CONFIG.siteUrl}/#business`,
+      "name": "Hernán Solís - Desarrollo Web & Programación en Zona Norte",
+      "alternateName": "Hernán Solís Web Developer",
+      "url": SITE_CONFIG.siteUrl,
+      "logo": absoluteImageUrl,
+      "image": absoluteImageUrl,
+      "telephone": SITE_CONFIG.whatsappDisplay,
+      "email": SITE_CONFIG.email,
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Tortuguitas",
+        "addressRegion": "Buenos Aires",
+        "addressCountry": "AR"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": -34.4697,
+        "longitude": -58.7583
+      },
+      "areaServed": SITE_CONFIG.coverageZones.map(zone => ({
+        "@type": "AdministrativeArea",
+        "name": zone
+      })),
+      "sameAs": [
+        SITE_CONFIG.linkedin,
+        SITE_CONFIG.github
+      ],
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+          "opens": "09:00",
+          "closes": "20:00"
+        }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Servicios de Desarrollo Web",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Landing Pages de Alta Conversión"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Tiendas Online y Catálogos con WhatsApp"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Sitios Web Institucionales y Profesionales"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Posicionamiento SEO Local en Tortuguitas y Zona Norte"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": `${SITE_CONFIG.siteUrl}/#person`,
+      "name": "Hernán Solís",
+      "jobTitle": "Programador y Desarrollador Web Full Stack",
+      "url": SITE_CONFIG.siteUrl,
+      "image": absoluteImageUrl,
+      "sameAs": [
+        SITE_CONFIG.linkedin,
+        SITE_CONFIG.github
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${SITE_CONFIG.siteUrl}/#website`,
+      "url": SITE_CONFIG.siteUrl,
+      "name": "Hernán Solís | Desarrollo Web",
+      "publisher": {
+        "@id": `${SITE_CONFIG.siteUrl}/#business`
+      }
+    }
+  ]
+};
+---
+
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- SEO Meta Tags -->
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content="desarrollo web tortuguitas, programador zona norte, paginas web para negocios, creador de tiendas online, paginas web pilar, desarrollo web san miguel, paginas web grand bourg, catalogo whatsapp argentina, diseno web profesional, hernan solis" />
+    <meta name="author" content="Hernán Solís" />
+    <link rel="canonical" href={canonicalURL} />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+
+    <!-- Geo Tags para SEO Local (Tortuguitas / Zona Norte) -->
+    <meta name="geo.region" content="AR-B" />
+    <meta name="geo.placename" content="Tortuguitas, Malvinas Argentinas, Zona Norte, Buenos Aires" />
+    <meta name="geo.position" content="-34.4697;-58.7583" />
+    <meta name="ICBM" content="-34.4697, -58.7583" />
+
+    <!-- Open Graph / Facebook / WhatsApp -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={absoluteImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="es_AR" />
+    <meta property="og:site_name" content="Hernán Solís | Desarrollo Web" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonicalURL} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={absoluteImageUrl} />
+
+    <!-- Favicon & Icons -->
+    <link rel="icon" type="image/x-icon" href="/public/assets/img/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon.ico" />
+    <meta name="theme-color" content="#060913" />
+
+    <!-- Google Fonts Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  </head>
+  <body class="bg-dark-950 text-slate-100 min-h-screen flex flex-col relative selection:bg-brand-primary/30 selection:text-white">
+    <!-- Ambient top glow -->
+    <div class="fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-96 bg-radial-glow pointer-events-none z-0"></div>
+    <div class="fixed inset-0 bg-grid-pattern opacity-40 pointer-events-none z-0"></div>
+
+    <div class="relative z-10 flex flex-col min-h-screen">
+      <slot />
+    </div>
+  </body>
+</html>

@@ -1,0 +1,66 @@
+---
+const faqs = [
+  {
+    q: "¿Cuánto tiempo demora tener mi página web lista?",
+    a: "Normalmente entre 5 y 12 días corridos, dependiendo de la cantidad de productos o secciones que tenga tu negocio. Trabajamos con plazos claros y entregas garantizadas."
+  },
+  {
+    q: "¿Tengo que pagar comisiones por las ventas que realice?",
+    a: "¡No, jamás! A diferencia de plataformas como Tiendanube o MercadoLibre, en tu web el 100% del dinero de cada venta entra directamente a tu cuenta o billetera digital sin intermediarios."
+  },
+  {
+    q: "¿Cómo me llegan las compras y consultas de los clientes?",
+    a: "Cada vez que un cliente elige un producto o solicita un presupuesto, hace clic en el botón y se le abre automáticamente su WhatsApp con el mensaje estructurado con el nombre del producto, talle/color o servicio elegido."
+  },
+  {
+    q: "¿Se ve rápido y perfecto en cualquier celular?",
+    a: "Totalmente. El desarrollo es 'Mobile-First' (pensado primero para celulares). Más del 85% de la gente hoy compra desde su teléfono navegando en Instagram o TikTok. El sitio carga en menos de 1 segundo en redes 4G/5G."
+  },
+  {
+    q: "¿Puedo tener mi propio dominio (.com o .com.ar)?",
+    a: "Sí, claro. Te asesoro en el registro en NIC Argentina o dominios internacionales (.com) y realizamos toda la vinculación técnica y configuración de certificados SSL de seguridad."
+  },
+  {
+    q: "¿Cómo es la forma de pago del desarrollo?",
+    a: "Se abona un 50% al inicio para congelar presupuesto y comenzar el trabajo, y el 50% restante una vez que la página está terminada, aprobada por vos y lista para publicar."
+  }
+];
+---
+
+<section id="preguntas" class="py-20 md:py-28 relative">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <div class="text-center mb-16">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-primary/10 border border-brand-primary/30 text-xs sm:text-sm text-brand-primary font-semibold mb-4">
+        <span>❓ Despejá tus Dudas</span>
+      </div>
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight mb-4">
+        Preguntas Frecuentes <br class="hidden sm:inline" />
+        <span class="text-gradient-emerald">de dueños de negocios</span>
+      </h2>
+      <p class="text-slate-300 text-sm sm:text-base">
+        Todo lo que necesitás saber antes de dar el paso para potenciar tu presencia online.
+      </p>
+    </div>
+
+    <!-- FAQ Accordion List -->
+    <div class="space-y-4">
+      {faqs.map((faq, idx) => (
+        <details class="group glass-card rounded-2xl border border-slate-800 p-5 sm:p-6 [&_summary::-webkit-details-marker]:hidden cursor-pointer transition-colors hover:border-slate-700">
+          <summary class="flex items-center justify-between gap-4 font-bold text-base sm:text-lg text-white select-none">
+            <span>{faq.q}</span>
+            <span class="p-1.5 rounded-lg bg-dark-900 border border-slate-800 text-slate-400 group-open:rotate-180 group-open:text-brand-primary transition-transform duration-300 flex-shrink-0">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
+              </svg>
+            </span>
+          </summary>
+          <div class="mt-4 pt-4 border-t border-slate-800/80 text-sm text-slate-300 leading-relaxed">
+            {faq.a}
+          </div>
+        </details>
+      ))}
+    </div>
+
+  </div>
+</section>

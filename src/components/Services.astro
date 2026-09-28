@@ -1,0 +1,176 @@
+---
+import { getWhatsAppLink } from '../data/siteConfig';
+
+const services = [
+  {
+    icon: "🛍️",
+    title: "Catálogos Online con Pedidos por WhatsApp",
+    subtitle: "El favorito de los comercios y tiendas",
+    description: "Tus productos organizados las 24hs con fotos claras, precios actualizados y botón de pedido con 1 clic directo a tu chat de WhatsApp. Olvidate de pasar listas de precios en PDF o responder precios por mensaje privado.",
+    benefits: [
+      "Sin comisiones por venta (0%)",
+      "Actualizaciones simples y rápidas",
+      "El cliente te escribe con el pedido ya listo"
+    ],
+    highlight: true,
+    badge: "Más Solicitado"
+  },
+  {
+    icon: "🚀",
+    title: "Landing Pages de Alta Conversión",
+    subtitle: "Para campañas y ventas directas",
+    description: "Páginas de una sola sección diseñadas para convencer al visitante en segundos. Ideales si hacés publicidad en Instagram, Facebook o Google Ads y querés maximizar el retorno de tu inversión.",
+    benefits: [
+      "Estructura psicológica de ventas",
+      "Llamados a la acción estratégicos",
+      "Carga inmediata en celulares"
+    ],
+    highlight: false,
+    badge: "Rápido Retorno"
+  },
+  {
+    icon: "🏛️",
+    title: "Sitios Institucionales & Profesionales",
+    subtitle: "Para empresas, estudios y servicios",
+    description: "Tu marca con un diseño serio, moderno y de alto nivel. Para profesionales de la salud, estudios legales, gestorías, inmobiliarias y pymes que necesitan transmitir máxima confianza y autoridad.",
+    benefits: [
+      "Diseño corporativo a medida",
+      "Integración de formularios y cotizadores",
+      "Correos corporativos y presencia oficial"
+    ],
+    highlight: false,
+    badge: "Confianza y Marca"
+  },
+  {
+    icon: "📍",
+    title: "Posicionamiento SEO Local en Zona Norte",
+    subtitle: "Aparecé cuando busquen lo que vendés",
+    description: "Optimizamos el código y los datos de tu sitio para que Google y Google Maps muestren tu negocio a las personas que buscan en Tortuguitas, Pilar, San Miguel, Tigre y toda Zona Norte.",
+    benefits: [
+      "Ficha de Google Maps vinculada",
+      "Metadatos geolocalizados de tu zona",
+      "Más consultas orgánicas sin pagar pauta"
+    ],
+    highlight: false,
+    badge: "Visibilidad Local"
+  },
+  {
+    icon: "⚡",
+    title: "Rediseño & Aceleración de Sitios Lentos",
+    subtitle: "Si tu web tarda en cargar, perdés ventas",
+    description: "¿Tenés una web vieja o hecha en WordPress que anda pesada en el celular? La reconstruimos con tecnología moderna (Astro + Tailwind) para que vuele en menos de un segundo.",
+    benefits: [
+      "Hasta un 400% más rápida",
+      "Mejora inmediata de la experiencia del usuario",
+      "Menor tasa de rebote y más ventas"
+    ],
+    highlight: false,
+    badge: "Optimización"
+  },
+  {
+    icon: "🛡️",
+    title: "Soporte Local y Alojamiento Seguro",
+    subtitle: "Trato directo con quien hizo tu web",
+    description: "Tu web alojada en servidores de alta disponibilidad con certificado de seguridad SSL. Y ante cualquier cambio o duda, me mandás un mensaje y lo resolvemos en el día.",
+    benefits: [
+      "Seguridad SSL grado bancario",
+      "Respaldo en la nube sin caídas",
+      "Atención humana y de confianza"
+    ],
+    highlight: false,
+    badge: "Tranquilidad"
+  }
+];
+---
+
+<section id="servicios" class="py-20 md:py-28 bg-dark-900/40 relative">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Section Header -->
+    <div class="text-center max-w-3xl mx-auto mb-16 sm:mb-20">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-xs sm:text-sm text-emerald-300 font-semibold mb-4">
+        <span>💡 Soluciones Diseñadas para Negocios</span>
+      </div>
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight mb-4">
+        ¿Qué necesita tu negocio <br class="hidden sm:inline" />
+        <span class="text-gradient-emerald">para vender más por internet?</span>
+      </h2>
+      <p class="text-slate-300 text-base sm:text-lg leading-relaxed">
+        Soluciones prácticas, sin vueltas técnicas complicadas. Vos ponés los productos o servicios, yo me encargo de que tu web trabaje para vos las 24 horas.
+      </p>
+    </div>
+
+    <!-- Services Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+      {services.map(service => {
+        const serviceWaLink = getWhatsAppLink(`¡Hola Hernán! Me interesa consultar por el servicio: "${service.title}". ¿Podrías darme más información?`);
+        return (
+          <div class={`glass-card rounded-3xl p-6 sm:p-8 border flex flex-col justify-between transition-all duration-300 ${
+            service.highlight 
+              ? 'border-brand-primary/50 shadow-glow relative bg-dark-900/90' 
+              : 'border-slate-800/80 hover:border-slate-700'
+          }`}>
+            
+            {service.highlight && (
+              <div class="absolute -top-3.5 right-6 px-3 py-1 rounded-full bg-gradient-to-r from-brand-primary to-brand-cyan text-dark-950 font-extrabold text-[11px] uppercase tracking-wider shadow-sm">
+                ⭐ {service.badge}
+              </div>
+            )}
+
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="text-3xl p-3 rounded-2xl bg-dark-950/70 border border-slate-800">
+                  {service.icon}
+                </span>
+                {!service.highlight && (
+                  <span class="text-[11px] font-semibold text-slate-400 bg-slate-800/60 px-2.5 py-1 rounded-full">
+                    {service.badge}
+                  </span>
+                )}
+              </div>
+
+              <h3 class="text-xl font-bold text-white mb-1">
+                {service.title}
+              </h3>
+              <p class="text-xs font-semibold text-brand-primary mb-3">
+                {service.subtitle}
+              </p>
+              <p class="text-slate-300 text-sm leading-relaxed mb-6">
+                {service.description}
+              </p>
+
+              <div class="space-y-2 mb-8 pt-4 border-t border-slate-800/60">
+                {service.benefits.map(benefit => (
+                  <div class="flex items-center gap-2 text-xs text-slate-300">
+                    <svg class="w-3.5 h-3.5 text-brand-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>{benefit}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <a 
+              href={serviceWaLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              class={`w-full flex items-center justify-center gap-2 py-3 rounded-xl font-bold text-xs sm:text-sm transition-all duration-300 ${
+                service.highlight
+                  ? 'bg-brand-primary hover:bg-emerald-400 text-dark-950 shadow-glow'
+                  : 'bg-dark-800 hover:bg-dark-700 text-slate-200 border border-slate-700'
+              }`}
+            >
+              <span>Consultar por este servicio</span>
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            </a>
+
+          </div>
+        );
+      })}
+    </div>
+
+  </div>
+</section>

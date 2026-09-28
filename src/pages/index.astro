@@ -1,0 +1,41 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Hero from '../components/Hero.astro';
+import StatsBar from '../components/StatsBar.astro';
+import ProjectsShowcase from '../components/ProjectsShowcase.astro';
+import Services from '../components/Services.astro';
+import WhyChooseMe from '../components/WhyChooseMe.astro';
+import InteractiveQuote from '../components/InteractiveQuote.astro';
+import AboutHernan from '../components/AboutHernan.astro';
+import ProcessSteps from '../components/ProcessSteps.astro';
+import LocalSeoZones from '../components/LocalSeoZones.astro';
+import FaqSection from '../components/FaqSection.astro';
+import ContactSection from '../components/ContactSection.astro';
+import Footer from '../components/Footer.astro';
+import WhatsAppFloat from '../components/WhatsAppFloat.astro';
+---
+
+<Layout 
+  title="Hernán Solís | Desarrollo Web y Tiendas Online en Tortuguitas y Zona Norte"
+  description="Programador y desarrollador web en Tortuguitas y Zona Norte (GBA). Creo páginas web modernas, tiendas online y catálogos con WhatsApp que aumentan las ventas de comercios y profesionales. Mirá mis trabajos reales."
+>
+  <Navbar />
+  
+  <main>
+    <Hero />
+    <StatsBar />
+    <ProjectsShowcase />
+    <Services />
+    <WhyChooseMe />
+    <InteractiveQuote />
+    <AboutHernan />
+    <ProcessSteps />
+    <LocalSeoZones />
+    <FaqSection />
+    <ContactSection />
+  </main>
+
+  <Footer />
+  <WhatsAppFloat />
+</Layout>

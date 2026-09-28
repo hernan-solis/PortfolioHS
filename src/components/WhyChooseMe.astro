@@ -1,0 +1,95 @@
+---
+const comparisons = [
+  {
+    feature: "Comisiones por Venta",
+    traditional: "Te descuentan entre el 2% y 6% de cada venta",
+    hernan: "0% comisiones. El 100% de lo que vendés es tuyo",
+    badge: "100% Ganancia"
+  },
+  {
+    feature: "Velocidad de Carga en Celular",
+    traditional: "Lentas (3 a 7 segundos). El 53% de los usuarios se va",
+    hernan: "Ultra rápida (<0.8 segundos). Carga instantánea",
+    badge: "Retención Máxima"
+  },
+  {
+    feature: "Recepción de Pedidos",
+    traditional: "Checkout engorroso donde los clientes abandonan el carrito",
+    hernan: "Botón directo a tu WhatsApp con el pedido armado",
+    badge: "Cero Fricción"
+  },
+  {
+    feature: "Diseño & Identidad",
+    traditional: "Plantillas genéricas que se ven iguales a tu competencia",
+    hernan: "Diseño a medida alineado a la estética de tu negocio",
+    badge: "Exclusivo"
+  },
+  {
+    feature: "Soporte & Atención",
+    traditional: "Tickets impersonales y bots que tardan días en responder",
+    hernan: "Hablás directo por WhatsApp con Hernán en Zona Norte",
+    badge: "Cercanía Real"
+  }
+];
+---
+
+<section class="py-20 md:py-28 relative">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Header -->
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/20 text-xs sm:text-sm text-purple-300 font-semibold mb-4">
+        <span>⚖️ El Diferencial que Hace Crecer tu Negocio</span>
+      </div>
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight mb-4">
+        ¿Por qué una web programada a medida <br class="hidden sm:inline" />
+        <span class="text-gradient-cyan">y no una plantilla genérica?</span>
+      </h2>
+      <p class="text-slate-300 text-base sm:text-lg">
+        La diferencia entre una página que solo existe y una página que verdaderamente vende todos los días.
+      </p>
+    </div>
+
+    <!-- Comparison Table / Mobile Cards -->
+    <div class="glass-card rounded-3xl border border-slate-800 p-6 sm:p-10 overflow-hidden shadow-card">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center pb-6 border-b border-slate-800 font-bold text-sm hidden lg:grid">
+        <div class="lg:col-span-4 text-slate-400 uppercase tracking-wider text-xs">Aspecto Clave</div>
+        <div class="lg:col-span-4 text-red-400 flex items-center gap-2">
+          <span>❌ Plataformas Genéricas / Plantillas Lentas</span>
+        </div>
+        <div class="lg:col-span-4 text-emerald-400 flex items-center gap-2">
+          <span>✅ Tu Web a Medida con Hernán Solís</span>
+        </div>
+      </div>
+
+      <div class="divide-y divide-slate-800/60">
+        {comparisons.map(item => (
+          <div class="py-5 lg:py-6 grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-6 items-start lg:items-center">
+            
+            <!-- Feature Title -->
+            <div class="lg:col-span-4 flex items-center justify-between">
+              <span class="font-bold text-white text-base">{item.feature}</span>
+              <span class="lg:hidden text-[10px] font-bold px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                {item.badge}
+              </span>
+            </div>
+
+            <!-- Traditional / Others -->
+            <div class="lg:col-span-4 p-3 rounded-xl bg-red-950/20 border border-red-900/30 text-xs sm:text-sm text-slate-300">
+              <div class="lg:hidden text-[11px] font-bold text-red-400 mb-1">Otras plataformas:</div>
+              {item.traditional}
+            </div>
+
+            <!-- Hernán's Solution -->
+            <div class="lg:col-span-4 p-3 rounded-xl bg-emerald-950/30 border border-emerald-500/30 text-xs sm:text-sm text-emerald-100 font-medium">
+              <div class="lg:hidden text-[11px] font-bold text-emerald-400 mb-1">Con Hernán:</div>
+              {item.hernan}
+            </div>
+
+          </div>
+        ))}
+      </div>
+    </div>
+
+  </div>
+</section>

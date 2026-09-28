@@ -1,0 +1,183 @@
+---
+import { SITE_CONFIG, getWhatsAppLink } from '../data/siteConfig';
+
+const contactDirectWa = getWhatsAppLink("¡Hola Hernán! Quiero ponerme en contacto directo con vos para consultar por una página web.");
+---
+
+<section id="contacto" class="py-20 md:py-28 bg-dark-900/40 relative">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-xs sm:text-sm text-cyan-300 font-semibold mb-4">
+        <span>📬 Hablemos de tu Negocio</span>
+      </div>
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight mb-4">
+        Empecemos a trabajar en <br class="hidden sm:inline" />
+        <span class="text-gradient-cyan">tu nueva página web</span>
+      </h2>
+      <p class="text-slate-300 text-sm sm:text-base">
+        Escribime por WhatsApp para una respuesta inmediata o completá el formulario y te respondo en el día.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 items-start">
+      
+      <!-- Left Column: Contact Cards & WhatsApp Priority (5 cols) -->
+      <div class="lg:col-span-5 space-y-4">
+        
+        <!-- Big WhatsApp Action Card -->
+        <div class="p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-whatsapp/20 to-emerald-950/40 border border-whatsapp/40 shadow-whatsapp">
+          <div class="w-12 h-12 rounded-2xl bg-whatsapp text-white flex items-center justify-center mb-4 shadow-lg">
+            <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+              <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-1">
+            WhatsApp Directo
+          </h3>
+          <p class="text-xs text-slate-300 mb-6 leading-relaxed">
+            La forma más rápida de ponernos de acuerdo, despejar dudas y empezar a coordinar tu proyecto.
+          </p>
+          <a 
+            href={contactDirectWa}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="w-full flex items-center justify-center gap-2 py-3.5 rounded-xl bg-whatsapp hover:bg-whatsapp-hover text-white font-extrabold text-sm shadow-md transition-all duration-300 hover:scale-[1.02]"
+          >
+            <span>Iniciar Chat en WhatsApp</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+          </a>
+        </div>
+
+        <!-- Contact Detail Cards -->
+        <div class="glass-card rounded-2xl p-5 border border-slate-800 flex items-center gap-4">
+          <div class="p-3 rounded-xl bg-dark-900 border border-slate-800 text-brand-cyan text-lg">
+            ✉️
+          </div>
+          <div>
+            <div class="text-[11px] uppercase tracking-wider text-slate-400 font-bold">Email Directo</div>
+            <a href={`mailto:${SITE_CONFIG.email}`} class="text-sm font-semibold text-white hover:text-brand-primary transition-colors">
+              {SITE_CONFIG.email}
+            </a>
+          </div>
+        </div>
+
+        <div class="glass-card rounded-2xl p-5 border border-slate-800 flex items-center gap-4">
+          <div class="p-3 rounded-xl bg-dark-900 border border-slate-800 text-emerald-400 text-lg">
+            📍
+          </div>
+          <div>
+            <div class="text-[11px] uppercase tracking-wider text-slate-400 font-bold">Ubicación & Cobertura</div>
+            <p class="text-sm font-semibold text-white">
+              Tortuguitas, Buenos Aires (Zona Norte)
+            </p>
+          </div>
+        </div>
+
+        <div class="glass-card rounded-2xl p-5 border border-slate-800 flex items-center gap-4">
+          <div class="p-3 rounded-xl bg-dark-900 border border-slate-800 text-purple-400 text-lg">
+            🕒
+          </div>
+          <div>
+            <div class="text-[11px] uppercase tracking-wider text-slate-400 font-bold">Horarios de Atención</div>
+            <p class="text-sm font-semibold text-white">
+              Lunes a Sábado: 09:00 a 20:00 hs
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right Column: Formspree Form (7 cols) -->
+      <div class="lg:col-span-7">
+        <div class="glass-card rounded-3xl p-6 sm:p-10 border border-slate-800 shadow-card">
+          <div class="mb-6">
+            <h3 class="text-xl sm:text-2xl font-bold text-white mb-1">
+              Dejame tu consulta
+            </h3>
+            <p class="text-xs sm:text-sm text-slate-400">
+              Completá los campos y te respondo a la brevedad con una propuesta inicial.
+            </p>
+          </div>
+
+          <form action={SITE_CONFIG.formspreeEndpoint} method="POST" class="space-y-4" id="contact-form">
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label for="nombre" class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">
+                  Tu Nombre o Negocio *
+                </label>
+                <input 
+                  type="text" 
+                  id="nombre" 
+                  name="Nombre" 
+                  required 
+                  placeholder="Ej: Tienda Boutique / Carlos" 
+                  class="w-full px-4 py-3 rounded-xl bg-dark-950/80 border border-slate-800 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-brand-primary transition-colors"
+                />
+              </div>
+
+              <div>
+                <label for="telefono" class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">
+                  Teléfono / WhatsApp *
+                </label>
+                <input 
+                  type="tel" 
+                  id="telefono" 
+                  name="WhatsApp" 
+                  required 
+                  placeholder="Ej: 11 2345-6789" 
+                  class="w-full px-4 py-3 rounded-xl bg-dark-950/80 border border-slate-800 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-brand-primary transition-colors"
+                />
+              </div>
+            </div>
+
+            <div>
+              <label for="email" class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">
+                Correo Electrónico *
+              </label>
+              <input 
+                type="email" 
+                id="email" 
+                name="Email" 
+                required 
+                placeholder="tunegocio@gmail.com" 
+                class="w-full px-4 py-3 rounded-xl bg-dark-950/80 border border-slate-800 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-brand-primary transition-colors"
+              />
+            </div>
+
+            <div>
+              <label for="mensaje" class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">
+                ¿Qué tipo de proyecto te gustaría realizar? *
+              </label>
+              <textarea 
+                id="mensaje" 
+                name="Mensaje" 
+                rows="4" 
+                required 
+                placeholder="Contame qué productos o servicios vendés, si ya tenés logo o dominio, y cualquier detalle que consideres importante..." 
+                class="w-full px-4 py-3 rounded-xl bg-dark-950/80 border border-slate-800 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-brand-primary transition-colors resize-none"
+              ></textarea>
+            </div>
+
+            <button 
+              type="submit" 
+              class="w-full py-4 rounded-xl bg-gradient-to-r from-brand-primary to-brand-cyan hover:from-emerald-400 hover:to-cyan-400 text-dark-950 font-extrabold text-sm sm:text-base shadow-glow transition-all duration-300 hover:scale-[1.01] active:scale-[0.99]"
+            >
+              Enviar Mensaje
+            </button>
+
+            <p class="text-[11px] text-slate-500 text-center mt-2">
+              🔒 Tus datos son confidenciales y solo se utilizarán para coordinar tu propuesta.
+            </p>
+
+          </form>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
