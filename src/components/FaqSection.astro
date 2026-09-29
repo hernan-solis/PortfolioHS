@@ -1,51 +1,53 @@
 ---
 const faqs = [
   {
-    q: "¿Cuánto tiempo demora el desarrollo de una web?",
-    a: "Para un catálogo de productos o una landing page comercial, el plazo habitual es de entre 5 y 12 días corridos. Trabajamos con entregas intermedias para que puedas ir probando los avances en tu teléfono."
+    q: "¿Cuánto tiempo demora el desarrollo de una web o sistema?",
+    a: "Para un catálogo de productos o una landing page comercial, el plazo habitual es de entre 5 y 12 días corridos. Para sistemas a medida o plataformas más complejas, se define un cronograma por etapas para que puedas ir probando los avances en funcionamiento."
   },
   {
     q: "¿Tengo que pagar comisiones por las ventas que realice?",
-    a: "No. A diferencia de plataformas como Tiendanube o MercadoLibre, el sitio web es tuyo y no cobra comisiones por transacción. El dinero de tus ventas ingresa íntegramente a tu cuenta o billetera virtual."
+    a: "No. A diferencia de plataformas cerradas como Tiendanube o MercadoLibre, el sitio web es 100% de tu propiedad y no cobra comisiones por transacción. La totalidad de tus ingresos ingresa directamente a tu cuenta bancaria o billetera virtual."
   },
   {
-    q: "¿Cómo se comunican los clientes para comprar o consultar?",
-    a: "El sistema genera enlaces directos a tu WhatsApp con el mensaje estructurado (nombre del producto, variante o servicio consultado), lo que ahorra tiempo de ida y vuelta y facilita el cierre de ventas."
+    q: "¿Cómo recibo las consultas o cotizaciones de los clientes?",
+    a: "El sistema genera formularios y vías de contacto directo con mensajes estructurados (nombre del producto, variante o servicio seleccionado) que llegan de inmediato a tu correo electrónico sin intermediarios, listos para responder y cerrar la venta."
   },
   {
-    q: "¿Qué incluye el desarrollo del sitio?",
-    a: "Incluye el diseño a medida adaptado a celulares y computadoras, configuración técnica de SEO local en Google, vinculación de dominio propio (.com o .com.ar), certificado de seguridad SSL y soporte directo para dudas o ajustes."
+    q: "¿Qué incluye el desarrollo del proyecto?",
+    a: "Incluye el diseño responsive a medida optimizado para celulares y computadoras, configuración técnica de SEO local en Google, vinculación de tu dominio propio (.com o .com.ar), certificado de seguridad SSL y soporte directo para ajustes y consultas."
   },
   {
-    q: "¿Cómo es el esquema de pago del proyecto?",
-    a: "Se abona un 50% de anticipo para fijar presupuesto y comenzar el trabajo, y el 50% restante una vez que la web está terminada, probada en tu celular y lista para publicar."
+    q: "¿Cómo es el esquema de pago del trabajo?",
+    a: "Se abona un 50% de anticipo para fijar presupuesto y comenzar el desarrollo, y el 50% restante una vez que el sitio está terminado, testeado en tu celular y listo para publicar en producción."
   }
 ];
 ---
 
-<section id="faq" class="py-16 md:py-24 border-t border-white/[0.06]">
-  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+<section id="faq" class="section relative overflow-hidden py-20 md:py-28 border-t border-white/[0.06]">
+  <div class="container-safe max-w-4xl mx-auto">
     
-    <div class="mb-12">
-      <div class="font-mono text-[11px] tracking-widest uppercase text-zinc-500 mb-2">
-        05 // Preguntas frecuentes
-      </div>
-      <h2 class="text-2xl sm:text-4xl font-bold text-white tracking-tightest">
-        Dudas habituales antes de empezar
+    <!-- Section Header -->
+    <div data-reveal class="text-center max-w-2xl mx-auto mb-14 sm:mb-16">
+      <div class="section-line w-16 mx-auto mb-6 rounded-full"></div>
+      <h2 class="text-3xl sm:text-4xl font-semibold text-white tracking-tight">
+        Preguntas frecuentes
       </h2>
+      <p class="mt-4 text-slate-400 text-sm sm:text-base leading-relaxed">
+        Respuestas claras a las dudas habituales antes de comenzar un proyecto.
+      </p>
     </div>
 
-    <!-- Minimal Accordion -->
-    <div class="divide-y divide-white/[0.08] border-y border-white/[0.08]">
-      {faqs.map(faq => (
-        <details class="group py-5 [&_summary::-webkit-details-marker]:hidden cursor-pointer">
-          <summary class="flex items-center justify-between gap-4 font-semibold text-sm sm:text-base text-zinc-200 group-hover:text-white select-none transition-colors">
+    <!-- Accordion List -->
+    <div data-reveal class="divide-y divide-white/[0.08] border-y border-white/[0.08]">
+      {faqs.map((faq, idx) => (
+        <details class="group py-5 [&_summary::-webkit-details-marker]:hidden cursor-pointer" style={`transition-delay: ${idx * 60}ms;`}>
+          <summary class="flex items-center justify-between gap-4 font-semibold text-sm sm:text-base text-slate-200 group-hover:text-teal-300 select-none transition-colors">
             <span>{faq.q}</span>
-            <span class="text-zinc-500 group-open:rotate-45 transition-transform duration-200 text-lg font-mono">
+            <span class="text-teal-400 font-mono text-xl group-open:rotate-45 transition-transform duration-200 flex-shrink-0">
               +
             </span>
           </summary>
-          <div class="mt-3 text-xs sm:text-sm text-zinc-400 leading-relaxed max-w-2xl font-normal">
+          <div class="mt-3 text-xs sm:text-sm text-slate-400 leading-relaxed max-w-2xl font-normal">
             {faq.a}
           </div>
         </details>

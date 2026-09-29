@@ -1,31 +1,24 @@
 ---
 import { FEATURED_PROJECTS } from '../data/projects';
-import { getWhatsAppLink } from '../data/siteConfig';
-
-const contactWaProject = getWhatsAppLink("Hola Hernán, estuve viendo tus proyectos (Tu iPhone Zona Norte y Ariel Stefanazzi) y me gustaría cotizar una web para mi negocio.");
+import { SITE_CONFIG } from '../data/siteConfig';
 ---
 
-<section id="proyectos" class="py-20 md:py-28 border-t border-white/[0.08] relative">
+<section id="proyectos" class="section relative overflow-hidden py-20 md:py-28 border-t border-white/[0.06]">
   
-  <!-- Subtle lighting glow in section background -->
-  <div class="absolute top-1/3 left-0 w-96 h-96 bg-cyan-500/10 rounded-full blur-[120px] pointer-events-none -z-10"></div>
-  <div class="absolute bottom-10 right-0 w-96 h-96 bg-emerald-500/10 rounded-full blur-[120px] pointer-events-none -z-10"></div>
+  <!-- Subtle ambient glow -->
+  <div class="absolute top-1/3 left-0 w-96 h-96 bg-cyan/[0.04] rounded-full blur-[140px] pointer-events-none -z-10"></div>
+  <div class="absolute bottom-10 right-0 w-96 h-96 bg-brand/[0.04] rounded-full blur-[140px] pointer-events-none -z-10"></div>
 
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+  <div class="container-safe">
     
-    <!-- Section Header with Depth -->
-    <div class="flex flex-col md:flex-row md:items-end justify-between mb-14 sm:mb-20 gap-6">
-      <div class="space-y-2">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-900 border border-white/10 font-mono text-[11px] tracking-wider uppercase text-zinc-400">
-          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
-          <span>Casos de estudio reales</span>
-        </div>
-        <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tightest">
-          Proyectos en producción
-        </h2>
-      </div>
-      <p class="text-sm text-zinc-300 max-w-md font-normal leading-relaxed">
-        Sitios y aplicaciones web desarrolladas a medida. En funcionamiento continuo, atendiendo clientes reales y recibiendo ventas todos los días.
+    <!-- Section Header -->
+    <div data-reveal class="text-center max-w-2xl mx-auto mb-16">
+      <div class="section-line w-16 mx-auto mb-6 rounded-full"></div>
+      <h2 class="text-3xl sm:text-4xl font-semibold text-white tracking-tight">
+        Casos en producción
+      </h2>
+      <p class="mt-4 text-slate-400 text-sm sm:text-base leading-relaxed">
+        Sistemas y sitios web reales diseñados y desarrollados a medida. Funcionando continuamente, atendiendo clientes y procesando consultas todos los días.
       </p>
     </div>
 
@@ -33,84 +26,84 @@ const contactWaProject = getWhatsAppLink("Hola Hernán, estuve viendo tus proyec
     <div class="space-y-16 sm:space-y-24">
       
       <!-- Project 1: Tu iPhone Zona Norte -->
-      <article class="card-glow-emerald p-6 sm:p-10 relative overflow-hidden">
+      <article data-reveal class="card card-hover p-6 sm:p-10 relative overflow-hidden">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           
           <!-- Info Column -->
           <div class="lg:col-span-6 space-y-6">
             
             <div class="flex flex-wrap items-center gap-2.5">
-              <span class="px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 text-xs font-mono font-semibold">
+              <span class="px-3 py-1 rounded-full bg-teal-500/15 text-teal-300 border border-teal-500/30 text-xs font-mono font-semibold">
                 E-Commerce Boutique & Cotizador
               </span>
-              <span class="text-xs font-mono text-zinc-400 bg-zinc-900 px-2.5 py-1 rounded-full border border-white/[0.08]">
+              <span class="text-xs font-mono text-slate-400 bg-white/[0.04] px-2.5 py-1 rounded-full border border-white/[0.06]">
                 Zona Norte & CABA
               </span>
             </div>
 
-            <h3 class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
+            <h3 class="text-2xl sm:text-3xl font-bold text-white tracking-tight">
               Tu iPhone Zona Norte
             </h3>
 
-            <p class="text-xs sm:text-sm text-zinc-300 leading-relaxed font-normal">
-              Sitio web oficial y cotizador interactivo desarrollado para una de las boutiques de iPhone más reconocidas de Zona Norte (+18K seguidores). Los clientes eligen modelo (iPhone 11 a 17), condición, salud de batería y cotizan su plan canje, enviando la orden armada directamente al WhatsApp de la dueña sin intermediarios ni comisiones.
+            <p class="text-sm text-slate-400 leading-relaxed">
+              Sitio web oficial y cotizador interactivo desarrollado para una de las boutiques de iPhone más reconocidas de Zona Norte (+18K seguidores). Los clientes eligen modelo (iPhone 11 a 17), condición, salud de batería y cotizan su plan canje en tiempo real, agilizando la atención sin intermediarios ni comisiones.
             </p>
 
             <!-- Results Card -->
-            <div class="p-4 rounded-xl bg-zinc-950/80 border border-emerald-500/20 shadow-inner space-y-1.5">
-              <div class="text-[11px] font-mono text-emerald-400 font-bold uppercase tracking-wider">
+            <div class="p-4 rounded-xl bg-slate-950/80 border border-teal-500/20 shadow-inner space-y-1.5">
+              <div class="text-[11px] font-mono text-teal-400 font-bold uppercase tracking-wider">
                 Impacto en el negocio:
               </div>
-              <p class="text-xs text-zinc-200 leading-relaxed">
-                Automatizó más del 70% de las preguntas frecuentes sobre stock y precios, convirtiendo seguidores de Instagram en ventas directas por chat.
+              <p class="text-xs text-slate-300 leading-relaxed">
+                Automatizó más del 70% de las consultas frecuentes sobre stock y precios, convirtiendo seguidores de Instagram en clientes con cotizaciones claras.
               </p>
             </div>
 
             <!-- Metric Row -->
-            <div class="grid grid-cols-3 gap-2.5 pt-2">
-              <div class="p-3 rounded-xl bg-zinc-900/60 border border-white/[0.06] text-center">
+            <div class="grid grid-cols-3 gap-2.5 pt-1">
+              <div class="p-3 rounded-xl bg-white/[0.03] border border-white/[0.06] text-center">
                 <div class="text-base sm:text-lg font-bold text-white font-mono">+18K</div>
-                <div class="text-[10px] text-zinc-400 font-mono">Seguidores en IG</div>
+                <div class="text-[10px] text-slate-400 font-mono mt-0.5">Seguidores en IG</div>
               </div>
-              <div class="p-3 rounded-xl bg-zinc-900/60 border border-white/[0.06] text-center">
-                <div class="text-base sm:text-lg font-bold text-emerald-400 font-mono">0%</div>
-                <div class="text-[10px] text-zinc-400 font-mono">Comisiones</div>
+              <div class="p-3 rounded-xl bg-white/[0.03] border border-white/[0.06] text-center">
+                <div class="text-base sm:text-lg font-bold text-teal-400 font-mono">0%</div>
+                <div class="text-[10px] text-slate-400 font-mono mt-0.5">Comisiones</div>
               </div>
-              <div class="p-3 rounded-xl bg-zinc-900/60 border border-white/[0.06] text-center">
+              <div class="p-3 rounded-xl bg-white/[0.03] border border-white/[0.06] text-center">
                 <div class="text-base sm:text-lg font-bold text-cyan-400 font-mono">&lt;0.4s</div>
-                <div class="text-[10px] text-zinc-400 font-mono">Carga móvil</div>
+                <div class="text-[10px] text-slate-400 font-mono mt-0.5">Carga móvil</div>
               </div>
             </div>
 
             <!-- Action Link -->
-            <div class="pt-4 flex items-center gap-4">
+            <div class="pt-2 flex items-center gap-4">
               <a 
                 href="https://tuiphonezonanorte.com.ar"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="btn-juicy inline-flex items-center gap-2 px-6 py-3.5 rounded-xl font-bold text-xs sm:text-sm tracking-tight"
+                class="btn btn-primary btn-md group"
               >
                 <span>Visitar tuiphonezonanorte.com.ar</span>
-                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M7 17l9.2-9.2M17 17V8H8"/>
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 ml-2 transition-transform duration-200 group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
                 </svg>
               </a>
             </div>
 
           </div>
 
-          <!-- Visual Column: Layered Frame -->
+          <!-- Visual Column -->
           <div class="lg:col-span-6 flex justify-center">
             <div class="browser-frame w-full max-w-lg shadow-2xl group">
               <!-- Browser Header -->
-              <div class="px-4 py-3 bg-zinc-950 border-b border-white/10 flex items-center justify-between">
+              <div class="px-4 py-3 bg-slate-950 border-b border-white/10 flex items-center justify-between">
                 <div class="flex items-center gap-1.5">
                   <span class="w-3 h-3 rounded-full bg-red-500/80"></span>
                   <span class="w-3 h-3 rounded-full bg-yellow-500/80"></span>
                   <span class="w-3 h-3 rounded-full bg-green-500/80"></span>
                 </div>
-                <div class="flex items-center gap-1.5 px-3 py-1 rounded-md bg-zinc-900 border border-white/10 text-[10px] font-mono text-zinc-400">
-                  <svg class="w-2.5 h-2.5 text-emerald-400" viewBox="0 0 24 24" fill="currentColor">
+                <div class="flex items-center gap-1.5 px-3 py-1 rounded-md bg-white/[0.04] border border-white/10 text-[10px] font-mono text-slate-400">
+                  <svg class="w-2.5 h-2.5 text-teal-400" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/>
                   </svg>
                   <span>https://tuiphonezonanorte.com.ar</span>
@@ -119,21 +112,21 @@ const contactWaProject = getWhatsAppLink("Hola Hernán, estuve viendo tus proyec
               </div>
 
               <!-- Visual Image / Mockup Preview -->
-              <div class="aspect-[16/10] bg-zinc-950 p-6 flex flex-col items-center justify-center relative overflow-hidden">
+              <div class="aspect-[16/10] bg-slate-950 p-6 flex flex-col items-center justify-center relative overflow-hidden">
                 <img 
                   src="/assets/projects/tuiphone-logo.jpg" 
                   alt="Tu iPhone Zona Norte" 
                   class="max-h-24 sm:max-h-32 w-auto object-contain filter drop-shadow-xl group-hover:scale-105 transition-transform duration-500 mb-4"
                 />
                 <div class="flex flex-wrap items-center justify-center gap-2">
-                  <span class="text-[10px] font-mono px-2.5 py-1 rounded bg-zinc-900 border border-white/10 text-zinc-300">
+                  <span class="text-[10px] font-mono px-2.5 py-1 rounded bg-white/[0.05] border border-white/10 text-slate-300">
                     Astro v5
                   </span>
-                  <span class="text-[10px] font-mono px-2.5 py-1 rounded bg-zinc-900 border border-white/10 text-zinc-300">
+                  <span class="text-[10px] font-mono px-2.5 py-1 rounded bg-white/[0.05] border border-white/10 text-slate-300">
                     Tailwind CSS
                   </span>
-                  <span class="text-[10px] font-mono px-2.5 py-1 rounded bg-zinc-900 border border-white/10 text-zinc-300">
-                    SEO Local Zona Norte
+                  <span class="text-[10px] font-mono px-2.5 py-1 rounded bg-white/[0.05] border border-white/10 text-slate-300">
+                    SEO Local
                   </span>
                 </div>
                 
@@ -143,7 +136,7 @@ const contactWaProject = getWhatsAppLink("Hola Hernán, estuve viendo tus proyec
                   rel="noopener noreferrer"
                   class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-sm"
                 >
-                  <span class="px-5 py-2.5 rounded-xl bg-white text-zinc-950 font-bold text-xs shadow-xl">
+                  <span class="btn btn-primary btn-sm">
                     Ver Sitio en Vivo ↗
                   </span>
                 </a>
@@ -155,21 +148,21 @@ const contactWaProject = getWhatsAppLink("Hola Hernán, estuve viendo tus proyec
       </article>
 
       <!-- Project 2: Ariel Stefanazzi -->
-      <article class="card-depth p-6 sm:p-10 relative overflow-hidden">
+      <article data-reveal class="card card-hover p-6 sm:p-10 relative overflow-hidden">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           
-          <!-- Visual Column: Executive Browser Frame -->
+          <!-- Visual Column -->
           <div class="lg:col-span-6 order-2 lg:order-1 flex justify-center">
             <div class="browser-frame w-full max-w-lg shadow-2xl group">
               <!-- Browser Header -->
-              <div class="px-4 py-3 bg-zinc-950 border-b border-white/10 flex items-center justify-between">
+              <div class="px-4 py-3 bg-slate-950 border-b border-white/10 flex items-center justify-between">
                 <div class="flex items-center gap-1.5">
                   <span class="w-3 h-3 rounded-full bg-red-500/80"></span>
                   <span class="w-3 h-3 rounded-full bg-yellow-500/80"></span>
                   <span class="w-3 h-3 rounded-full bg-green-500/80"></span>
                 </div>
-                <div class="flex items-center gap-1.5 px-3 py-1 rounded-md bg-zinc-900 border border-white/10 text-[10px] font-mono text-zinc-400">
-                  <svg class="w-2.5 h-2.5 text-emerald-400" viewBox="0 0 24 24" fill="currentColor">
+                <div class="flex items-center gap-1.5 px-3 py-1 rounded-md bg-white/[0.04] border border-white/10 text-[10px] font-mono text-slate-400">
+                  <svg class="w-2.5 h-2.5 text-teal-400" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/>
                   </svg>
                   <span>https://arielstefanazzi.com.ar</span>
@@ -178,7 +171,7 @@ const contactWaProject = getWhatsAppLink("Hola Hernán, estuve viendo tus proyec
               </div>
 
               <!-- Visual Image / Mockup Preview -->
-              <div class="aspect-[16/10] bg-zinc-950 p-2 flex items-center justify-center relative overflow-hidden">
+              <div class="aspect-[16/10] bg-slate-950 p-2 flex items-center justify-center relative overflow-hidden">
                 <img 
                   src="/assets/projects/arielstefanazzi.jpg" 
                   alt="Ariel Stefanazzi Gestoría y Licitaciones" 
@@ -191,7 +184,7 @@ const contactWaProject = getWhatsAppLink("Hola Hernán, estuve viendo tus proyec
                   rel="noopener noreferrer"
                   class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-sm"
                 >
-                  <span class="px-5 py-2.5 rounded-xl bg-white text-zinc-950 font-bold text-xs shadow-xl">
+                  <span class="btn btn-primary btn-sm">
                     Ver Plataforma en Vivo ↗
                   </span>
                 </a>
@@ -203,59 +196,59 @@ const contactWaProject = getWhatsAppLink("Hola Hernán, estuve viendo tus proyec
           <div class="lg:col-span-6 order-1 lg:order-2 space-y-6">
             
             <div class="flex flex-wrap items-center gap-2.5">
-              <span class="px-3 py-1 rounded-full bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 text-xs font-mono font-semibold">
+              <span class="px-3 py-1 rounded-full bg-violet-500/15 text-violet-300 border border-violet-500/30 text-xs font-mono font-semibold">
                 Plataforma Institucional & Licitaciones
               </span>
-              <span class="text-xs font-mono text-zinc-400 bg-zinc-900 px-2.5 py-1 rounded-full border border-white/[0.08]">
+              <span class="text-xs font-mono text-slate-400 bg-white/[0.04] px-2.5 py-1 rounded-full border border-white/[0.06]">
                 Corporativo
               </span>
             </div>
 
-            <h3 class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
+            <h3 class="text-2xl sm:text-3xl font-bold text-white tracking-tight">
               Ariel Stefanazzi
             </h3>
 
-            <p class="text-xs sm:text-sm text-zinc-300 leading-relaxed font-normal">
-              Plataforma institucional de alta velocidad y diseño editorial formal para gestor integral especializado en Licitaciones Públicas de Salud (Casa de Gobierno / Min. de Salud), logística hospitalaria (Hospital Favaloro y Molas) y tramitación de permisos viales técnicos ante DPV.
+            <p class="text-sm text-slate-400 leading-relaxed">
+              Plataforma institucional de alta velocidad y diseño formal desarrollada para gestor integral especializado en Licitaciones Públicas de Salud (Casa de Gobierno / Min. de Salud), logística hospitalaria (Hospital Favaloro y Molas) y permisos viales técnicos ante DPV.
             </p>
 
             <!-- Results Card -->
-            <div class="p-4 rounded-xl bg-zinc-950/80 border border-cyan-500/20 shadow-inner space-y-1.5">
-              <div class="text-[11px] font-mono text-cyan-400 font-bold uppercase tracking-wider">
+            <div class="p-4 rounded-xl bg-slate-950/80 border border-violet-500/20 shadow-inner space-y-1.5">
+              <div class="text-[11px] font-mono text-violet-400 font-bold uppercase tracking-wider">
                 Impacto en el negocio:
               </div>
-              <p class="text-xs text-zinc-200 leading-relaxed">
-                Posicionó al estudio como un referente de seriedad absoluta ante laboratorios y empresas de alcance nacional, con asistente de cotizaciones automáticas.
+              <p class="text-xs text-slate-300 leading-relaxed">
+                Posicionó al estudio como un referente de seriedad absoluta ante laboratorios y empresas nacionales con gestión transparente de trámites.
               </p>
             </div>
 
             <!-- Metric Row -->
-            <div class="grid grid-cols-3 gap-2.5 pt-2">
-              <div class="p-3 rounded-xl bg-zinc-900/60 border border-white/[0.06] text-center">
-                <div class="text-base sm:text-lg font-bold text-cyan-400 font-mono">&lt;0.3s</div>
-                <div class="text-[10px] text-zinc-400 font-mono">Velocidad de carga</div>
+            <div class="grid grid-cols-3 gap-2.5 pt-1">
+              <div class="p-3 rounded-xl bg-white/[0.03] border border-white/[0.06] text-center">
+                <div class="text-base sm:text-lg font-bold text-violet-400 font-mono">&lt;0.3s</div>
+                <div class="text-[10px] text-slate-400 font-mono mt-0.5">Velocidad de carga</div>
               </div>
-              <div class="p-3 rounded-xl bg-zinc-900/60 border border-white/[0.06] text-center">
+              <div class="p-3 rounded-xl bg-white/[0.03] border border-white/[0.06] text-center">
                 <div class="text-base sm:text-lg font-bold text-white font-mono">3 Áreas</div>
-                <div class="text-[10px] text-zinc-400 font-mono">Licitaciones / Logística</div>
+                <div class="text-[10px] text-slate-400 font-mono mt-0.5">Licitaciones / Logística</div>
               </div>
-              <div class="p-3 rounded-xl bg-zinc-900/60 border border-white/[0.06] text-center">
-                <div class="text-base sm:text-lg font-bold text-emerald-400 font-mono">99.9%</div>
-                <div class="text-[10px] text-zinc-400 font-mono">Disponibilidad</div>
+              <div class="p-3 rounded-xl bg-white/[0.03] border border-white/[0.06] text-center">
+                <div class="text-base sm:text-lg font-bold text-teal-400 font-mono">99.9%</div>
+                <div class="text-[10px] text-slate-400 font-mono mt-0.5">Disponibilidad</div>
               </div>
             </div>
 
             <!-- Action Link -->
-            <div class="pt-4 flex items-center gap-4">
+            <div class="pt-2 flex items-center gap-4">
               <a 
                 href="https://arielstefanazzi.com.ar"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-zinc-100 hover:bg-white text-zinc-950 font-bold text-xs sm:text-sm tracking-tight transition-all shadow-md"
+                class="btn btn-secondary btn-md group"
               >
                 <span>Visitar arielstefanazzi.com.ar</span>
-                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M7 17l9.2-9.2M17 17V8H8"/>
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 ml-2 transition-transform duration-200 group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
                 </svg>
               </a>
             </div>
@@ -267,22 +260,20 @@ const contactWaProject = getWhatsAppLink("Hola Hernán, estuve viendo tus proyec
 
     </div>
 
-    <!-- Direct Consultation Strip with Glow -->
-    <div class="mt-16 p-8 sm:p-10 rounded-2xl bg-gradient-to-r from-zinc-900 via-zinc-900/90 to-zinc-950 border border-white/10 shadow-2xl flex flex-col sm:flex-row items-center justify-between gap-6">
+    <!-- Direct Consultation Strip -->
+    <div data-reveal class="mt-16 p-8 sm:p-10 rounded-2xl card flex flex-col sm:flex-row items-center justify-between gap-6 border-teal-500/20" style="background: linear-gradient(135deg, rgba(20,184,166,0.06), rgba(139,92,246,0.04));">
       <div class="space-y-1.5 text-center sm:text-left">
-        <h4 class="text-lg sm:text-xl font-bold text-white">¿Querés una web que venda con esta misma calidad?</h4>
-        <p class="text-xs sm:text-sm text-zinc-400">Coordinamos por WhatsApp los objetivos de tu negocio y la tenés lista en pocos días.</p>
+        <h4 class="text-lg sm:text-xl font-bold text-white">¿Tenés un proyecto o idea en mente?</h4>
+        <p class="text-xs sm:text-sm text-slate-400">Coordinamos por correo electrónico los objetivos de tu negocio y lo ponemos en marcha.</p>
       </div>
       <a 
-        href={contactWaProject}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="btn-juicy inline-flex items-center gap-2.5 px-7 py-3.5 rounded-xl font-bold text-xs sm:text-sm tracking-tight flex-shrink-0 shadow-whatsapp"
+        href="#contacto"
+        class="btn btn-primary btn-md flex-shrink-0 group"
       >
-        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
-          <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
         </svg>
-        <span>Hablar por WhatsApp</span>
+        <span>Enviar consulta por correo</span>
       </a>
     </div>
 

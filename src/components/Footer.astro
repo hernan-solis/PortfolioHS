@@ -1,40 +1,41 @@
 ---
-import { SITE_CONFIG, getWhatsAppLink } from '../data/siteConfig';
-
-const footerWa = getWhatsAppLink("Hola Hernán, te escribo desde el pie de tu página web.");
+import { SITE_CONFIG } from '../data/siteConfig';
 ---
 
-<footer class="border-t border-white/[0.06] pt-14 pb-10 text-zinc-500 text-xs">
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<footer class="border-t border-white/[0.06] pt-14 pb-10 text-slate-400 text-xs" style="background: rgba(3, 7, 18, 0.8);">
+  <div class="container-safe">
     
     <div class="grid grid-cols-1 md:grid-cols-12 gap-8 pb-10 border-b border-white/[0.06]">
       
       <!-- Brand & Location (5 cols) -->
       <div class="md:col-span-5 space-y-3">
-        <div class="flex items-center gap-2 text-white font-semibold text-sm">
-          <div class="w-6 h-6 rounded bg-zinc-900 border border-white/10 flex items-center justify-center font-mono text-[10px]">
+        <a href="/" class="flex items-center gap-2.5 group">
+          <div class="w-7 h-7 rounded-lg bg-slate-900 border border-teal-500/30 flex items-center justify-center font-mono font-bold text-xs text-teal-300">
             HS
           </div>
-          <span>Hernán Solís</span>
-        </div>
-        <p class="text-zinc-400 text-xs leading-relaxed max-w-sm">
-          Desarrollo web independiente. Especializado en sitios rápidos, tiendas con catálogo y conexión directa a WhatsApp para comercios y profesionales de Zona Norte.
+          <span class="text-base font-bold text-transparent bg-clip-text" style="background-image: linear-gradient(90deg, #14b8a6, #22d3ee, #8b5cf6);">
+            Hernán Solís
+          </span>
+        </a>
+        <p class="text-slate-400 text-xs leading-relaxed max-w-sm">
+          Desarrollo web a medida, plataformas SaaS y productos digitales orientados a resolver problemas comerciales reales.
         </p>
-        <p class="font-mono text-[11px] text-zinc-500">
-          Tortuguitas, Malvinas Argentinas, Buenos Aires.
+        <p class="font-mono text-[11px] text-slate-500">
+          Tortuguitas, Malvinas Argentinas, Zona Norte, Buenos Aires.
         </p>
       </div>
 
       <!-- Navigation (3 cols) -->
       <div class="md:col-span-3 space-y-2">
-        <div class="font-mono text-[11px] uppercase tracking-wider text-zinc-400 mb-2">
+        <div class="font-mono text-[11px] uppercase tracking-wider text-slate-300 font-semibold mb-3">
           Navegación
         </div>
-        <ul class="space-y-1.5 text-zinc-400">
+        <ul class="space-y-2 text-slate-400">
           <li><a href="#proyectos" class="hover:text-white transition-colors">Proyectos</a></li>
           <li><a href="#servicios" class="hover:text-white transition-colors">Servicios</a></li>
+          <li><a href="#proceso" class="hover:text-white transition-colors">Proceso</a></li>
           <li><a href="#sobre-mi" class="hover:text-white transition-colors">Sobre mí</a></li>
-          <li><a href="#cotizador" class="hover:text-white transition-colors">Cotizador de proyecto</a></li>
+          <li><a href="#cotizador" class="hover:text-white transition-colors">Cotizador</a></li>
           <li><a href="#faq" class="hover:text-white transition-colors">Preguntas frecuentes</a></li>
           <li><a href="/cvGenerador.html" class="hover:text-white transition-colors">CV Técnico (PDF)</a></li>
         </ul>
@@ -42,20 +43,20 @@ const footerWa = getWhatsAppLink("Hola Hernán, te escribo desde el pie de tu p�
 
       <!-- Projects (4 cols) -->
       <div class="md:col-span-4 space-y-2">
-        <div class="font-mono text-[11px] uppercase tracking-wider text-zinc-400 mb-2">
+        <div class="font-mono text-[11px] uppercase tracking-wider text-slate-300 font-semibold mb-3">
           Casos en producción
         </div>
-        <ul class="space-y-2 text-zinc-400">
+        <ul class="space-y-3 text-slate-400">
           <li>
-            <a href="https://tuiphonezonanorte.com.ar" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors block">
-              <span class="text-zinc-200 font-medium">tuiphonezonanorte.com.ar ↗</span>
-              <span class="block text-[11px] text-zinc-500">Boutique Apple y cotizador en tiempo real</span>
+            <a href="https://tuiphonezonanorte.com.ar" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors block group">
+              <span class="text-slate-200 font-medium group-hover:text-teal-400 transition-colors">tuiphonezonanorte.com.ar ↗</span>
+              <span class="block text-[11px] text-slate-500 mt-0.5">Boutique Apple y cotizador en tiempo real</span>
             </a>
           </li>
           <li>
-            <a href="https://arielstefanazzi.com.ar" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors block">
-              <span class="text-zinc-200 font-medium">arielstefanazzi.com.ar ↗</span>
-              <span class="block text-[11px] text-zinc-500">Plataforma institucional de licitaciones y trámites</span>
+            <a href="https://arielstefanazzi.com.ar" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors block group">
+              <span class="text-slate-200 font-medium group-hover:text-teal-400 transition-colors">arielstefanazzi.com.ar ↗</span>
+              <span class="block text-[11px] text-slate-500 mt-0.5">Plataforma institucional de licitaciones y trámites</span>
             </a>
           </li>
         </ul>
@@ -65,18 +66,18 @@ const footerWa = getWhatsAppLink("Hola Hernán, te escribo desde el pie de tu p�
 
     <!-- Bottom credits -->
     <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-[11px]">
-      <div>
-        © 2026 Hernán Solís. Desarrollado con Astro y Tailwind CSS.
+      <div class="text-slate-500">
+        © 2026 Hernán Solís. Todos los derechos reservados.
       </div>
       <div class="flex items-center gap-5">
-        <a href={SITE_CONFIG.linkedin} target="_blank" rel="noopener noreferrer" class="hover:text-zinc-300">
+        <a href={SITE_CONFIG.linkedin} target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">
           LinkedIn
         </a>
-        <a href={SITE_CONFIG.github} target="_blank" rel="noopener noreferrer" class="hover:text-zinc-300">
+        <a href={SITE_CONFIG.github} target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">
           GitHub
         </a>
-        <a href={footerWa} target="_blank" rel="noopener noreferrer" class="text-zinc-300 hover:text-white">
-          WhatsApp: {SITE_CONFIG.whatsappDisplay}
+        <a href={`mailto:${SITE_CONFIG.email}`} class="text-teal-400 hover:text-teal-300 transition-colors">
+          {SITE_CONFIG.email}
         </a>
       </div>
     </div>

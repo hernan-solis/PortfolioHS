@@ -10,8 +10,8 @@ interface Props {
 }
 
 const {
-  title = "Hernán Solís — Desarrollo Web & Tiendas Online en Zona Norte",
-  description = "Desarrollador web independiente en Tortuguitas, Zona Norte. Creación de sitios web a medida, catálogos con pedidos directos a WhatsApp y posicionamiento en Google para comercios y profesionales.",
+  title = "Hernán Solís — Software, Desarrollo Web & Productos Digitales",
+  description = "Desarrollador web y programador en Zona Norte. Sitios web a medida, plataformas digitales, catálogos online y software de alto rendimiento para comercios y profesionales.",
   canonical = SITE_CONFIG.siteUrl,
   image = `${SITE_CONFIG.siteUrl}/assets/img/imgFotoPerfilEditado_websize.jpg`,
 } = Astro.props;
@@ -30,7 +30,6 @@ const jsonLd = {
       "url": SITE_CONFIG.siteUrl,
       "logo": absoluteImageUrl,
       "image": absoluteImageUrl,
-      "telephone": SITE_CONFIG.whatsappDisplay,
       "email": SITE_CONFIG.email,
       "priceRange": "$$",
       "address": {
@@ -87,7 +86,7 @@ const jsonLd = {
     <!-- SEO Meta Tags -->
     <title>{title}</title>
     <meta name="description" content={description} />
-    <meta name="keywords" content="desarrollador web tortuguitas, paginas web zona norte, desarrollo web pilar, catalogo whatsapp negocios, diseno web san miguel, programador freelance argentina, hernan solis" />
+    <meta name="keywords" content="desarrollador web tortuguitas, paginas web zona norte, desarrollo web pilar, aplicaciones web saas, diseno web san miguel, programador freelance argentina, hernan solis" />
     <meta name="author" content="Hernán Solís" />
     <link rel="canonical" href={canonicalURL} />
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
@@ -98,14 +97,14 @@ const jsonLd = {
     <meta name="geo.position" content="-34.4697;-58.7583" />
     <meta name="ICBM" content="-34.4697, -58.7583" />
 
-    <!-- Open Graph / WhatsApp / Facebook -->
+    <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={absoluteImageUrl} />
     <meta property="og:locale" content="es_AR" />
-    <meta property="og:site_name" content="Hernán Solís — Desarrollo Web" />
+    <meta property="og:site_name" content="Hernán Solís — Software & Desarrollo Web" />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -114,26 +113,51 @@ const jsonLd = {
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={absoluteImageUrl} />
 
-    <!-- Favicon -->
+    <!-- Favicon & Theme -->
     <link rel="icon" type="image/x-icon" href="/assets/img/favicon.ico" />
-    <meta name="theme-color" content="#09090b" />
+    <meta name="theme-color" content="#030712" />
+    <meta name="color-scheme" content="dark" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
 
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   </head>
-  <body class="bg-[#070709] text-zinc-100 min-h-screen flex flex-col relative selection:bg-emerald-500/20 selection:text-emerald-300">
-    <!-- Ambient multi-layered lighting and fine grid -->
-    <div class="fixed inset-0 subtle-dot-grid pointer-events-none z-0 opacity-40"></div>
-    <div class="fixed inset-0 mesh-ambient pointer-events-none z-0"></div>
-    <div class="fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[700px] bg-radial-glow pointer-events-none z-0 opacity-60"></div>
+  <body class="bg-[#030712] text-slate-100 min-h-screen flex flex-col relative selection:bg-teal-500/20 selection:text-teal-300">
+    
+    <!-- Background atmospheric glows -->
+    <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden" aria-hidden="true">
+      <div class="bg-orb w-[420px] h-[420px] -top-32 -left-32 bg-brand/[0.08]" style="animation-delay: 0s;"></div>
+      <div class="bg-orb w-[380px] h-[380px] top-1/3 -right-32 bg-accent/[0.06]" style="animation-delay: 3s;"></div>
+      <div class="bg-orb w-[300px] h-[300px] bottom-10 left-1/4 bg-cyan/[0.05]" style="animation-delay: 6s;"></div>
+    </div>
 
     <div class="relative z-10 flex flex-col min-h-screen">
       <slot />
     </div>
+
+    <!-- Scroll Reveal Script -->
+    <script>
+      const els = document.querySelectorAll('[data-reveal]');
+      if (!('IntersectionObserver' in window)) {
+        els.forEach((el) => el.classList.add('is-visible'));
+      } else {
+        const io = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                io.unobserve(entry.target);
+              }
+            });
+          },
+          { rootMargin: '0px 0px -8% 0px' }
+        );
+        els.forEach((el) => io.observe(el));
+      }
+    </script>
   </body>
 </html>

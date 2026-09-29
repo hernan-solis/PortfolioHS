@@ -11,9 +11,9 @@ const businessTypes = [
 ];
 
 const projectTypes = [
-  { id: "catalogo", label: "Catálogo online con pedidos a WhatsApp (0% comisiones)" },
+  { id: "catalogo", label: "Catálogo online con cotizaciones directas (0% comisiones)" },
   { id: "landing", label: "Landing page de venta para publicidad en redes" },
-  { id: "institucional", label: "Sitio web institucional completo con formulario" },
+  { id: "institucional", label: "Sitio web o plataforma institucional a medida" },
   { id: "rediseno", label: "Rediseñar o acelerar un sitio web existente" }
 ];
 
@@ -29,35 +29,32 @@ const zones = [
 ];
 ---
 
-<section id="cotizador" class="py-20 md:py-28 border-t border-white/[0.08] relative">
+<section id="cotizador" class="section relative overflow-hidden py-20 md:py-28 border-t border-white/[0.06]">
   
-  <!-- Subtle background glow -->
-  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-emerald-500/10 rounded-full blur-[140px] pointer-events-none -z-10"></div>
+  <!-- Subtle ambient glow -->
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[550px] bg-teal-500/[0.04] rounded-full blur-[140px] pointer-events-none -z-10"></div>
 
-  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+  <div class="container-safe max-w-4xl mx-auto">
     
     <!-- Section Header -->
-    <div class="text-center mb-14 sm:mb-16">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-900 border border-white/10 font-mono text-[11px] tracking-wider uppercase text-zinc-400 mb-3">
-        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
-        <span>Cotizador interactivo</span>
-      </div>
-      <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tightest mb-4">
-        Presupuesto rápido en 3 clics
+    <div data-reveal class="text-center max-w-2xl mx-auto mb-14 sm:mb-16">
+      <div class="section-line w-16 mx-auto mb-6 rounded-full"></div>
+      <h2 class="text-3xl sm:text-4xl font-semibold text-white tracking-tight">
+        Cotizador de proyecto
       </h2>
-      <p class="text-sm text-zinc-300 max-w-lg mx-auto leading-relaxed">
-        Seleccioná lo que necesitás y armaremos un mensaje personalizado listo para enviar a WhatsApp.
+      <p class="mt-4 text-slate-400 text-sm sm:text-base leading-relaxed">
+        Seleccioná lo que necesitás y armaremos una propuesta personalizada por correo.
       </p>
     </div>
 
-    <!-- Interactive Card with Depth -->
-    <div class="card-glow-emerald p-6 sm:p-10 relative">
+    <!-- Interactive Card with MateLabs Style -->
+    <div data-reveal class="card p-6 sm:p-10 relative">
       
       <!-- Step 1 -->
       <div class="mb-8">
-        <label class="block text-xs font-mono uppercase tracking-wider text-emerald-400 font-bold mb-3 flex items-center gap-2">
+        <label class="block text-xs font-mono uppercase tracking-wider text-teal-400 font-bold mb-3 flex items-center gap-2">
           <span>01.</span>
-          <span class="text-zinc-300">¿De qué rubro es tu negocio?</span>
+          <span class="text-slate-300">¿De qué rubro es tu negocio?</span>
         </label>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5" id="business-options">
           {businessTypes.map((b, idx) => (
@@ -65,8 +62,8 @@ const zones = [
               type="button"
               class={`quote-toggle text-left px-4 py-3 rounded-xl border text-xs transition-all ${
                 idx === 0 
-                  ? 'border-emerald-500/80 bg-emerald-500/15 text-white font-semibold shadow-sm' 
-                  : 'border-white/[0.08] bg-zinc-900/80 text-zinc-300 hover:border-zinc-700'
+                  ? 'border-teal-500/80 bg-teal-500/15 text-white font-semibold shadow-sm' 
+                  : 'border-white/[0.08] bg-slate-900/60 text-slate-300 hover:border-slate-700'
               }`}
               data-group="business"
               data-value={b.label}
@@ -79,9 +76,9 @@ const zones = [
 
       <!-- Step 2 -->
       <div class="mb-8">
-        <label class="block text-xs font-mono uppercase tracking-wider text-emerald-400 font-bold mb-3 flex items-center gap-2">
+        <label class="block text-xs font-mono uppercase tracking-wider text-teal-400 font-bold mb-3 flex items-center gap-2">
           <span>02.</span>
-          <span class="text-zinc-300">¿Qué tipo de sitio web estás buscando?</span>
+          <span class="text-slate-300">¿Qué tipo de desarrollo estás buscando?</span>
         </label>
         <div class="grid grid-cols-1 gap-2.5" id="project-options">
           {projectTypes.map((p, idx) => (
@@ -89,8 +86,8 @@ const zones = [
               type="button"
               class={`quote-toggle text-left px-4 py-3 rounded-xl border text-xs transition-all ${
                 idx === 0 
-                  ? 'border-emerald-500/80 bg-emerald-500/15 text-white font-semibold shadow-sm' 
-                  : 'border-white/[0.08] bg-zinc-900/80 text-zinc-300 hover:border-zinc-700'
+                  ? 'border-teal-500/80 bg-teal-500/15 text-white font-semibold shadow-sm' 
+                  : 'border-white/[0.08] bg-slate-900/60 text-slate-300 hover:border-slate-700'
               }`}
               data-group="project"
               data-value={p.label}
@@ -103,9 +100,9 @@ const zones = [
 
       <!-- Step 3 -->
       <div class="mb-10">
-        <label class="block text-xs font-mono uppercase tracking-wider text-emerald-400 font-bold mb-3 flex items-center gap-2">
+        <label class="block text-xs font-mono uppercase tracking-wider text-teal-400 font-bold mb-3 flex items-center gap-2">
           <span>03.</span>
-          <span class="text-zinc-300">¿En qué localidad te encontrás?</span>
+          <span class="text-slate-300">¿En qué localidad te encontrás?</span>
         </label>
         <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5" id="zone-options">
           {zones.map((z, idx) => (
@@ -113,8 +110,8 @@ const zones = [
               type="button"
               class={`quote-toggle text-center px-3 py-2.5 rounded-xl border text-xs transition-all ${
                 idx === 0 
-                  ? 'border-emerald-500/80 bg-emerald-500/15 text-white font-semibold shadow-sm' 
-                  : 'border-white/[0.08] bg-zinc-900/80 text-zinc-300 hover:border-zinc-700'
+                  ? 'border-teal-500/80 bg-teal-500/15 text-white font-semibold shadow-sm' 
+                  : 'border-white/[0.08] bg-slate-900/60 text-slate-300 hover:border-slate-700'
               }`}
               data-group="zone"
               data-value={z}
@@ -125,52 +122,60 @@ const zones = [
         </div>
       </div>
 
-      <!-- WhatsApp Preview Container Styled as Real Chat Bubble -->
-      <div class="rounded-2xl bg-zinc-950 p-5 sm:p-7 border border-white/10 shadow-2xl space-y-4">
+      <!-- Summary & Proposal Action Container -->
+      <div class="rounded-2xl bg-slate-950/90 p-5 sm:p-7 border border-white/10 shadow-2xl space-y-4">
         
-        <!-- Chat Header -->
-        <div class="flex items-center gap-3 pb-3 border-b border-white/[0.08]">
-          <div class="w-10 h-10 rounded-full overflow-hidden border border-emerald-500/40 bg-zinc-900 flex-shrink-0">
-            <img 
-              src="/assets/img/imgFotoPerfilEditado_websize.jpg" 
-              alt="Hernán Solís" 
-              class="w-full h-full object-cover"
-            />
-          </div>
-          <div>
-            <div class="text-xs font-bold text-white flex items-center gap-1.5">
-              <span>Hernán Solís</span>
-              <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+        <!-- Header -->
+        <div class="flex items-center justify-between pb-3 border-b border-white/[0.08]">
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-full overflow-hidden border border-teal-500/40 bg-slate-900 flex-shrink-0">
+              <img 
+                src="/assets/img/imgFotoPerfilEditado_websize.jpg" 
+                alt="Hernán Solís" 
+                class="w-full h-full object-cover"
+              />
             </div>
-            <div class="text-[10px] text-zinc-400 font-mono">En línea en WhatsApp</div>
-          </div>
-        </div>
-
-        <!-- Chat Bubble -->
-        <div class="flex justify-end">
-          <div class="max-w-lg bg-[#005c4b] text-white p-3.5 rounded-2xl rounded-tr-none shadow-md space-y-1.5">
-            <p id="quote-preview-text" class="text-xs leading-relaxed font-normal">
-              Hola Hernán, tengo un negocio de Indumentaria / Showroom / Calzado en Tortuguitas y me interesa desarrollar un Catálogo online con pedidos a WhatsApp (0% comisiones). ¿Podrías darme un presupuesto estimado?
-            </p>
-            <div class="flex items-center justify-end gap-1 text-[9px] text-emerald-200/70 font-mono">
-              <span>Justo ahora</span>
-              <span class="text-cyan-300">✓✓</span>
+            <div>
+              <div class="text-xs font-bold text-white flex items-center gap-1.5">
+                <span>Hernán Solís</span>
+                <span class="w-1.5 h-1.5 rounded-full bg-teal-400"></span>
+              </div>
+              <div class="text-[10px] text-slate-400 font-mono">Respuesta por correo en menos de 24 hs</div>
             </div>
           </div>
+          <span class="text-[11px] font-mono text-teal-400 bg-teal-500/10 px-2.5 py-1 rounded-full border border-teal-500/20 hidden sm:inline-block">
+            Cotización estimada
+          </span>
         </div>
 
-        <!-- Submit Button -->
-        <div class="pt-2 text-center">
+        <!-- Generated Message Preview -->
+        <div class="p-4 rounded-xl bg-white/[0.03] border border-white/[0.08]">
+          <p class="text-[11px] font-mono text-slate-400 mb-1.5">Resumen de tu consulta:</p>
+          <p id="quote-preview-text" class="text-xs sm:text-sm text-slate-200 leading-relaxed font-medium">
+            Hola Hernán, tengo un negocio de Indumentaria / Showroom / Calzado en Tortuguitas y me interesa desarrollar un Catálogo online con cotizaciones directas (0% comisiones). ¿Podrías enviarme una propuesta técnica y presupuesto estimado?
+          </p>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
           <button 
-            id="btn-send-quote"
+            id="btn-apply-quote"
             type="button"
-            class="btn-juicy w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl font-bold text-sm tracking-tight shadow-whatsapp"
+            class="btn btn-primary btn-lg w-full sm:w-auto group"
           >
-            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
-              <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
             </svg>
-            <span>Enviar mensaje por WhatsApp</span>
+            <span>Enviar esta cotización por formulario</span>
           </button>
+
+          <a 
+            id="btn-mailto-quote"
+            href={`mailto:${SITE_CONFIG.email}`}
+            class="btn btn-secondary btn-lg w-full sm:w-auto"
+          >
+            <span>Abrir en mi app de correo</span>
+          </a>
         </div>
 
       </div>
@@ -180,18 +185,28 @@ const zones = [
   </div>
 </section>
 
-<script define:vars={{ waNumber: SITE_CONFIG.whatsappNumber }}>
+<script define:vars={{ emailAddress: SITE_CONFIG.email }}>
   let selBusiness = "Indumentaria / Showroom / Calzado";
-  let selProject = "Catálogo online con pedidos a WhatsApp (0% comisiones)";
+  let selProject = "Catálogo online con cotizaciones directas (0% comisiones)";
   let selZone = "Tortuguitas";
 
   const preview = document.getElementById('quote-preview-text');
-  const sendBtn = document.getElementById('btn-send-quote');
+  const applyBtn = document.getElementById('btn-apply-quote');
+  const mailtoBtn = document.getElementById('btn-mailto-quote');
+
+  function getMessageText() {
+    return `Hola Hernán, tengo un negocio de ${selBusiness} en ${selZone} y me interesa desarrollar un ${selProject}. ¿Podrías enviarme una propuesta técnica y presupuesto estimado?`;
+  }
 
   function update() {
-    const text = `Hola Hernán, tengo un negocio de ${selBusiness} en ${selZone} y me interesa desarrollar un ${selProject}. ¿Podrías darme un presupuesto estimado?`;
+    const text = getMessageText();
     if (preview) {
       preview.textContent = text;
+    }
+    if (mailtoBtn) {
+      const subject = encodeURIComponent(`Consulta de proyecto web - ${selBusiness} (${selZone})`);
+      const body = encodeURIComponent(text);
+      mailtoBtn.setAttribute('href', `mailto:${emailAddress}?subject=${subject}&body=${body}`);
     }
   }
 
@@ -202,12 +217,12 @@ const zones = [
       const val = target.getAttribute('data-value');
 
       document.querySelectorAll(`.quote-toggle[data-group="${group}"]`).forEach(b => {
-        b.classList.remove('border-emerald-500/80', 'bg-emerald-500/15', 'text-white', 'font-semibold', 'shadow-sm');
-        b.classList.add('border-white/[0.08]', 'bg-zinc-900/80', 'text-zinc-300');
+        b.classList.remove('border-teal-500/80', 'bg-teal-500/15', 'text-white', 'font-semibold', 'shadow-sm');
+        b.classList.add('border-white/[0.08]', 'bg-slate-900/60', 'text-slate-300');
       });
 
-      target.classList.remove('border-white/[0.08]', 'bg-zinc-900/80', 'text-zinc-300');
-      target.classList.add('border-emerald-500/80', 'bg-emerald-500/15', 'text-white', 'font-semibold', 'shadow-sm');
+      target.classList.remove('border-white/[0.08]', 'bg-slate-900/60', 'text-slate-300');
+      target.classList.add('border-teal-500/80', 'bg-teal-500/15', 'text-white', 'font-semibold', 'shadow-sm');
 
       if (group === 'business') selBusiness = val;
       if (group === 'project') selProject = val;
@@ -217,11 +232,22 @@ const zones = [
     });
   });
 
-  if (sendBtn) {
-    sendBtn.addEventListener('click', () => {
-      const msg = `Hola Hernán, estuve en el cotizador de tu web. Tengo un negocio de ${selBusiness} en ${selZone} y me gustaría consultar por ${selProject}. ¿Podrías darme un presupuesto?`;
-      const url = `https://wa.me/${waNumber}?text=${encodeURIComponent(msg)}`;
-      window.open(url, '_blank');
+  if (applyBtn) {
+    applyBtn.addEventListener('click', () => {
+      const messageField = document.getElementById('contact-message') || document.getElementById('mensaje');
+      if (messageField) {
+        messageField.value = getMessageText();
+      }
+      const contactSection = document.getElementById('contacto');
+      if (contactSection) {
+        contactSection.scrollIntoView({ behavior: 'smooth' });
+        setTimeout(() => {
+          const nameInput = document.getElementById('contact-name') || document.getElementById('nombre');
+          nameInput?.focus();
+        }, 500);
+      }
     });
   }
+
+  update();
 </script>

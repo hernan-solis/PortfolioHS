@@ -23,12 +23,12 @@ export const FEATURED_PROJECTS: Project[] = [
     badge: "Caso de Éxito en Zona Norte",
     url: "https://tuiphonezonanorte.com.ar",
     displayUrl: "tuiphonezonanorte.com.ar",
-    description: "Sitio web oficial y cotizador interactivo desarrollado para una de las tiendas de iPhone más reconocidas de Zona Norte (+18K seguidores). Permite a los clientes elegir modelo (desde iPhone 11 hasta iPhone 17), condición (nuevo/usado), nivel de batería con medidor gráfico y cotizar su plan canje, enviando el pedido listo y formateado al WhatsApp de la dueña sin fricción ni comisiones.",
-    businessImpact: "Automatizó más del 70% de las preguntas frecuentes sobre precios y stock, derivando leads calificados directo al chat de ventas de la tienda.",
+    description: "Sitio web oficial y cotizador interactivo desarrollado para una de las tiendas de iPhone más reconocidas de Zona Norte (+18K seguidores). Permite a los clientes elegir modelo (desde iPhone 11 hasta iPhone 17), condición (nuevo/usado), nivel de batería con medidor gráfico y cotizar su plan canje, enviando la orden lista y cotizada directamente sin fricción ni comisiones intermediarias.",
+    businessImpact: "Automatizó más del 70% de las preguntas frecuentes sobre precios y stock, derivando clientes calificados con cotización lista para concretar la compra.",
     features: [
       "Cotizador express interactivo con cálculo en tiempo real",
       "Medidor gráfico dinámico de salud de batería (75% a 100%)",
-      "Generador automático de mensajes estructurados para WhatsApp",
+      "Generador automático de pedidos y cotizaciones estructuradas",
       "Simulador de Plan Canje entregando equipos usados",
       "Arquitectura 100% Mobile-First pensada para compras desde Instagram",
       "SEO Local georreferenciado para Tortuguitas, Pilar y Zona Norte"

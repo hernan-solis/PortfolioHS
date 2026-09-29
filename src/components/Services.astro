@@ -1,138 +1,169 @@
 ---
-import { getWhatsAppLink } from '../data/siteConfig';
-
 const services = [
   {
-    colSpan: "lg:col-span-8",
-    tag: "COMERCIOS & SHOWROOMS",
-    title: "Catálogo online con pedidos directos a WhatsApp",
-    desc: "Tus productos organizados las 24 horas con fotos optimizadas, variantes (talles, colores, modelos) y precios al día. El cliente elige lo que busca y con un clic te envía la orden armada a tu WhatsApp lista para coordinar el pago.",
+    title: "Desarrollo de software y aplicaciones web",
+    desc: "Sistemas backend, plataformas SaaS y paneles de gestión diseñados para escalar. Arquitectura limpia, interfaces responsivas y código de alta calidad.",
+    iconColor: "rgba(20,184,166,0.15)",
+    borderColor: "rgba(20,184,166,0.25)",
+    iconSvg: `<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-teal-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75 22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3-4.5 16.5" /></svg>`,
     features: [
-      "0% comisiones por venta (las ganancias son 100% tuyas)",
-      "Experiencia mobile-first ultra veloz (<0.5s de carga)",
-      "Actualización ágil de precios y productos sin complicaciones"
-    ],
-    interactiveMockup: "catalog",
-    waQuery: "Hola Hernán, me interesa desarrollar un catálogo online con pedidos a WhatsApp para mi negocio."
+      "Arquitectura moderna sin dependencias infladas",
+      "Paneles de administración y APIs a medida",
+      "Alta disponibilidad y seguridad garantizada"
+    ]
   },
   {
-    colSpan: "lg:col-span-4",
-    tag: "VENTA DIRECTA & PUBLICIDAD",
-    title: "Landing pages para campañas",
-    desc: "Páginas de una sola sección diseñadas para convencer en segundos. Pensadas para maximizar el retorno si hacés publicidad en Instagram, Facebook o Google Ads.",
+    title: "Catálogos online y tiendas digitales",
+    desc: "Tus productos organizados las 24 horas con fotos optimizadas, variantes (talles, modelos, colores) y cotización en tiempo real. Cero comisiones abusivas por venta.",
+    iconColor: "rgba(34,211,238,0.15)",
+    borderColor: "rgba(34,211,238,0.25)",
+    iconSvg: `<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 21v-7.5a.75.75 0 0 1 .75-.75h3a.75.75 0 0 1 .75.75V21m-4.5 0H2.36m11.14 0H18m0 0h3.64m-1.39 0V9.349M3.75 21V9.349m0 0a3.001 3.001 0 0 0 3.75-.615A2.993 2.993 0 0 0 9.75 9.75c.896 0 1.7-.393 2.25-1.016a2.993 2.993 0 0 0 2.25 1.016c.896 0 1.7-.393 2.25-1.015a3.001 3.001 0 0 0 3.75.614m-16.5 0a3.004 3.004 0 0 1-.621-4.72l1.189-1.19A1.5 1.5 0 0 1 5.378 3h13.243a1.5 1.5 0 0 1 1.06.44l1.19 1.189a3 3 0 0 1-.621 4.72m-13.5 0c.315.388.745.661 1.229.776" /></svg>`,
     features: [
-      "Estructura orientada a conversión directa",
-      "Carga instantánea en celulares 4G/5G",
-      "Llamados a la acción claros y medibles"
-    ],
-    interactiveMockup: "landing",
-    waQuery: "Hola Hernán, quiero cotizar una landing page para pauta publicitaria."
+      "0% de comisión en todas tus ventas",
+      "Carga instantánea en celulares (<0.5 segundos)",
+      "Cotizaciones automáticas directas por correo"
+    ]
   },
   {
-    colSpan: "lg:col-span-4",
-    tag: "PROFESIONALES & EMPRESAS",
-    title: "Sitios institucionales y corporativos",
-    desc: "Presencia sobria y formal para estudios jurídicos, contables, consultorios, gestorías y empresas que necesitan proyectar seriedad ante clientes corporativos.",
+    title: "Landing pages de alta conversión",
+    desc: "Páginas orientadas a ventas para pauta publicitaria en Meta Ads (Instagram/Facebook) o Google Ads. Diseñadas para transmitir confianza y maximizar conversiones.",
+    iconColor: "rgba(139,92,246,0.15)",
+    borderColor: "rgba(139,92,246,0.25)",
+    iconSvg: `<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-violet-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" /></svg>`,
     features: [
-      "Diseño a medida de tu identidad",
-      "Formularios de contacto directos",
-      "Correos con dominio corporativo oficial"
-    ],
-    interactiveMockup: "corporate",
-    waQuery: "Hola Hernán, necesito una web institucional para mi empresa o estudio."
+      "Optimización rigurosa de Core Web Vitals",
+      "Llamados a la acción persuasivos y testeados",
+      "Medición de eventos y analítica integrada"
+    ]
   },
   {
-    colSpan: "lg:col-span-8",
-    tag: "ZONA NORTE & GOOGLE MAPS",
-    title: "SEO local: aparecé cuando busquen lo que vendés",
-    desc: "Optimizamos el código con metadatos estructurados para Tortuguitas, Pilar, San Miguel y Zona Norte. Vinculamos tu página a tu ficha de Google Maps para atraer clientes en tu radio geográfico sin depender de pagar publicidad todo el tiempo.",
+    title: "SEO local & posicionamiento en Google",
+    desc: "Optimizamos el código con datos estructurados para Tortuguitas, Pilar, San Miguel y Zona Norte. Vinculamos tu página a Google Maps para captar clientes en tu zona.",
+    iconColor: "rgba(20,184,166,0.15)",
+    borderColor: "rgba(20,184,166,0.25)",
+    iconSvg: `<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-teal-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0z" /></svg>`,
     features: [
       "Indexación técnica en Google Search Console",
-      "Etiquetas georreferenciadas de Zona Norte (Schema.org)",
-      "Atracción de clientes locales cercanos a tu negocio"
-    ],
-    interactiveMockup: "seo",
-    waQuery: "Hola Hernán, me gustaría optimizar mi web con SEO local para Zona Norte."
+      "Etiquetas Schema.org georreferenciadas",
+      "Clientes locales sin depender de pagar pauta fija"
+    ]
+  }
+];
+
+const processSteps = [
+  {
+    num: "01",
+    title: "Entender",
+    desc: "Analizamos el problema, el contexto comercial y los objetivos antes de escribir una sola línea de código."
+  },
+  {
+    num: "02",
+    title: "Diseñar",
+    desc: "Definimos la arquitectura, el alcance y la experiencia de usuario con foco en velocidad y simplicidad."
+  },
+  {
+    num: "03",
+    title: "Construir",
+    desc: "Desarrollamos con tecnologías modernas, buenas prácticas y entregas incrementales que podés probar."
+  },
+  {
+    num: "04",
+    title: "Iterar",
+    desc: "Medimos, ajustamos y mejoramos. Un producto no termina en el deploy: evoluciona con datos y feedback."
   }
 ];
 ---
 
-<section id="servicios" class="py-20 md:py-28 border-t border-white/[0.08] relative">
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<section id="servicios" class="section relative overflow-hidden py-20 md:py-28 border-t border-white/[0.06]">
+  <div class="container-safe">
     
-    <!-- Section Header -->
-    <div class="flex flex-col md:flex-row md:items-end justify-between mb-14 sm:mb-20 gap-6">
-      <div class="space-y-2">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-900 border border-white/10 font-mono text-[11px] tracking-wider uppercase text-zinc-400">
-          <span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>
-          <span>Servicios orientados a resultados</span>
-        </div>
-        <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tightest">
-          Soluciones de desarrollo a medida
-        </h2>
-      </div>
-      <p class="text-sm text-zinc-300 max-w-md font-normal leading-relaxed">
-        Soluciones prácticas para problemas comerciales: velocidad de carga, experiencia en celulares y canales directos de compra sin comisiones.
+    <!-- Services Header -->
+    <div data-reveal class="text-center max-w-2xl mx-auto mb-14 sm:mb-16">
+      <div class="section-line w-16 mx-auto mb-6 rounded-full"></div>
+      <h2 class="text-3xl sm:text-4xl font-semibold text-white tracking-tight">
+        Qué hago
+      </h2>
+      <p class="mt-4 text-slate-400 text-sm sm:text-base leading-relaxed">
+        Soluciones prácticas para problemas reales: software rápido, catálogos digitales y código optimizado para producción.
       </p>
     </div>
 
-    <!-- Bento Grid Services with Visual Depth -->
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-5">
-      {services.map(s => {
-        const waLink = getWhatsAppLink(s.waQuery);
-        return (
-          <div class={`card-depth p-7 sm:p-9 flex flex-col justify-between ${s.colSpan} relative overflow-hidden group`}>
-            
-            <!-- Glow on hover -->
-            <div class="absolute top-0 right-0 w-64 h-64 bg-emerald-500/5 rounded-full blur-3xl group-hover:bg-emerald-500/10 transition-colors pointer-events-none"></div>
+    <!-- Services Grid (MateLabs Cards) -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto mb-24">
+      {services.map((s, idx) => (
+        <div data-reveal class="card card-hover group flex flex-col justify-between" style={`transition-delay: ${idx * 80}ms;`}>
+          <div>
+            <!-- Icon -->
+            <div 
+              class="card-icon w-12 h-12 rounded-xl flex items-center justify-center mb-5"
+              style={`background: linear-gradient(135deg, ${s.iconColor}, transparent); border: 1px solid ${s.borderColor};`}
+              set:html={s.iconSvg}
+            />
 
-            <div>
-              <div class="flex items-center justify-between mb-3">
-                <span class="font-mono text-[11px] text-zinc-400 tracking-wider uppercase">
-                  {s.tag}
-                </span>
-                <span class="w-2 h-2 rounded-full bg-zinc-700 group-hover:bg-emerald-400 transition-colors"></span>
-              </div>
+            <h3 class="text-lg font-semibold text-white mb-2.5">
+              {s.title}
+            </h3>
 
-              <h3 class="text-xl sm:text-2xl font-bold text-white tracking-tight mb-3">
-                {s.title}
-              </h3>
+            <p class="text-sm text-slate-400 leading-relaxed mb-5">
+              {s.desc}
+            </p>
 
-              <p class="text-xs sm:text-sm text-zinc-300 leading-relaxed mb-6 font-normal">
-                {s.desc}
-              </p>
-
-              <!-- Feature Bullets with Checkmarks -->
-              <div class="space-y-2.5 mb-8">
-                {s.features.map(f => (
-                  <div class="flex items-start gap-2.5 text-xs text-zinc-300">
-                    <svg class="w-4 h-4 text-emerald-400 flex-shrink-0 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
-                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                    </svg>
-                    <span>{f}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <!-- Bottom CTA with depth -->
-            <div class="pt-5 border-t border-white/[0.08] flex items-center justify-between">
-              <a 
-                href={waLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                class="inline-flex items-center gap-2 text-xs font-semibold text-white hover:text-emerald-400 transition-colors"
-              >
-                <span>Consultar por este servicio</span>
-                <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M5 12h14M12 5l7 7-7 7"/>
-                </svg>
-              </a>
-            </div>
-
+            <!-- Features -->
+            <ul class="space-y-2 mb-6">
+              {s.features.map(f => (
+                <li class="flex items-center gap-2 text-xs text-slate-300">
+                  <span class="w-1.5 h-1.5 rounded-full bg-teal-400 flex-shrink-0"></span>
+                  <span>{f}</span>
+                </li>
+              ))}
+            </ul>
           </div>
-        );
-      })}
+
+          <div class="pt-4 border-t border-white/[0.06] flex items-center justify-between">
+            <a 
+              href="#contacto" 
+              class="inline-flex items-center gap-1.5 text-xs font-semibold text-teal-400 hover:text-teal-300 transition-colors"
+            >
+              <span>Consultar por este servicio</span>
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Process Section ("Cómo trabajamos" like MateLabs) -->
+    <div id="proceso" class="pt-10">
+      <div data-reveal class="text-center max-w-2xl mx-auto mb-14">
+        <div class="section-line w-16 mx-auto mb-6 rounded-full"></div>
+        <h2 class="text-3xl sm:text-4xl font-semibold text-white tracking-tight">
+          Cómo trabajo
+        </h2>
+        <p class="mt-4 text-slate-400 text-sm sm:text-base leading-relaxed">
+          Un proceso claro y transparente, enfocado en entregar valor real lo antes posible.
+        </p>
+      </div>
+
+      <!-- Process Steps Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
+        {processSteps.map((step, idx) => (
+          <div data-reveal class="card card-hover flex flex-col justify-start relative p-6" style={`transition-delay: ${idx * 100}ms;`}>
+            <div class="mb-4">
+              <span class="text-2xl sm:text-3xl font-bold text-transparent bg-clip-text" style="background-image: linear-gradient(135deg, #14b8a6, #22d3ee, #8b5cf6);">
+                {step.num}
+              </span>
+            </div>
+            <h3 class="text-base font-semibold text-white mb-2">
+              {step.title}
+            </h3>
+            <p class="text-xs sm:text-sm text-slate-400 leading-relaxed font-normal">
+              {step.desc}
+            </p>
+          </div>
+        ))}
+      </div>
     </div>
 
   </div>

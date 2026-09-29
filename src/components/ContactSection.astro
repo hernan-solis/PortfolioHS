@@ -1,162 +1,153 @@
 ---
-import { SITE_CONFIG, getWhatsAppLink } from '../data/siteConfig';
-
-const contactDirectWa = getWhatsAppLink("Hola Hernán, quiero consultarte por el desarrollo de una web para mi negocio.");
+import { SITE_CONFIG } from '../data/siteConfig';
 ---
 
-<section id="contacto" class="py-20 md:py-28 border-t border-white/[0.08] relative">
+<section id="contacto" class="section relative overflow-hidden py-20 md:py-28 border-t border-white/[0.06]">
   
-  <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-emerald-500/10 rounded-full blur-[140px] pointer-events-none -z-10"></div>
+  <!-- Ambient glows -->
+  <div class="bg-orb w-[400px] h-[400px] -bottom-20 -right-20 bg-teal-500/[0.06]" style="animation-delay: 4s;"></div>
+  <div class="bg-orb w-[300px] h-[300px] -top-10 -left-20 bg-violet-500/[0.05]" style="animation-delay: 7s;"></div>
 
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-    
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+  <div class="container-safe relative z-10">
+    <div class="max-w-3xl mx-auto">
       
-      <!-- Left Column: Context & Fast Action (5 cols) -->
-      <div class="lg:col-span-5 space-y-6">
-        <div>
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-900 border border-white/10 font-mono text-[11px] tracking-wider uppercase text-zinc-400 mb-3">
-            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
-            <span>Contacto directo</span>
+      <div data-reveal class="card text-center py-10 px-6 sm:px-12 relative overflow-hidden" style="background: linear-gradient(135deg, rgba(20,184,166,0.06), rgba(34,211,238,0.03) 40%, rgba(139,92,246,0.05)); border-color: rgba(20,184,166,0.2); box-shadow: 0 8px 40px rgba(0,0,0,0.5), 0 0 60px rgba(20,184,166,0.06);">
+        
+        <!-- Background radial glow -->
+        <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+          <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[400px] h-[200px] rounded-full" style="background: radial-gradient(ellipse, rgba(20,184,166,0.1) 0%, transparent 70%);"></div>
+        </div>
+
+        <div class="relative z-10">
+          
+          <!-- Monogram Badge -->
+          <div class="w-12 h-12 mx-auto mb-4 rounded-xl bg-slate-900/90 border border-teal-500/30 flex items-center justify-center font-mono font-bold text-sm text-teal-300 shadow-[0_0_16px_rgba(20,184,166,0.2)]">
+            HS
           </div>
-          <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tightest mb-3">
-            Hablemos de tu proyecto
+
+          <h2 class="text-3xl sm:text-4xl font-semibold text-white tracking-tight">
+            ¿Tenés un proyecto en mente?
           </h2>
-          <p class="text-xs sm:text-sm text-zinc-300 leading-relaxed font-normal">
-            Escribime por WhatsApp para una respuesta inmediata o completá el formulario para recibir una propuesta en tu correo electrónico.
-          </p>
-        </div>
 
-        <!-- WhatsApp Card with Rich Depth & Glow -->
-        <div class="card-glow-emerald p-7">
-          <div class="flex items-center gap-2 mb-3">
-            <span class="radar-pulse w-2 h-2">
-              <span class="radar-pulse-ring"></span>
-              <span class="radar-pulse-core"></span>
-            </span>
-            <span class="text-xs font-mono text-emerald-300 font-semibold">Respuesta inmediata</span>
-          </div>
-          
-          <h3 class="text-xl font-bold text-white mb-2">WhatsApp Directo</h3>
-          <p class="text-xs text-zinc-300 leading-relaxed mb-6">
-            La forma más ágil de coordinar. Podés enviarme fotos de tus productos, links de tus redes o las dudas que tengas para darte una devolución en el momento.
-          </p>
-          
-          <a 
-            href={contactDirectWa}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="btn-juicy w-full inline-flex items-center justify-center gap-2.5 py-4 rounded-xl font-bold text-sm tracking-tight shadow-whatsapp"
-          >
-            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
-              <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
-            </svg>
-            <span>Iniciar chat de WhatsApp</span>
-          </a>
-        </div>
-
-        <!-- Details Strip -->
-        <div class="space-y-2.5 text-xs">
-          <div class="flex items-center justify-between p-3.5 rounded-xl bg-zinc-950/80 border border-white/[0.08]">
-            <span class="text-zinc-500 font-mono">Email:</span>
-            <a href={`mailto:${SITE_CONFIG.email}`} class="text-zinc-200 hover:text-white font-medium">
-              {SITE_CONFIG.email}
-            </a>
-          </div>
-          <div class="flex items-center justify-between p-3.5 rounded-xl bg-zinc-950/80 border border-white/[0.08]">
-            <span class="text-zinc-500 font-mono">Ubicación:</span>
-            <span class="text-zinc-300">Tortuguitas, Buenos Aires</span>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- Right Column: Tactile Form (7 cols) -->
-      <div class="lg:col-span-7">
-        <div class="card-depth p-7 sm:p-9 shadow-2xl">
-          <h3 class="text-lg font-bold text-white mb-1">
-            Enviar consulta por formulario
-          </h3>
-          <p class="text-xs text-zinc-400 mb-6">
-            Detallá los aspectos de tu negocio y te respondo con una propuesta técnica.
+          <p class="mt-3 text-slate-400 max-w-lg mx-auto text-sm sm:text-base leading-relaxed">
+            Contame qué querés construir y vemos cómo hacerlo realidad. Respuesta directa por correo electrónico.
           </p>
 
-          <form action={SITE_CONFIG.formspreeEndpoint} method="POST" class="space-y-4">
+          <!-- Contact Form -->
+          <form id="contact-form" action={SITE_CONFIG.formspreeEndpoint} method="POST" class="mt-8 max-w-md mx-auto space-y-4 text-left">
             
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label for="nombre" class="block text-[11px] font-mono uppercase tracking-wider text-zinc-400 mb-2">
-                  Nombre o comercio *
+                <label for="contact-name" class="block text-xs font-medium text-slate-300 mb-1.5">
+                  Nombre
                 </label>
                 <input 
                   type="text" 
-                  id="nombre" 
+                  id="contact-name" 
                   name="Nombre" 
                   required 
-                  placeholder="Ej: Tienda Boutique / Carlos" 
-                  class="w-full px-4 py-3 rounded-xl bg-zinc-950 border border-white/10 text-white placeholder-zinc-600 text-xs focus:outline-none focus:border-emerald-500/80 transition-colors shadow-inner"
+                  class="w-full px-4 py-2.5 bg-slate-900/80 border border-slate-700/80 rounded-lg text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-teal-500/50 focus:border-teal-500 transition-all duration-200" 
+                  placeholder="Tu nombre o empresa"
                 />
               </div>
 
               <div>
-                <label for="telefono" class="block text-[11px] font-mono uppercase tracking-wider text-zinc-400 mb-2">
-                  Teléfono / WhatsApp *
+                <label for="contact-email" class="block text-xs font-medium text-slate-300 mb-1.5">
+                  Correo electrónico
                 </label>
                 <input 
-                  type="tel" 
-                  id="telefono" 
-                  name="WhatsApp" 
+                  type="email" 
+                  id="contact-email" 
+                  name="Email" 
                   required 
-                  placeholder="Ej: 11 2345-6789" 
-                  class="w-full px-4 py-3 rounded-xl bg-zinc-950 border border-white/10 text-white placeholder-zinc-600 text-xs focus:outline-none focus:border-emerald-500/80 transition-colors shadow-inner"
+                  class="w-full px-4 py-2.5 bg-slate-900/80 border border-slate-700/80 rounded-lg text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-teal-500/50 focus:border-teal-500 transition-all duration-200" 
+                  placeholder="tu@email.com"
                 />
               </div>
             </div>
 
             <div>
-              <label for="email" class="block text-[11px] font-mono uppercase tracking-wider text-zinc-400 mb-2">
-                Correo electrónico *
-              </label>
-              <input 
-                type="email" 
-                id="email" 
-                name="Email" 
-                required 
-                placeholder="nombre@tudominio.com" 
-                class="w-full px-4 py-3 rounded-xl bg-zinc-950 border border-white/10 text-white placeholder-zinc-600 text-xs focus:outline-none focus:border-emerald-500/80 transition-colors shadow-inner"
-              />
-            </div>
-
-            <div>
-              <label for="mensaje" class="block text-[11px] font-mono uppercase tracking-wider text-zinc-400 mb-2">
-                Detalles del proyecto o consulta *
+              <label for="contact-message" class="block text-xs font-medium text-slate-300 mb-1.5">
+                Mensaje
               </label>
               <textarea 
-                id="mensaje" 
+                id="contact-message" 
                 name="Mensaje" 
                 rows="4" 
                 required 
-                placeholder="Contame qué productos o servicios comercializás, si tenés web previa y qué objetivo buscás..." 
-                class="w-full px-4 py-3 rounded-xl bg-zinc-950 border border-white/10 text-white placeholder-zinc-600 text-xs focus:outline-none focus:border-emerald-500/80 transition-colors resize-none shadow-inner"
+                class="w-full px-4 py-2.5 bg-slate-900/80 border border-slate-700/80 rounded-lg text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-teal-500/50 focus:border-teal-500 transition-all duration-200 resize-none" 
+                placeholder="Contame sobre tu proyecto o idea..."
               ></textarea>
             </div>
 
             <button 
               type="submit" 
-              class="w-full py-4 rounded-xl bg-zinc-100 hover:bg-white text-zinc-950 font-bold text-xs sm:text-sm tracking-tight transition-all duration-200 shadow-md"
+              id="contact-submit" 
+              class="btn btn-primary btn-lg w-full group"
             >
-              Enviar mensaje
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mr-2 transition-transform duration-200 group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5" />
+              </svg>
+              <span>Enviar mensaje</span>
             </button>
 
-            <p class="text-[10px] font-mono text-zinc-500 text-center">
-              Datos protegidos para uso exclusivo de contacto profesional.
-            </p>
-
+            <p id="contact-status" class="hidden text-sm text-center pt-2 font-medium"></p>
           </form>
+
+          <p class="mt-8 text-xs text-slate-500">
+            <span>También podés escribirme directamente a</span>
+            <a 
+              href={`mailto:${SITE_CONFIG.email}`} 
+              class="text-teal-400 hover:text-teal-300 font-medium hover:underline transition-colors ml-1"
+            >
+              {SITE_CONFIG.email}
+            </a>
+          </p>
+
         </div>
       </div>
 
     </div>
-
   </div>
 </section>
+
+<script>
+  const form = document.getElementById('contact-form') as HTMLFormElement;
+  const status = document.getElementById('contact-status');
+  const submitBtn = document.getElementById('contact-submit') as HTMLButtonElement;
+
+  if (form && status && submitBtn) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      submitBtn.disabled = true;
+      const originalText = submitBtn.innerHTML;
+      submitBtn.innerHTML = `<span>Enviando...</span>`;
+
+      const data = new FormData(form);
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: data,
+          headers: {
+            'Accept': 'application/json'
+          }
+        });
+
+        if (response.ok) {
+          form.reset();
+          status.textContent = "¡Mensaje enviado con éxito! Te responderé a la brevedad.";
+          status.className = "text-sm text-center pt-2 font-medium text-teal-400 block";
+        } else {
+          status.textContent = "Hubo un error al enviar el formulario. Por favor escribime a hernansolis94@icloud.com";
+          status.className = "text-sm text-center pt-2 font-medium text-rose-400 block";
+        }
+      } catch (err) {
+        status.textContent = "Hubo un error de conexión. Por favor escribime a hernansolis94@icloud.com";
+        status.className = "text-sm text-center pt-2 font-medium text-rose-400 block";
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalText;
+      }
+    });
+  }
+</script>

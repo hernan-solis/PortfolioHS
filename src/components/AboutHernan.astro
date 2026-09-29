@@ -1,16 +1,15 @@
 ---
-import { SITE_CONFIG, getWhatsAppLink } from '../data/siteConfig';
-
-const aboutWa = getWhatsAppLink("Hola Hernán, leí tu perfil en la web y me gustaría conversar sobre un proyecto.");
+import { SITE_CONFIG } from '../data/siteConfig';
 ---
 
-<section id="sobre-mi" class="py-20 md:py-28 border-t border-white/[0.08] relative">
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<section id="sobre-mi" class="section relative overflow-hidden py-20 md:py-28 border-t border-white/[0.06]">
+  <div class="container-safe">
     
-    <div class="card-depth p-8 sm:p-12 relative overflow-hidden">
+    <div data-reveal class="card p-8 sm:p-12 relative overflow-hidden max-w-5xl mx-auto">
       
       <!-- Subtle internal ambient light -->
-      <div class="absolute -top-20 -right-20 w-80 h-80 bg-emerald-500/10 rounded-full blur-[100px] pointer-events-none"></div>
+      <div class="absolute -top-20 -right-20 w-80 h-80 bg-teal-500/[0.06] rounded-full blur-[100px] pointer-events-none"></div>
+      <div class="absolute -bottom-20 -left-20 w-80 h-80 bg-violet-500/[0.04] rounded-full blur-[100px] pointer-events-none"></div>
 
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
         
@@ -18,8 +17,8 @@ const aboutWa = getWhatsAppLink("Hola Hernán, leí tu perfil en la web y me gus
         <div class="lg:col-span-4 flex flex-col items-center sm:items-start text-center sm:text-left">
           
           <div class="relative mb-5 group">
-            <div class="absolute -inset-1.5 bg-gradient-to-tr from-emerald-500/30 to-cyan-500/30 rounded-3xl blur-md opacity-75 group-hover:opacity-100 transition-opacity"></div>
-            <div class="relative w-40 h-40 sm:w-48 sm:h-48 rounded-2xl overflow-hidden border border-white/20 bg-zinc-950 shadow-2xl">
+            <div class="absolute -inset-1.5 bg-gradient-to-tr from-teal-500/20 to-cyan-500/20 rounded-3xl blur-md opacity-75 group-hover:opacity-100 transition-opacity"></div>
+            <div class="relative w-40 h-40 sm:w-44 sm:h-44 rounded-2xl overflow-hidden border border-white/20 bg-slate-950 shadow-2xl">
               <img 
                 src="/assets/img/imgFotoPerfilEditado_websize.jpg" 
                 alt="Hernán Solís - Desarrollador Web" 
@@ -29,20 +28,17 @@ const aboutWa = getWhatsAppLink("Hola Hernán, leí tu perfil en la web y me gus
               />
             </div>
             
-            <div class="absolute -bottom-3 left-1/2 -translate-x-1/2 z-20 px-3 py-1 rounded-full bg-zinc-950 border border-emerald-500/50 text-[10px] font-mono text-emerald-300 font-bold whitespace-nowrap shadow-lg flex items-center gap-1.5">
-              <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+            <div class="absolute -bottom-3 left-1/2 -translate-x-1/2 z-20 px-3 py-1 rounded-full bg-slate-950 border border-teal-500/40 text-[10px] font-mono text-teal-300 font-bold whitespace-nowrap shadow-lg flex items-center gap-1.5">
+              <span class="w-1.5 h-1.5 rounded-full bg-teal-400"></span>
               <span>UTN Programación</span>
             </div>
           </div>
 
           <h3 class="text-2xl font-bold text-white tracking-tight mt-2">Hernán Abel Solís</h3>
-          <p class="text-xs font-mono text-emerald-400 mt-0.5">Programador & Desarrollador Web</p>
+          <p class="text-xs font-mono text-teal-400 mt-0.5">Programador & Desarrollador Web</p>
           
-          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-zinc-900 border border-white/10 text-xs font-mono text-zinc-300 mt-4">
-            <span class="radar-pulse w-2 h-2">
-              <span class="radar-pulse-ring"></span>
-              <span class="radar-pulse-core"></span>
-            </span>
+          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/[0.04] border border-white/10 text-xs font-mono text-slate-300 mt-4">
+            <span class="w-2 h-2 rounded-full bg-teal-400"></span>
             <span>Tortuguitas, Buenos Aires</span>
           </div>
 
@@ -51,7 +47,7 @@ const aboutWa = getWhatsAppLink("Hola Hernán, leí tu perfil en la web y me gus
               href={SITE_CONFIG.linkedin} 
               target="_blank" 
               rel="noopener noreferrer" 
-              class="px-3.5 py-1.5 rounded-lg bg-zinc-900 border border-white/10 text-xs text-zinc-300 hover:text-white hover:border-white/20 transition-all font-mono"
+              class="px-3.5 py-1.5 rounded-lg bg-white/[0.04] border border-white/10 text-xs text-slate-300 hover:text-white hover:border-white/20 transition-all font-mono"
             >
               LinkedIn ↗
             </a>
@@ -59,7 +55,7 @@ const aboutWa = getWhatsAppLink("Hola Hernán, leí tu perfil en la web y me gus
               href={SITE_CONFIG.github} 
               target="_blank" 
               rel="noopener noreferrer" 
-              class="px-3.5 py-1.5 rounded-lg bg-zinc-900 border border-white/10 text-xs text-zinc-300 hover:text-white hover:border-white/20 transition-all font-mono"
+              class="px-3.5 py-1.5 rounded-lg bg-white/[0.04] border border-white/10 text-xs text-slate-300 hover:text-white hover:border-white/20 transition-all font-mono"
             >
               GitHub ↗
             </a>
@@ -69,40 +65,40 @@ const aboutWa = getWhatsAppLink("Hola Hernán, leí tu perfil en la web y me gus
         <!-- Right Column: Narrative & Values (8 cols) -->
         <div class="lg:col-span-8 flex flex-col justify-between space-y-6">
           <div>
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-900 border border-white/10 font-mono text-[11px] tracking-wider uppercase text-zinc-400 mb-3">
-              <span>03 // Sobre mí</span>
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-white/10 font-mono text-[11px] tracking-wider uppercase text-slate-400 mb-3">
+              <span>Sobre mí</span>
             </div>
             
-            <h2 class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
-              Desarrollo con criterio técnico y trato personal directo.
+            <h2 class="text-2xl sm:text-3xl font-semibold text-white tracking-tight">
+              Criterio técnico de producto y trato directo.
             </h2>
 
-            <div class="space-y-4 text-xs sm:text-sm text-zinc-300 leading-relaxed font-normal mt-4">
+            <div class="space-y-4 text-sm text-slate-400 leading-relaxed font-normal mt-4">
               <p>
                 Vivo en <strong class="text-white">Tortuguitas</strong> y estudio la <strong class="text-white">Tecnicatura Universitaria en Programación en la Universidad Tecnológica Nacional (UTN)</strong>.
               </p>
               <p>
-                Mi formación abarca tanto el desarrollo de software y backend (C#, .NET, bases de datos relacionales) como interfaces modernas de alta velocidad con Astro y Tailwind CSS. Esto asegura que tu sitio web no sea una plantilla inflada con plugins lentos que se caen en fechas clave: está programado desde cero con arquitectura limpia, rápida y segura.
+                Mi perfil combina formación en backend y lógica de software (C#, .NET, bases de datos SQL) con diseño moderno de interfaces web de alto rendimiento usando Astro y Tailwind CSS. Esto asegura que tu sitio web no sea una plantilla genérica con plugins pesados: está programado desde cero con arquitectura limpia, rápida y segura.
               </p>
               <p>
-                Trabajo codo a codo con comercios y profesionales de Zona Norte. Podés escribirme en cualquier momento por WhatsApp para coordinar dudas, reuniones o cambios, con la tranquilidad de tratar siempre directamente con quien escribe el código de tu página.
+                Trabajo codo a codo con clientes y empresas. Podés escribirme en cualquier momento por correo electrónico para coordinar dudas, reuniones o propuestas técnicas, con la tranquilidad de tratar siempre directamente con quien escribe el código.
               </p>
             </div>
           </div>
 
-          <!-- Bottom Pillars with Depth -->
+          <!-- Bottom Pillars -->
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-6 border-t border-white/[0.08]">
-            <div class="p-4 rounded-xl bg-zinc-950/80 border border-white/[0.06]">
-              <div class="font-mono text-xs text-emerald-400 font-bold mb-1">⏱️ Plazos Claros</div>
-              <p class="text-[11px] text-zinc-400">Tiempos pactados de antemano y entregas por etapas para que pruebes los avances en tu celular.</p>
+            <div class="p-4 rounded-xl bg-slate-950/60 border border-white/[0.06]">
+              <div class="font-mono text-xs text-teal-400 font-bold mb-1">⏱️ Plazos Claros</div>
+              <p class="text-xs text-slate-400">Tiempos pactados y entregas por etapas para que pruebes los avances en tu celular.</p>
             </div>
-            <div class="p-4 rounded-xl bg-zinc-950/80 border border-white/[0.06]">
+            <div class="p-4 rounded-xl bg-slate-950/60 border border-white/[0.06]">
               <div class="font-mono text-xs text-cyan-400 font-bold mb-1">🔒 100% de tu Propiedad</div>
-              <p class="text-[11px] text-zinc-400">El sitio web y el dominio son totalmente tuyos. Sin mensualidades cautivas ni dependencias.</p>
+              <p class="text-xs text-slate-400">El sitio web y el código son totalmente tuyos. Sin mensualidades cautivas ni dependencias.</p>
             </div>
-            <div class="p-4 rounded-xl bg-zinc-950/80 border border-white/[0.06]">
-              <div class="font-mono text-xs text-white font-bold mb-1">🤝 Trato de Confianza</div>
-              <p class="text-[11px] text-zinc-400">Atención en tu misma zona y disponibilidad para coordinar reuniones en Zona Norte.</p>
+            <div class="p-4 rounded-xl bg-slate-950/60 border border-white/[0.06]">
+              <div class="font-mono text-xs text-violet-400 font-bold mb-1">🤝 Trato Directo</div>
+              <p class="text-xs text-slate-400">Comunicación transparente y soporte personalizado sin intermediarios.</p>
             </div>
           </div>
 

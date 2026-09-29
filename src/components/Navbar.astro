@@ -1,93 +1,83 @@
 ---
-import { SITE_CONFIG, getWhatsAppLink } from '../data/siteConfig';
-
-const defaultWaLink = getWhatsAppLink("Hola Hernán, vi tu web y me gustaría consultarte por el desarrollo de un sitio web.");
+import { SITE_CONFIG } from '../data/siteConfig';
 ---
 
-<header class="sticky top-0 z-50 w-full backdrop-blur-md bg-canvas/80 border-b border-white/[0.06] transition-all">
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex items-center justify-between h-16 sm:h-20">
-      
-      <!-- Logo / Monogram -->
-      <a href="/" class="flex items-center gap-3 group">
-        <div class="w-8 h-8 rounded-lg bg-zinc-900 border border-white/10 flex items-center justify-center font-mono font-bold text-xs text-white group-hover:border-zinc-500 transition-colors">
-          HS
-        </div>
-        <div class="flex flex-col">
-          <span class="font-semibold text-zinc-100 text-sm tracking-tight group-hover:text-white transition-colors">
-            Hernán Solís
-          </span>
-          <span class="text-[11px] font-mono text-zinc-400">
-            Tortuguitas • Zona Norte
-          </span>
-        </div>
-      </a>
+<header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 backdrop-blur-xl bg-[#030712]/85 border-b border-white/[0.06]">
+  <div class="container-safe flex items-center justify-between h-16 sm:h-20 transition-all duration-300">
+    
+    <!-- Logo / Monogram -->
+    <a href="/" class="flex items-center gap-3 group">
+      <div class="w-8 h-8 rounded-lg bg-slate-900/90 border border-teal-500/30 flex items-center justify-center font-mono font-bold text-xs text-teal-300 group-hover:border-teal-400/60 transition-colors shadow-[0_0_12px_rgba(20,184,166,0.25)]">
+        HS
+      </div>
+      <div class="flex flex-col">
+        <span class="text-base sm:text-lg font-bold tracking-tight text-transparent bg-clip-text" style="background-image: linear-gradient(90deg, #14b8a6, #22d3ee, #8b5cf6);">
+          Hernán Solís
+        </span>
+        <span class="text-[10px] font-mono text-slate-400 hidden sm:block">
+          Tortuguitas • Zona Norte
+        </span>
+      </div>
+    </a>
 
-      <!-- Desktop Nav -->
-      <nav class="hidden md:flex items-center gap-7 text-xs font-medium text-zinc-400">
-        <a href="#proyectos" class="hover:text-white transition-colors">Proyectos</a>
-        <a href="#servicios" class="hover:text-white transition-colors">Servicios</a>
-        <a href="#sobre-mi" class="hover:text-white transition-colors">Sobre mí</a>
-        <a href="#cotizador" class="hover:text-white transition-colors">Cotizador</a>
-        <a href="#faq" class="hover:text-white transition-colors">Preguntas</a>
-      </nav>
+    <!-- Desktop Nav Links -->
+    <nav class="hidden md:flex items-center gap-7">
+      <a href="#proyectos" class="nav-link">Proyectos</a>
+      <a href="#servicios" class="nav-link">Servicios</a>
+      <a href="#proceso" class="nav-link">Proceso</a>
+      <a href="#sobre-mi" class="nav-link">Sobre mí</a>
+      <a href="#cotizador" class="nav-link">Cotizador</a>
+      <a href="#faq" class="nav-link">Preguntas</a>
+    </nav>
 
-      <!-- Availability & CTA -->
-      <div class="hidden sm:flex items-center gap-4">
-        <div class="flex items-center gap-2 text-[11px] font-mono text-zinc-400 bg-zinc-900/80 px-3 py-1.5 rounded-full border border-white/[0.08]">
-          <span class="status-dot"></span>
-          <span>Disponible</span>
-        </div>
-
-        <a 
-          href={defaultWaLink}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-zinc-100 hover:bg-white text-zinc-950 font-semibold text-xs tracking-tight transition-all duration-200"
-        >
-          <span>Escribir por WhatsApp</span>
-          <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M5 12h14M12 5l7 7-7 7"/>
-          </svg>
-        </a>
+    <!-- Availability & CTA -->
+    <div class="flex items-center gap-3">
+      <div class="hidden lg:flex items-center gap-2 text-[11px] font-mono text-slate-400 bg-white/[0.04] px-3 py-1.5 rounded-full border border-white/[0.06]">
+        <span class="w-2 h-2 rounded-full bg-teal-400 animate-pulse"></span>
+        <span>Disponible</span>
       </div>
 
-      <!-- Mobile Menu Toggle -->
+      <a 
+        href="#contacto" 
+        class="btn btn-primary btn-sm group"
+      >
+        <span>Contactar</span>
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 ml-1.5 transition-transform duration-200 group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+        </svg>
+      </a>
+
+      <!-- Mobile Menu Button -->
       <button 
         id="mobile-nav-toggle"
-        class="sm:hidden p-2 rounded-lg text-zinc-400 hover:text-white hover:bg-zinc-900 border border-white/[0.06] transition-colors"
+        class="md:hidden p-2 rounded-lg text-slate-400 hover:text-white hover:bg-white/[0.06] border border-white/[0.06] transition-colors"
         aria-label="Abrir menú"
       >
-        <svg id="icon-menu" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24">
+        <svg id="icon-menu" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
         </svg>
-        <svg id="icon-close" class="w-5 h-5 hidden" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24">
+        <svg id="icon-close" class="w-5 h-5 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
         </svg>
       </button>
-
     </div>
+
   </div>
 
   <!-- Mobile Dropdown -->
-  <div id="mobile-menu" class="hidden sm:hidden border-t border-white/[0.06] bg-canvas/95 px-5 py-5 space-y-3 font-medium text-sm text-zinc-300">
-    <a href="#proyectos" class="block py-1.5 hover:text-white">Proyectos</a>
-    <a href="#servicios" class="block py-1.5 hover:text-white">Servicios</a>
-    <a href="#sobre-mi" class="block py-1.5 hover:text-white">Sobre mí</a>
-    <a href="#cotizador" class="block py-1.5 hover:text-white">Cotizador de proyecto</a>
-    <a href="#faq" class="block py-1.5 hover:text-white">Preguntas frecuentes</a>
-    <a href="#contacto" class="block py-1.5 hover:text-white">Contacto</a>
-    <div class="pt-3">
+  <div id="mobile-menu" class="hidden md:hidden border-t border-white/[0.06] bg-[#030712]/98 px-5 py-5 space-y-3 font-medium text-sm text-slate-300">
+    <a href="#proyectos" class="block py-2 px-3 rounded-lg hover:bg-white/[0.06] hover:text-white transition-colors">Proyectos</a>
+    <a href="#servicios" class="block py-2 px-3 rounded-lg hover:bg-white/[0.06] hover:text-white transition-colors">Servicios</a>
+    <a href="#proceso" class="block py-2 px-3 rounded-lg hover:bg-white/[0.06] hover:text-white transition-colors">Proceso</a>
+    <a href="#sobre-mi" class="block py-2 px-3 rounded-lg hover:bg-white/[0.06] hover:text-white transition-colors">Sobre mí</a>
+    <a href="#cotizador" class="block py-2 px-3 rounded-lg hover:bg-white/[0.06] hover:text-white transition-colors">Cotizador de proyecto</a>
+    <a href="#faq" class="block py-2 px-3 rounded-lg hover:bg-white/[0.06] hover:text-white transition-colors">Preguntas frecuentes</a>
+    <div class="pt-3 border-t border-white/[0.06]">
       <a 
-        href={defaultWaLink}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="w-full flex items-center justify-center gap-2 py-2.5 rounded-lg bg-zinc-100 text-zinc-950 font-semibold text-xs tracking-tight"
+        href="#contacto" 
+        class="btn btn-primary w-full py-2.5 text-center text-xs tracking-tight"
       >
-        <span>Escribir por WhatsApp</span>
-        <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M5 12h14M12 5l7 7-7 7"/>
-        </svg>
+        <span>Contactar por correo</span>
       </a>
     </div>
   </div>
