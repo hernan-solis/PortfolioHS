@@ -34,6 +34,6 @@ export const SITE_CONFIG: SiteConfig = {
   ],
   linkedin: "https://www.linkedin.com/in/hernan-solis/",
   github: "https://github.com/hernan-solis",
-  contactFormEndpoint: "https://formsubmit.co/ajax/hernansolis94@icloud.com",
-  formspreeEndpoint: "https://formsubmit.co/ajax/hernansolis94@icloud.com",
+  contactFormEndpoint: "https://formspree.io/f/mjkgbngy",
+  formspreeEndpoint: "https://formspree.io/f/mjkgbngy",
 };
