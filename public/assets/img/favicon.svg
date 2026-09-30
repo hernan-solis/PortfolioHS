@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="badgeBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#090d1a" />
+      <stop offset="100%" stop-color="#030712" />
+    </linearGradient>
+    <linearGradient id="badgeBorder" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2dd4bf" stop-opacity="0.9" />
+      <stop offset="60%" stop-color="#14b8a6" stop-opacity="0.6" />
+      <stop offset="100%" stop-color="#06b6d4" stop-opacity="0.4" />
+    </linearGradient>
+    <linearGradient id="textGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#5eead4" />
+      <stop offset="100%" stop-color="#2dd4bf" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background container with rounded corners and border -->
+  <rect x="3" y="3" width="58" height="58" rx="14" fill="url(#badgeBg)" stroke="url(#badgeBorder)" stroke-width="2.5" />
+
+  <!-- Monogram HS -->
+  <text 
+    x="32" 
+    y="34.5" 
+    font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace" 
+    font-size="27" 
+    font-weight="900" 
+    letter-spacing="-1px" 
+    fill="url(#textGrad)" 
+    text-anchor="middle" 
+    dominant-baseline="central"
+  >HS</text>
+</svg>
