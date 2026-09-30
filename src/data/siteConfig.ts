@@ -9,6 +9,7 @@ export interface SiteConfig {
   linkedin: string;
   github: string;
   formspreeEndpoint: string;
+  contactFormEndpoint: string;
 }
 
 export const SITE_CONFIG: SiteConfig = {
@@ -33,5 +34,6 @@ export const SITE_CONFIG: SiteConfig = {
   ],
   linkedin: "https://www.linkedin.com/in/hernan-solis/",
   github: "https://github.com/hernan-solis",
-  formspreeEndpoint: "https://formspree.io/f/mjkgbngy",
+  contactFormEndpoint: "https://formsubmit.co/ajax/hernansolis94@icloud.com",
+  formspreeEndpoint: "https://formsubmit.co/ajax/hernansolis94@icloud.com",
 };
