@@ -10,6 +10,7 @@ export interface SiteConfig {
   github: string;
   formspreeEndpoint: string;
   contactFormEndpoint: string;
+  web3formsKey: string;
 }
 
 export const SITE_CONFIG: SiteConfig = {
@@ -34,6 +35,7 @@ export const SITE_CONFIG: SiteConfig = {
   ],
   linkedin: "https://www.linkedin.com/in/hernan-solis/",
   github: "https://github.com/hernan-solis",
-  contactFormEndpoint: "https://formspree.io/f/mjkgbngy",
-  formspreeEndpoint: "https://formspree.io/f/mjkgbngy",
+  contactFormEndpoint: "https://api.web3forms.com/submit",
+  formspreeEndpoint: "https://api.web3forms.com/submit",
+  web3formsKey: "d9165ad4-1b24-475e-a2ec-b8ff2235a243",
 };

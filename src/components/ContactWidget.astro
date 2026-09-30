@@ -67,10 +67,15 @@ import { SITE_CONFIG } from '../data/siteConfig';
         <p id="widget-reply-text" class="text-xs text-slate-300 leading-relaxed"></p>
       </div>
 
-      <form id="widget-form" action={SITE_CONFIG.formspreeEndpoint} method="POST" class="flex flex-col gap-2.5">
+      <form id="widget-form" action={SITE_CONFIG.contactFormEndpoint} method="POST" class="flex flex-col gap-2.5">
+        <input type="hidden" name="access_key" value={SITE_CONFIG.web3formsKey} />
+        <input type="hidden" name="subject" value="Consulta rápida - Asistente Portfolio Hernán Solis" />
+        <input type="hidden" name="from_name" value="Portfolio Hernán Solis" />
+        <input type="checkbox" name="botcheck" class="hidden" style="display: none;" />
+
         <input 
           type="text" 
-          name="Nombre" 
+          name="name" 
           required 
           placeholder="Tu nombre" 
           class="w-full px-3 py-2 bg-white/[0.06] border border-white/10 rounded-lg text-xs text-white placeholder-slate-500 focus:outline-none focus:border-teal-400 transition-colors"
@@ -78,7 +83,7 @@ import { SITE_CONFIG } from '../data/siteConfig';
         
         <input 
           type="email" 
-          name="Email" 
+          name="email" 
           required 
           placeholder="tu@email.com" 
           class="w-full px-3 py-2 bg-white/[0.06] border border-white/10 rounded-lg text-xs text-white placeholder-slate-500 focus:outline-none focus:border-teal-400 transition-colors"
@@ -86,7 +91,7 @@ import { SITE_CONFIG } from '../data/siteConfig';
 
         <textarea 
           id="widget-message"
-          name="Mensaje" 
+          name="message" 
           rows="3" 
           required 
           placeholder="Contame detalles de lo que necesitás..." 
@@ -211,20 +216,26 @@ import { SITE_CONFIG } from '../data/siteConfig';
     submitBtn.innerHTML = `<span>Enviando...</span>`;
 
     const data = new FormData(form);
+    const json = JSON.stringify(Object.fromEntries(data));
+
     try {
       const response = await fetch(form.action, {
         method: 'POST',
-        body: data,
-        headers: { 'Accept': 'application/json' }
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: json
       });
+      const result = await response.json().catch(() => null);
 
-      if (response.ok) {
+      if (response.status === 200 && result && result.success) {
         form.reset();
         formView?.classList.add('hidden');
         successView?.classList.remove('hidden');
       } else {
         if (status) {
-          status.textContent = "Error al enviar. Por favor escribime a hernansolis94@icloud.com";
+          status.textContent = result?.message || "Error al enviar. Por favor escribime a hernansolis94@icloud.com";
           status.className = "text-xs text-rose-400 text-center block pt-1";
         }
       }
