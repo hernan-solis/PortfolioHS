@@ -1,6 +1,6 @@
-# Hernán Solís • Desarrollador Web & Soluciones Digitales
+# Hernán Solis • Desarrollador Web & Soluciones Digitales
 
-Landing page comercial de alta conversión y velocidad desarrollada para **Hernán Solís**, programador y desarrollador web radicado en Tortuguitas, Zona Norte (Gran Buenos Aires, Argentina).
+Landing page comercial de alta conversión y velocidad desarrollada para **Hernán Solis**, programador y desarrollador web radicado en Tortuguitas, Zona Norte (Gran Buenos Aires, Argentina).
 
 El sitio está enfocado en la **venta de servicios web y tiendas online para comercios locales, showrooms y profesionales**, destacando casos de éxito reales con integración a WhatsApp y optimización extrema para SEO local.
 

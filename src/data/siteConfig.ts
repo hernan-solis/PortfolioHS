@@ -12,7 +12,7 @@ export interface SiteConfig {
 }
 
 export const SITE_CONFIG: SiteConfig = {
-  name: "Hernán Solís",
+  name: "Hernán Solis",
   role: "Programador & Desarrollador Web",
   siteUrl: "https://hernansolis.com",
   email: "hernansolis94@icloud.com",

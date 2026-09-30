@@ -1,7 +1,7 @@
 {
   "name": "portfolio-hernan-solis",
   "version": "2.0.0",
-  "description": "Hernán Solís | Desarrollador Web y Programador en Tortuguitas y Zona Norte. Páginas web modernas, tiendas online y soluciones digitales para negocios y comercios.",
+  "description": "Hernán Solis | Desarrollador Web y Programador en Tortuguitas y Zona Norte. Páginas web modernas, tiendas online y soluciones digitales para negocios y comercios.",
   "type": "module",
   "scripts": {
     "dev": "ASTRO_TELEMETRY_DISABLED=1 astro dev --host 0.0.0.0 --port 3000",
