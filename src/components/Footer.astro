@@ -1,84 +1,50 @@
 ---
 import { SITE_CONFIG } from '../data/siteConfig';
+import { FEATURED_PROJECTS } from '../data/projects';
+
+const year = new Date().getFullYear();
 ---
 
-<footer class="border-t border-white/[0.06] pt-14 pb-10 text-slate-400 text-xs" style="background: rgba(3, 7, 18, 0.8);">
-  <div class="container-safe">
-    
-    <div class="grid grid-cols-1 md:grid-cols-12 gap-8 pb-10 border-b border-white/[0.06]">
-      
-      <!-- Brand & Location (5 cols) -->
-      <div class="md:col-span-5 space-y-3">
-        <a href="/" class="flex items-center gap-2.5 group">
-          <div class="w-7 h-7 rounded-lg bg-slate-900 border border-teal-500/30 flex items-center justify-center font-mono font-bold text-xs text-teal-300">
-            HS
-          </div>
-          <span class="text-base font-bold text-transparent bg-clip-text" style="background-image: linear-gradient(90deg, #14b8a6, #22d3ee, #8b5cf6);">
-            Hernán Solis
-          </span>
-        </a>
-        <p class="text-slate-400 text-xs leading-relaxed max-w-sm">
-          Desarrollo web a medida, plataformas SaaS y productos digitales orientados a resolver problemas comerciales reales.
-        </p>
-        <p class="font-mono text-[11px] text-slate-500">
-          Tortuguitas, Malvinas Argentinas, Zona Norte, Buenos Aires.
+<footer class="border-t border-line pt-16 md:pt-20 pb-10">
+  <div class="wrap">
+    <div class="grid gap-12 md:grid-cols-12">
+      <div class="md:col-span-5">
+        <a href="/" class="font-display text-xl">hernán<span class="accent">.</span>solis</a>
+        <p class="mt-4 text-sm text-muted leading-relaxed max-w-xs">
+          Diseño y desarrollo de páginas web a medida en Tortuguitas, Zona Norte, Buenos Aires.
         </p>
       </div>
 
-      <!-- Navigation (3 cols) -->
-      <div class="md:col-span-3 space-y-2">
-        <div class="font-mono text-[11px] uppercase tracking-wider text-slate-300 font-semibold mb-3">
-          Navegación
-        </div>
-        <ul class="space-y-2 text-slate-400">
-          <li><a href="#servicios" class="hover:text-white transition-colors">Servicios</a></li>
-          <li><a href="#proceso" class="hover:text-white transition-colors">Proceso</a></li>
-          <li><a href="#sobre-mi" class="hover:text-white transition-colors">Sobre mí</a></li>
-          <li><a href="#faq" class="hover:text-white transition-colors">Preguntas frecuentes</a></li>
-          <li><a href="/cvGenerador.html" class="hover:text-white transition-colors">CV Técnico (PDF)</a></li>
+      <nav class="md:col-span-3" aria-label="Secciones">
+        <p class="text-xs uppercase tracking-[0.14em] text-muted mb-4">Sitio</p>
+        <ul class="space-y-2.5 text-sm">
+          <li><a href="#trabajos" class="u-link">Trabajos</a></li>
+          <li><a href="#servicios" class="u-link">Servicios</a></li>
+          <li><a href="#proceso" class="u-link">Proceso</a></li>
+          <li><a href="#faq" class="u-link">Preguntas frecuentes</a></li>
+          <li><a href="/cvGenerador.html" class="u-link">CV técnico</a></li>
         </ul>
-      </div>
+      </nav>
 
-      <!-- Projects (4 cols) -->
-      <div class="md:col-span-4 space-y-2">
-        <div class="font-mono text-[11px] uppercase tracking-wider text-slate-300 font-semibold mb-3">
-          Casos en producción
-        </div>
-        <ul class="space-y-3 text-slate-400">
-          <li>
-            <a href="https://tuiphonezonanorte.com.ar" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors block group">
-              <span class="text-slate-200 font-medium group-hover:text-teal-400 transition-colors">tuiphonezonanorte.com.ar ↗</span>
-              <span class="block text-[11px] text-slate-500 mt-0.5">Boutique Apple y cotizador en tiempo real</span>
-            </a>
-          </li>
-          <li>
-            <a href="https://arielstefanazzi.com.ar" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors block group">
-              <span class="text-slate-200 font-medium group-hover:text-teal-400 transition-colors">arielstefanazzi.com.ar ↗</span>
-              <span class="block text-[11px] text-slate-500 mt-0.5">Plataforma institucional de licitaciones y trámites</span>
-            </a>
-          </li>
+      <div class="md:col-span-4">
+        <p class="text-xs uppercase tracking-[0.14em] text-muted mb-4">Sitios en línea</p>
+        <ul class="space-y-2.5 text-sm">
+          {FEATURED_PROJECTS.map((p) => (
+            <li>
+              <a href={p.url} target="_blank" rel="noopener noreferrer" class="u-link">{p.displayUrl} ↗</a>
+            </li>
+          ))}
         </ul>
-      </div>
-
-    </div>
-
-    <!-- Bottom credits -->
-    <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-[11px]">
-      <div class="text-slate-500">
-        © 2026 Hernán Solis. Todos los derechos reservados.
-      </div>
-      <div class="flex items-center gap-5">
-        <a href={SITE_CONFIG.linkedin} target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">
-          LinkedIn
-        </a>
-        <a href={SITE_CONFIG.github} target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">
-          GitHub
-        </a>
-        <a href={`mailto:${SITE_CONFIG.email}`} class="text-teal-400 hover:text-teal-300 transition-colors">
-          {SITE_CONFIG.email}
-        </a>
       </div>
     </div>
 
+    <div class="mt-16 pt-6 border-t border-line flex flex-col sm:flex-row gap-4 justify-between text-xs text-muted">
+      <p>© {year} {SITE_CONFIG.name}</p>
+      <div class="flex gap-6">
+        <a href={SITE_CONFIG.linkedin} target="_blank" rel="noopener noreferrer" class="u-link hover:text-fg">LinkedIn</a>
+        <a href={SITE_CONFIG.github} target="_blank" rel="noopener noreferrer" class="u-link hover:text-fg">GitHub</a>
+        <a href={`mailto:${SITE_CONFIG.email}`} class="u-link hover:text-fg">Email</a>
+      </div>
+    </div>
   </div>
 </footer>

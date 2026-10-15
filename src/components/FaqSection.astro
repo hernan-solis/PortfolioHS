@@ -1,58 +1,70 @@
 ---
 const faqs = [
   {
-    q: "¿Cuánto tiempo demora el desarrollo de una web o sistema?",
-    a: "Para un catálogo de productos o una landing page comercial, el plazo habitual es de entre 5 y 12 días corridos. Para sistemas a medida o plataformas más complejas, se define un cronograma por etapas para que puedas ir probando los avances en funcionamiento."
+    q: '¿Cuánto tarda en estar lista mi página web?',
+    a: 'Una landing o un catálogo de productos suele estar listo en 5 a 12 días corridos. Para sistemas a medida armamos un cronograma por etapas, así vas probando los avances en funcionamiento.',
   },
   {
-    q: "¿Tengo que pagar comisiones por las ventas que realice?",
-    a: "No. A diferencia de plataformas cerradas como Tiendanube o MercadoLibre, el sitio web es 100% de tu propiedad y no cobra comisiones por transacción. La totalidad de tus ingresos ingresa directamente a tu cuenta bancaria o billetera virtual."
+    q: '¿Tengo que pagar comisiones por las ventas?',
+    a: 'No. A diferencia de plataformas como Tiendanube o Mercado Libre, el sitio es 100% tuyo y no cobra comisiones por venta. Todo lo que vendés entra directo a tu cuenta.',
   },
   {
-    q: "¿Cómo recibo las consultas o cotizaciones de los clientes?",
-    a: "El sistema genera formularios y vías de contacto directo con mensajes estructurados (nombre del producto, variante o servicio seleccionado) que llegan de inmediato a tu correo electrónico sin intermediarios, listos para responder y cerrar la venta."
+    q: '¿Cómo me llegan las consultas de los clientes?',
+    a: 'Cada consulta llega a tu correo o WhatsApp con los datos ordenados: qué producto o servicio eligió, qué opciones y cómo contactarlo. Lista para responder y cerrar la venta.',
   },
   {
-    q: "¿Qué incluye el desarrollo del proyecto?",
-    a: "Incluye el diseño responsive a medida optimizado para celulares y computadoras, configuración técnica de SEO local en Google, vinculación de tu dominio propio (.com o .com.ar), certificado de seguridad SSL y soporte directo para ajustes y consultas."
+    q: '¿Qué incluye el trabajo?',
+    a: 'Diseño a medida para celular y computadora, configuración de SEO local en Google, conexión de tu dominio (.com o .com.ar), certificado de seguridad SSL y soporte directo para ajustes.',
   },
   {
-    q: "¿Cómo es el esquema de pago del trabajo?",
-    a: "Se abona un 50% de anticipo para fijar presupuesto y comenzar el desarrollo, y el 50% restante una vez que el sitio está terminado, testeado en tu celular y listo para publicar en producción."
-  }
+    q: '¿Cómo se paga?',
+    a: '50% de anticipo para arrancar y el 50% restante cuando el sitio está terminado, probado en tu celular y listo para publicar.',
+  },
+  {
+    q: '¿Trabajás solo en Zona Norte?',
+    a: 'Estoy en Tortuguitas y trabajo con negocios de Pilar, San Miguel, Malvinas Argentinas, Escobar, Tigre y CABA, pero también hago proyectos de forma remota para todo el país.',
+  },
 ];
+
+const faqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
 ---
 
-<section id="faq" class="section relative overflow-hidden py-20 md:py-28 border-t border-white/[0.06]">
-  <div class="container-safe max-w-4xl mx-auto">
-    
-    <!-- Section Header -->
-    <div data-reveal class="text-center max-w-2xl mx-auto mb-14 sm:mb-16">
-      <div class="section-line w-16 mx-auto mb-6 rounded-full"></div>
-      <h2 class="text-3xl sm:text-4xl font-semibold text-white tracking-tight">
-        Preguntas frecuentes
+<section id="faq" class="py-24 md:py-36 border-t border-line">
+  <div class="wrap grid md:grid-cols-12 gap-10 md:gap-16">
+    <div class="md:col-span-4" data-reveal>
+      <p class="eyebrow">Preguntas</p>
+      <h2 class="mt-5 text-3xl sm:text-4xl leading-[1.12]">
+        Lo que todos <span class="accent">preguntan</span>
       </h2>
-      <p class="mt-4 text-slate-400 text-sm sm:text-base leading-relaxed">
-        Respuestas claras a las dudas habituales antes de comenzar un proyecto.
+      <p class="mt-5 text-muted leading-relaxed">
+        ¿Te queda otra duda? <a href="#contacto" class="u-link text-fg">Escribime</a>.
       </p>
     </div>
 
-    <!-- Accordion List -->
-    <div data-reveal class="divide-y divide-white/[0.08] border-y border-white/[0.08]">
-      {faqs.map((faq, idx) => (
-        <details class="group py-5 [&_summary::-webkit-details-marker]:hidden cursor-pointer" style={`transition-delay: ${idx * 60}ms;`}>
-          <summary class="flex items-center justify-between gap-4 font-semibold text-sm sm:text-base text-slate-200 group-hover:text-teal-300 select-none transition-colors">
-            <span>{faq.q}</span>
-            <span class="text-teal-400 font-mono text-xl group-open:rotate-45 transition-transform duration-200 flex-shrink-0">
-              +
+    <div class="md:col-span-8 border-t border-line" data-reveal style="--d: 0.1s">
+      {faqs.map((f, i) => (
+        <details class="faq border-b border-line" open={i === 0}>
+          <summary class="flex items-center justify-between gap-6 py-6 text-lg md:text-xl">
+            <span>{f.q}</span>
+            <span class="plus shrink-0 w-9 h-9 rounded-full border border-line grid place-items-center" aria-hidden="true">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg>
             </span>
           </summary>
-          <div class="mt-3 text-xs sm:text-sm text-slate-400 leading-relaxed max-w-2xl font-normal">
-            {faq.a}
+          <div class="faq-body">
+            <p class="overflow-hidden text-muted leading-relaxed pr-12 pb-6">{f.a}</p>
           </div>
         </details>
       ))}
     </div>
-
   </div>
+
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />
 </section>

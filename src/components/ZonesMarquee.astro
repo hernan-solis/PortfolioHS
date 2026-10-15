@@ -1,0 +1,21 @@
+---
+import { SITE_CONFIG } from '../data/siteConfig';
+
+const zones = SITE_CONFIG.coverageZones.filter((z) => !z.startsWith('Todo'));
+const items = [...zones, 'CABA', 'Remoto a todo el país'];
+---
+
+<section class="border-y border-line py-6 md:py-8" aria-label="Zonas donde trabajo">
+  <div class="marquee">
+    {[0, 1].map((copy) => (
+      <ul class="marquee-track" aria-hidden={copy === 1 ? 'true' : undefined}>
+        {items.map((z) => (
+          <li class="flex items-center gap-10 font-display text-lg md:text-2xl text-muted whitespace-nowrap">
+            {z}
+            <span class="accent text-sm" aria-hidden="true">✦</span>
+          </li>
+        ))}
+      </ul>
+    ))}
+  </div>
+</section>

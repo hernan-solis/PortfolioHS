@@ -1,111 +1,69 @@
 ---
-import { SITE_CONFIG } from '../data/siteConfig';
+const links = [
+  { href: '#trabajos', label: 'Trabajos' },
+  { href: '#servicios', label: 'Servicios' },
+  { href: '#proceso', label: 'Proceso' },
+  { href: '#sobre-mi', label: 'Sobre mí' },
+  { href: '#faq', label: 'Preguntas' },
+];
 ---
 
-<header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 backdrop-blur-xl bg-[#030712]/85 border-b border-white/[0.06]">
-  <div class="container-safe flex items-center justify-between h-16 sm:h-20 transition-all duration-300">
-    
-    <!-- Logo / Monogram -->
-    <a href="/" class="flex items-center gap-3 group">
-      <div class="w-8 h-8 rounded-lg bg-slate-900/90 border border-teal-500/30 flex items-center justify-center font-mono font-bold text-xs text-teal-300 group-hover:border-teal-400/60 transition-colors shadow-[0_0_12px_rgba(20,184,166,0.25)]">
-        HS
-      </div>
-      <div class="flex flex-col">
-        <span class="text-base sm:text-lg font-bold tracking-tight text-transparent bg-clip-text" style="background-image: linear-gradient(90deg, #14b8a6, #22d3ee, #8b5cf6);">
-          Hernán Solis
-        </span>
-        <span class="text-[10px] font-mono text-slate-400 hidden sm:block">
-          Tortuguitas • Zona Norte
-        </span>
-      </div>
+<header id="site-header" class="fixed inset-x-0 top-0 z-50 transition-[background-color,border-color] duration-300 border-b border-transparent">
+  <nav class="wrap flex h-16 md:h-20 items-center justify-between" aria-label="Principal">
+    <a href="/" class="font-display text-[15px] md:text-base tracking-tight" aria-label="Hernán Solis, inicio">
+      hernán<span class="accent">.</span>solis
     </a>
 
-    <!-- Desktop Nav Links -->
-    <nav class="hidden md:flex items-center gap-7">
-      <a href="#servicios" class="nav-link">Servicios</a>
-      <a href="#proceso" class="nav-link">Proceso</a>
-      <a href="#sobre-mi" class="nav-link">Sobre mí</a>
-      <a href="#faq" class="nav-link">Preguntas</a>
-    </nav>
+    <ul class="hidden md:flex items-center gap-8 text-sm text-muted">
+      {links.map((l) => (
+        <li><a href={l.href} class="u-link hover:text-fg transition-colors">{l.label}</a></li>
+      ))}
+    </ul>
 
-    <!-- Availability & CTA -->
-    <div class="flex items-center gap-3">
-      <div class="hidden lg:flex items-center gap-2 text-[11px] font-mono text-slate-400 bg-white/[0.04] px-3 py-1.5 rounded-full border border-white/[0.06]">
-        <span class="w-2 h-2 rounded-full bg-teal-400 animate-pulse"></span>
-        <span>Disponible</span>
-      </div>
+    <a href="#contacto" class="btn btn-ghost hidden md:inline-flex !py-2.5 !px-4 text-sm">
+      Escribime
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
 
-      <a 
-        href="#contacto" 
-        class="btn btn-primary btn-sm group"
-      >
-        <span>Contactar</span>
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 ml-1.5 transition-transform duration-200 group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-        </svg>
-      </a>
+    <button id="menu-btn" class="md:hidden -mr-2 p-2" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu">
+      <span class="block w-6 h-px bg-fg mb-1.5 transition-transform duration-300" data-bar="1"></span>
+      <span class="block w-6 h-px bg-fg transition-transform duration-300" data-bar="2"></span>
+    </button>
+  </nav>
 
-      <!-- Mobile Menu Button -->
-      <button 
-        id="mobile-nav-toggle"
-        class="md:hidden p-2 rounded-lg text-slate-400 hover:text-white hover:bg-white/[0.06] border border-white/[0.06] transition-colors"
-        aria-label="Abrir menú"
-      >
-        <svg id="icon-menu" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-        </svg>
-        <svg id="icon-close" class="w-5 h-5 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-        </svg>
-      </button>
-    </div>
-
-  </div>
-
-  <!-- Mobile Dropdown -->
-  <div id="mobile-menu" class="hidden md:hidden border-t border-white/[0.06] bg-[#030712]/98 px-5 py-5 space-y-3 font-medium text-sm text-slate-300">
-    <a href="#servicios" class="block py-2 px-3 rounded-lg hover:bg-white/[0.06] hover:text-white transition-colors">Servicios</a>
-    <a href="#proceso" class="block py-2 px-3 rounded-lg hover:bg-white/[0.06] hover:text-white transition-colors">Proceso</a>
-    <a href="#sobre-mi" class="block py-2 px-3 rounded-lg hover:bg-white/[0.06] hover:text-white transition-colors">Sobre mí</a>
-    <a href="#faq" class="block py-2 px-3 rounded-lg hover:bg-white/[0.06] hover:text-white transition-colors">Preguntas frecuentes</a>
-    <div class="pt-3 border-t border-white/[0.06]">
-      <a 
-        href="#contacto" 
-        class="btn btn-primary w-full py-2.5 text-center text-xs tracking-tight"
-      >
-        <span>Contactar por correo</span>
-      </a>
-    </div>
+  <div id="mobile-menu" class="md:hidden hidden border-t border-line bg-ink">
+    <ul class="wrap py-6 flex flex-col gap-1">
+      {links.map((l) => (
+        <li><a href={l.href} class="block py-3 font-display text-2xl">{l.label}</a></li>
+      ))}
+      <li class="pt-4"><a href="#contacto" class="btn btn-solid w-full">Escribime</a></li>
+    </ul>
   </div>
 </header>
 
 <script>
-  const toggle = document.getElementById('mobile-nav-toggle');
+  const header = document.getElementById('site-header');
+  const btn = document.getElementById('menu-btn');
   const menu = document.getElementById('mobile-menu');
-  const openI = document.getElementById('icon-menu');
-  const closeI = document.getElementById('icon-close');
-  const links = menu?.querySelectorAll('a');
 
-  if (toggle && menu && openI && closeI) {
-    toggle.addEventListener('click', () => {
-      const isClosed = menu.classList.contains('hidden');
-      if (isClosed) {
-        menu.classList.remove('hidden');
-        openI.classList.add('hidden');
-        closeI.classList.remove('hidden');
-      } else {
-        menu.classList.add('hidden');
-        openI.classList.remove('hidden');
-        closeI.classList.add('hidden');
-      }
-    });
+  const onScroll = () => {
+    const scrolled = window.scrollY > 24;
+    header?.classList.toggle('is-scrolled', scrolled);
+  };
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
 
-    links?.forEach(link => {
-      link.addEventListener('click', () => {
-        menu.classList.add('hidden');
-        openI.classList.remove('hidden');
-        closeI.classList.add('hidden');
-      });
-    });
-  }
+  const setOpen = (open: boolean) => {
+    menu?.classList.toggle('hidden', !open);
+    btn?.setAttribute('aria-expanded', String(open));
+    btn?.querySelector('[data-bar="1"]')?.classList.toggle('translate-y-[3.5px]', open);
+    btn?.querySelector('[data-bar="1"]')?.classList.toggle('rotate-45', open);
+    btn?.querySelector('[data-bar="2"]')?.classList.toggle('-translate-y-[3.5px]', open);
+    btn?.querySelector('[data-bar="2"]')?.classList.toggle('-rotate-45', open);
+    if (open) header?.classList.add('bg-ink');
+    else header?.classList.remove('bg-ink');
+  };
+
+  btn?.addEventListener('click', () => setOpen(menu?.classList.contains('hidden') ?? false));
+  menu?.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => setOpen(false)));
 </script>

@@ -1,170 +1,70 @@
 ---
 const services = [
   {
-    title: "Desarrollo de software y aplicaciones web",
-    desc: "Sistemas backend, plataformas SaaS y paneles de gestión diseñados para escalar. Arquitectura limpia, interfaces responsivas y código de alta calidad.",
-    iconColor: "rgba(20,184,166,0.15)",
-    borderColor: "rgba(20,184,166,0.25)",
-    iconSvg: `<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-teal-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75 22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3-4.5 16.5" /></svg>`,
-    features: [
-      "Arquitectura moderna sin dependencias infladas",
-      "Paneles de administración y APIs a medida",
-      "Alta disponibilidad y seguridad garantizada"
-    ]
+    num: '01',
+    title: 'Página web para tu negocio',
+    desc: 'Un sitio claro y rápido que explica qué hacés, muestra tus trabajos y lleva al cliente a escribirte. Pensado para aparecer en Google cuando te buscan en tu zona.',
+    items: ['Web institucional o landing', 'Botón de contacto y WhatsApp', 'Ficha en Google Maps'],
   },
   {
-    title: "Catálogos online y tiendas digitales",
-    desc: "Tus productos organizados las 24 horas con fotos optimizadas, variantes (talles, modelos, colores) y cotización en tiempo real. Cero comisiones abusivas por venta.",
-    iconColor: "rgba(34,211,238,0.15)",
-    borderColor: "rgba(34,211,238,0.25)",
-    iconSvg: `<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 21v-7.5a.75.75 0 0 1 .75-.75h3a.75.75 0 0 1 .75.75V21m-4.5 0H2.36m11.14 0H18m0 0h3.64m-1.39 0V9.349M3.75 21V9.349m0 0a3.001 3.001 0 0 0 3.75-.615A2.993 2.993 0 0 0 9.75 9.75c.896 0 1.7-.393 2.25-1.016a2.993 2.993 0 0 0 2.25 1.016c.896 0 1.7-.393 2.25-1.015a3.001 3.001 0 0 0 3.75.614m-16.5 0a3.004 3.004 0 0 1-.621-4.72l1.189-1.19A1.5 1.5 0 0 1 5.378 3h13.243a1.5 1.5 0 0 1 1.06.44l1.19 1.189a3 3 0 0 1-.621 4.72m-13.5 0c.315.388.745.661 1.229.776" /></svg>`,
-    features: [
-      "0% de comisión en todas tus ventas",
-      "Carga instantánea en celulares (<0.5 segundos)",
-      "Cotizaciones automáticas directas por correo"
-    ]
+    num: '02',
+    title: 'Catálogo online con cotizador',
+    desc: 'Tus productos o servicios con precios y opciones. El cliente arma su pedido y te llega listo para cerrar la venta, sin pagar comisiones a ninguna plataforma.',
+    items: ['Variantes: modelos, talles, colores', 'Cotización al instante', '0% de comisión por venta'],
   },
   {
-    title: "Landing pages de alta conversión",
-    desc: "Páginas orientadas a ventas para pauta publicitaria en Meta Ads (Instagram/Facebook) o Google Ads. Diseñadas para transmitir confianza y maximizar conversiones.",
-    iconColor: "rgba(139,92,246,0.15)",
-    borderColor: "rgba(139,92,246,0.25)",
-    iconSvg: `<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-violet-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" /></svg>`,
-    features: [
-      "Optimización rigurosa de Core Web Vitals",
-      "Llamados a la acción persuasivos y testeados",
-      "Medición de eventos y analítica integrada"
-    ]
+    num: '03',
+    title: 'Sistemas a medida',
+    desc: 'Cuando una planilla de Excel ya no alcanza: turnos, stock, clientes o paneles internos, hechos para cómo trabaja tu equipo.',
+    items: ['Paneles de administración', 'Bases de datos SQL', 'C# / .NET y APIs'],
   },
-  {
-    title: "SEO local & posicionamiento en Google",
-    desc: "Optimizamos el código con datos estructurados para Tortuguitas, Pilar, San Miguel y Zona Norte. Vinculamos tu página a Google Maps para captar clientes en tu zona.",
-    iconColor: "rgba(20,184,166,0.15)",
-    borderColor: "rgba(20,184,166,0.25)",
-    iconSvg: `<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-teal-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0z" /></svg>`,
-    features: [
-      "Indexación técnica en Google Search Console",
-      "Etiquetas Schema.org georreferenciadas",
-      "Clientes locales sin depender de pagar pauta fija"
-    ]
-  }
 ];
 
-const processSteps = [
-  {
-    num: "01",
-    title: "Entender",
-    desc: "Analizamos el problema, el contexto comercial y los objetivos antes de escribir una sola línea de código."
-  },
-  {
-    num: "02",
-    title: "Diseñar",
-    desc: "Definimos la arquitectura, el alcance y la experiencia de usuario con foco en velocidad y simplicidad."
-  },
-  {
-    num: "03",
-    title: "Construir",
-    desc: "Desarrollamos con tecnologías modernas, buenas prácticas y entregas incrementales que podés probar."
-  },
-  {
-    num: "04",
-    title: "Iterar",
-    desc: "Medimos, ajustamos y mejoramos. Un producto no termina en el deploy: evoluciona con datos y feedback."
-  }
-];
+const included = ['Diseño para celular y computadora', 'Dominio .com.ar configurado', 'SEO local en Google', 'El código es tuyo'];
 ---
 
-<section id="servicios" class="section relative overflow-hidden py-20 md:py-28 border-t border-white/[0.06]">
-  <div class="container-safe">
-    
-    <!-- Services Header -->
-    <div data-reveal class="text-center max-w-2xl mx-auto mb-14 sm:mb-16">
-      <div class="section-line w-16 mx-auto mb-6 rounded-full"></div>
-      <h2 class="text-3xl sm:text-4xl font-semibold text-white tracking-tight">
-        Qué hago
+<section id="servicios" class="py-24 md:py-36 border-t border-line">
+  <div class="wrap">
+    <div class="max-w-2xl mb-14 md:mb-20" data-reveal>
+      <p class="eyebrow">Servicios</p>
+      <h2 class="mt-5 text-3xl sm:text-4xl md:text-5xl leading-[1.1]">
+        Qué puedo <span class="accent">hacer</span> por tu negocio
       </h2>
-      <p class="mt-4 text-slate-400 text-sm sm:text-base leading-relaxed">
-        Soluciones prácticas para problemas reales: software rápido, catálogos digitales y código optimizado para producción.
-      </p>
     </div>
 
-    <!-- Services Grid (MateLabs Cards) -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto mb-24">
-      {services.map((s, idx) => (
-        <div data-reveal class="card card-hover group flex flex-col justify-between" style={`transition-delay: ${idx * 80}ms;`}>
-          <div>
-            <!-- Icon -->
-            <div 
-              class="card-icon w-12 h-12 rounded-xl flex items-center justify-center mb-5"
-              style={`background: linear-gradient(135deg, ${s.iconColor}, transparent); border: 1px solid ${s.borderColor};`}
-              set:html={s.iconSvg}
-            />
-
-            <h3 class="text-lg font-semibold text-white mb-2.5">
-              {s.title}
-            </h3>
-
-            <p class="text-sm text-slate-400 leading-relaxed mb-5">
-              {s.desc}
-            </p>
-
-            <!-- Features -->
-            <ul class="space-y-2 mb-6">
-              {s.features.map(f => (
-                <li class="flex items-center gap-2 text-xs text-slate-300">
-                  <span class="w-1.5 h-1.5 rounded-full bg-teal-400 flex-shrink-0"></span>
-                  <span>{f}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div class="pt-4 border-t border-white/[0.06] flex items-center justify-between">
-            <a 
-              href="#contacto" 
-              class="inline-flex items-center gap-1.5 text-xs font-semibold text-teal-400 hover:text-teal-300 transition-colors"
-            >
-              <span>Consultar por este servicio</span>
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-              </svg>
-            </a>
-          </div>
-        </div>
+    <div class="grid md:grid-cols-3 border-t border-line">
+      {services.map((s, i) => (
+        <article
+          class="group relative py-10 md:py-12 md:px-8 first:md:pl-0 last:md:pr-0 border-b md:border-b-0 md:border-l first:md:border-l-0 border-line"
+          data-reveal
+          style={`--d: ${i * 0.1}s`}
+        >
+          <span class="absolute top-0 left-0 h-px w-0 bg-accent transition-[width] duration-700 ease-out group-hover:w-full" aria-hidden="true"></span>
+          <p class="font-display text-sm text-muted">{s.num}</p>
+          <h3 class="mt-6 text-xl md:text-[1.4rem] leading-snug">{s.title}</h3>
+          <p class="mt-4 text-muted leading-relaxed">{s.desc}</p>
+          <ul class="mt-6 space-y-2.5 text-sm">
+            {s.items.map((it) => (
+              <li class="flex items-center gap-3">
+                <span class="w-1.5 h-1.5 rounded-full bg-accent shrink-0" aria-hidden="true"></span>
+                {it}
+              </li>
+            ))}
+          </ul>
+        </article>
       ))}
     </div>
 
-    <!-- Process Section ("Cómo trabajamos" like MateLabs) -->
-    <div id="proceso" class="pt-10">
-      <div data-reveal class="text-center max-w-2xl mx-auto mb-14">
-        <div class="section-line w-16 mx-auto mb-6 rounded-full"></div>
-        <h2 class="text-3xl sm:text-4xl font-semibold text-white tracking-tight">
-          Cómo trabajo
-        </h2>
-        <p class="mt-4 text-slate-400 text-sm sm:text-base leading-relaxed">
-          Un proceso claro y transparente, enfocado en entregar valor real lo antes posible.
-        </p>
-      </div>
-
-      <!-- Process Steps Grid -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
-        {processSteps.map((step, idx) => (
-          <div data-reveal class="card card-hover flex flex-col justify-start relative p-6" style={`transition-delay: ${idx * 100}ms;`}>
-            <div class="mb-4">
-              <span class="text-2xl sm:text-3xl font-bold text-transparent bg-clip-text" style="background-image: linear-gradient(135deg, #14b8a6, #22d3ee, #8b5cf6);">
-                {step.num}
-              </span>
-            </div>
-            <h3 class="text-base font-semibold text-white mb-2">
-              {step.title}
-            </h3>
-            <p class="text-xs sm:text-sm text-slate-400 leading-relaxed font-normal">
-              {step.desc}
-            </p>
-          </div>
+    <div class="mt-12 md:mt-16 rounded-2xl bg-surface border border-line p-6 md:p-8 flex flex-col md:flex-row md:items-center gap-5 md:gap-10" data-reveal>
+      <p class="font-display text-sm shrink-0">Siempre incluido</p>
+      <ul class="flex flex-wrap gap-x-8 gap-y-3 text-sm text-muted">
+        {included.map((it) => (
+          <li class="flex items-center gap-2.5">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            {it}
+          </li>
         ))}
-      </div>
+      </ul>
     </div>
-
   </div>
 </section>

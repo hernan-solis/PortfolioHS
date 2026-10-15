@@ -1,111 +1,66 @@
 ---
 import { SITE_CONFIG } from '../data/siteConfig';
+
+const reasons = [
+  { title: 'Hablás con quien programa', desc: 'Nada de teléfono descompuesto entre vendedor, diseñador y desarrollador.' },
+  { title: 'El sitio es tuyo', desc: 'Código, dominio y contenido a tu nombre. Sin mensualidades cautivas.' },
+  { title: 'Hecho desde cero', desc: 'Sin plantillas pesadas ni plugins: carga rápido y Google lo premia.' },
+];
 ---
 
-<section id="sobre-mi" class="section relative overflow-hidden py-20 md:py-28 border-t border-white/[0.06]">
-  <div class="container-safe">
-    
-    <div data-reveal class="card p-8 sm:p-12 relative overflow-hidden max-w-5xl mx-auto">
-      
-      <!-- Subtle internal ambient light -->
-      <div class="absolute -top-20 -right-20 w-80 h-80 bg-teal-500/[0.06] rounded-full blur-[100px] pointer-events-none"></div>
-      <div class="absolute -bottom-20 -left-20 w-80 h-80 bg-violet-500/[0.04] rounded-full blur-[100px] pointer-events-none"></div>
-
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-        
-        <!-- Left Column: Portrait & Details (4 cols) -->
-        <div class="lg:col-span-4 flex flex-col items-center sm:items-start text-center sm:text-left">
-          
-          <div class="relative mb-5 group">
-            <div class="absolute -inset-1.5 bg-gradient-to-tr from-teal-500/20 to-cyan-500/20 rounded-3xl blur-md opacity-75 group-hover:opacity-100 transition-opacity"></div>
-            <div class="relative w-40 h-40 sm:w-44 sm:h-44 rounded-2xl overflow-hidden border border-white/20 bg-slate-950 shadow-2xl">
-              <img 
-                src="/assets/img/imgFotoPerfilEditado_websize.jpg" 
-                alt="Hernán Solis - Desarrollador Web" 
-                class="w-full h-full object-cover"
-                loading="lazy"
-                onerror="this.src='/assets/img/imgFotoPerfil.jpeg'"
-              />
-            </div>
-            
-            <div class="absolute -bottom-3 left-1/2 -translate-x-1/2 z-20 px-3 py-1 rounded-full bg-slate-950 border border-teal-500/40 text-[10px] font-mono text-teal-300 font-bold whitespace-nowrap shadow-lg flex items-center gap-1.5">
-              <span class="w-1.5 h-1.5 rounded-full bg-teal-400"></span>
-              <span>UTN Programación</span>
-            </div>
-          </div>
-
-          <h3 class="text-2xl font-bold text-white tracking-tight mt-2">Hernán Abel Solis</h3>
-          <p class="text-xs font-mono text-teal-400 mt-0.5">Programador & Desarrollador Web</p>
-          
-          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/[0.04] border border-white/10 text-xs font-mono text-slate-300 mt-4">
-            <span class="w-2 h-2 rounded-full bg-teal-400"></span>
-            <span>Tortuguitas, Buenos Aires</span>
-          </div>
-
-          <div class="flex items-center gap-2.5 mt-5">
-            <a 
-              href={SITE_CONFIG.linkedin} 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              class="px-3.5 py-1.5 rounded-lg bg-white/[0.04] border border-white/10 text-xs text-slate-300 hover:text-white hover:border-white/20 transition-all font-mono"
-            >
-              LinkedIn ↗
-            </a>
-            <a 
-              href={SITE_CONFIG.github} 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              class="px-3.5 py-1.5 rounded-lg bg-white/[0.04] border border-white/10 text-xs text-slate-300 hover:text-white hover:border-white/20 transition-all font-mono"
-            >
-              GitHub ↗
-            </a>
-          </div>
+<section id="sobre-mi" class="py-24 md:py-36 border-t border-line">
+  <div class="wrap grid md:grid-cols-12 gap-12 md:gap-16 items-center">
+    <div class="md:col-span-5" data-reveal>
+      <div class="relative max-w-sm mx-auto md:mx-0">
+        <div class="aspect-[4/5] rounded-2xl overflow-hidden bg-surface border border-line">
+          <img
+            src="/assets/img/imgFotoPerfilEditado_websize.jpg"
+            alt="Hernán Solis, desarrollador web en Tortuguitas"
+            class="w-full h-full object-cover"
+            loading="lazy"
+            decoding="async"
+          />
         </div>
-
-        <!-- Right Column: Narrative & Values (8 cols) -->
-        <div class="lg:col-span-8 flex flex-col justify-between space-y-6">
-          <div>
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-white/10 font-mono text-[11px] tracking-wider uppercase text-slate-400 mb-3">
-              <span>Sobre mí</span>
-            </div>
-            
-            <h2 class="text-2xl sm:text-3xl font-semibold text-white tracking-tight">
-              Criterio técnico de producto y trato directo.
-            </h2>
-
-            <div class="space-y-4 text-sm text-slate-400 leading-relaxed font-normal mt-4">
-              <p>
-                Vivo en <strong class="text-white">Tortuguitas</strong> y estudio la <strong class="text-white">Tecnicatura Universitaria en Programación en la Universidad Tecnológica Nacional (UTN)</strong>.
-              </p>
-              <p>
-                Mi perfil combina formación en backend y lógica de software (C#, .NET, bases de datos SQL) con diseño moderno de interfaces web de alto rendimiento usando Astro y Tailwind CSS. Esto asegura que tu sitio web no sea una plantilla genérica con plugins pesados: está programado desde cero con arquitectura limpia, rápida y segura.
-              </p>
-              <p>
-                Trabajo codo a codo con clientes y empresas. Podés escribirme en cualquier momento por correo electrónico para coordinar dudas, reuniones o propuestas técnicas, con la tranquilidad de tratar siempre directamente con quien escribe el código.
-              </p>
-            </div>
-          </div>
-
-          <!-- Bottom Pillars -->
-          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-6 border-t border-white/[0.08]">
-            <div class="p-4 rounded-xl bg-slate-950/60 border border-white/[0.06]">
-              <div class="font-mono text-xs text-teal-400 font-bold mb-1">⏱️ Plazos Claros</div>
-              <p class="text-xs text-slate-400">Tiempos pactados y entregas por etapas para que pruebes los avances en tu celular.</p>
-            </div>
-            <div class="p-4 rounded-xl bg-slate-950/60 border border-white/[0.06]">
-              <div class="font-mono text-xs text-cyan-400 font-bold mb-1">🔒 100% de tu Propiedad</div>
-              <p class="text-xs text-slate-400">El sitio web y el código son totalmente tuyos. Sin mensualidades cautivas ni dependencias.</p>
-            </div>
-            <div class="p-4 rounded-xl bg-slate-950/60 border border-white/[0.06]">
-              <div class="font-mono text-xs text-violet-400 font-bold mb-1">🤝 Trato Directo</div>
-              <p class="text-xs text-slate-400">Comunicación transparente y soporte personalizado sin intermediarios.</p>
-            </div>
-          </div>
-
+        <div class="absolute -bottom-5 left-5 sm:left-auto sm:-right-6 rounded-xl bg-accent text-[#10120c] px-4 py-3 shadow-xl">
+          <p class="font-display text-sm">Hernán Solis</p>
+          <p class="text-xs opacity-80 mt-0.5">Programador · Tortuguitas</p>
         </div>
-
       </div>
     </div>
 
+    <div class="md:col-span-7">
+      <div data-reveal>
+        <p class="eyebrow">Sobre mí</p>
+        <h2 class="mt-5 text-3xl sm:text-4xl md:text-[2.75rem] leading-[1.12]">
+          Una persona, <span class="accent">no una agencia</span>
+        </h2>
+        <div class="mt-6 space-y-4 text-muted leading-relaxed text-[1.05rem]">
+          <p>
+            Vivo en Tortuguitas y estudio la Tecnicatura Universitaria en Programación en la UTN. Vengo del desarrollo de software con C#, .NET y SQL, y hoy hago webs para comercios y empresas con Astro y Tailwind.
+          </p>
+          <p>
+            Me gusta entender cómo funciona tu negocio antes de diseñar nada. Una web tiene que traer clientes, no solo verse bien.
+          </p>
+        </div>
+      </div>
+
+      <ul class="mt-10 grid sm:grid-cols-3 gap-6 border-t border-line pt-8">
+        {reasons.map((r, i) => (
+          <li data-reveal style={`--d: ${0.1 + i * 0.1}s`}>
+            <h3 class="font-sans font-medium text-[0.95rem] tracking-normal">{r.title}</h3>
+            <p class="mt-2 text-sm text-muted leading-relaxed">{r.desc}</p>
+          </li>
+        ))}
+      </ul>
+
+      <div class="mt-10 flex flex-wrap items-center gap-x-6 gap-y-4" data-reveal>
+        <a href="#contacto" class="btn btn-solid">
+          Contame tu proyecto
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href={SITE_CONFIG.linkedin} target="_blank" rel="noopener noreferrer" class="u-link text-sm text-muted hover:text-fg">LinkedIn ↗</a>
+        <a href={SITE_CONFIG.github} target="_blank" rel="noopener noreferrer" class="u-link text-sm text-muted hover:text-fg">GitHub ↗</a>
+      </div>
+    </div>
   </div>
 </section>

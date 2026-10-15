@@ -14,6 +14,9 @@ El sitio está enfocado en la **venta de servicios web y tiendas online para com
 2. **[Estudio Ariel Stefanazzi](https://arielstefanazzi.com.ar)**:
    - Rubro: Gestoría Integral, Licitaciones Públicas de Salud y Logística Hospitalaria.
    - Solución: Plataforma institucional editorial de alta velocidad (<0.3s) con asistente interactivo de trámites y cotizaciones formales.
+3. **[XEMA SA](https://xema.com.ar)**:
+   - Rubro: Gestión Integral y Reciclaje de Residuos Empresariales (CABA y PBA).
+   - Solución: Web corporativa con catálogo de residuos, proceso circular explicado paso a paso y cotizador express que arma el pedido de retiro por WhatsApp según material y zona.
 
 ---
 

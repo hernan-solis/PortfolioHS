@@ -2,28 +2,29 @@
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
 import Hero from '../components/Hero.astro';
+import ZonesMarquee from '../components/ZonesMarquee.astro';
+import ProjectsShowcase from '../components/ProjectsShowcase.astro';
 import Services from '../components/Services.astro';
+import Process from '../components/Process.astro';
 import AboutHernan from '../components/AboutHernan.astro';
 import FaqSection from '../components/FaqSection.astro';
 import ContactSection from '../components/ContactSection.astro';
 import Footer from '../components/Footer.astro';
-import ContactWidget from '../components/ContactWidget.astro';
 ---
 
-<Layout 
-  title="Hernán Solis — Software, Desarrollo Web & Productos Digitales"
-  description="Desarrollador web y programador en Zona Norte. Desarrollo de software a medida, plataformas SaaS, catálogos online y sitios web de alto rendimiento para negocios y profesionales."
->
+<Layout>
   <Navbar />
-  
-  <main class="space-y-0">
+
+  <main>
     <Hero />
+    <ZonesMarquee />
+    <ProjectsShowcase />
     <Services />
+    <Process />
     <AboutHernan />
     <FaqSection />
     <ContactSection />
   </main>
 
   <Footer />
-  <ContactWidget />
 </Layout>
