@@ -49,7 +49,7 @@ import { SITE_CONFIG } from '../data/siteConfig';
           {['Página web', 'Catálogo / tienda', 'Sistema a medida', 'Rediseño', 'Otra cosa'].map((opt) => (
             <label class="cursor-pointer">
               <input type="radio" name="tipo" value={opt} class="peer sr-only" />
-              <span class="block text-sm px-4 py-2 rounded-full border border-line text-muted transition-colors peer-checked:bg-accent peer-checked:text-[#10120c] peer-checked:border-transparent peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-[var(--accent)] hover:border-[var(--line-strong)] hover:text-fg">
+              <span class="block text-sm px-4 py-2 rounded-full border border-line text-muted transition-colors peer-checked:bg-accent peer-checked:text-[var(--accent-ink)] peer-checked:border-transparent peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-[var(--accent)] hover:border-[var(--line-strong)] hover:text-fg">
                 {opt}
               </span>
             </label>

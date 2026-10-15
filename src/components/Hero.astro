@@ -30,9 +30,9 @@ const circleText = 'VER TRABAJOS • VER TRABAJOS • ';
     <svg class="absolute inset-x-0 top-0 w-full h-full" viewBox="0 0 1440 160" preserveAspectRatio="none" fill="none">
       <defs>
         <linearGradient id="arc" x1="0" x2="1" y1="0" y2="0">
-          <stop offset="0" stop-color="#b5e36c" stop-opacity="0" />
-          <stop offset="0.5" stop-color="#b5e36c" stop-opacity="0.7" />
-          <stop offset="1" stop-color="#b5e36c" stop-opacity="0" />
+          <stop offset="0" style="stop-color: var(--accent)" stop-opacity="0" />
+          <stop offset="0.5" style="stop-color: var(--accent)" stop-opacity="0.7" />
+          <stop offset="1" style="stop-color: var(--accent)" stop-opacity="0" />
         </linearGradient>
       </defs>
       <path d="M0 150 Q720 -40 1440 150" stroke="url(#arc)" stroke-width="1" vector-effect="non-scaling-stroke" />
@@ -45,7 +45,7 @@ const circleText = 'VER TRABAJOS • VER TRABAJOS • ';
         <textPath href="#circle">{circleText}</textPath>
       </text>
     </svg>
-    <span class="w-10 h-10 rounded-full border border-line grid place-items-center bg-ink transition-colors duration-300 group-hover:bg-accent group-hover:text-[#10120c]">
+    <span class="w-10 h-10 rounded-full border border-line grid place-items-center bg-ink transition-colors duration-300 group-hover:bg-accent group-hover:text-[var(--accent-ink)]">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </span>
   </a>

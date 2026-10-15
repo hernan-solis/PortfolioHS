@@ -2,17 +2,57 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Themes — switched via data-theme on <html> (see ThemeSwitcher) */
 :root {
+  --scheme: dark;
   --bg: #0b0c0a;
   --surface: #141512;
-  --surface-2: #1b1c18;
   --line: rgba(236, 235, 230, 0.09);
   --line-strong: rgba(236, 235, 230, 0.18);
   --fg: #ecebe6;
   --muted: #9b9b92;
   --accent: #b5e36c;
   --accent-ink: #10120c;
+  --font-display: 'Unbounded', system-ui, sans-serif;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+[data-theme='naranja'] { --accent: #ff7a45; --accent-ink: #1a0d06; }
+[data-theme='azul'] { --accent: #6b8cff; --accent-ink: #0b0c0a; }
+[data-theme='ambar'] { --accent: #e8b65a; --accent-ink: #1a1206; }
+[data-theme='crema'] { --accent: #efe9dc; --accent-ink: #0b0c0a; }
+[data-theme='editorial'] {
+  --scheme: light;
+  --bg: #f3efe6;
+  --surface: #e9e3d6;
+  --line: rgba(28, 24, 16, 0.12);
+  --line-strong: rgba(28, 24, 16, 0.25);
+  --fg: #1a1712;
+  --muted: #6b655a;
+  --accent: #c2410c;
+  --accent-ink: #fff8f0;
+  --font-display: 'Fraunces', Georgia, serif;
+}
+[data-theme='papel'] {
+  --scheme: light;
+  --bg: #fafaf7;
+  --surface: #efefe9;
+  --line: rgba(17, 17, 17, 0.1);
+  --line-strong: rgba(17, 17, 17, 0.22);
+  --fg: #111111;
+  --muted: #64645e;
+  --accent: #2e5bff;
+  --accent-ink: #ffffff;
+}
+[data-theme='noche'] {
+  --bg: #0d1017;
+  --surface: #151a24;
+  --line: rgba(226, 232, 240, 0.09);
+  --line-strong: rgba(226, 232, 240, 0.18);
+  --fg: #e8ecf3;
+  --muted: #8d97a8;
+  --accent: #ff5d73;
+  --accent-ink: #1a070b;
+  --font-display: 'Fraunces', Georgia, serif;
 }
 
 @layer base {
@@ -20,7 +60,7 @@
     scroll-behavior: smooth;
     scroll-padding-top: 5rem;
     background: var(--bg);
-    color-scheme: dark;
+    color-scheme: var(--scheme);
     -webkit-tap-highlight-color: transparent;
   }
 
@@ -34,7 +74,7 @@
   }
 
   h1, h2, h3 {
-    font-family: 'Unbounded', system-ui, sans-serif;
+    font-family: var(--font-display);
     font-weight: 400;
     letter-spacing: -0.02em;
   }
@@ -103,7 +143,7 @@
   background: var(--accent);
   color: var(--accent-ink);
 }
-.btn-solid:hover { background: #c9ef8d; }
+.btn-solid:hover { filter: brightness(1.08); }
 
 .btn-ghost {
   border-color: var(--line-strong);
@@ -249,7 +289,7 @@
   transition: border-color 0.25s;
   border-radius: 0;
 }
-.field::placeholder { color: #6b6b64; }
+.field::placeholder { color: var(--muted); opacity: 0.7; }
 .field:focus { outline: none; border-color: var(--accent); }
 
 }
@@ -270,7 +310,7 @@
 
 /* Header on scroll */
 #site-header.is-scrolled {
-  background: rgba(11, 12, 10, 0.85);
+  background: color-mix(in srgb, var(--bg) 86%, transparent);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-color: var(--line);

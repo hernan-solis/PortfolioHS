@@ -13,6 +13,82 @@ export interface Project {
   shotMobile: string;
 }
 
+export interface Prototype {
+  id: string;
+  client: string;
+  sector: string;
+  location: string;
+  url: string;
+  summary: string;
+  shotDesktop: string;
+  shotMobile: string;
+}
+
+const shot = (id: string, kind: 'desktop' | 'mobile') => `/assets/projects/shot-${id}-${kind}.jpg`;
+
+export const PROTOTYPES: Prototype[] = [
+  {
+    id: "quintaesquinatortugas",
+    client: "Quinta Esquina Tortugas",
+    sector: "Quinta para eventos",
+    location: "Tortuguitas",
+    url: "https://quintaesquinatortugas.pages.dev",
+    summary: "Casamientos y cumpleaños al aire libre, con recorrido por la quinta y consulta de fechas.",
+    shotDesktop: shot("quintaesquinatortugas", "desktop"),
+    shotMobile: shot("quintaesquinatortugas", "mobile"),
+  },
+  {
+    id: "maciasneumaticos",
+    client: "Macías Neumáticos",
+    sector: "Gomería y taller mecánico",
+    location: "Pte. Derqui, Pilar",
+    url: "https://maciasneumaticos.pages.dev",
+    summary: "Servicios, horarios en vivo y turnos directos para alineación, balanceo y mecánica.",
+    shotDesktop: shot("maciasneumaticos", "desktop"),
+    shotMobile: shot("maciasneumaticos", "mobile"),
+  },
+  {
+    id: "dulceantojo",
+    client: "Dulce Antojo",
+    sector: "Pastelería artesanal",
+    location: "Campana",
+    url: "https://dulceantojo.pages.dev",
+    summary: "Catálogo de tortas, cheesecakes y boxes con pedido online para fechas especiales.",
+    shotDesktop: shot("dulceantojo", "desktop"),
+    shotMobile: shot("dulceantojo", "mobile"),
+  },
+  {
+    id: "peluqueriaevas",
+    client: "Peluquería Evas",
+    sector: "Peluquería unisex",
+    location: "Tortuguitas",
+    url: "https://peluqueriaevas.pages.dev",
+    summary: "Galería de resultados reales, servicios y precios, con reserva de turnos.",
+    shotDesktop: shot("peluqueriaevas", "desktop"),
+    shotMobile: shot("peluqueriaevas", "mobile"),
+  },
+  {
+    id: "officecb",
+    client: "Office-CB",
+    sector: "Librería, gráfica y almacén",
+    location: "General Pacheco",
+    url: "https://officecb.pages.dev",
+    summary: "Catálogo de más de 300 artículos con carrito y cotización por categorías.",
+    shotDesktop: shot("officecb", "desktop"),
+    shotMobile: shot("officecb", "mobile"),
+  },
+  {
+    id: "pintordemo",
+    client: "Painter",
+    sector: "Servicios de pintura",
+    location: "Demo",
+    url: "https://pintordemo.pages.dev",
+    summary: "Landing para pintura residencial, comercial y restauración, con pedido de presupuesto.",
+    shotDesktop: shot("pintordemo", "desktop"),
+    shotMobile: shot("pintordemo", "mobile"),
+  },
+];
+
 export const FEATURED_PROJECTS: Project[] = [
   {
     id: "tu-iphone-zona-norte",

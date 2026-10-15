@@ -12,7 +12,7 @@ export default {
         accent: 'var(--accent)',
       },
       fontFamily: {
-        display: ['Unbounded', 'system-ui', 'sans-serif'],
+        display: ['var(--font-display)'],
         sans: ['"Space Grotesk"', 'system-ui', '-apple-system', 'sans-serif'],
       },
     },
