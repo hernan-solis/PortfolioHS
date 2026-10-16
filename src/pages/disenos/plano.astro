@@ -1,0 +1,388 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import DesignSwitcher from '../../components/DesignSwitcher.astro';
+import ContactHidden from '../../components/ContactHidden.astro';
+import { SITE_CONFIG } from '../../data/siteConfig';
+import { FEATURED_PROJECTS, PROTOTYPES } from '../../data/projects';
+import { HERO, SERVICES, STEPS, ABOUT, REASONS, FAQS, CONTACT_OPTIONS, INCLUDED } from '../../data/content';
+
+const today = new Date();
+const date = `${String(today.getDate()).padStart(2, '0')}.${String(today.getMonth() + 1).padStart(2, '0')}.${today.getFullYear()}`;
+---
+
+<Layout noindex bodyClass="d-plano" fonts="family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500">
+  <header class="pl-nav">
+    <div class="pl-wrap flex items-center justify-between h-16">
+      <a href="/disenos/plano/" class="flex items-center gap-3">
+        <span class="pl-logo">HS</span>
+        <span class="hidden sm:inline pl-label">Hernán Solis / Desarrollo web</span>
+      </a>
+      <nav class="hidden md:flex gap-7 pl-label" aria-label="Principal">
+        <a href="#trabajos" class="pl-navlink">A · Trabajos</a>
+        <a href="#servicios" class="pl-navlink">B · Servicios</a>
+        <a href="#proceso" class="pl-navlink">C · Proceso</a>
+        <a href="#faq" class="pl-navlink">D · Notas</a>
+      </nav>
+      <a href="#contacto" class="pl-btn pl-btn-solid !py-2 !px-4">Pedir presupuesto</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="pl-wrap pt-12 md:pt-20 pb-16 md:pb-24">
+      <div class="grid lg:grid-cols-12 gap-10 lg:gap-12 items-start">
+        <div class="lg:col-span-7">
+          <p class="pl-label fade-in">FIG. 00 — {HERO.eyebrow}</p>
+          <h1 class="pl-display mt-6">
+            <span class="line-mask"><span style="--d:.05s">Páginas web</span></span>
+            <span class="line-mask"><span style="--d:.15s" class="pl-outline">a medida</span></span>
+            <span class="line-mask"><span style="--d:.25s">para negocios</span></span>
+            <span class="line-mask"><span style="--d:.35s">de Zona Norte.</span></span>
+          </h1>
+          <div class="pl-dim mt-6 fade-in" style="--d:.6s" aria-hidden="true">
+            <span></span><em>hecho a medida = 100%</em><span></span>
+          </div>
+          <p class="mt-8 max-w-xl leading-relaxed pl-soft fade-in" style="--d:.5s">{HERO.lead}</p>
+          <div class="mt-8 flex flex-col sm:flex-row gap-4 fade-in" style="--d:.65s">
+            <a href="#contacto" class="pl-btn pl-btn-solid">Empezar un proyecto →</a>
+            <a href="#trabajos" class="pl-btn">Ver láminas</a>
+          </div>
+        </div>
+
+        <div class="lg:col-span-5 fade-in" style="--d:.3s">
+          <figure class="pl-frame">
+            <span class="pl-corner tl"></span><span class="pl-corner tr"></span><span class="pl-corner bl"></span><span class="pl-corner br"></span>
+            <div class="pl-photo">
+              <img src={ABOUT.photo} alt="Hernán Solis" class="w-full aspect-[4/5] object-cover" />
+            </div>
+            <svg class="pl-sketch" viewBox="0 0 400 500" preserveAspectRatio="none" aria-hidden="true">
+              <circle cx="200" cy="190" r="120" />
+              <line x1="0" y1="190" x2="400" y2="190" />
+              <line x1="200" y1="0" x2="200" y2="500" />
+            </svg>
+            <figcaption class="pl-label mt-3 flex justify-between"><span>Fig. 01 — El que programa</span><span>Esc. 1:1</span></figcaption>
+          </figure>
+
+          <table class="pl-titleblock mt-6">
+            <tbody>
+              <tr><th>Proyecto</th><td colspan="3">Tu página web</td></tr>
+              <tr><th>Dibujó</th><td>H. Solis</td><th>Fecha</th><td>{date}</td></tr>
+              <tr><th>Lugar</th><td>Tortuguitas</td><th>Lámina</th><td>01/07</td></tr>
+              <tr><th>Estado</th><td colspan="3"><span class="pl-blink"></span> Tomando proyectos nuevos</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Zones -->
+    <div class="pl-band" aria-label="Zonas donde trabajo">
+      <div class="marquee">
+        {[0, 1].map((c) => (
+          <ul class="marquee-track" aria-hidden={c === 1 ? 'true' : undefined}>
+            {SITE_CONFIG.coverageZones.map((z) => <li class="whitespace-nowrap">+ {z}</li>)}
+          </ul>
+        ))}
+      </div>
+    </div>
+
+    <!-- Work -->
+    <section id="trabajos" class="pl-wrap py-16 md:py-24">
+      <header class="pl-sechead" data-reveal>
+        <span class="pl-label">Sección A</span>
+        <h2 class="pl-h2">Trabajos publicados</h2>
+      </header>
+
+      <div class="grid gap-12 md:gap-16 mt-12">
+        {FEATURED_PROJECTS.map((p, i) => (
+          <a href={p.url} target="_blank" rel="noopener noreferrer" class="pl-sheet group grid lg:grid-cols-12 gap-6 lg:gap-10" data-reveal>
+            <div class="lg:col-span-7 relative">
+              <div class="pl-dim pl-dim-top" aria-hidden="true"><span></span><em>1440 px</em><span></span></div>
+              <div class="pl-shot">
+                <img src={p.shotDesktop} alt={`Página de ${p.client}`} loading="lazy" decoding="async" class="w-full aspect-[16/10] object-cover object-top" />
+              </div>
+            </div>
+            <div class="lg:col-span-5 flex flex-col">
+              <p class="pl-label">Lámina A.{i + 1} — {p.location}</p>
+              <h3 class="pl-h3 mt-3">{p.title}</h3>
+              <p class="mt-4 pl-soft leading-relaxed text-sm">{p.summary}</p>
+              <ul class="mt-5 grid gap-2 text-sm">
+                {p.highlights.map((h, j) => <li class="pl-spec"><span>{String(j + 1).padStart(2, '0')}</span>{h}</li>)}
+              </ul>
+              <p class="mt-auto pt-6 pl-label">{p.client} · <span class="pl-link">{p.displayUrl} ↗</span></p>
+            </div>
+          </a>
+        ))}
+      </div>
+
+      <header class="pl-sechead mt-24" data-reveal>
+        <span class="pl-label">Sección A′</span>
+        <h2 class="pl-h2">Prototipos en mesa de dibujo</h2>
+      </header>
+      <p class="mt-4 max-w-2xl pl-soft" data-reveal>Propuestas funcionando para negocios de la zona. Todavía no tienen dominio propio, pero se pueden recorrer.</p>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
+        {PROTOTYPES.map((p, i) => (
+          <a href={p.url} target="_blank" rel="noopener noreferrer" class="pl-card group" data-reveal style={`--d:${(i % 3) * 0.08}s`}>
+            <div class="pl-shot pl-shot-sm">
+              <img src={p.shotDesktop} alt={`Prototipo de ${p.client}`} loading="lazy" decoding="async" class="w-full aspect-[16/10] object-cover object-top" />
+              <span class="pl-stamp">Borrador</span>
+            </div>
+            <p class="pl-label mt-4">P.{String(i + 1).padStart(2, '0')} — {p.sector}</p>
+            <h3 class="pl-h3 !text-2xl mt-1">{p.client}</h3>
+            <p class="text-sm pl-soft mt-2 leading-relaxed">{p.summary}</p>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section id="servicios" class="pl-wrap py-16 md:py-24">
+      <header class="pl-sechead" data-reveal>
+        <span class="pl-label">Sección B</span>
+        <h2 class="pl-h2">Especificaciones</h2>
+      </header>
+      <div class="grid md:grid-cols-3 mt-12 pl-grid3">
+        {SERVICES.map((s, i) => (
+          <article class="pl-spec-card" data-reveal style={`--d:${i * 0.08}s`}>
+            <svg class="pl-icon" viewBox="0 0 64 64" aria-hidden="true">
+              {i === 0 && <g><rect x="6" y="12" width="52" height="36" /><line x1="6" y1="20" x2="58" y2="20" /><line x1="24" y1="56" x2="40" y2="56" /><line x1="32" y1="48" x2="32" y2="56" /></g>}
+              {i === 1 && <g><rect x="8" y="8" width="20" height="20" /><rect x="36" y="8" width="20" height="20" /><rect x="8" y="36" width="20" height="20" /><circle cx="46" cy="46" r="10" /></g>}
+              {i === 2 && <g><circle cx="32" cy="32" r="10" /><circle cx="32" cy="32" r="22" stroke-dasharray="4 4" /><line x1="32" y1="2" x2="32" y2="14" /><line x1="32" y1="50" x2="32" y2="62" /><line x1="2" y1="32" x2="14" y2="32" /><line x1="50" y1="32" x2="62" y2="32" /></g>}
+            </svg>
+            <p class="pl-label mt-6">B.{i + 1}</p>
+            <h3 class="pl-h3 mt-2">{s.title}</h3>
+            <p class="mt-3 text-sm leading-relaxed pl-soft">{s.desc}</p>
+            <ul class="mt-6 grid gap-2 text-sm">
+              {s.items.map((it, j) => <li class="pl-spec"><span>{String(j + 1).padStart(2, '0')}</span>{it}</li>)}
+            </ul>
+          </article>
+        ))}
+      </div>
+      <div class="mt-8 flex flex-wrap gap-3 items-center" data-reveal>
+        <span class="pl-label mr-2">Incluido en todos:</span>
+        {INCLUDED.map((it) => <span class="pl-chip">✓ {it}</span>)}
+      </div>
+    </section>
+
+    <!-- Process -->
+    <section id="proceso" class="pl-wrap py-16 md:py-24">
+      <header class="pl-sechead" data-reveal>
+        <span class="pl-label">Sección C</span>
+        <h2 class="pl-h2">Diagrama de trabajo</h2>
+      </header>
+      <ol class="pl-flow mt-14" data-reveal>
+        {STEPS.map((s, i) => (
+          <li class="pl-node" style={`--d:${i * 0.15}s`}>
+            <span class="pl-node-dot">{i + 1}</span>
+            <h3 class="pl-h3 !text-2xl mt-5">{s.title}</h3>
+            <p class="text-sm pl-soft mt-2 leading-relaxed">{s.desc}</p>
+          </li>
+        ))}
+      </ol>
+    </section>
+
+    <!-- About -->
+    <section class="pl-wrap py-16 md:py-24">
+      <div class="pl-frame grid md:grid-cols-12 gap-10 !p-6 sm:!p-10" data-reveal>
+        <span class="pl-corner tl"></span><span class="pl-corner tr"></span><span class="pl-corner bl"></span><span class="pl-corner br"></span>
+        <div class="md:col-span-7">
+          <p class="pl-label">Memoria descriptiva</p>
+          <h2 class="pl-h2 mt-3">{ABOUT.title}</h2>
+          {ABOUT.paragraphs.map((t) => <p class="mt-5 leading-relaxed pl-soft">{t}</p>)}
+        </div>
+        <ul class="md:col-span-5 grid gap-5 content-start">
+          {REASONS.map((r, i) => (
+            <li class="pl-note">
+              <span class="pl-label">Nota {i + 1}</span>
+              <h3 class="font-medium mt-1">{r.title}</h3>
+              <p class="text-sm pl-soft mt-1">{r.desc}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="pl-wrap py-16 md:py-24">
+      <header class="pl-sechead" data-reveal>
+        <span class="pl-label">Sección D</span>
+        <h2 class="pl-h2">Notas generales</h2>
+      </header>
+      <div class="mt-10 pl-faqs">
+        {FAQS.map((f, i) => (
+          <details class="faq pl-faq" data-reveal>
+            <summary class="flex items-start gap-5 py-5">
+              <span class="pl-label pt-1 shrink-0">N.{String(i + 1).padStart(2, '0')}</span>
+              <span class="flex-1 font-medium">{f.q}</span>
+              <span class="plus pl-plus" aria-hidden="true">+</span>
+            </summary>
+            <div class="faq-body"><div class="overflow-hidden"><p class="pb-6 pl-5 sm:pl-16 pl-soft leading-relaxed text-sm">{f.a}</p></div></div>
+          </details>
+        ))}
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contacto" class="pl-wrap pb-24 pt-8">
+      <div class="pl-order grid md:grid-cols-2" data-reveal>
+        <div class="p-6 sm:p-10 pl-order-left">
+          <p class="pl-label">Orden de trabajo N.º 001</p>
+          <h2 class="pl-display !text-[clamp(2.4rem,5vw,4rem)] mt-4">Contame qué necesitás.</h2>
+          <p class="mt-6 pl-soft leading-relaxed max-w-md">Mandame tu idea aunque sea un borrador. Te respondo con preguntas o con un presupuesto cerrado.</p>
+          <a href={`mailto:${SITE_CONFIG.email}`} class="inline-block mt-6 pl-link break-all">{SITE_CONFIG.email}</a>
+        </div>
+        <form data-contact-form action={SITE_CONFIG.contactFormEndpoint} method="POST" class="p-6 sm:p-10 grid gap-5">
+          <ContactHidden />
+          <label class="grid gap-1"><span class="pl-label">01 · Nombre</span><input name="name" required autocomplete="name" class="pl-input" /></label>
+          <label class="grid gap-1"><span class="pl-label">02 · Email</span><input name="email" type="email" required autocomplete="email" class="pl-input" /></label>
+          <label class="grid gap-1"><span class="pl-label">03 · Tipo de trabajo</span>
+            <select name="tipo" class="pl-input">{CONTACT_OPTIONS.map((o) => <option>{o}</option>)}</select>
+          </label>
+          <label class="grid gap-1"><span class="pl-label">04 · Descripción</span><textarea name="message" rows="4" required class="pl-input resize-none"></textarea></label>
+          <button type="submit" class="pl-btn pl-btn-solid justify-center mt-2"><span data-submit-label>Enviar orden →</span></button>
+          <p data-status role="status" aria-live="polite" class="text-sm"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pl-foot pb-24">
+    <div class="pl-wrap py-6 flex flex-col sm:flex-row justify-between gap-3 pl-label">
+      <p>© {today.getFullYear()} Hernán Solis — Todas las cotas en px</p>
+      <p class="flex gap-5">
+        <a href={SITE_CONFIG.linkedin} target="_blank" rel="noopener noreferrer" class="pl-link">LinkedIn</a>
+        <a href={SITE_CONFIG.github} target="_blank" rel="noopener noreferrer" class="pl-link">GitHub</a>
+        <a href={`mailto:${SITE_CONFIG.email}`} class="pl-link">Email</a>
+      </p>
+    </div>
+  </footer>
+
+  <DesignSwitcher current="plano" />
+</Layout>
+
+<style is:global>
+  body.d-plano {
+    --pl-bg: #0f3b8c;
+    --pl-ink: #eaf2ff;
+    --pl-line: rgba(234, 242, 255, 0.35);
+    --pl-faint: rgba(234, 242, 255, 0.09);
+    --pl-hi: #ffd84a;
+    --accent: #ffd84a;
+    background-color: var(--pl-bg);
+    background-image:
+      linear-gradient(var(--pl-faint) 1px, transparent 1px),
+      linear-gradient(90deg, var(--pl-faint) 1px, transparent 1px),
+      linear-gradient(rgba(234,242,255,.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(234,242,255,.04) 1px, transparent 1px);
+    background-size: 96px 96px, 96px 96px, 24px 24px, 24px 24px;
+    color: var(--pl-ink);
+    font-family: 'IBM Plex Mono', ui-monospace, monospace;
+    font-size: 15px;
+  }
+  html:has(body.d-plano) { background: #0f3b8c; color-scheme: dark; }
+  body.d-plano ::selection { background: var(--pl-hi); color: #0f3b8c; }
+  .d-plano h1, .d-plano h2, .d-plano h3 { font-family: 'Barlow Condensed', sans-serif; letter-spacing: 0; }
+  .d-plano .pl-wrap { max-width: 76rem; margin-inline: auto; padding-inline: 1rem; }
+  @media (min-width: 640px) { .d-plano .pl-wrap { padding-inline: 1.5rem; } }
+  .d-plano .pl-soft { color: rgba(234, 242, 255, 0.78); }
+  .d-plano .pl-label { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(234, 242, 255, 0.7); }
+  .d-plano .pl-nav { position: sticky; top: 0; z-index: 50; background: rgba(15, 59, 140, 0.9); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-bottom: 1px solid var(--pl-line); }
+  .d-plano .pl-logo { display: grid; place-items: center; width: 38px; height: 38px; border: 1.5px solid var(--pl-ink); font-family: 'Barlow Condensed'; font-weight: 700; font-size: 18px; position: relative; }
+  .d-plano .pl-logo::after { content: ''; position: absolute; inset: 4px; border: 1px dashed var(--pl-line); }
+  .d-plano .pl-navlink { color: var(--pl-ink); transition: color .2s; }
+  .d-plano .pl-navlink:hover { color: var(--pl-hi); }
+  .d-plano .pl-display { font-family: 'Barlow Condensed', sans-serif; font-weight: 600; text-transform: uppercase; font-size: clamp(3rem, 8.5vw, 7rem); line-height: 0.9; }
+  .d-plano .pl-display .line-mask { display: block; }
+  .d-plano .pl-outline { color: transparent; -webkit-text-stroke: 1.5px var(--pl-ink); }
+  .d-plano .pl-h2 { font-size: clamp(2.4rem, 5.5vw, 4.4rem); font-weight: 600; text-transform: uppercase; line-height: 0.95; }
+  .d-plano .pl-h3 { font-size: clamp(1.6rem, 2.6vw, 2.2rem); font-weight: 600; line-height: 1.02; text-transform: uppercase; }
+  .d-plano .pl-sechead { display: grid; gap: 0.5rem; padding-top: 1.25rem; border-top: 1px solid var(--pl-line); position: relative; }
+  .d-plano .pl-sechead::before { content: ''; position: absolute; top: -4px; left: 0; width: 7px; height: 7px; background: var(--pl-hi); }
+
+  .d-plano .pl-btn { display: inline-flex; align-items: center; gap: .5rem; padding: .85rem 1.3rem; border: 1.5px solid var(--pl-ink); font-size: 13px; letter-spacing: .08em; text-transform: uppercase; transition: background-color .2s, color .2s; }
+  .d-plano .pl-btn:hover { background: var(--pl-ink); color: var(--pl-bg); }
+  .d-plano .pl-btn-solid { background: var(--pl-hi); color: #0b2a66; border-color: var(--pl-hi); }
+  .d-plano .pl-btn-solid:hover { background: #fff; border-color: #fff; color: #0b2a66; }
+  .d-plano .pl-link { color: var(--pl-hi); text-decoration: underline; text-underline-offset: 4px; }
+
+  /* Dimension line */
+  .d-plano .pl-dim { display: flex; align-items: center; gap: .6rem; color: rgba(234,242,255,.7); font-size: 11px; letter-spacing: .1em; }
+  .d-plano .pl-dim span { flex: 1; height: 1px; background: var(--pl-line); position: relative; }
+  .d-plano .pl-dim span:first-child::before, .d-plano .pl-dim span:last-child::after { content: ''; position: absolute; top: -5px; width: 1px; height: 11px; background: var(--pl-ink); }
+  .d-plano .pl-dim span:first-child::before { left: 0; }
+  .d-plano .pl-dim span:last-child::after { right: 0; }
+  .d-plano .pl-dim em { font-style: normal; text-transform: uppercase; white-space: nowrap; }
+  .d-plano .pl-dim-top { margin-bottom: .75rem; }
+
+  /* Frames */
+  .d-plano .pl-frame { position: relative; border: 1px solid var(--pl-line); padding: 14px; }
+  .d-plano .pl-corner { position: absolute; width: 14px; height: 14px; border-color: var(--pl-hi); border-style: solid; border-width: 0; }
+  .d-plano .pl-corner.tl { top: -1px; left: -1px; border-top-width: 2px; border-left-width: 2px; }
+  .d-plano .pl-corner.tr { top: -1px; right: -1px; border-top-width: 2px; border-right-width: 2px; }
+  .d-plano .pl-corner.bl { bottom: -1px; left: -1px; border-bottom-width: 2px; border-left-width: 2px; }
+  .d-plano .pl-corner.br { bottom: -1px; right: -1px; border-bottom-width: 2px; border-right-width: 2px; }
+  .d-plano .pl-photo { position: relative; overflow: hidden; background: #0b2a66; }
+  .d-plano .pl-photo img { filter: grayscale(1) contrast(1.1); mix-blend-mode: screen; opacity: .9; }
+  .d-plano .pl-photo::after { content: ''; position: absolute; inset: 0; background: #1a56c4; mix-blend-mode: multiply; }
+  .d-plano .pl-sketch { position: absolute; inset: 14px 14px auto; width: calc(100% - 28px); aspect-ratio: 4 / 5; height: auto; pointer-events: none; }
+  .d-plano .pl-sketch * { fill: none; stroke: var(--pl-hi); stroke-width: 1; vector-effect: non-scaling-stroke; stroke-dasharray: 1000; stroke-dashoffset: 1000; animation: plDraw 2.4s var(--ease) .6s forwards; }
+  .d-plano .pl-sketch line { stroke: rgba(255, 216, 74, .5); stroke-dasharray: 6 6; stroke-dashoffset: 0; animation: fadeIn 1s .9s both; }
+  @keyframes plDraw { to { stroke-dashoffset: 0; } }
+
+  .d-plano .pl-titleblock { width: 100%; border-collapse: collapse; font-size: 12px; }
+  .d-plano .pl-titleblock th, .d-plano .pl-titleblock td { border: 1px solid var(--pl-line); padding: 8px 10px; text-align: left; }
+  .d-plano .pl-titleblock th { font-weight: 400; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: rgba(234,242,255,.6); width: 1%; white-space: nowrap; }
+  .d-plano .pl-blink { display: inline-block; width: 8px; height: 8px; background: #6ef0a0; margin-right: 6px; animation: plBlink 1.2s steps(2) infinite; }
+  @keyframes plBlink { 50% { opacity: 0; } }
+
+  .d-plano .pl-band { border-block: 1px solid var(--pl-line); padding: 1rem 0; font-family: 'Barlow Condensed'; font-weight: 500; font-size: clamp(1.3rem, 2.6vw, 1.8rem); text-transform: uppercase; background: rgba(11, 42, 102, .5); }
+
+  .d-plano .pl-shot { position: relative; overflow: hidden; border: 1px solid var(--pl-line); padding: 8px; background: rgba(11,42,102,.6); }
+  .d-plano .pl-shot img { transition: transform 1s var(--ease), filter .6s; filter: saturate(.85); }
+  .d-plano .pl-sheet:hover .pl-shot img, .d-plano .pl-card:hover .pl-shot img { transform: scale(1.03); filter: none; }
+  .d-plano .pl-sheet:hover .pl-h3 { color: var(--pl-hi); }
+  .d-plano .pl-h3 { transition: color .3s; }
+  .d-plano .pl-card:hover .pl-h3 { color: var(--pl-hi); }
+  .d-plano .pl-stamp { position: absolute; top: 18px; right: 18px; padding: 4px 10px; border: 2px solid #ff8a7a; color: #ff8a7a; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; transform: rotate(-6deg); background: rgba(15,59,140,.75); }
+  .d-plano .pl-spec { display: flex; gap: .75rem; padding-bottom: .5rem; border-bottom: 1px dashed var(--pl-line); }
+  .d-plano .pl-spec span { color: var(--pl-hi); }
+
+  .d-plano .pl-grid3 { border: 1px solid var(--pl-line); }
+  .d-plano .pl-spec-card { padding: 2rem 1.5rem; }
+  .d-plano .pl-spec-card + .pl-spec-card { border-top: 1px solid var(--pl-line); }
+  @media (min-width: 768px) { .d-plano .pl-spec-card + .pl-spec-card { border-top: 0; border-left: 1px solid var(--pl-line); } }
+  .d-plano .pl-icon { width: 56px; height: 56px; }
+  .d-plano .pl-icon * { fill: none; stroke: var(--pl-hi); stroke-width: 1.5; }
+  .d-plano .pl-chip { border: 1px solid var(--pl-line); padding: 5px 10px; font-size: 12px; }
+
+  .d-plano .pl-flow { display: grid; gap: 2.5rem; position: relative; }
+  @media (min-width: 768px) {
+    .d-plano .pl-flow { grid-template-columns: repeat(4, 1fr); gap: 2rem; }
+    .d-plano .pl-flow::before { content: ''; position: absolute; top: 22px; left: 22px; right: 22px; border-top: 1.5px dashed var(--pl-line); transform: scaleX(0); transform-origin: left; transition: transform 1.6s var(--ease) .2s; }
+    .d-plano .pl-flow.is-visible::before { transform: scaleX(1); }
+  }
+  .d-plano .pl-node { position: relative; opacity: 0; transform: translateY(16px); transition: opacity .8s var(--ease), transform .8s var(--ease); transition-delay: calc(var(--d) + .3s); }
+  .d-plano .pl-flow.is-visible .pl-node { opacity: 1; transform: none; }
+  .d-plano .pl-node-dot { position: relative; z-index: 1; display: grid; place-items: center; width: 44px; height: 44px; border: 1.5px solid var(--pl-hi); background: var(--pl-bg); color: var(--pl-hi); font-family: 'Barlow Condensed'; font-weight: 600; font-size: 1.4rem; border-radius: 999px; }
+
+  .d-plano .pl-note { border-left: 2px solid var(--pl-hi); padding-left: 1rem; }
+  .d-plano .pl-faqs { border-top: 1px solid var(--pl-line); }
+  .d-plano .pl-faq { border-bottom: 1px solid var(--pl-line); }
+  .d-plano .pl-plus { display: grid; place-items: center; width: 28px; height: 28px; border: 1px solid var(--pl-line); flex-shrink: 0; }
+
+  .d-plano .pl-order { border: 1px solid var(--pl-ink); background: rgba(11, 42, 102, .65); }
+  .d-plano .pl-order-left { border-bottom: 1px solid var(--pl-line); }
+  @media (min-width: 768px) { .d-plano .pl-order-left { border-bottom: 0; border-right: 1px solid var(--pl-line); } }
+  .d-plano .pl-input { width: 100%; background: transparent; color: var(--pl-ink); border: 0; border-bottom: 1px solid var(--pl-line); padding: .6rem 0; font: inherit; border-radius: 0; }
+  .d-plano .pl-input:focus { outline: none; border-color: var(--pl-hi); }
+  .d-plano select.pl-input option { color: #111; }
+  .d-plano [data-status][data-state='ok'] { color: #6ef0a0; }
+  .d-plano [data-status][data-state='error'] { color: #ff8a7a; }
+  .d-plano .pl-foot { border-top: 1px solid var(--pl-line); }
+  @media (prefers-reduced-motion: reduce) { .d-plano .pl-node { opacity: 1; transform: none; } .d-plano .pl-sketch * { stroke-dashoffset: 0; } }
+</style>
+
+<script>
+  import { bindContactForms } from '../../scripts/contact-form';
+  bindContactForms();
+</script>

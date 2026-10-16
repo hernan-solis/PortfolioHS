@@ -1,0 +1,452 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import DesignSwitcher from '../../components/DesignSwitcher.astro';
+import ContactHidden from '../../components/ContactHidden.astro';
+import { SITE_CONFIG } from '../../data/siteConfig';
+import { FEATURED_PROJECTS, PROTOTYPES } from '../../data/projects';
+import { HERO, SERVICES, STEPS, ABOUT, REASONS, FAQS, CONTACT_OPTIONS, INCLUDED } from '../../data/content';
+
+const icons = [
+  { label: 'Trabajos', href: '#trabajos', glyph: '🗂️' },
+  { label: 'Servicios', href: '#servicios', glyph: '⚙️' },
+  { label: 'Proceso', href: '#proceso', glyph: '💿' },
+  { label: 'Léame.txt', href: '#sobre-mi', glyph: '📝' },
+  { label: 'Ayuda', href: '#faq', glyph: '❓' },
+  { label: 'Correo', href: '#contacto', glyph: '✉️' },
+];
+const serviceGlyphs = ['🖥️', '🛒', '🗄️'];
+---
+
+<Layout noindex bodyClass="d-desk" fonts="family=Pixelify+Sans:wght@400;600">
+  <!-- Menu bar + task buttons -->
+  <header class="dk-bar">
+    <div class="flex items-center gap-1 min-w-0">
+      <a href="/disenos/escritorio/" class="dk-start"><span class="dk-flag" aria-hidden="true"></span>HS</a>
+      <div class="dk-tasks" data-tasks></div>
+    </div>
+    <div class="flex items-center gap-1">
+      <a href="#contacto" class="dk-btn dk-bar-cta !py-1 !px-3">Pedir presupuesto</a>
+      <span class="dk-tray"><span class="dk-led" aria-hidden="true"></span><time data-clock>--:--</time></span>
+    </div>
+  </header>
+
+  <main>
+    <!-- Desktop -->
+    <section class="dk-desktop" data-desktop>
+      <nav class="dk-icons" aria-label="Accesos directos">
+        {icons.map((ic) => (
+          <a href={ic.href} class="dk-icon">
+            <span class="dk-icon-glyph" aria-hidden="true">{ic.glyph}</span>
+            <span class="dk-icon-label">{ic.label}</span>
+          </a>
+        ))}
+      </nav>
+
+      <article class="dk-win dk-float" data-win="Bienvenida" style="--x:22%; --y:9%; --w:min(560px, 52vw); --z:3">
+        <div class="dk-title" data-drag>
+          <span>📄 bienvenida.txt</span>
+          <span class="dk-ctrls"><button type="button" data-min aria-label="Minimizar">_</button><button type="button" data-close aria-label="Cerrar">×</button></span>
+        </div>
+        <div class="dk-body p-5 sm:p-6">
+          <p class="dk-small">{HERO.eyebrow}</p>
+          <h1 class="dk-h1 mt-3">Páginas web a medida para negocios de Zona Norte.</h1>
+          <p class="mt-4 leading-relaxed">{HERO.lead}</p>
+          <div class="mt-6 flex flex-wrap gap-2">
+            <a href="#contacto" class="dk-btn dk-btn-default">Pedir presupuesto</a>
+            <a href="#trabajos" class="dk-btn">Ver trabajos</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="dk-win dk-float" data-win="hernan.jpg" style="--x:70%; --y:6%; --w:min(270px, 24vw); --z:2">
+        <div class="dk-title" data-drag>
+          <span>🖼️ hernan.jpg</span>
+          <span class="dk-ctrls"><button type="button" data-min aria-label="Minimizar">_</button><button type="button" data-close aria-label="Cerrar">×</button></span>
+        </div>
+        <div class="dk-body p-2">
+          <img src={ABOUT.photo} alt="Hernán Solis" class="w-full aspect-[4/5] object-cover dk-inset" draggable="false" />
+          <p class="dk-status mt-2">Hernán Solis — Tortuguitas</p>
+        </div>
+      </article>
+
+      <article class="dk-win dk-float" data-win="estado.exe" style="--x:64%; --y:58%; --w:min(330px, 30vw); --z:1">
+        <div class="dk-title dk-title-inactive" data-drag>
+          <span>📶 estado.exe</span>
+          <span class="dk-ctrls"><button type="button" data-min aria-label="Minimizar">_</button><button type="button" data-close aria-label="Cerrar">×</button></span>
+        </div>
+        <div class="dk-body p-4 grid gap-3 text-sm">
+          <p class="flex items-center gap-2"><span class="dk-led"></span> Tomando proyectos nuevos</p>
+          <div>
+            <p class="dk-small mb-1">Agenda de este mes</p>
+            <div class="dk-progress"><span style="width:65%"></span></div>
+          </div>
+          <p class="dk-small">Respondo en el día · Lun a Sáb 9 a 20 h</p>
+        </div>
+      </article>
+
+      <p class="dk-hint hidden lg:block">Tip: arrastrá las ventanas desde la barra de título.</p>
+    </section>
+
+    <div class="dk-sections">
+      <!-- Work -->
+      <section id="trabajos" class="dk-win" data-reveal>
+        <div class="dk-title"><span>🗂️ C:\Trabajos</span><span class="dk-ctrls" aria-hidden="true"><span>_</span><span>□</span><span>×</span></span></div>
+        <div class="dk-menu"><span><u>A</u>rchivo</span><span><u>E</u>dición</span><span><u>V</u>er</span><span>Ay<u>u</u>da</span></div>
+        <div class="dk-body dk-inset dk-white p-4 sm:p-6">
+          <h2 class="dk-h2">Publicados</h2>
+          <div class="grid md:grid-cols-3 gap-5 mt-4">
+            {FEATURED_PROJECTS.map((p) => (
+              <a href={p.url} target="_blank" rel="noopener noreferrer" class="dk-file group">
+                <div class="dk-thumb"><img src={p.shotDesktop} alt={`Página de ${p.client}`} loading="lazy" decoding="async" class="w-full aspect-[16/10] object-cover object-top" /></div>
+                <p class="dk-file-name mt-2">{p.displayUrl}</p>
+                <p class="text-sm font-bold mt-2">{p.title}</p>
+                <p class="text-sm mt-1 dk-muted leading-relaxed">{p.summary}</p>
+              </a>
+            ))}
+          </div>
+
+          <h2 class="dk-h2 mt-10">Prototipos <span class="dk-small">(sin dominio propio todavía)</span></h2>
+          <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 mt-4">
+            {PROTOTYPES.map((p) => (
+              <a href={p.url} target="_blank" rel="noopener noreferrer" class="dk-file group text-center">
+                <div class="dk-thumb"><img src={p.shotMobile} alt={`Prototipo de ${p.client}`} loading="lazy" decoding="async" class="w-full aspect-[9/14] object-cover object-top" /></div>
+                <p class="dk-file-name mt-2">{p.client}</p>
+                <p class="text-xs dk-muted mt-1">{p.sector}</p>
+              </a>
+            ))}
+          </div>
+        </div>
+        <div class="dk-statusbar"><span>{FEATURED_PROJECTS.length + PROTOTYPES.length} objetos</span><span>Zona Norte, Buenos Aires</span></div>
+      </section>
+
+      <!-- Services -->
+      <section id="servicios" class="dk-win" data-reveal>
+        <div class="dk-title"><span>⚙️ Panel de control — Servicios</span><span class="dk-ctrls" aria-hidden="true"><span>_</span><span>□</span><span>×</span></span></div>
+        <div class="dk-body p-4 sm:p-6">
+          <div class="grid md:grid-cols-3 gap-4">
+            {SERVICES.map((s, i) => (
+              <article class="dk-group">
+                <p class="dk-group-label">{serviceGlyphs[i]} {s.short}</p>
+                <h3 class="font-bold">{s.title}</h3>
+                <p class="text-sm mt-2 leading-relaxed">{s.desc}</p>
+                <ul class="mt-4 grid gap-1.5 text-sm">
+                  {s.items.map((it) => <li class="flex gap-2 items-center"><span class="dk-check" aria-hidden="true">✓</span>{it}</li>)}
+                </ul>
+              </article>
+            ))}
+          </div>
+          <fieldset class="dk-group mt-5">
+            <legend class="dk-group-label !static">Incluido siempre</legend>
+            <div class="flex flex-wrap gap-x-6 gap-y-2 text-sm">
+              {INCLUDED.map((it) => <span class="flex items-center gap-2"><span class="dk-check" aria-hidden="true">✓</span>{it}</span>)}
+            </div>
+          </fieldset>
+        </div>
+      </section>
+
+      <!-- Process -->
+      <section id="proceso" class="dk-win dk-narrow" data-reveal>
+        <div class="dk-title"><span>💿 Instalar tu página web</span><span class="dk-ctrls" aria-hidden="true"><span>_</span><span>□</span><span>×</span></span></div>
+        <div class="dk-body grid sm:grid-cols-[180px_1fr]">
+          <div class="dk-wizard-side hidden sm:block" aria-hidden="true"><span>HS</span></div>
+          <div class="p-5 sm:p-6">
+            <h2 class="dk-h2">Asistente de instalación</h2>
+            <p class="text-sm mt-1">Así trabajamos juntos, paso a paso.</p>
+            <ol class="mt-5 grid gap-4">
+              {STEPS.map((s, i) => (
+                <li class="flex gap-3">
+                  <span class="dk-stepnum">{i + 1}</span>
+                  <div>
+                    <h3 class="font-bold">{s.title}</h3>
+                    <p class="text-sm mt-0.5 leading-relaxed">{s.desc}</p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+            <div class="mt-6">
+              <p class="dk-small mb-1">Copiando archivos a tu negocio…</p>
+              <div class="dk-progress dk-progress-anim"><span></span></div>
+            </div>
+            <div class="mt-6 flex justify-end gap-2">
+              <a href="#servicios" class="dk-btn">&lt; Atrás</a>
+              <a href="#contacto" class="dk-btn dk-btn-default">Siguiente &gt;</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- About -->
+      <section id="sobre-mi" class="dk-win" data-reveal>
+        <div class="dk-title"><span>📝 Léame.txt — Bloc de notas</span><span class="dk-ctrls" aria-hidden="true"><span>_</span><span>□</span><span>×</span></span></div>
+        <div class="dk-menu"><span><u>A</u>rchivo</span><span><u>E</u>dición</span><span><u>F</u>ormato</span></div>
+        <div class="dk-body dk-inset dk-white p-5 sm:p-8 grid md:grid-cols-12 gap-8">
+          <div class="md:col-span-8 dk-notepad">
+            <h2 class="dk-h2">{ABOUT.title}</h2>
+            {ABOUT.paragraphs.map((t) => <p class="mt-4">{t}</p>)}
+            <p class="mt-6">---</p>
+            {REASONS.map((r) => <p class="mt-3">* <strong>{r.title}.</strong> {r.desc}</p>)}
+            <p class="mt-4">_<span class="dk-caret" aria-hidden="true"></span></p>
+          </div>
+          <div class="md:col-span-4">
+            <img src={ABOUT.photo} alt="Hernán Solis" loading="lazy" class="w-full max-w-[260px] aspect-square object-cover dk-inset dk-dither" />
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section id="faq" class="dk-win dk-narrow" data-reveal>
+        <div class="dk-title"><span>❓ Ayuda y soporte técnico</span><span class="dk-ctrls" aria-hidden="true"><span>_</span><span>□</span><span>×</span></span></div>
+        <div class="dk-body p-4 sm:p-5">
+          <div class="dk-inset dk-white p-2">
+            {FAQS.map((f, i) => (
+              <details class="dk-faq" open={i === 0}>
+                <summary><span class="dk-tree" aria-hidden="true"></span>📘 {f.q}</summary>
+                <p class="text-sm leading-relaxed pl-8 pr-2 pb-3 pt-1">{f.a}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section id="contacto" class="dk-win dk-narrow" data-reveal>
+        <div class="dk-title"><span>✉️ Nuevo mensaje</span><span class="dk-ctrls" aria-hidden="true"><span>_</span><span>□</span><span>×</span></span></div>
+        <form data-contact-form action={SITE_CONFIG.contactFormEndpoint} method="POST" class="dk-body p-4 sm:p-5 grid gap-3">
+          <ContactHidden />
+          <div class="flex flex-wrap gap-2 pb-3 dk-sep">
+            <button type="submit" class="dk-btn dk-btn-default"><span data-submit-label>📨 Enviar</span></button>
+            <a href={`mailto:${SITE_CONFIG.email}`} class="dk-btn">Usar mi correo</a>
+          </div>
+          <label class="dk-row"><span>Para:</span><input value="Hernán Solis" readonly class="dk-field dk-field-ro" tabindex="-1" aria-hidden="true" /></label>
+          <label class="dk-row"><span>Nombre:</span><input name="name" required autocomplete="name" class="dk-field" /></label>
+          <label class="dk-row"><span>Email:</span><input name="email" type="email" required autocomplete="email" class="dk-field" /></label>
+          <label class="dk-row"><span>Asunto:</span>
+            <select name="tipo" class="dk-field">{CONTACT_OPTIONS.map((o) => <option>{o}</option>)}</select>
+          </label>
+          <textarea name="message" rows="7" required placeholder="Contame sobre tu negocio…" class="dk-field resize-y" aria-label="Mensaje"></textarea>
+          <p data-status role="status" aria-live="polite" class="text-sm font-bold"></p>
+        </form>
+        <div class="dk-statusbar"><span>{SITE_CONFIG.email}</span><span>Respondo en el día</span></div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="dk-foot">
+    <p>© {new Date().getFullYear()} Hernán Solis</p>
+    <p class="flex gap-4">
+      <a href={SITE_CONFIG.linkedin} target="_blank" rel="noopener noreferrer" class="underline">LinkedIn</a>
+      <a href={SITE_CONFIG.github} target="_blank" rel="noopener noreferrer" class="underline">GitHub</a>
+      <a href={`mailto:${SITE_CONFIG.email}`} class="underline">Email</a>
+    </p>
+  </footer>
+
+  <DesignSwitcher current="escritorio" />
+</Layout>
+
+<style is:global>
+  body.d-desk {
+    --dk-face: #c3c3c3;
+    --dk-blue: #000080;
+    --accent: #000080;
+    background: #008080;
+    color: #111;
+    font-family: Tahoma, Verdana, 'Segoe UI', system-ui, sans-serif;
+    font-size: 15px;
+  }
+  html:has(body.d-desk) { background: #008080; color-scheme: light; scroll-padding-top: 3.5rem; }
+  body.d-desk ::selection { background: var(--dk-blue); color: #fff; }
+  .d-desk h1, .d-desk h2, .d-desk h3 { font-family: Tahoma, Verdana, system-ui, sans-serif; letter-spacing: 0; }
+  .d-desk :focus-visible { outline: 1px dotted #000; outline-offset: -4px; border-radius: 0; }
+
+  /* Bevels */
+  .d-desk .dk-win, .d-desk .dk-btn, .d-desk .dk-bar, .d-desk .dk-start {
+    background: var(--dk-face);
+    box-shadow: inset -1px -1px #0a0a0a, inset 1px 1px #fff, inset -2px -2px #808080, inset 2px 2px #dfdfdf;
+  }
+  .d-desk .dk-inset, .d-desk .dk-field, .d-desk .dk-tray, .d-desk .dk-progress {
+    box-shadow: inset -1px -1px #fff, inset 1px 1px #808080, inset -2px -2px #dfdfdf, inset 2px 2px #0a0a0a;
+  }
+  .d-desk .dk-white { background: #fff; }
+
+  .d-desk .dk-bar { position: sticky; top: 0; z-index: 50; display: flex; justify-content: space-between; align-items: center; gap: 6px; padding: 4px; height: 42px; }
+  .d-desk .dk-start { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; font-weight: 700; font-family: 'Pixelify Sans', Tahoma, sans-serif; font-size: 16px; flex-shrink: 0; }
+  .d-desk .dk-flag { width: 16px; height: 16px; background: conic-gradient(#e33 0 25%, #3b3 0 50%, #fc0 0 75%, #36f 0); transform: skewY(-8deg); }
+  .d-desk .dk-tasks { display: flex; gap: 4px; overflow-x: auto; min-width: 0; }
+  .d-desk .dk-task { padding: 4px 10px; font-size: 13px; white-space: nowrap; max-width: 150px; overflow: hidden; text-overflow: ellipsis; }
+  .d-desk .dk-task.is-active { box-shadow: inset -1px -1px #fff, inset 1px 1px #0a0a0a, inset -2px -2px #dfdfdf, inset 2px 2px #808080; background: repeating-conic-gradient(#c3c3c3 0 25%, #fff 0 50%) 0 0 / 2px 2px; font-weight: 700; }
+  .d-desk .dk-tray { display: inline-flex; align-items: center; gap: 8px; padding: 4px 12px; font-size: 13px; font-variant-numeric: tabular-nums; }
+  .d-desk .dk-led { display: inline-block; width: 9px; height: 9px; background: #1fd14b; box-shadow: 0 0 0 1px #0a5a1f; animation: dkBlink 1.4s steps(2) infinite; }
+  @keyframes dkBlink { 50% { background: #0e7a2b; } }
+
+  .d-desk .dk-btn { display: inline-flex; align-items: center; justify-content: center; gap: 6px; padding: 6px 16px; min-width: 88px; font-size: 14px; color: #111; cursor: pointer; border: 0; font-family: inherit; }
+  .d-desk .dk-btn:active { box-shadow: inset -1px -1px #fff, inset 1px 1px #0a0a0a, inset -2px -2px #dfdfdf, inset 2px 2px #808080; padding: 7px 15px 5px 17px; }
+  .d-desk .dk-bar-cta { display: none; }
+  @media (min-width: 640px) { .d-desk .dk-bar-cta { display: inline-flex; } }
+  .d-desk .dk-btn-default { outline: 1px solid #0a0a0a; outline-offset: -1px; font-weight: 700; }
+
+  /* Windows */
+  .d-desk .dk-win { padding: 3px; }
+  .d-desk .dk-title { display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 3px 3px 3px 6px; background: linear-gradient(90deg, var(--dk-blue), #1084d0); color: #fff; font-weight: 700; font-size: 14px; user-select: none; }
+  .d-desk .dk-title > span:first-child { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .d-desk .dk-title-inactive { background: linear-gradient(90deg, #808080, #b5b5b5); }
+  .d-desk .dk-ctrls { display: flex; gap: 2px; flex-shrink: 0; }
+  .d-desk .dk-ctrls > * { display: grid; place-items: center; width: 18px; height: 16px; background: var(--dk-face); color: #000; font-size: 12px; line-height: 1; font-weight: 700; border: 0; box-shadow: inset -1px -1px #0a0a0a, inset 1px 1px #fff, inset -2px -2px #808080, inset 2px 2px #dfdfdf; }
+  .d-desk .dk-ctrls button { cursor: pointer; }
+  .d-desk .dk-ctrls button:active { box-shadow: inset 1px 1px #0a0a0a, inset -1px -1px #fff; }
+  .d-desk .dk-menu { display: flex; gap: 14px; padding: 4px 6px; font-size: 13px; }
+  .d-desk .dk-body { margin-top: 2px; }
+  .d-desk .dk-statusbar { display: flex; justify-content: space-between; gap: 8px; margin-top: 2px; padding: 3px 6px; font-size: 12px; box-shadow: inset -1px -1px #fff, inset 1px 1px #808080; }
+  .d-desk .dk-small { font-size: 12px; color: #444; }
+  .d-desk .dk-muted { color: #444; }
+  .d-desk .dk-h1 { font-family: 'Pixelify Sans', Tahoma, sans-serif; font-weight: 600; font-size: clamp(2rem, 4vw, 3.1rem); line-height: 1.02; }
+  .d-desk .dk-h2 { font-family: 'Pixelify Sans', Tahoma, sans-serif; font-weight: 600; font-size: clamp(1.5rem, 3vw, 2rem); line-height: 1.1; }
+
+  /* Desktop area */
+  .d-desk .dk-desktop { position: relative; display: grid; gap: 14px; padding: 16px 12px 32px; }
+  .d-desk .dk-icons { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; order: 9; }
+  .d-desk .dk-icon { display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 6px 2px; color: #fff; text-align: center; }
+  .d-desk .dk-icon-glyph { font-size: 34px; line-height: 1; filter: drop-shadow(1px 1px 0 rgba(0,0,0,.4)); }
+  .d-desk .dk-icon-label { font-size: 13px; padding: 1px 3px; text-shadow: 1px 1px 0 #000; }
+  .d-desk .dk-icon:hover .dk-icon-label, .d-desk .dk-icon:focus-visible .dk-icon-label { background: var(--dk-blue); text-shadow: none; outline: 1px dotted #fff; }
+  .d-desk .dk-hint { position: absolute; right: 20px; top: 14px; color: rgba(255,255,255,.75); font-size: 13px; }
+  .d-desk .dk-float.is-hidden { display: none; }
+  .d-desk .dk-float.is-min .dk-body { display: none; }
+  @media (min-width: 1024px) {
+    .d-desk .dk-desktop { display: block; height: calc(100svh - 42px); min-height: 640px; padding: 0; overflow: hidden; }
+    .d-desk .dk-icons { position: absolute; top: 20px; left: 16px; grid-template-columns: 88px; gap: 14px; }
+    .d-desk .dk-float { position: absolute; left: var(--x); top: var(--y); width: var(--w); z-index: var(--z); animation: dkOpen .35s steps(5) both; }
+    .d-desk .dk-float[data-win='hernan.jpg'] { animation-delay: .15s; }
+    .d-desk .dk-float[data-win='estado.exe'] { animation-delay: .3s; }
+    .d-desk .dk-float .dk-title { cursor: grab; touch-action: none; }
+    .d-desk .dk-float.is-dragging .dk-title { cursor: grabbing; }
+  }
+  @keyframes dkOpen { from { transform: scale(.2); opacity: 0; } to { transform: none; opacity: 1; } }
+  .d-desk .dk-status { font-size: 12px; padding: 2px 4px; box-shadow: inset -1px -1px #fff, inset 1px 1px #808080; }
+  .d-desk .dk-progress { height: 20px; padding: 3px; background: #fff; }
+  .d-desk .dk-progress span { display: block; height: 100%; background: repeating-linear-gradient(90deg, var(--dk-blue) 0 10px, transparent 10px 12px); }
+  .d-desk .dk-progress-anim span { width: 0; }
+  .d-desk .is-visible .dk-progress-anim span { animation: dkFill 3.2s steps(16) .4s forwards; }
+  @keyframes dkFill { to { width: 100%; } }
+
+  /* Sections */
+  .d-desk .dk-sections { display: grid; gap: 28px; max-width: 74rem; margin-inline: auto; padding: 24px 12px 40px; }
+  .d-desk .dk-narrow { width: 100%; max-width: 54rem; margin-inline: auto; }
+  .d-desk .dk-file { display: block; padding: 6px; border: 1px dotted transparent; }
+  .d-desk .dk-file:hover, .d-desk .dk-file:focus-visible { border-color: #000; background: #e8eefc; }
+  .d-desk .dk-thumb { padding: 3px; background: #fff; box-shadow: inset -1px -1px #fff, inset 1px 1px #808080, inset -2px -2px #dfdfdf, inset 2px 2px #0a0a0a; overflow: hidden; }
+  .d-desk .dk-file-name { display: inline-block; font-size: 13px; padding: 0 3px; }
+  .d-desk .dk-file:hover .dk-file-name { background: var(--dk-blue); color: #fff; }
+
+  .d-desk .dk-group { position: relative; padding: 22px 14px 14px; border: 1px solid #808080; box-shadow: 1px 1px 0 #fff, inset 1px 1px 0 #fff; }
+  .d-desk .dk-group-label { position: absolute; top: -10px; left: 10px; padding: 0 4px; background: var(--dk-face); font-size: 13px; font-weight: 700; }
+  .d-desk .dk-check { display: grid; place-items: center; width: 14px; height: 14px; background: #fff; font-size: 11px; font-weight: 700; box-shadow: inset -1px -1px #fff, inset 1px 1px #808080, inset -2px -2px #dfdfdf, inset 2px 2px #0a0a0a; flex-shrink: 0; }
+
+  .d-desk .dk-wizard-side { background: linear-gradient(180deg, #000080, #1084d0); position: relative; overflow: hidden; }
+  .d-desk .dk-wizard-side span { position: absolute; left: 16px; bottom: 10px; font-family: 'Pixelify Sans'; font-size: 72px; color: rgba(255,255,255,.85); line-height: 1; }
+  .d-desk .dk-stepnum { display: grid; place-items: center; width: 26px; height: 26px; flex-shrink: 0; background: var(--dk-blue); color: #fff; font-weight: 700; font-size: 13px; }
+
+  .d-desk .dk-notepad { font-family: 'Courier New', ui-monospace, monospace; font-size: 15px; line-height: 1.6; }
+  .d-desk .dk-notepad .dk-h2 { font-family: 'Pixelify Sans', Tahoma, sans-serif; }
+  .d-desk .dk-caret { display: inline-block; width: 8px; height: 1.1em; background: #000; vertical-align: text-bottom; animation: dkBlink2 1s steps(2) infinite; }
+  @keyframes dkBlink2 { 50% { opacity: 0; } }
+  .d-desk .dk-dither { filter: grayscale(1) contrast(1.4); image-rendering: pixelated; padding: 3px; }
+
+  .d-desk .dk-faq summary { list-style: none; cursor: pointer; display: flex; align-items: center; gap: 6px; padding: 6px; font-size: 14px; }
+  .d-desk .dk-faq summary::-webkit-details-marker { display: none; }
+  .d-desk .dk-faq summary:hover { background: var(--dk-blue); color: #fff; }
+  .d-desk .dk-tree { display: grid; place-items: center; width: 11px; height: 11px; border: 1px solid #808080; background: #fff; font-size: 10px; line-height: 1; color: #000; flex-shrink: 0; }
+  .d-desk .dk-tree::before { content: '+'; }
+  .d-desk .dk-faq[open] .dk-tree::before { content: '−'; }
+
+  .d-desk .dk-sep { border-bottom: 1px solid #808080; box-shadow: 0 1px 0 #fff; }
+  .d-desk .dk-row { display: grid; grid-template-columns: 72px 1fr; align-items: center; gap: 8px; font-size: 14px; }
+  .d-desk .dk-field { width: 100%; padding: 6px 8px; background: #fff; border: 0; border-radius: 0; font: inherit; color: #111; }
+  .d-desk .dk-field:focus { outline: 1px dotted #000; outline-offset: -5px; }
+  .d-desk .dk-field-ro { background: var(--dk-face); }
+  .d-desk [data-status][data-state='ok'] { color: #0a6b25; }
+  .d-desk [data-status][data-state='error'] { color: #b00020; }
+
+  .d-desk .dk-foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; max-width: 74rem; margin-inline: auto; padding: 8px 12px 96px; color: #fff; font-size: 13px; }
+  @media (prefers-reduced-motion: reduce) { .d-desk .dk-led, .d-desk .dk-caret { animation: none; } .d-desk .dk-progress-anim span { width: 100%; } }
+</style>
+
+<script>
+  import { bindContactForms } from '../../scripts/contact-form';
+  bindContactForms('Mensaje enviado. Te respondo a la brevedad.');
+
+  // Clock
+  const clock = document.querySelector<HTMLElement>('[data-clock]');
+  const tick = () => {
+    if (clock) clock.textContent = new Date().toLocaleTimeString('es-AR', { hour: '2-digit', minute: '2-digit' });
+  };
+  tick();
+  setInterval(tick, 15000);
+
+  // Floating windows: focus, drag, minimize, close + task buttons
+  const desktop = document.querySelector<HTMLElement>('[data-desktop]');
+  const tasks = document.querySelector<HTMLElement>('[data-tasks]');
+  const wins = Array.from(document.querySelectorAll<HTMLElement>('.dk-float'));
+  const canDrag = window.matchMedia('(min-width: 1024px)');
+  let top = wins.length + 1;
+
+  const buttons = new Map<HTMLElement, HTMLButtonElement>();
+  const focusWin = (win: HTMLElement) => {
+    win.style.zIndex = String(++top);
+    wins.forEach((w) => {
+      const active = w === win;
+      w.querySelector('.dk-title')?.classList.toggle('dk-title-inactive', !active);
+      buttons.get(w)?.classList.toggle('is-active', active);
+    });
+  };
+
+  wins.forEach((win) => {
+    const name = win.dataset.win ?? '';
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'dk-btn dk-task';
+    btn.textContent = name;
+    btn.addEventListener('click', () => {
+      win.classList.remove('is-hidden', 'is-min');
+      focusWin(win);
+      if (!canDrag.matches) win.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+    tasks?.append(btn);
+    buttons.set(win, btn);
+
+    win.addEventListener('pointerdown', () => focusWin(win));
+    win.querySelector('[data-min]')?.addEventListener('click', () => win.classList.toggle('is-min'));
+    win.querySelector('[data-close]')?.addEventListener('click', () => {
+      win.classList.add('is-hidden');
+      buttons.get(win)?.classList.remove('is-active');
+    });
+
+    const handle = win.querySelector<HTMLElement>('[data-drag]');
+    handle?.addEventListener('pointerdown', (e) => {
+      if (!canDrag.matches || !desktop || (e.target as Element).closest('button')) return;
+      const area = desktop.getBoundingClientRect();
+      const start = win.getBoundingClientRect();
+      const dx = e.clientX - start.left;
+      const dy = e.clientY - start.top;
+      win.classList.add('is-dragging');
+      handle.setPointerCapture(e.pointerId);
+
+      const move = (ev: PointerEvent) => {
+        const x = Math.min(Math.max(ev.clientX - dx - area.left, -start.width + 80), area.width - 80);
+        const y = Math.min(Math.max(ev.clientY - dy - area.top, 0), area.height - 40);
+        win.style.left = `${x}px`;
+        win.style.top = `${y}px`;
+      };
+      const up = () => {
+        win.classList.remove('is-dragging');
+        handle.removeEventListener('pointermove', move);
+        handle.removeEventListener('pointerup', up);
+        handle.removeEventListener('pointercancel', up);
+      };
+      handle.addEventListener('pointermove', move);
+      handle.addEventListener('pointerup', up);
+      handle.addEventListener('pointercancel', up);
+    });
+  });
+
+  if (wins[0]) focusWin(wins[0]);
+</script>

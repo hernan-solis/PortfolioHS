@@ -1,0 +1,354 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import DesignSwitcher from '../../components/DesignSwitcher.astro';
+import ContactHidden from '../../components/ContactHidden.astro';
+import { SITE_CONFIG } from '../../data/siteConfig';
+import { FEATURED_PROJECTS, PROTOTYPES } from '../../data/projects';
+import { HERO, SERVICES, STEPS, ABOUT, REASONS, FAQS, CONTACT_OPTIONS, INCLUDED } from '../../data/content';
+
+const serviceIcons = ['◐', '▦', '⌘'];
+---
+
+<Layout noindex bodyClass="d-aurora" fonts="family=Plus+Jakarta+Sans:wght@400;500;600;700;800">
+  <div class="au-sky" aria-hidden="true">
+    <span class="au-blob b1"></span><span class="au-blob b2"></span><span class="au-blob b3"></span><span class="au-blob b4"></span>
+  </div>
+
+  <header class="au-wrap sticky top-3 z-50 mt-3">
+    <div class="au-glass au-nav flex items-center justify-between">
+      <a href="/disenos/aurora/" class="flex items-center gap-2.5 font-bold">
+        <span class="au-logo">HS</span>
+        <span class="hidden sm:inline">Hernán Solis</span>
+      </a>
+      <nav class="hidden md:flex gap-1 text-sm font-medium" aria-label="Principal">
+        <a href="#trabajos" class="au-navlink">Trabajos</a>
+        <a href="#servicios" class="au-navlink">Servicios</a>
+        <a href="#proceso" class="au-navlink">Proceso</a>
+        <a href="#faq" class="au-navlink">Preguntas</a>
+      </nav>
+      <a href="#contacto" class="au-btn au-btn-dark !py-2.5 !px-4 text-sm">Hablemos</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="au-wrap pt-16 md:pt-24 pb-16 md:pb-24 text-center">
+      <p class="au-pill fade-in"><span class="au-live"></span> {HERO.eyebrow}</p>
+      <h1 class="au-display mt-7 mx-auto fade-in" style="--d:.1s">
+        Páginas web <span class="au-grad">a medida</span><br class="hidden sm:block" /> para negocios de Zona Norte.
+      </h1>
+      <p class="mt-7 max-w-2xl mx-auto text-lg leading-relaxed au-soft fade-in" style="--d:.2s">{HERO.lead}</p>
+      <div class="mt-9 flex flex-col sm:flex-row gap-3 justify-center fade-in" style="--d:.3s">
+        <a href="#contacto" class="au-btn au-btn-dark">Pedir presupuesto <span aria-hidden="true">→</span></a>
+        <a href="#trabajos" class="au-btn au-glass">Ver trabajos</a>
+      </div>
+
+      <div class="relative mt-16 md:mt-20 max-w-4xl mx-auto fade-in" style="--d:.45s">
+        <div class="au-glass au-hero-card p-3 sm:p-4">
+          <div class="au-browser"><span></span><span></span><span></span><em>{FEATURED_PROJECTS[0].displayUrl}</em></div>
+          <img src={FEATURED_PROJECTS[0].shotDesktop} alt={`Página de ${FEATURED_PROJECTS[0].client}`} class="w-full aspect-[16/9] object-cover object-top rounded-2xl" />
+        </div>
+        <div class="au-float au-glass f1 hidden sm:flex">
+          <img src={ABOUT.photo} alt="" class="w-10 h-10 rounded-full object-cover" />
+          <span class="text-left text-sm leading-tight"><strong>Hernán</strong><br /><span class="au-soft">Respondo en el día</span></span>
+        </div>
+        <div class="au-float au-glass f2 hidden sm:flex">
+          <span class="au-chip-ico">⚡</span>
+          <span class="text-left text-sm leading-tight"><strong>5 a 12 días</strong><br /><span class="au-soft">para estar online</span></span>
+        </div>
+        <div class="au-float au-glass f3 hidden md:flex">
+          <span class="au-chip-ico">%</span>
+          <span class="text-left text-sm leading-tight"><strong>0% comisión</strong><br /><span class="au-soft">por venta</span></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Zones -->
+    <div class="py-6" aria-label="Zonas donde trabajo">
+      <div class="marquee au-soft font-medium">
+        {[0, 1].map((c) => (
+          <ul class="marquee-track" aria-hidden={c === 1 ? 'true' : undefined}>
+            {SITE_CONFIG.coverageZones.map((z) => <li class="whitespace-nowrap au-zone">{z}</li>)}
+          </ul>
+        ))}
+      </div>
+    </div>
+
+    <!-- Work -->
+    <section id="trabajos" class="au-wrap py-16 md:py-24">
+      <div class="text-center" data-reveal>
+        <p class="au-kicker">Trabajos</p>
+        <h2 class="au-h2 mt-3">Sitios que ya están vendiendo</h2>
+      </div>
+      <div class="grid lg:grid-cols-3 gap-6 mt-12">
+        {FEATURED_PROJECTS.map((p, i) => (
+          <a href={p.url} target="_blank" rel="noopener noreferrer" class="au-glass au-card group p-3" data-reveal style={`--d:${i * 0.08}s`}>
+            <div class="overflow-hidden rounded-2xl">
+              <img src={p.shotDesktop} alt={`Página de ${p.client}`} loading="lazy" decoding="async" class="w-full aspect-[16/10] object-cover object-top transition-transform duration-700 group-hover:scale-105" />
+            </div>
+            <div class="p-3 pt-5">
+              <p class="text-xs font-semibold au-soft">{p.client} · {p.location}</p>
+              <h3 class="text-lg font-bold leading-snug mt-2">{p.title}</h3>
+              <div class="flex flex-wrap gap-1.5 mt-4">
+                {p.highlights.map((h) => <span class="au-tag">{h}</span>)}
+              </div>
+              <p class="mt-5 text-sm font-semibold au-grad-text">{p.displayUrl} ↗</p>
+            </div>
+          </a>
+        ))}
+      </div>
+
+      <div class="text-center mt-24" data-reveal>
+        <p class="au-kicker">Prototipos</p>
+        <h2 class="au-h2 mt-3">Propuestas para la zona</h2>
+        <p class="mt-4 max-w-xl mx-auto au-soft">Funcionan y se pueden recorrer. Todavía no tienen su dominio propio.</p>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-12">
+        {PROTOTYPES.map((p, i) => (
+          <a href={p.url} target="_blank" rel="noopener noreferrer" class="au-proto group" data-reveal style={`--d:${(i % 3) * 0.08}s`}>
+            <img src={p.shotDesktop} alt={`Prototipo de ${p.client}`} loading="lazy" decoding="async" class="w-full aspect-[4/3] object-cover object-top transition-transform duration-700 group-hover:scale-105" />
+            <div class="au-proto-info au-glass">
+              <div>
+                <h3 class="font-bold">{p.client}</h3>
+                <p class="text-xs au-soft mt-0.5">{p.sector} · {p.location}</p>
+              </div>
+              <span class="au-arrow" aria-hidden="true">↗</span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section id="servicios" class="au-wrap py-16 md:py-24">
+      <div class="text-center" data-reveal>
+        <p class="au-kicker">Servicios</p>
+        <h2 class="au-h2 mt-3">Lo que puedo hacer por tu negocio</h2>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6 mt-12">
+        {SERVICES.map((s, i) => (
+          <article class="au-glass au-service p-7" data-reveal style={`--d:${i * 0.08}s; --h:${[265, 320, 190][i]}`}>
+            <span class="au-ico" aria-hidden="true">{serviceIcons[i]}</span>
+            <h3 class="text-xl font-bold mt-6">{s.title}</h3>
+            <p class="mt-3 au-soft leading-relaxed text-[15px]">{s.desc}</p>
+            <ul class="mt-6 grid gap-2.5 text-sm font-medium">
+              {s.items.map((it) => <li class="flex gap-2.5 items-center"><span class="au-check">✓</span>{it}</li>)}
+            </ul>
+          </article>
+        ))}
+      </div>
+      <div class="flex flex-wrap gap-2 justify-center mt-10" data-reveal>
+        {INCLUDED.map((it) => <span class="au-pill !mt-0">✓ {it}</span>)}
+      </div>
+    </section>
+
+    <!-- Process -->
+    <section id="proceso" class="au-wrap py-16 md:py-24">
+      <div class="grid lg:grid-cols-12 gap-10">
+        <div class="lg:col-span-4" data-reveal>
+          <p class="au-kicker">Proceso</p>
+          <h2 class="au-h2 mt-3">Simple, de principio a fin</h2>
+          <p class="mt-4 au-soft leading-relaxed">Sin reuniones eternas ni formularios. Hablamos por WhatsApp o en persona y avanzamos.</p>
+        </div>
+        <ol class="lg:col-span-8 au-timeline">
+          {STEPS.map((s, i) => (
+            <li class="au-step au-glass" data-reveal style={`--d:${i * 0.08}s`}>
+              <span class="au-step-n">{i + 1}</span>
+              <div>
+                <h3 class="font-bold text-lg">{s.title}</h3>
+                <p class="au-soft mt-1 leading-relaxed text-[15px]">{s.desc}</p>
+              </div>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section class="au-wrap py-16 md:py-24">
+      <div class="au-glass au-about grid md:grid-cols-12 gap-8 md:gap-12 p-6 sm:p-10 items-center" data-reveal>
+        <div class="md:col-span-5">
+          <div class="au-photo">
+            <img src={ABOUT.photo} alt="Hernán Solis" loading="lazy" class="w-full aspect-square object-cover rounded-[28px]" />
+          </div>
+        </div>
+        <div class="md:col-span-7">
+          <p class="au-kicker">Sobre mí</p>
+          <h2 class="au-h2 mt-3">{ABOUT.title}</h2>
+          {ABOUT.paragraphs.map((t) => <p class="mt-4 au-soft leading-relaxed">{t}</p>)}
+          <ul class="grid sm:grid-cols-3 gap-3 mt-8">
+            {REASONS.map((r) => (
+              <li class="au-reason">
+                <h3 class="font-bold text-sm">{r.title}</h3>
+                <p class="text-xs au-soft mt-1.5 leading-relaxed">{r.desc}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="au-wrap py-16 md:py-24">
+      <div class="max-w-3xl mx-auto">
+      <div class="text-center" data-reveal>
+        <p class="au-kicker">Preguntas</p>
+        <h2 class="au-h2 mt-3">Lo que siempre me preguntan</h2>
+      </div>
+      <div class="mt-12 grid gap-3">
+        {FAQS.map((f) => (
+          <details class="faq au-glass au-faq" data-reveal>
+            <summary class="flex justify-between items-center gap-4 px-6 py-5 font-semibold">
+              <span>{f.q}</span>
+              <span class="plus au-plus" aria-hidden="true">+</span>
+            </summary>
+            <div class="faq-body"><div class="overflow-hidden"><p class="px-6 pb-6 au-soft leading-relaxed">{f.a}</p></div></div>
+          </details>
+        ))}
+      </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contacto" class="au-wrap pb-24 pt-8">
+      <div class="au-contact grid md:grid-cols-2 gap-10 p-6 sm:p-10 md:p-14" data-reveal>
+        <div>
+          <p class="au-kicker !text-white/70">Contacto</p>
+          <h2 class="au-h2 mt-3 !text-white">Contame qué necesitás</h2>
+          <p class="mt-5 text-white/75 leading-relaxed max-w-md">Escribime con tu idea, aunque sea un borrador. Te respondo con preguntas o un presupuesto.</p>
+          <a href={`mailto:${SITE_CONFIG.email}`} class="inline-block mt-6 font-semibold underline underline-offset-4 decoration-white/40 break-all">{SITE_CONFIG.email}</a>
+        </div>
+        <form data-contact-form action={SITE_CONFIG.contactFormEndpoint} method="POST" class="grid gap-3">
+          <ContactHidden />
+          <input name="name" required placeholder="Tu nombre" autocomplete="name" class="au-input" aria-label="Nombre" />
+          <input name="email" type="email" required placeholder="tu@email.com" autocomplete="email" class="au-input" aria-label="Email" />
+          <select name="tipo" class="au-input" aria-label="Qué necesitás">
+            {CONTACT_OPTIONS.map((o) => <option>{o}</option>)}
+          </select>
+          <textarea name="message" rows="4" required placeholder="Contame sobre tu negocio" class="au-input resize-none" aria-label="Mensaje"></textarea>
+          <button type="submit" class="au-btn au-btn-light justify-center mt-1"><span data-submit-label>Enviar mensaje</span></button>
+          <p data-status role="status" aria-live="polite" class="text-sm text-white"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="au-wrap pb-28 pt-4">
+    <div class="flex flex-col sm:flex-row justify-between gap-3 text-sm au-soft">
+      <p>© {new Date().getFullYear()} Hernán Solis · Tortuguitas, Buenos Aires</p>
+      <p class="flex gap-5 font-medium">
+        <a href={SITE_CONFIG.linkedin} target="_blank" rel="noopener noreferrer" class="hover:text-[#1d1b2e]">LinkedIn</a>
+        <a href={SITE_CONFIG.github} target="_blank" rel="noopener noreferrer" class="hover:text-[#1d1b2e]">GitHub</a>
+        <a href={`mailto:${SITE_CONFIG.email}`} class="hover:text-[#1d1b2e]">Email</a>
+      </p>
+    </div>
+  </footer>
+
+  <DesignSwitcher current="aurora" />
+</Layout>
+
+<style is:global>
+  body.d-aurora {
+    --au-ink: #1d1b2e;
+    --au-soft: #5d5a72;
+    --accent: #7b5cff;
+    background: #f6f5fb;
+    color: var(--au-ink);
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  }
+  html:has(body.d-aurora) { background: #f6f5fb; color-scheme: light; }
+  body.d-aurora ::selection { background: #d9ceff; color: var(--au-ink); }
+  .d-aurora h1, .d-aurora h2, .d-aurora h3 { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; letter-spacing: -0.025em; }
+  .d-aurora .au-wrap { max-width: 72rem; margin-inline: auto; padding-inline: 1rem; }
+  @media (min-width: 640px) { .d-aurora .au-wrap { padding-inline: 1.5rem; } }
+  .d-aurora .au-soft { color: var(--au-soft); }
+
+  .d-aurora .au-sky { position: fixed; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; }
+  .d-aurora .au-blob { position: absolute; width: 46vmax; height: 46vmax; border-radius: 50%; filter: blur(80px); opacity: .55; animation: auFloat 22s ease-in-out infinite alternate; }
+  .d-aurora .b1 { background: #b9a7ff; top: -18vmax; left: -10vmax; }
+  .d-aurora .b2 { background: #ffb3d9; top: -10vmax; right: -16vmax; animation-delay: -6s; }
+  .d-aurora .b3 { background: #9ee6ff; bottom: -20vmax; left: 20vmax; animation-delay: -12s; opacity: .45; }
+  .d-aurora .b4 { background: #ffe1a8; bottom: -14vmax; right: -12vmax; animation-delay: -3s; opacity: .4; }
+  @keyframes auFloat {
+    0% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(6vmax, 4vmax) scale(1.12); }
+    100% { transform: translate(-4vmax, 8vmax) scale(.95); }
+  }
+
+  .d-aurora .au-glass { background: rgba(255, 255, 255, 0.58); backdrop-filter: blur(18px) saturate(1.4); -webkit-backdrop-filter: blur(18px) saturate(1.4); border: 1px solid rgba(255, 255, 255, 0.8); box-shadow: 0 1px 0 rgba(255,255,255,.9) inset, 0 10px 40px rgba(60, 40, 140, 0.08); }
+  .d-aurora .au-nav { padding: 8px 8px 8px 12px; border-radius: 999px; }
+  .d-aurora .au-logo { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 12px; color: #fff; font-size: 13px; background: linear-gradient(135deg, #7b5cff, #ff6fb5); }
+  .d-aurora .au-navlink { padding: 8px 14px; border-radius: 999px; transition: background-color .2s; }
+  .d-aurora .au-navlink:hover { background: rgba(255, 255, 255, .8); }
+
+  .d-aurora .au-pill { display: inline-flex; align-items: center; gap: 8px; padding: 7px 14px; border-radius: 999px; background: rgba(255,255,255,.7); border: 1px solid rgba(255,255,255,.9); font-size: 13px; font-weight: 600; box-shadow: 0 4px 16px rgba(60,40,140,.06); }
+  .d-aurora .au-live { width: 8px; height: 8px; border-radius: 99px; background: #22c55e; box-shadow: 0 0 0 4px rgba(34,197,94,.18); }
+  .d-aurora .au-display { font-size: clamp(2.6rem, 7vw, 5.6rem); line-height: 1.02; font-weight: 800; letter-spacing: -0.045em; max-width: 15ch; }
+  .d-aurora .au-grad, .d-aurora .au-grad-text { background: linear-gradient(100deg, #7b5cff, #ff6fb5 45%, #ffa75c 75%, #7b5cff); background-size: 200% auto; -webkit-background-clip: text; background-clip: text; color: transparent; animation: auShine 6s linear infinite; }
+  @keyframes auShine { to { background-position: 200% center; } }
+  .d-aurora .au-kicker { font-size: 13px; font-weight: 700; color: #7b5cff; letter-spacing: .02em; }
+  .d-aurora .au-h2 { font-size: clamp(2rem, 4.4vw, 3.3rem); line-height: 1.06; font-weight: 800; letter-spacing: -0.04em; }
+
+  .d-aurora .au-btn { display: inline-flex; align-items: center; gap: .5rem; padding: .95rem 1.5rem; border-radius: 999px; font-weight: 600; transition: transform .25s var(--ease), box-shadow .25s; }
+  .d-aurora .au-btn:hover { transform: translateY(-2px); }
+  .d-aurora .au-btn-dark { background: var(--au-ink); color: #fff; box-shadow: 0 10px 30px rgba(29, 27, 46, .25); }
+  .d-aurora .au-btn-dark:hover { box-shadow: 0 14px 34px rgba(123, 92, 255, .35); }
+  .d-aurora .au-btn-light { background: #fff; color: var(--au-ink); }
+
+  .d-aurora .au-hero-card { border-radius: 28px; }
+  .d-aurora .au-browser { display: flex; align-items: center; gap: 6px; padding: 4px 6px 12px; }
+  .d-aurora .au-browser span { width: 10px; height: 10px; border-radius: 99px; background: rgba(29,27,46,.15); }
+  .d-aurora .au-browser em { font-style: normal; font-size: 12px; color: var(--au-soft); margin-inline: auto; padding: 3px 14px; border-radius: 99px; background: rgba(255,255,255,.7); }
+  .d-aurora .au-float { position: absolute; align-items: center; gap: 10px; padding: 10px 16px 10px 10px; border-radius: 18px; animation: auBob 6s ease-in-out infinite; }
+  .d-aurora .f1 { left: -4%; top: 22%; }
+  .d-aurora .f2 { right: -5%; top: 12%; animation-delay: -2s; }
+  .d-aurora .f3 { right: 6%; bottom: -6%; animation-delay: -4s; }
+  @keyframes auBob { 50% { transform: translateY(-10px); } }
+  .d-aurora .au-chip-ico { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 12px; background: linear-gradient(135deg, #ede8ff, #ffe4f2); font-weight: 800; color: #7b5cff; }
+
+  .d-aurora .au-zone { display: flex; align-items: center; gap: 2.5rem; }
+  .d-aurora .au-zone::after { content: '✦'; color: #b9a7ff; }
+
+  .d-aurora .au-card { border-radius: 26px; transition: transform .4s var(--ease), box-shadow .4s; }
+  .d-aurora .au-card:hover { transform: translateY(-6px); box-shadow: 0 1px 0 rgba(255,255,255,.9) inset, 0 24px 60px rgba(60, 40, 140, 0.16); }
+  .d-aurora .au-tag { font-size: 12px; font-weight: 600; padding: 4px 10px; border-radius: 99px; background: rgba(123, 92, 255, .1); color: #5b3fe0; }
+
+  .d-aurora .au-proto { position: relative; display: block; overflow: hidden; border-radius: 24px; background: #fff; box-shadow: 0 10px 40px rgba(60, 40, 140, 0.1); }
+  .d-aurora .au-proto-info { position: absolute; left: 10px; right: 10px; bottom: 10px; display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 12px 14px; border-radius: 16px; }
+  .d-aurora .au-arrow { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 99px; background: var(--au-ink); color: #fff; flex-shrink: 0; transition: transform .3s var(--ease); }
+  .d-aurora .au-proto:hover .au-arrow { transform: rotate(45deg); }
+
+  .d-aurora .au-service { border-radius: 28px; position: relative; overflow: hidden; }
+  .d-aurora .au-service::before { content: ''; position: absolute; width: 220px; height: 220px; top: -110px; right: -80px; border-radius: 50%; background: hsl(var(--h) 90% 75% / .45); filter: blur(40px); transition: transform .6s var(--ease); }
+  .d-aurora .au-service:hover::before { transform: scale(1.4); }
+  .d-aurora .au-ico { position: relative; display: grid; place-items: center; width: 52px; height: 52px; border-radius: 16px; background: var(--au-ink); color: #fff; font-size: 22px; }
+  .d-aurora .au-check { display: grid; place-items: center; width: 20px; height: 20px; border-radius: 99px; background: rgba(34,197,94,.15); color: #15803d; font-size: 11px; flex-shrink: 0; }
+
+  .d-aurora .au-timeline { display: grid; gap: 12px; }
+  .d-aurora .au-step { display: flex; gap: 18px; align-items: flex-start; padding: 20px 22px; border-radius: 22px; }
+  .d-aurora .au-step-n { display: grid; place-items: center; width: 42px; height: 42px; border-radius: 14px; flex-shrink: 0; font-weight: 800; color: #fff; background: linear-gradient(135deg, #7b5cff, #ff6fb5); }
+
+  .d-aurora .au-about { border-radius: 32px; }
+  .d-aurora .au-photo { position: relative; }
+  .d-aurora .au-photo::before { content: ''; position: absolute; inset: -10px; border-radius: 36px; background: linear-gradient(135deg, #b9a7ff, #ffb3d9, #9ee6ff); z-index: -1; filter: blur(18px); opacity: .8; }
+  .d-aurora .au-reason { padding: 14px; border-radius: 18px; background: rgba(255,255,255,.6); border: 1px solid rgba(255,255,255,.9); }
+
+  .d-aurora .au-faq { border-radius: 20px; }
+  .d-aurora .au-plus { display: grid; place-items: center; width: 30px; height: 30px; border-radius: 99px; background: rgba(29,27,46,.06); flex-shrink: 0; font-size: 18px; }
+
+  .d-aurora .au-contact { border-radius: 36px; color: #fff; background: radial-gradient(120% 140% at 0% 0%, #7b5cff 0%, #3b2a8f 45%, #1d1b2e 100%); box-shadow: 0 30px 80px rgba(60, 40, 140, .3); position: relative; overflow: hidden; }
+  .d-aurora .au-contact::after { content: ''; position: absolute; width: 360px; height: 360px; right: -120px; bottom: -160px; border-radius: 50%; background: #ff6fb5; filter: blur(90px); opacity: .5; pointer-events: none; }
+  .d-aurora .au-contact > * { position: relative; z-index: 1; }
+  .d-aurora .au-input { width: 100%; padding: .9rem 1.1rem; border-radius: 16px; background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.2); color: #fff; font: inherit; transition: border-color .2s, background-color .2s; }
+  .d-aurora .au-input::placeholder { color: rgba(255,255,255,.55); }
+  .d-aurora .au-input:focus { outline: none; border-color: rgba(255,255,255,.6); background: rgba(255,255,255,.16); }
+  .d-aurora select.au-input option { color: #111; }
+  .d-aurora [data-status][data-state='ok'] { color: #a7f3d0; }
+  .d-aurora [data-status][data-state='error'] { color: #fecdd3; }
+  @media (prefers-reduced-motion: reduce) { .d-aurora .au-blob, .d-aurora .au-float, .d-aurora .au-grad, .d-aurora .au-grad-text { animation: none; } }
+</style>
+
+<script>
+  import { bindContactForms } from '../../scripts/contact-form';
+  bindContactForms();
+</script>
