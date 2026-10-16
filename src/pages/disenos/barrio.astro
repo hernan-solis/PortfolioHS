@@ -1,0 +1,291 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import DesignSwitcher from '../../components/DesignSwitcher.astro';
+import ContactHidden from '../../components/ContactHidden.astro';
+import { SITE_CONFIG } from '../../data/siteConfig';
+import { FEATURED_PROJECTS, PROTOTYPES } from '../../data/projects';
+import { HERO, SERVICES, STEPS, ABOUT, REASONS, FAQS, CONTACT_OPTIONS } from '../../data/content';
+
+const tilts = [-2.5, 1.8, -1.2, 2.2, -1.8, 1.4];
+const cardColors = ['#ffe3d6', '#d9efe9', '#fff0c2'];
+const serviceIcons = ['🏪', '🛒', '🛠️'];
+---
+
+<Layout noindex bodyClass="d-barrio" fonts="family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Caveat:wght@500;700">
+  <header class="ba-wrap pt-4 sticky top-0 z-50">
+    <nav class="ba-nav flex items-center justify-between" aria-label="Principal">
+      <a href="/disenos/barrio/" class="font-extrabold text-lg pl-2">hernán<span class="ba-tomato">.</span></a>
+      <div class="hidden md:flex gap-6 font-medium">
+        <a href="#trabajos" class="ba-navlink">Trabajos</a>
+        <a href="#servicios" class="ba-navlink">Servicios</a>
+        <a href="#sobre-mi" class="ba-navlink">Sobre mí</a>
+        <a href="#preguntas" class="ba-navlink">Preguntas</a>
+      </div>
+      <a href="#contacto" class="ba-btn ba-btn-tomato !py-2.5 !px-4 text-sm">Charlemos</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="ba-wrap pt-12 md:pt-20 pb-20 md:pb-28 grid lg:grid-cols-12 gap-12 items-center">
+      <div class="lg:col-span-7">
+        <p class="ba-hand text-3xl md:text-4xl ba-teal fade-in" style="--d:.05s">¡Hola! Soy Hernán 👋</p>
+        <h1 class="ba-display mt-3 fade-in" style="--d:.15s">
+          Páginas web a medida para negocios de
+          <span class="relative inline-block whitespace-nowrap">
+            Zona Norte
+            <svg class="ba-circle" viewBox="0 0 320 110" preserveAspectRatio="none" aria-hidden="true">
+              <path d="M18 62 C 20 22, 140 6, 230 14 C 300 20, 316 52, 296 76 C 270 104, 120 108, 50 92 C 10 82, 6 50, 40 34" />
+            </svg>
+          </span>.
+        </h1>
+        <p class="mt-6 text-lg md:text-xl leading-relaxed max-w-xl ba-soft fade-in" style="--d:.3s">{HERO.lead}</p>
+        <div class="mt-8 flex flex-col sm:flex-row gap-3 fade-in" style="--d:.4s">
+          <a href="#contacto" class="ba-btn ba-btn-tomato">Contame tu idea →</a>
+          <a href="#trabajos" class="ba-btn ba-btn-outline">Mirá lo que hice</a>
+        </div>
+        <ul class="mt-8 flex flex-wrap gap-2 fade-in" style="--d:.5s">
+          <li class="ba-sticker">📍 Tortuguitas</li>
+          <li class="ba-sticker">☕ Primera charla sin compromiso</li>
+          <li class="ba-sticker">🔑 La web es tuya</li>
+        </ul>
+      </div>
+      <div class="lg:col-span-5 relative flex justify-center fade-in" style="--d:.25s">
+        <figure class="ba-polaroid ba-float" style="--r:3deg">
+          <span class="ba-tape" aria-hidden="true"></span>
+          <img src={ABOUT.photo} alt="Hernán Solis" class="w-full aspect-[4/5] object-cover" />
+          <figcaption class="ba-hand text-2xl text-center mt-3">Hernán, tu programador de barrio</figcaption>
+        </figure>
+        <p class="ba-hand ba-tomato text-2xl absolute -left-2 sm:left-0 top-6 -rotate-12 hidden sm:block">¡ese soy yo!</p>
+        <svg class="absolute left-10 top-16 w-20 h-16 hidden sm:block ba-arrow" viewBox="0 0 80 60" aria-hidden="true"><path d="M5 5 C 30 10, 55 25, 70 50 M70 50 L 58 46 M70 50 L 72 37" /></svg>
+      </div>
+    </section>
+
+    <div class="ba-wave" aria-hidden="true">
+      <svg viewBox="0 0 1440 60" preserveAspectRatio="none"><path d="M0 30 C 240 0, 480 60, 720 30 S 1200 0, 1440 30 V60 H0Z" /></svg>
+    </div>
+
+    <!-- Work -->
+    <section id="trabajos" class="ba-band py-16 md:py-24">
+      <div class="ba-wrap">
+        <div class="max-w-2xl" data-reveal>
+          <p class="ba-hand text-3xl ba-tomato">trabajos que ya están online</p>
+          <h2 class="ba-h2 mt-1">Negocios reales, webs que funcionan.</h2>
+        </div>
+        <div class="grid md:grid-cols-3 gap-10 md:gap-8 mt-14">
+          {FEATURED_PROJECTS.map((p, i) => (
+            <a href={p.url} target="_blank" rel="noopener noreferrer" class="ba-polaroid ba-tilt block" style={`--r:${tilts[i]}deg`} data-reveal>
+              <span class="ba-tape" aria-hidden="true"></span>
+              <img src={p.shotDesktop} alt={`Página de ${p.client}`} loading="lazy" class="w-full aspect-[4/3] object-cover object-top" />
+              <div class="pt-4 px-1 pb-1">
+                <p class="ba-hand text-2xl ba-teal leading-none">{p.client}</p>
+                <h3 class="font-bold text-lg leading-snug mt-2">{p.title}</h3>
+                <p class="text-sm ba-soft mt-2 leading-relaxed">{p.summary}</p>
+                <p class="mt-3 text-sm font-semibold ba-tomato">{p.displayUrl} ↗</p>
+              </div>
+            </a>
+          ))}
+        </div>
+
+        <div class="mt-24 flex items-end justify-between gap-4" data-reveal>
+          <div>
+            <p class="ba-hand text-3xl ba-tomato">en el horno 🍞</p>
+            <h2 class="ba-h2 mt-1">Prototipos para próximos clientes.</h2>
+            <p class="ba-soft mt-3 max-w-xl">Todavía sin su dominio, pero ya se pueden recorrer. Deslizá para ver todos →</p>
+          </div>
+        </div>
+        <div class="ba-strip mt-10" data-reveal>
+          {PROTOTYPES.map((p, i) => (
+            <a href={p.url} target="_blank" rel="noopener noreferrer" class="ba-polaroid ba-tilt ba-slide" style={`--r:${tilts[(i + 3) % tilts.length]}deg`}>
+              <img src={p.shotMobile} alt={`Prototipo de ${p.client} en celular`} loading="lazy" class="w-full aspect-[9/16] object-cover object-top" />
+              <p class="ba-hand text-xl text-center mt-2 leading-tight">{p.client}</p>
+              <p class="text-xs text-center ba-soft">{p.sector}</p>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <div class="ba-wave ba-wave-flip" aria-hidden="true">
+      <svg viewBox="0 0 1440 60" preserveAspectRatio="none"><path d="M0 30 C 240 0, 480 60, 720 30 S 1200 0, 1440 30 V60 H0Z" /></svg>
+    </div>
+
+    <!-- Services -->
+    <section id="servicios" class="ba-wrap py-16 md:py-24">
+      <div class="max-w-2xl" data-reveal>
+        <p class="ba-hand text-3xl ba-teal">en qué te puedo dar una mano</p>
+        <h2 class="ba-h2 mt-1">Tres cosas que hago bien.</h2>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6 mt-12">
+        {SERVICES.map((s, i) => (
+          <article class="ba-card" data-reveal style={`--d:${i * 0.08}s; background:${cardColors[i]}`}>
+            <span class="text-4xl" aria-hidden="true">{serviceIcons[i]}</span>
+            <h3 class="font-extrabold text-2xl mt-4 leading-tight">{s.title}</h3>
+            <p class="mt-3 leading-relaxed ba-soft">{s.desc}</p>
+            <ul class="mt-5 space-y-2 font-medium">
+              {s.items.map((it) => <li>✓ {it}</li>)}
+            </ul>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <!-- Process -->
+    <section class="ba-wrap py-16 md:py-24">
+      <div class="max-w-2xl" data-reveal>
+        <p class="ba-hand text-3xl ba-tomato">así trabajamos</p>
+        <h2 class="ba-h2 mt-1">Sin vueltas, paso a paso.</h2>
+      </div>
+      <ol class="relative grid sm:grid-cols-2 lg:grid-cols-4 gap-10 mt-14" data-reveal>
+        <svg class="ba-path hidden lg:block" viewBox="0 0 1000 80" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M40 40 C 160 0, 240 80, 370 40 S 600 0, 630 40 S 860 80, 960 40" />
+        </svg>
+        {STEPS.map((s, i) => (
+          <li class="relative">
+            <span class="ba-step" style={`--r:${tilts[i]}deg`}>{i + 1}</span>
+            <h3 class="font-extrabold text-xl mt-5">{s.title}</h3>
+            <p class="ba-soft mt-2 leading-relaxed">{s.desc}</p>
+          </li>
+        ))}
+      </ol>
+    </section>
+
+    <!-- About as a letter -->
+    <section id="sobre-mi" class="ba-wrap py-16 md:py-24">
+      <div class="ba-letter" data-reveal>
+        <p class="ba-hand text-3xl ba-teal">una cartita</p>
+        <h2 class="ba-h2 mt-1">{ABOUT.title}.</h2>
+        {ABOUT.paragraphs.map((t) => <p class="mt-5 text-lg leading-relaxed">{t}</p>)}
+        <ul class="grid sm:grid-cols-3 gap-4 mt-8">
+          {REASONS.map((r) => (
+            <li class="rounded-2xl bg-white/70 p-4 border border-[#2b2118]/10">
+              <h3 class="font-bold">{r.title}</h3>
+              <p class="text-sm ba-soft mt-1">{r.desc}</p>
+            </li>
+          ))}
+        </ul>
+        <p class="ba-hand text-4xl mt-8 ba-tomato">— Hernán</p>
+      </div>
+    </section>
+
+    <!-- FAQ as chat -->
+    <section id="preguntas" class="ba-wrap py-16 md:py-24">
+      <div class="max-w-2xl" data-reveal>
+        <p class="ba-hand text-3xl ba-tomato">lo que siempre me preguntan</p>
+        <h2 class="ba-h2 mt-1">Preguntas frecuentes.</h2>
+      </div>
+      <div class="ba-chat mt-12 max-w-3xl">
+        {FAQS.map((f, i) => (
+          <div class="space-y-3" data-reveal style={`--d:${i * 0.04}s`}>
+            <p class="ba-bubble ba-bubble-q">{f.q}</p>
+            <p class="ba-bubble ba-bubble-a"><span class="font-bold ba-teal">Hernán:</span> {f.a}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contacto" class="ba-wrap pt-8 pb-28">
+      <div class="ba-contact grid md:grid-cols-2 gap-10" data-reveal>
+        <div>
+          <p class="ba-hand text-3xl text-[#f6c453]">¿arrancamos?</p>
+          <h2 class="ba-h2 mt-1 text-white">Contame tu idea.</h2>
+          <p class="mt-5 text-white/80 text-lg leading-relaxed max-w-md">Aunque sea un borrador. Te respondo con preguntas o un presupuesto, sin compromiso.</p>
+          <a href={`mailto:${SITE_CONFIG.email}`} class="inline-block mt-6 font-semibold text-[#f6c453] underline underline-offset-4 decoration-2 break-all">{SITE_CONFIG.email}</a>
+        </div>
+        <form data-contact-form action={SITE_CONFIG.contactFormEndpoint} method="POST" class="grid gap-3">
+          <ContactHidden />
+          <div class="grid sm:grid-cols-2 gap-3">
+            <input name="name" required placeholder="¿Cómo te llamás?" autocomplete="name" class="ba-input" aria-label="Nombre" />
+            <input name="email" type="email" required placeholder="Tu email" autocomplete="email" class="ba-input" aria-label="Email" />
+          </div>
+          <select name="tipo" class="ba-input" aria-label="Qué necesitás">
+            {CONTACT_OPTIONS.map((o) => <option>{o}</option>)}
+          </select>
+          <textarea name="message" rows="4" required placeholder="Contame de tu negocio" class="ba-input resize-none" aria-label="Mensaje"></textarea>
+          <button type="submit" class="ba-btn ba-btn-yellow justify-center"><span data-submit-label>Enviar mensaje 🚀</span></button>
+          <p data-status role="status" aria-live="polite" class="text-sm text-white"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="ba-wrap pb-24 flex flex-col sm:flex-row justify-between gap-3 ba-soft text-sm">
+    <p>Hecho con ❤️ en Tortuguitas · © {new Date().getFullYear()} Hernán Solis</p>
+    <p class="flex gap-5">
+      <a href={SITE_CONFIG.linkedin} target="_blank" rel="noopener noreferrer" class="ba-navlink">LinkedIn</a>
+      <a href={SITE_CONFIG.github} target="_blank" rel="noopener noreferrer" class="ba-navlink">GitHub</a>
+    </p>
+  </footer>
+
+  <DesignSwitcher current="barrio" />
+</Layout>
+
+<style is:global>
+  body.d-barrio { background: #fbf4e8; color: #2b2118; font-family: 'Bricolage Grotesque', system-ui, sans-serif; }
+  html:has(body.d-barrio) { background: #fbf4e8; color-scheme: light; }
+  body.d-barrio ::selection { background: #f6c453; color: #2b2118; }
+  .d-barrio h1, .d-barrio h2, .d-barrio h3 { font-family: 'Bricolage Grotesque', system-ui, sans-serif; letter-spacing: -0.02em; }
+  .d-barrio .ba-wrap { max-width: 74rem; margin-inline: auto; padding-inline: 1rem; }
+  @media (min-width: 640px) { .d-barrio .ba-wrap { padding-inline: 1.5rem; } }
+  .d-barrio .ba-hand { font-family: 'Caveat', cursive; font-weight: 700; }
+  .d-barrio .ba-tomato { color: #e8553a; }
+  .d-barrio .ba-teal { color: #2f7f73; }
+  .d-barrio .ba-soft { color: #6b5a4b; }
+  .d-barrio .ba-nav { padding: 8px 8px 8px 14px; border-radius: 999px; background: rgba(255, 252, 245, 0.85); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border: 1.5px solid rgba(43, 33, 24, 0.12); }
+  .d-barrio .ba-navlink { background: linear-gradient(#f6c453, #f6c453) 0 88% / 0 8px no-repeat; transition: background-size .3s var(--ease); }
+  .d-barrio .ba-navlink:hover { background-size: 100% 8px; }
+  .d-barrio .ba-display { font-size: clamp(2.6rem, 6.5vw, 5.2rem); line-height: 1.02; font-weight: 800; letter-spacing: -0.035em; }
+  .d-barrio .ba-h2 { font-size: clamp(2rem, 4.6vw, 3.4rem); line-height: 1.05; font-weight: 800; }
+  .d-barrio .ba-circle { position: absolute; left: -6%; top: -18%; width: 112%; height: 140%; overflow: visible; pointer-events: none; }
+  .d-barrio .ba-circle path { fill: none; stroke: #e8553a; stroke-width: 4; stroke-linecap: round; stroke-dasharray: 900; stroke-dashoffset: 900; animation: baDraw 1.4s var(--ease) .8s forwards; }
+  @keyframes baDraw { to { stroke-dashoffset: 0; } }
+  .d-barrio .ba-arrow path { fill: none; stroke: #e8553a; stroke-width: 2.5; stroke-linecap: round; }
+  .d-barrio .ba-btn { display: inline-flex; align-items: center; gap: .5rem; padding: .95rem 1.5rem; border-radius: 999px; font-weight: 700; transition: transform .2s var(--ease), box-shadow .2s; }
+  .d-barrio .ba-btn:hover { transform: translateY(-2px) rotate(-1deg); }
+  .d-barrio .ba-btn-tomato { background: #e8553a; color: #fff; box-shadow: 0 6px 0 #b83d26; }
+  .d-barrio .ba-btn-tomato:active { transform: translateY(4px); box-shadow: 0 2px 0 #b83d26; }
+  .d-barrio .ba-btn-outline { border: 2px solid #2b2118; }
+  .d-barrio .ba-btn-yellow { background: #f6c453; color: #2b2118; box-shadow: 0 6px 0 #c99a2e; }
+  .d-barrio .ba-sticker { padding: 6px 12px; border-radius: 999px; background: #fff; border: 1.5px solid rgba(43,33,24,.12); font-size: 14px; font-weight: 500; }
+  .d-barrio .ba-polaroid { position: relative; background: #fff; padding: 12px 12px 16px; border-radius: 6px; box-shadow: 0 1px 2px rgba(0,0,0,.08), 0 14px 30px rgba(43,33,24,.12); transform: rotate(var(--r, 0deg)); max-width: 380px; }
+  .d-barrio .ba-polaroid img { border-radius: 3px; }
+  .d-barrio .ba-tilt { transition: transform .45s var(--ease), box-shadow .45s; }
+  .d-barrio .ba-tilt:hover { transform: rotate(0deg) translateY(-6px) scale(1.02); box-shadow: 0 2px 4px rgba(0,0,0,.08), 0 24px 50px rgba(43,33,24,.18); }
+  .d-barrio [data-reveal].ba-tilt, .d-barrio .ba-tilt[data-reveal] { transform: translateY(28px) rotate(var(--r, 0deg)); }
+  .d-barrio .ba-tilt[data-reveal].is-visible { transform: rotate(var(--r, 0deg)); }
+  .d-barrio .ba-tilt[data-reveal].is-visible:hover { transform: rotate(0deg) translateY(-6px) scale(1.02); }
+  .d-barrio .ba-tape { position: absolute; top: -12px; left: 50%; width: 90px; height: 26px; transform: translateX(-50%) rotate(-3deg); background: rgba(246, 196, 83, .75); border-radius: 2px; }
+  .d-barrio .ba-float { animation: baFloat 6s ease-in-out infinite; }
+  @keyframes baFloat { 50% { transform: rotate(var(--r)) translateY(-10px); } }
+  .d-barrio .ba-wave svg { display: block; width: 100%; height: 50px; }
+  .d-barrio .ba-wave path { fill: #f3e6cf; }
+  .d-barrio .ba-wave-flip { transform: scaleY(-1); }
+  .d-barrio .ba-band { background: #f3e6cf; }
+  .d-barrio .ba-strip { display: grid; grid-auto-flow: column; grid-auto-columns: 190px; gap: 1.75rem; overflow-x: auto; padding: 1.5rem .5rem 2rem; scroll-snap-type: x mandatory; scrollbar-width: thin; }
+  @media (min-width: 768px) { .d-barrio .ba-strip { grid-auto-columns: 220px; } }
+  .d-barrio .ba-slide { scroll-snap-align: start; padding: 10px 10px 14px; }
+  .d-barrio .ba-card { border-radius: 28px; padding: 2rem; border: 1.5px solid rgba(43,33,24,.08); transition: transform .3s var(--ease); }
+  .d-barrio .ba-card:hover { transform: translateY(-4px) rotate(-.5deg); }
+  .d-barrio .ba-path { position: absolute; top: -8px; left: 0; width: 100%; height: 80px; overflow: visible; }
+  .d-barrio .ba-path path { fill: none; stroke: #2b2118; stroke-opacity: .35; stroke-width: 2; stroke-dasharray: 8 8; }
+  .d-barrio .ba-step { position: relative; z-index: 1; display: grid; place-items: center; width: 64px; height: 64px; border-radius: 999px; background: #f6c453; font-weight: 800; font-size: 1.5rem; transform: rotate(var(--r)); box-shadow: 0 4px 0 #c99a2e; }
+  .d-barrio .ba-letter { max-width: 52rem; margin-inline: auto; background: #fffdf8; border-radius: 6px; padding: 2rem; box-shadow: 0 14px 40px rgba(43,33,24,.1); background-image: repeating-linear-gradient(to bottom, transparent 0 31px, rgba(47,127,115,.12) 31px 32px); }
+  @media (min-width: 768px) { .d-barrio .ba-letter { padding: 3.5rem; } }
+  .d-barrio .ba-chat { display: grid; gap: 1.75rem; }
+  .d-barrio .ba-bubble { max-width: 85%; padding: .9rem 1.2rem; border-radius: 22px; line-height: 1.55; }
+  .d-barrio .ba-bubble-q { margin-left: auto; background: #2f7f73; color: #fff; border-bottom-right-radius: 6px; font-weight: 600; width: fit-content; }
+  .d-barrio .ba-bubble-a { background: #fff; border: 1.5px solid rgba(43,33,24,.1); border-bottom-left-radius: 6px; width: fit-content; }
+  .d-barrio .ba-contact { background: #2f7f73; border-radius: 36px; padding: 2rem; }
+  @media (min-width: 768px) { .d-barrio .ba-contact { padding: 3.5rem; } }
+  .d-barrio .ba-input { width: 100%; background: #fff; border: 2px solid transparent; border-radius: 16px; padding: .9rem 1.1rem; font: inherit; color: #2b2118; }
+  .d-barrio .ba-input:focus { outline: none; border-color: #f6c453; }
+  .d-barrio [data-status][data-state='ok'] { color: #f6c453; }
+  .d-barrio [data-status][data-state='error'] { color: #ffd2c7; }
+  @media (prefers-reduced-motion: reduce) { .d-barrio .ba-circle path { animation: none; stroke-dashoffset: 0; } .d-barrio .ba-float { animation: none; } }
+</style>
+
+<script>
+  import { bindContactForms } from '../../scripts/contact-form';
+  bindContactForms('¡Gracias! Te respondo a la brevedad 🙌');
+</script>

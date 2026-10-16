@@ -1,0 +1,153 @@
+---
+import { DESIGNS } from '../data/designs';
+
+interface Props {
+  current: string;
+}
+const { current } = Astro.props;
+const active = DESIGNS.find((d) => d.id === current) ?? DESIGNS[0];
+const index = DESIGNS.indexOf(active);
+const prev = DESIGNS[(index - 1 + DESIGNS.length) % DESIGNS.length];
+const next = DESIGNS[(index + 1) % DESIGNS.length];
+---
+
+<div class="ds-root" id="design-switcher">
+  <div class="ds-panel" id="ds-panel" hidden role="dialog" aria-label="Elegir diseño">
+    <p class="ds-title">Probá otro diseño</p>
+    <ul>
+      {DESIGNS.map((d, i) => (
+        <li>
+          <a href={d.href} class:list={['ds-opt', d.id === current && 'is-active']} aria-current={d.id === current ? 'page' : undefined}>
+            <span class="ds-num">{String(i + 1).padStart(2, '0')}</span>
+            <span class="ds-text">
+              <span class="ds-name">{d.name}</span>
+              <span class="ds-note">{d.note}</span>
+            </span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+
+  <div class="ds-bar">
+    <a href={prev.href} class="ds-arrow" aria-label={`Diseño anterior: ${prev.name}`}>‹</a>
+    <button type="button" class="ds-toggle" id="ds-toggle" aria-expanded="false" aria-controls="ds-panel">
+      Diseño {index + 1}/{DESIGNS.length}: <strong>{active.name}</strong>
+    </button>
+    <a href={next.href} class="ds-arrow" aria-label={`Diseño siguiente: ${next.name}`}>›</a>
+  </div>
+</div>
+
+<style>
+  .ds-root {
+    position: fixed;
+    left: 50%;
+    bottom: 16px;
+    transform: translateX(-50%);
+    z-index: 100;
+    font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+    font-size: 14px;
+    line-height: 1.2;
+    color: #fff;
+    width: max-content;
+    max-width: calc(100vw - 24px);
+  }
+  .ds-bar {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    padding: 4px;
+    border-radius: 999px;
+    background: rgba(17, 17, 17, 0.88);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(255, 255, 255, 0.12);
+  }
+  .ds-arrow,
+  .ds-toggle {
+    color: inherit;
+    background: transparent;
+    border: 0;
+    border-radius: 999px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.2s;
+  }
+  .ds-arrow {
+    width: 36px;
+    height: 36px;
+    display: grid;
+    place-items: center;
+    font-size: 22px;
+    line-height: 1;
+  }
+  .ds-toggle {
+    padding: 10px 14px;
+    white-space: nowrap;
+    font: inherit;
+  }
+  .ds-arrow:hover,
+  .ds-toggle:hover { background: rgba(255, 255, 255, 0.12); }
+  .ds-arrow:focus-visible,
+  .ds-toggle:focus-visible,
+  .ds-opt:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+  .ds-panel {
+    position: absolute;
+    bottom: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(320px, calc(100vw - 24px));
+    padding: 8px;
+    border-radius: 18px;
+    background: rgba(17, 17, 17, 0.95);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.12);
+  }
+  .ds-panel[hidden] { display: none; }
+  .ds-title {
+    margin: 6px 10px 8px;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: rgba(255, 255, 255, 0.55);
+  }
+  .ds-panel ul { list-style: none; margin: 0; padding: 0; }
+  .ds-opt {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    padding: 9px 10px;
+    border-radius: 12px;
+    color: inherit;
+    text-decoration: none;
+  }
+  .ds-opt:hover { background: rgba(255, 255, 255, 0.08); }
+  .ds-opt.is-active { background: rgba(255, 255, 255, 0.14); }
+  .ds-num { font-variant-numeric: tabular-nums; color: rgba(255, 255, 255, 0.45); font-size: 12px; }
+  .ds-name { display: block; font-weight: 600; }
+  .ds-note { display: block; margin-top: 2px; font-size: 12px; color: rgba(255, 255, 255, 0.6); }
+</style>
+
+<script>
+  const root = document.getElementById('design-switcher');
+  const panel = document.getElementById('ds-panel');
+  const toggle = document.getElementById('ds-toggle');
+
+  const setOpen = (open: boolean) => {
+    if (!panel || !toggle) return;
+    panel.hidden = !open;
+    toggle.setAttribute('aria-expanded', String(open));
+  };
+
+  toggle?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    setOpen(panel?.hidden ?? false);
+  });
+  document.addEventListener('click', (e) => {
+    if (!root?.contains(e.target as Node)) setOpen(false);
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') setOpen(false);
+  });
+</script>

@@ -7,6 +7,10 @@ interface Props {
   description?: string;
   canonical?: string;
   image?: string;
+  /** Extra Google Fonts css2 query, e.g. "family=Fraunces:wght@400" */
+  fonts?: string;
+  noindex?: boolean;
+  bodyClass?: string;
 }
 
 const {
@@ -14,6 +18,9 @@ const {
   description = "Páginas web a medida, catálogos online con cotizador y sistemas para comercios y empresas de Tortuguitas, Pilar, San Miguel y Zona Norte. Hablás directo con quien programa.",
   canonical = SITE_CONFIG.siteUrl,
   image = `${SITE_CONFIG.siteUrl}/assets/img/imgFotoPerfilEditado_websize.jpg`,
+  fonts = 'family=Space+Grotesk:wght@400;500;600&family=Unbounded:wght@300;400;500',
+  noindex = false,
+  bodyClass = '',
 } = Astro.props;
 
 const canonicalURL = canonical.startsWith('http') ? canonical : `${SITE_CONFIG.siteUrl}${canonical}`;
@@ -88,7 +95,7 @@ const jsonLd = {
     <meta name="description" content={description} />
     <meta name="author" content="Hernán Solis" />
     <link rel="canonical" href={canonicalURL} />
-    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="robots" content={noindex ? "noindex, follow" : "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"} />
 
     <!-- Geo Tags para SEO Local (Tortuguitas / Zona Norte) -->
     <meta name="geo.region" content="AR-B" />
@@ -112,14 +119,6 @@ const jsonLd = {
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={absoluteImageUrl} />
 
-    <!-- Restore chosen design before paint -->
-    <script is:inline>
-      try {
-        var t = localStorage.getItem('portfolio-theme');
-        if (t && t !== 'lima') document.documentElement.setAttribute('data-theme', t);
-      } catch (e) {}
-    </script>
-
     <!-- Favicon & Theme -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="alternate icon" type="image/x-icon" href="/favicon.ico" />
@@ -130,12 +129,12 @@ const jsonLd = {
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..500&family=Space+Grotesk:wght@400;500;600&family=Unbounded:wght@300;400;500&display=swap" rel="stylesheet" />
+    <link href={`https://fonts.googleapis.com/css2?${fonts}&display=swap`} rel="stylesheet" />
 
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   </head>
-  <body class="min-h-screen">
+  <body class={`min-h-screen ${bodyClass}`}>
     <slot />
 
     <!-- Scroll Reveal Script -->

@@ -1,0 +1,13 @@
+---
+import { SITE_CONFIG } from '../data/siteConfig';
+
+interface Props {
+  subject?: string;
+}
+const { subject = 'Nuevo proyecto - Portfolio Hernán Solis' } = Astro.props;
+---
+
+<input type="hidden" name="access_key" value={SITE_CONFIG.web3formsKey} />
+<input type="hidden" name="subject" value={subject} />
+<input type="hidden" name="from_name" value="Portfolio Hernán Solis" />
+<input type="checkbox" name="botcheck" class="hidden" style="display: none;" tabindex="-1" autocomplete="off" />

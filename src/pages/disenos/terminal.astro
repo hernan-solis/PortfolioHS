@@ -1,0 +1,289 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import DesignSwitcher from '../../components/DesignSwitcher.astro';
+import ContactHidden from '../../components/ContactHidden.astro';
+import { SITE_CONFIG } from '../../data/siteConfig';
+import { FEATURED_PROJECTS, PROTOTYPES } from '../../data/projects';
+import { HERO, SERVICES, STEPS, ABOUT, REASONS, FAQS, CONTACT_OPTIONS, INCLUDED } from '../../data/content';
+
+const slug = (s: string) => s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+const bar = (filled: number) => '█'.repeat(filled) + '░'.repeat(10 - filled);
+---
+
+<Layout noindex bodyClass="d-term" fonts="family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400">
+  <div class="tm-scan" aria-hidden="true"></div>
+
+  <header class="tm-status">
+    <nav class="tm-wrap flex items-center justify-between gap-4 h-9 text-[13px]" aria-label="Principal">
+      <div class="flex gap-1 overflow-x-auto whitespace-nowrap">
+        <a href="/disenos/terminal/" class="tm-tab tm-tab-on">[0] hernan</a>
+        <a href="#trabajos" class="tm-tab">[1] trabajos</a>
+        <a href="#servicios" class="tm-tab hidden sm:inline">[2] servicios</a>
+        <a href="#faq" class="tm-tab hidden sm:inline">[3] faq</a>
+        <a href="#contacto" class="tm-tab">[4] contacto</a>
+      </div>
+      <span class="tm-dim hidden sm:inline" id="tm-clock">--:--</span>
+    </nav>
+  </header>
+
+  <main class="tm-wrap pt-10 md:pt-16">
+    <!-- Hero window -->
+    <section class="tm-window">
+      <div class="tm-titlebar">
+        <span class="tm-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span class="tm-dim text-xs">hernan@tortuguitas: ~ — zsh</span>
+        <span></span>
+      </div>
+      <div class="p-5 sm:p-8 md:p-10 min-h-[420px]">
+        <p data-type><span class="tm-prompt">hernan@tortuguitas:~$</span> whoami</p>
+        <p data-type class="tm-dim mt-1">Hernán Solis — programador web · {SITE_CONFIG.location}</p>
+        <p data-type class="mt-5"><span class="tm-prompt">hernan@tortuguitas:~$</span> cat propuesta.txt</p>
+        <h1 data-type class="tm-h1 mt-3">Páginas web <span class="tm-amber">a medida</span><br />para negocios de Zona Norte.</h1>
+        <p data-type class="mt-4 max-w-2xl tm-dim leading-relaxed">{HERO.lead}</p>
+        <div data-type class="mt-7 flex flex-col sm:flex-row gap-3">
+          <a href="#contacto" class="tm-btn tm-btn-amber">[ pedir presupuesto ]</a>
+          <a href="#trabajos" class="tm-btn">[ ver trabajos ]</a>
+        </div>
+        <p data-type class="mt-7"><span class="tm-prompt">hernan@tortuguitas:~$</span> <span class="tm-cursor" aria-hidden="true"></span></p>
+      </div>
+    </section>
+
+    <!-- Work -->
+    <section id="trabajos" class="pt-20 md:pt-28">
+      <p class="tm-cmd" data-reveal><span class="tm-prompt">$</span> ls -la ~/trabajos <span class="tm-dim"># publicados</span></p>
+      <div class="grid md:grid-cols-3 gap-5 mt-6">
+        {FEATURED_PROJECTS.map((p, i) => (
+          <a href={p.url} target="_blank" rel="noopener noreferrer" class="tm-card group" data-reveal style={`--d:${i * 0.08}s`}>
+            <div class="tm-crt">
+              <img src={p.shotDesktop} alt={`Página de ${p.client}`} loading="lazy" class="w-full aspect-[16/10] object-cover object-top" />
+            </div>
+            <div class="p-4">
+              <p class="tm-cyan text-sm">drwxr-xr-x  {slug(p.client)}/</p>
+              <h3 class="mt-2 font-semibold leading-snug">{p.title}</h3>
+              <p class="tm-dim text-sm mt-2 leading-relaxed">{p.summary}</p>
+              <p class="tm-amber text-sm mt-3 group-hover:underline">→ {p.displayUrl}</p>
+            </div>
+          </a>
+        ))}
+      </div>
+
+      <p class="tm-cmd mt-16" data-reveal><span class="tm-prompt">$</span> ls ~/prototipos <span class="tm-dim"># en revisión con clientes</span></p>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-6">
+        {PROTOTYPES.map((p, i) => (
+          <a href={p.url} target="_blank" rel="noopener noreferrer" class="tm-card group" data-reveal style={`--d:${(i % 3) * 0.08}s`}>
+            <div class="tm-crt">
+              <img src={p.shotDesktop} alt={`Prototipo de ${p.client}`} loading="lazy" class="w-full aspect-[16/10] object-cover object-top" />
+            </div>
+            <div class="p-4">
+              <p class="text-sm"><span class="tm-cyan">{slug(p.client)}</span><span class="tm-dim">.pages.dev</span> <span class="tm-badge">draft</span></p>
+              <p class="tm-dim text-sm mt-2">{p.sector} · {p.location}</p>
+            </div>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section id="servicios" class="pt-20 md:pt-28">
+      <p class="tm-cmd" data-reveal><span class="tm-prompt">$</span> cat servicios.md</p>
+      <div class="grid md:grid-cols-3 gap-5 mt-6">
+        {SERVICES.map((s, i) => (
+          <article class="tm-panel" data-reveal style={`--d:${i * 0.08}s`}>
+            <h3 class="font-semibold"><span class="tm-amber">##</span> {s.title}</h3>
+            <p class="tm-dim text-sm mt-3 leading-relaxed">{s.desc}</p>
+            <ul class="mt-4 text-sm space-y-1">
+              {s.items.map((it) => <li><span class="tm-cyan">- [x]</span> {it}</li>)}
+            </ul>
+          </article>
+        ))}
+      </div>
+      <p class="mt-5 text-sm tm-dim" data-reveal><span class="tm-amber">&gt;</span> siempre incluido: {INCLUDED.join(' · ')}</p>
+    </section>
+
+    <!-- Process -->
+    <section class="pt-20 md:pt-28">
+      <p class="tm-cmd" data-reveal><span class="tm-prompt">$</span> ./proceso --verbose</p>
+      <ol class="tm-panel mt-6 space-y-5" data-reveal>
+        {STEPS.map((s, i) => (
+          <li class="grid md:grid-cols-[14rem_1fr] gap-1 md:gap-6">
+            <p><span class="tm-amber">[{bar((i + 1) * 2 + (i === 3 ? 2 : 0))}]</span> <span class="tm-dim">{(i + 1) * 25}%</span></p>
+            <p><span class="font-semibold">{s.title}:</span> <span class="tm-dim">{s.desc}</span></p>
+          </li>
+        ))}
+        <li class="tm-green">✔ listo para publicar</li>
+      </ol>
+    </section>
+
+    <!-- About -->
+    <section class="pt-20 md:pt-28">
+      <p class="tm-cmd" data-reveal><span class="tm-prompt">$</span> cat ~/.about</p>
+      <div class="tm-panel mt-6 grid md:grid-cols-[180px_1fr] gap-6 items-start" data-reveal>
+        <div class="tm-crt w-40 md:w-full"><img src={ABOUT.photo} alt="Hernán Solis" loading="lazy" class="w-full aspect-square object-cover" /></div>
+        <div>
+          <p class="font-semibold"># {ABOUT.title}</p>
+          {ABOUT.paragraphs.map((t) => <p class="tm-dim mt-3 leading-relaxed">{t}</p>)}
+          <ul class="mt-5 space-y-2 text-sm">
+            {REASONS.map((r) => <li><span class="tm-cyan">{slug(r.title)}</span>=<span class="tm-amber">true</span> <span class="tm-dim"># {r.desc}</span></li>)}
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="pt-20 md:pt-28">
+      <p class="tm-cmd" data-reveal><span class="tm-prompt">$</span> man preguntas</p>
+      <div class="tm-panel mt-6" data-reveal>
+        {FAQS.map((f, i) => (
+          <details class="tm-faq" open={i === 0}>
+            <summary class="cursor-pointer py-3"><span class="tm-amber tm-arrow">▸</span> {f.q}</summary>
+            <p class="tm-dim pl-5 pb-4 leading-relaxed">{f.a}</p>
+          </details>
+        ))}
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contacto" class="pt-20 md:pt-28 pb-28">
+      <p class="tm-cmd" data-reveal><span class="tm-prompt">$</span> ./contacto --nuevo-proyecto</p>
+      <div class="tm-window mt-6" data-reveal>
+        <div class="tm-titlebar">
+          <span class="tm-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span class="tm-dim text-xs">nuevo-proyecto.sh</span>
+          <span></span>
+        </div>
+        <form data-contact-form action={SITE_CONFIG.contactFormEndpoint} method="POST" class="p-5 sm:p-8 grid gap-4">
+          <ContactHidden />
+          <p class="tm-dim text-sm"># completá los campos y presioná enviar · o escribí a <a href={`mailto:${SITE_CONFIG.email}`} class="tm-amber underline break-all">{SITE_CONFIG.email}</a></p>
+          <label class="tm-field"><span class="tm-cyan">nombre:</span><input name="name" required autocomplete="name" class="tm-input" /></label>
+          <label class="tm-field"><span class="tm-cyan">email:</span><input name="email" type="email" required autocomplete="email" class="tm-input" /></label>
+          <label class="tm-field"><span class="tm-cyan">tipo:</span>
+            <select name="tipo" class="tm-input">{CONTACT_OPTIONS.map((o) => <option>{o}</option>)}</select>
+          </label>
+          <label class="tm-field items-start"><span class="tm-cyan pt-1">mensaje:</span><textarea name="message" rows="4" required class="tm-input resize-none"></textarea></label>
+          <div class="flex flex-wrap items-center gap-4 mt-2">
+            <button type="submit" class="tm-btn tm-btn-amber"><span data-submit-label>[ enviar ↵ ]</span></button>
+            <p data-status role="status" aria-live="polite" class="text-sm"></p>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="tm-wrap pb-24 text-sm tm-dim flex flex-col sm:flex-row justify-between gap-2">
+    <p>$ exit <span class="tm-green">0</span> · © {new Date().getFullYear()} Hernán Solis</p>
+    <p class="flex gap-4">
+      <a href={SITE_CONFIG.github} target="_blank" rel="noopener noreferrer" class="hover:text-[#ffb000]">github</a>
+      <a href={SITE_CONFIG.linkedin} target="_blank" rel="noopener noreferrer" class="hover:text-[#ffb000]">linkedin</a>
+    </p>
+  </footer>
+
+  <DesignSwitcher current="terminal" />
+</Layout>
+
+<style is:global>
+  body.d-term { background: #0d0d0c; color: #e4e1d6; font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 15px; }
+  html:has(body.d-term) { background: #0d0d0c; color-scheme: dark; }
+  body.d-term ::selection { background: #ffb000; color: #0d0d0c; }
+  .d-term h1, .d-term h2, .d-term h3 { font-family: 'IBM Plex Mono', ui-monospace, monospace; letter-spacing: 0; }
+  .d-term .tm-wrap { max-width: 72rem; margin-inline: auto; padding-inline: 1rem; }
+  @media (min-width: 640px) { .d-term .tm-wrap { padding-inline: 1.5rem; } }
+  .d-term .tm-dim { color: #8f8b7e; }
+  .d-term .tm-amber { color: #ffb000; }
+  .d-term .tm-cyan { color: #5fd7ff; }
+  .d-term .tm-green { color: #87d96c; }
+  .d-term .tm-prompt { color: #87d96c; }
+  .d-term .tm-scan { position: fixed; inset: 0; pointer-events: none; z-index: 70; background: repeating-linear-gradient(to bottom, rgba(255,255,255,0.018) 0 1px, transparent 1px 3px); }
+  .d-term .tm-status { position: sticky; top: 0; z-index: 50; background: #ffb000; color: #0d0d0c; }
+  .d-term .tm-tab { padding: 0 8px; }
+  .d-term .tm-tab:hover, .d-term .tm-tab-on { background: #0d0d0c; color: #ffb000; }
+  .d-term .tm-status .tm-dim { color: #3a2a00; }
+  .d-term .tm-window { border: 1px solid #2c2b27; border-radius: 10px; background: #121210; box-shadow: 0 30px 80px rgba(0,0,0,.5); overflow: hidden; }
+  .d-term .tm-titlebar { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 10px 14px; border-bottom: 1px solid #2c2b27; background: #1a1a17; }
+  .d-term .tm-dots { display: flex; gap: 7px; }
+  .d-term .tm-dots i { width: 11px; height: 11px; border-radius: 999px; background: #3a3934; }
+  .d-term .tm-dots i:first-child { background: #ff5f57; }
+  .d-term .tm-dots i:nth-child(2) { background: #febc2e; }
+  .d-term .tm-dots i:nth-child(3) { background: #28c840; }
+  .d-term .tm-h1 { font-size: clamp(1.75rem, 5vw, 3.6rem); line-height: 1.12; font-weight: 600; }
+  .d-term .tm-cursor { display: inline-block; width: 0.6em; height: 1.1em; background: #ffb000; vertical-align: text-bottom; animation: tmBlink 1s steps(1) infinite; }
+  @keyframes tmBlink { 50% { opacity: 0; } }
+  .d-term [data-type] { opacity: 0; }
+  .d-term [data-type].is-typed { opacity: 1; }
+  .d-term .tm-btn { display: inline-flex; justify-content: center; padding: 0.7rem 1rem; border: 1px solid #ffb000; color: #ffb000; transition: background-color .15s, color .15s; }
+  .d-term .tm-btn:hover, .d-term .tm-btn-amber { background: #ffb000; color: #0d0d0c; }
+  .d-term .tm-btn-amber:hover { background: transparent; color: #ffb000; }
+  .d-term .tm-cmd { font-size: 1.05rem; }
+  .d-term .tm-card { display: block; border: 1px dashed #3a3934; background: #121210; transition: border-color .2s, transform .2s; }
+  .d-term .tm-card:hover { border-color: #ffb000; border-style: solid; transform: translateY(-3px); }
+  .d-term .tm-crt { position: relative; overflow: hidden; border-bottom: 1px dashed #3a3934; }
+  .d-term .tm-crt img { filter: grayscale(1) sepia(.5) hue-rotate(-10deg) saturate(2.2) brightness(.8) contrast(1.1); transition: filter .5s; }
+  .d-term .tm-crt::after { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(to bottom, rgba(0,0,0,.18) 0 1px, transparent 1px 3px); pointer-events: none; transition: opacity .5s; }
+  .d-term .tm-card:hover .tm-crt img, .d-term .tm-panel:hover .tm-crt img { filter: none; }
+  .d-term .tm-card:hover .tm-crt::after { opacity: 0; }
+  .d-term .tm-badge { font-size: 11px; padding: 1px 6px; border: 1px solid #ffb000; color: #ffb000; margin-left: 4px; }
+  .d-term .tm-panel { border: 1px solid #2c2b27; background: #121210; padding: 1.25rem; }
+  @media (min-width: 768px) { .d-term .tm-panel { padding: 1.75rem; } }
+  .d-term .tm-faq { border-bottom: 1px dashed #2c2b27; }
+  .d-term .tm-faq:last-child { border-bottom: 0; }
+  .d-term .tm-faq summary { list-style: none; }
+  .d-term .tm-faq summary::-webkit-details-marker { display: none; }
+  .d-term .tm-arrow { display: inline-block; transition: transform .2s; }
+  .d-term .tm-faq[open] .tm-arrow { transform: rotate(90deg); }
+  .d-term .tm-field { display: flex; gap: 0.75rem; align-items: center; }
+  .d-term .tm-field > span { width: 6rem; flex-shrink: 0; }
+  .d-term .tm-input { flex: 1; min-width: 0; background: transparent; border: 0; border-bottom: 1px dashed #3a3934; padding: 0.4rem 0; color: #e4e1d6; font: inherit; border-radius: 0; }
+  .d-term .tm-input:focus { outline: none; border-bottom: 1px solid #ffb000; }
+  .d-term .tm-input option { background: #121210; }
+  .d-term [data-status][data-state='ok'] { color: #87d96c; }
+  .d-term [data-status][data-state='error'] { color: #ff5f57; }
+  @media (prefers-reduced-motion: reduce) { .d-term [data-type] { opacity: 1; } .d-term .tm-cursor { animation: none; } }
+</style>
+
+<script>
+  import { bindContactForms } from '../../scripts/contact-form';
+  bindContactForms('✔ mensaje enviado. te respondo a la brevedad.');
+
+  // Status-bar clock
+  const clock = document.getElementById('tm-clock');
+  const tick = () => {
+    if (clock) clock.textContent = new Intl.DateTimeFormat('es-AR', { hour: '2-digit', minute: '2-digit', hourCycle: 'h23', timeZone: 'America/Argentina/Buenos_Aires' }).format(new Date()) + ' ART';
+  };
+  tick();
+  setInterval(tick, 15000);
+
+  // Typewriter for the hero: commands are typed char by char, output lines appear at once
+  const lines = Array.from(document.querySelectorAll<HTMLElement>('[data-type]'));
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
+
+  const typeCommand = async (el: HTMLElement) => {
+    const prompt = el.querySelector('.tm-prompt');
+    const cursor = el.querySelector('.tm-cursor');
+    const textNodes = Array.from(el.childNodes).filter((n) => n.nodeType === Node.TEXT_NODE && n.textContent?.trim());
+    const full = textNodes.map((n) => n.textContent ?? '');
+    textNodes.forEach((n) => (n.textContent = ''));
+    el.classList.add('is-typed');
+    if (!prompt || cursor) return;
+    for (let t = 0; t < textNodes.length; t++) {
+      const target = full[t];
+      for (let i = 1; i <= target.length; i++) {
+        textNodes[t].textContent = target.slice(0, i);
+        await sleep(38);
+      }
+    }
+  };
+
+  (async () => {
+    if (reduce) { lines.forEach((l) => l.classList.add('is-typed')); return; }
+    await sleep(300);
+    for (const el of lines) {
+      if (el.querySelector('.tm-prompt')) {
+        await typeCommand(el);
+        await sleep(250);
+      } else {
+        el.classList.add('is-typed');
+        await sleep(160);
+      }
+    }
+  })();
+</script>

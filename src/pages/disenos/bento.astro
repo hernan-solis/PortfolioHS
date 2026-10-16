@@ -1,0 +1,322 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import DesignSwitcher from '../../components/DesignSwitcher.astro';
+import ContactHidden from '../../components/ContactHidden.astro';
+import { SITE_CONFIG } from '../../data/siteConfig';
+import { FEATURED_PROJECTS, PROTOTYPES } from '../../data/projects';
+import { HERO, SERVICES, STEPS, ABOUT, FAQS, CONTACT_OPTIONS, INCLUDED } from '../../data/content';
+
+const [main, ...rest] = FEATURED_PROJECTS;
+const zones = SITE_CONFIG.coverageZones.filter((z) => !z.startsWith('Todo'));
+const icons = [
+  'M3 5h18v14H3zM3 9h18',
+  'M4 7h16M4 12h16M4 17h10',
+  'M8 9l-4 3 4 3M16 9l4 3-4 3M13 6l-2 12',
+];
+---
+
+<Layout noindex bodyClass="d-bento" fonts="family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500">
+  <header class="fixed top-3 inset-x-0 z-50 px-3">
+    <nav class="bn-nav mx-auto flex items-center justify-between gap-4" aria-label="Principal">
+      <a href="/disenos/bento/" class="font-semibold tracking-tight pl-2">Hernán Solis</a>
+      <div class="hidden md:flex gap-6 text-sm bn-muted">
+        <a href="#trabajos" class="hover:text-[#1d1d1f]">Trabajos</a>
+        <a href="#servicios" class="hover:text-[#1d1d1f]">Servicios</a>
+        <a href="#proceso" class="hover:text-[#1d1d1f]">Proceso</a>
+        <a href="#faq" class="hover:text-[#1d1d1f]">Preguntas</a>
+      </div>
+      <a href="#contacto" class="bn-btn bn-btn-dark !py-2 !px-4 text-sm">Contacto</a>
+    </nav>
+  </header>
+
+  <main class="bn-wrap pt-28 md:pt-36">
+    <!-- Hero -->
+    <section class="text-center max-w-4xl mx-auto">
+      <p class="bn-pill fade-in" style="--d:.05s"><span class="bn-live"></span> {HERO.eyebrow}</p>
+      <h1 class="bn-display mt-6 fade-in" style="--d:.15s">Páginas web a medida para negocios de <span class="bn-accent">Zona Norte.</span></h1>
+      <p class="mt-6 text-lg md:text-xl bn-muted max-w-2xl mx-auto leading-relaxed fade-in" style="--d:.3s">{HERO.lead}</p>
+      <div class="mt-8 flex flex-col sm:flex-row gap-3 justify-center fade-in" style="--d:.4s">
+        <a href="#contacto" class="bn-btn bn-btn-blue">Pedir presupuesto</a>
+        <a href="#trabajos" class="bn-btn bn-btn-light">Ver trabajos ›</a>
+      </div>
+    </section>
+
+    <!-- Bento intro grid -->
+    <section class="bn-grid mt-16 md:mt-20" aria-label="Resumen">
+      <a href={main.url} target="_blank" rel="noopener noreferrer" class="bn-tile bn-tilt md:col-span-4 md:row-span-2 p-0 overflow-hidden group" data-reveal>
+        <div class="p-6 md:p-8">
+          <p class="bn-eyebrow">Caso destacado</p>
+          <h2 class="text-2xl md:text-3xl font-semibold tracking-tight mt-2">{main.client}</h2>
+          <p class="bn-muted mt-1">{main.title}</p>
+        </div>
+        <img src={main.shotDesktop} alt={`Página de ${main.client}`} class="w-[92%] ml-[8%] rounded-tl-2xl border border-black/5 shadow-xl transition-transform duration-700 group-hover:-translate-y-2 group-hover:-translate-x-1" loading="lazy" />
+      </a>
+      <div class="bn-tile md:col-span-2 md:row-span-2 p-0 overflow-hidden relative" data-reveal style="--d:.06s">
+        <img src={ABOUT.photo} alt="Hernán Solis" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+        <div class="absolute inset-x-3 bottom-3 rounded-2xl bg-white/85 backdrop-blur-md p-4">
+          <p class="font-semibold">Hernán Solis</p>
+          <p class="text-sm bn-muted">Programador · UTN</p>
+        </div>
+      </div>
+      <div class="bn-tile md:col-span-2" data-reveal style="--d:.1s">
+        <p class="bn-eyebrow">Tortuguitas, ahora</p>
+        <p class="bn-stat mt-2" id="bn-clock">--:--</p>
+        <p class="bn-muted text-sm mt-1">Hora local de mi estudio.</p>
+      </div>
+      <div class="bn-tile md:col-span-2 bn-tile-dark" data-reveal style="--d:.14s">
+        <p class="bn-eyebrow !text-white/60">Comisión por venta</p>
+        <p class="bn-stat mt-2">0%</p>
+        <p class="text-sm text-white/70 mt-1">Tu web es tuya. Sin plataformas en el medio.</p>
+      </div>
+      <div class="bn-tile md:col-span-2" data-reveal style="--d:.18s">
+        <p class="bn-eyebrow">Trabajos en línea</p>
+        <p class="bn-stat mt-2">{FEATURED_PROJECTS.length + PROTOTYPES.length}</p>
+        <p class="bn-muted text-sm mt-1">{FEATURED_PROJECTS.length} publicados · {PROTOTYPES.length} prototipos</p>
+      </div>
+      <div class="bn-tile md:col-span-3" data-reveal style="--d:.22s">
+        <p class="bn-eyebrow">Zonas</p>
+        <ul class="flex flex-wrap gap-2 mt-3">
+          {zones.map((z) => <li class="bn-chip">{z}</li>)}
+          <li class="bn-chip bn-chip-blue">Todo el país</li>
+        </ul>
+      </div>
+      <div class="bn-tile md:col-span-3" data-reveal style="--d:.26s">
+        <p class="bn-eyebrow">Siempre incluido</p>
+        <ul class="grid sm:grid-cols-2 gap-2 mt-3 text-sm">
+          {INCLUDED.map((it) => <li class="flex gap-2"><span class="bn-accent">✓</span>{it}</li>)}
+        </ul>
+      </div>
+    </section>
+
+    <!-- Work -->
+    <section id="trabajos" class="pt-24 md:pt-32">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4" data-reveal>
+        <h2 class="bn-h2">Trabajos publicados.<br /><span class="bn-muted">En línea y vendiendo.</span></h2>
+      </div>
+      <div class="grid md:grid-cols-2 gap-4 md:gap-5 mt-10">
+        {rest.map((p, i) => (
+          <a href={p.url} target="_blank" rel="noopener noreferrer" class="bn-tile bn-tilt p-0 overflow-hidden group" data-reveal style={`--d:${i * 0.08}s`}>
+            <div class="p-6 md:p-8">
+              <p class="bn-eyebrow">{p.client} · {p.location}</p>
+              <h3 class="text-xl md:text-2xl font-semibold tracking-tight mt-2">{p.title}</h3>
+              <p class="bn-muted mt-2 text-sm leading-relaxed">{p.summary}</p>
+            </div>
+            <div class="px-6 md:px-8">
+              <img src={p.shotDesktop} alt={`Página de ${p.client}`} loading="lazy" class="w-full rounded-t-2xl border border-black/5 shadow-lg transition-transform duration-700 group-hover:-translate-y-2" />
+            </div>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <!-- Prototypes carousel -->
+    <section class="pt-24 md:pt-32">
+      <div class="flex items-end justify-between gap-4" data-reveal>
+        <h2 class="bn-h2">Prototipos.<br /><span class="bn-muted">Lo próximo que sale.</span></h2>
+        <div class="hidden sm:flex gap-2">
+          <button type="button" class="bn-round" data-scroll="-1" aria-label="Anterior">‹</button>
+          <button type="button" class="bn-round" data-scroll="1" aria-label="Siguiente">›</button>
+        </div>
+      </div>
+      <div id="bn-carousel" class="bn-carousel mt-10" data-reveal>
+        {PROTOTYPES.map((p) => (
+          <a href={p.url} target="_blank" rel="noopener noreferrer" class="bn-tile bn-slide p-0 overflow-hidden group">
+            <img src={p.shotDesktop} alt={`Prototipo de ${p.client}`} loading="lazy" class="w-full aspect-[16/10] object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]" />
+            <div class="p-5">
+              <p class="bn-eyebrow">{p.sector}</p>
+              <h3 class="font-semibold text-lg mt-1">{p.client}</h3>
+              <p class="bn-muted text-sm mt-1">{p.summary}</p>
+            </div>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section id="servicios" class="pt-24 md:pt-32">
+      <h2 class="bn-h2" data-reveal>Servicios.<br /><span class="bn-muted">Tres formas de ayudarte.</span></h2>
+      <div class="grid md:grid-cols-3 gap-4 md:gap-5 mt-10">
+        {SERVICES.map((s, i) => (
+          <article class="bn-tile bn-tilt" data-reveal style={`--d:${i * 0.08}s`}>
+            <span class="bn-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d={icons[i]} /></svg>
+            </span>
+            <h3 class="text-xl font-semibold tracking-tight mt-6">{s.title}</h3>
+            <p class="bn-muted mt-2 text-sm leading-relaxed">{s.desc}</p>
+            <ul class="mt-5 space-y-2 text-sm">
+              {s.items.map((it) => <li class="flex gap-2"><span class="bn-accent">✓</span>{it}</li>)}
+            </ul>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <!-- Process -->
+    <section id="proceso" class="pt-24 md:pt-32">
+      <h2 class="bn-h2" data-reveal>Proceso.<br /><span class="bn-muted">Simple y a la vista.</span></h2>
+      <ol class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5 mt-10">
+        {STEPS.map((s, i) => (
+          <li class="bn-tile" data-reveal style={`--d:${i * 0.08}s`}>
+            <div class="h-1.5 rounded-full bg-black/5 overflow-hidden">
+              <div class="bn-progress h-full rounded-full" style={`--w:${(i + 1) * 25}%`}></div>
+            </div>
+            <p class="bn-eyebrow mt-5">Paso {i + 1}</p>
+            <h3 class="font-semibold text-lg mt-1">{s.title}</h3>
+            <p class="bn-muted text-sm mt-2 leading-relaxed">{s.desc}</p>
+          </li>
+        ))}
+      </ol>
+    </section>
+
+    <!-- About + FAQ -->
+    <section id="faq" class="pt-24 md:pt-32 grid lg:grid-cols-5 gap-4 md:gap-5">
+      <div class="bn-tile lg:col-span-2 bn-tile-dark" data-reveal>
+        <p class="bn-eyebrow !text-white/60">Sobre mí</p>
+        <h2 class="text-3xl font-semibold tracking-tight mt-3">{ABOUT.title}.</h2>
+        {ABOUT.paragraphs.map((t) => <p class="text-white/75 mt-4 leading-relaxed">{t}</p>)}
+      </div>
+      <div class="bn-tile lg:col-span-3" data-reveal style="--d:.08s">
+        <p class="bn-eyebrow">Preguntas frecuentes</p>
+        <div class="mt-2">
+          {FAQS.map((f, i) => (
+            <details class="bn-faq" open={i === 0}>
+              <summary class="flex justify-between gap-4 py-4 cursor-pointer font-medium">
+                <span>{f.q}</span>
+                <span class="bn-chev" aria-hidden="true">⌄</span>
+              </summary>
+              <p class="bn-muted text-sm leading-relaxed pb-4">{f.a}</p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contacto" class="pt-24 md:pt-32 pb-28">
+      <div class="bn-tile !p-6 sm:!p-10 md:!p-14 grid md:grid-cols-2 gap-10" data-reveal>
+        <div>
+          <h2 class="bn-h2">Hablemos.<br /><span class="bn-muted">Contame tu idea.</span></h2>
+          <p class="bn-muted mt-6 leading-relaxed max-w-md">Aunque sea un borrador. Te respondo con preguntas o un presupuesto.</p>
+          <a href={`mailto:${SITE_CONFIG.email}`} class="inline-block mt-6 bn-accent font-medium break-all">{SITE_CONFIG.email} ›</a>
+        </div>
+        <form data-contact-form action={SITE_CONFIG.contactFormEndpoint} method="POST" class="grid gap-3">
+          <ContactHidden />
+          <div class="grid sm:grid-cols-2 gap-3">
+            <input name="name" required placeholder="Nombre" autocomplete="name" class="bn-input" aria-label="Nombre" />
+            <input name="email" type="email" required placeholder="Email" autocomplete="email" class="bn-input" aria-label="Email" />
+          </div>
+          <select name="tipo" class="bn-input" aria-label="Qué necesitás">
+            {CONTACT_OPTIONS.map((o) => <option>{o}</option>)}
+          </select>
+          <textarea name="message" rows="4" required placeholder="Mensaje" class="bn-input resize-none" aria-label="Mensaje"></textarea>
+          <button type="submit" class="bn-btn bn-btn-blue justify-center"><span data-submit-label>Enviar mensaje</span></button>
+          <p data-status role="status" aria-live="polite" class="text-sm text-center"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bn-wrap pb-24 text-sm bn-muted flex flex-col sm:flex-row justify-between gap-3 border-t border-black/10 pt-6">
+    <p>© {new Date().getFullYear()} Hernán Solis. Tortuguitas, Buenos Aires.</p>
+    <p class="flex gap-5">
+      <a href={SITE_CONFIG.linkedin} target="_blank" rel="noopener noreferrer" class="hover:text-[#1d1d1f]">LinkedIn</a>
+      <a href={SITE_CONFIG.github} target="_blank" rel="noopener noreferrer" class="hover:text-[#1d1d1f]">GitHub</a>
+    </p>
+  </footer>
+
+  <DesignSwitcher current="bento" />
+</Layout>
+
+<style is:global>
+  body.d-bento { background: #f5f5f7; color: #1d1d1f; font-family: 'Geist', system-ui, -apple-system, sans-serif; }
+  html:has(body.d-bento) { background: #f5f5f7; color-scheme: light; }
+  body.d-bento ::selection { background: #0071e3; color: #fff; }
+  .d-bento h1, .d-bento h2, .d-bento h3 { font-family: 'Geist', system-ui, sans-serif; letter-spacing: -0.03em; }
+  .d-bento .bn-wrap { max-width: 72rem; margin-inline: auto; padding-inline: 1rem; }
+  @media (min-width: 640px) { .d-bento .bn-wrap { padding-inline: 1.5rem; } }
+  .d-bento .bn-muted { color: #6e6e73; }
+  .d-bento .bn-accent { color: #0071e3; }
+  .d-bento .bn-nav { max-width: 60rem; padding: 8px 8px 8px 16px; border-radius: 999px; background: rgba(255,255,255,.75); backdrop-filter: saturate(180%) blur(20px); -webkit-backdrop-filter: saturate(180%) blur(20px); box-shadow: 0 0 0 1px rgba(0,0,0,.06), 0 8px 24px rgba(0,0,0,.06); }
+  .d-bento .bn-display { font-size: clamp(2.5rem, 7vw, 5.5rem); line-height: 1.02; font-weight: 600; letter-spacing: -0.045em; }
+  .d-bento .bn-h2 { font-size: clamp(2rem, 4.5vw, 3.5rem); line-height: 1.05; font-weight: 600; letter-spacing: -0.04em; }
+  .d-bento .bn-pill { display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px; border-radius: 999px; background: #fff; box-shadow: 0 0 0 1px rgba(0,0,0,.06); font-size: 13px; color: #6e6e73; }
+  .d-bento .bn-live { width: 8px; height: 8px; border-radius: 999px; background: #34c759; }
+  .d-bento .bn-btn { display: inline-flex; align-items: center; gap: 6px; padding: 0.85rem 1.5rem; border-radius: 999px; font-weight: 500; transition: transform .2s, background-color .2s; }
+  .d-bento .bn-btn:active { transform: scale(.97); }
+  .d-bento .bn-btn-blue { background: #0071e3; color: #fff; }
+  .d-bento .bn-btn-blue:hover { background: #0077ed; }
+  .d-bento .bn-btn-dark { background: #1d1d1f; color: #fff; }
+  .d-bento .bn-btn-light { color: #0071e3; }
+  .d-bento .bn-btn-light:hover { text-decoration: underline; }
+  .d-bento .bn-grid { display: grid; gap: 1rem; grid-template-columns: 1fr; }
+  @media (min-width: 768px) { .d-bento .bn-grid { grid-template-columns: repeat(6, 1fr); grid-auto-rows: minmax(170px, auto); gap: 1.25rem; } }
+  .d-bento .bn-tile { display: block; background: #fff; border-radius: 28px; padding: 1.75rem; box-shadow: 0 0 0 1px rgba(0,0,0,.04), 0 2px 12px rgba(0,0,0,.04); transition: box-shadow .4s var(--ease); }
+  .d-bento .bn-tile-dark { background: #1d1d1f; color: #f5f5f7; }
+  .d-bento a.bn-tile:hover, .d-bento .bn-tilt:hover { box-shadow: 0 0 0 1px rgba(0,0,0,.05), 0 20px 50px rgba(0,0,0,.1); }
+  .d-bento .bn-tilt { transform-style: preserve-3d; will-change: transform; }
+  .d-bento [data-reveal] { transform: translateY(24px) scale(.98); }
+  .d-bento [data-reveal].is-visible { transform: none; }
+  .d-bento .bn-eyebrow { font-size: 12px; font-weight: 500; color: #6e6e73; text-transform: uppercase; letter-spacing: .06em; }
+  .d-bento .bn-stat { font-size: clamp(2.5rem, 5vw, 3.75rem); font-weight: 600; letter-spacing: -0.05em; line-height: 1; font-variant-numeric: tabular-nums; }
+  .d-bento .bn-chip { padding: 6px 12px; border-radius: 999px; background: #f5f5f7; font-size: 13px; }
+  .d-bento .bn-chip-blue { background: #e8f2fe; color: #0071e3; }
+  .d-bento .bn-icon { display: grid; place-items: center; width: 48px; height: 48px; border-radius: 14px; background: #e8f2fe; color: #0071e3; }
+  .d-bento .bn-carousel { display: grid; grid-auto-flow: column; grid-auto-columns: 85%; gap: 1rem; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 1rem; scrollbar-width: none; }
+  .d-bento .bn-carousel::-webkit-scrollbar { display: none; }
+  @media (min-width: 640px) { .d-bento .bn-carousel { grid-auto-columns: 46%; } }
+  @media (min-width: 1024px) { .d-bento .bn-carousel { grid-auto-columns: 31.5%; gap: 1.25rem; } }
+  .d-bento .bn-slide { scroll-snap-align: start; }
+  .d-bento .bn-round { width: 44px; height: 44px; border-radius: 999px; background: #fff; box-shadow: 0 0 0 1px rgba(0,0,0,.08); font-size: 22px; transition: background-color .2s; }
+  .d-bento .bn-round:hover { background: #e8e8ed; }
+  .d-bento .bn-progress { width: 0; background: #0071e3; transition: width 1.4s var(--ease) .3s; }
+  .d-bento .is-visible .bn-progress { width: var(--w); }
+  .d-bento .bn-faq { border-bottom: 1px solid rgba(0,0,0,.08); }
+  .d-bento .bn-faq:last-child { border-bottom: 0; }
+  .d-bento .bn-faq summary { list-style: none; }
+  .d-bento .bn-faq summary::-webkit-details-marker { display: none; }
+  .d-bento .bn-chev { transition: transform .3s var(--ease); color: #6e6e73; }
+  .d-bento .bn-faq[open] .bn-chev { transform: rotate(180deg); }
+  .d-bento .bn-input { width: 100%; background: #f5f5f7; border: 1px solid transparent; border-radius: 14px; padding: .85rem 1rem; font: inherit; transition: border-color .2s, background-color .2s; }
+  .d-bento .bn-input:focus { outline: none; border-color: #0071e3; background: #fff; }
+  .d-bento [data-status][data-state='ok'] { color: #248a3d; }
+  .d-bento [data-status][data-state='error'] { color: #d70015; }
+</style>
+
+<script>
+  import { bindContactForms } from '../../scripts/contact-form';
+  bindContactForms();
+
+  // Live clock for Tortuguitas (Argentina, UTC-3)
+  const clock = document.getElementById('bn-clock');
+  const tick = () => {
+    if (!clock) return;
+    clock.textContent = new Intl.DateTimeFormat('es-AR', {
+      hour: '2-digit', minute: '2-digit', hourCycle: 'h23', timeZone: 'America/Argentina/Buenos_Aires',
+    }).format(new Date());
+  };
+  tick();
+  setInterval(tick, 15000);
+
+  // Carousel arrows
+  const carousel = document.getElementById('bn-carousel');
+  document.querySelectorAll<HTMLButtonElement>('[data-scroll]').forEach((b) => {
+    b.addEventListener('click', () => {
+      const dir = Number(b.dataset.scroll);
+      carousel?.scrollBy({ left: dir * (carousel.clientWidth * 0.8), behavior: 'smooth' });
+    });
+  });
+
+  // Subtle 3D tilt on hover (desktop pointers only)
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!reduce && window.matchMedia('(hover: hover)').matches) {
+    document.querySelectorAll<HTMLElement>('.bn-tilt').forEach((el) => {
+      el.addEventListener('mousemove', (e) => {
+        const r = el.getBoundingClientRect();
+        const x = (e.clientX - r.left) / r.width - 0.5;
+        const y = (e.clientY - r.top) / r.height - 0.5;
+        el.style.transform = `perspective(900px) rotateX(${-y * 4}deg) rotateY(${x * 4}deg)`;
+      });
+      el.addEventListener('mouseleave', () => { el.style.transform = ''; });
+    });
+  }
+</script>

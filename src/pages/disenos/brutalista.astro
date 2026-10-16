@@ -1,0 +1,284 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import DesignSwitcher from '../../components/DesignSwitcher.astro';
+import ContactHidden from '../../components/ContactHidden.astro';
+import { SITE_CONFIG } from '../../data/siteConfig';
+import { FEATURED_PROJECTS, PROTOTYPES } from '../../data/projects';
+import { HERO, SERVICES, STEPS, ABOUT, REASONS, FAQS, CONTACT_OPTIONS, INCLUDED } from '../../data/content';
+
+const zones = SITE_CONFIG.coverageZones.filter((z) => !z.startsWith('Todo'));
+const serviceColors = ['#ffde21', '#ff8fd8', '#7dd3fc'];
+---
+
+<Layout noindex bodyClass="d-brut" fonts="family=Archivo+Black&family=Space+Mono:ital,wght@0,400;0,700;1,400">
+  <header class="br-nav">
+    <div class="br-wrap flex items-center justify-between h-16 md:h-20">
+      <a href="/disenos/brutalista/" class="flex items-center gap-3">
+        <span class="br-logo">HS</span>
+        <span class="hidden sm:inline font-bold uppercase">Hernán Solis</span>
+      </a>
+      <nav class="hidden md:flex gap-6 font-bold uppercase text-sm" aria-label="Principal">
+        <a href="#trabajos" class="br-navlink">Trabajos</a>
+        <a href="#servicios" class="br-navlink">Servicios</a>
+        <a href="#proceso" class="br-navlink">Proceso</a>
+        <a href="#faq" class="br-navlink">FAQ</a>
+      </nav>
+      <a href="#contacto" class="br-btn br-btn-yellow !py-2 !px-4 text-sm">Escribime</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="br-wrap pt-10 md:pt-16 pb-16 md:pb-24">
+      <div class="grid lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
+        <div class="lg:col-span-8 br-box br-yellow p-6 sm:p-10 md:p-12 relative overflow-hidden" data-reveal>
+          <p class="br-tag">★ {HERO.eyebrow}</p>
+          <h1 class="br-display mt-6">
+            Páginas web <span class="br-hl">a medida</span> para negocios de Zona Norte.
+          </h1>
+          <p class="mt-6 text-base md:text-lg max-w-xl leading-relaxed">{HERO.lead}</p>
+          <div class="mt-8 flex flex-col sm:flex-row gap-4">
+            <a href="#contacto" class="br-btn br-btn-black">Pedir presupuesto →</a>
+            <a href="#trabajos" class="br-btn br-btn-white">Ver trabajos</a>
+          </div>
+        </div>
+        <div class="lg:col-span-4 grid gap-6" data-reveal style="--d:.1s">
+          <div class="br-box bg-white p-4 relative">
+            <img src={ABOUT.photo} alt="Hernán Solis" class="w-full aspect-[4/3] lg:aspect-square object-cover border-[3px] border-black" />
+            <div class="br-sticker" aria-hidden="true">
+              <svg viewBox="0 0 100 100" class="br-spin">
+                <defs><path id="br-c" d="M50 50 m-36 0 a36 36 0 1 1 72 0 a36 36 0 1 1 -72 0" /></defs>
+                <text font-size="11" font-family="Archivo Black" letter-spacing="1.5"><textPath href="#br-c">HECHO EN TORTUGUITAS ★ HECHO EN TORTUGUITAS ★</textPath></text>
+              </svg>
+              <span>HS</span>
+            </div>
+          </div>
+          <div class="br-box bg-black text-white p-5 flex items-center gap-3 font-bold uppercase text-sm">
+            <span class="br-dot"></span> Tomando proyectos nuevos
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Marquee -->
+    <div class="br-marquee" aria-label="Zonas donde trabajo">
+      <div class="marquee">
+        {[0, 1].map((c) => (
+          <ul class="marquee-track" aria-hidden={c === 1 ? 'true' : undefined}>
+            {[...zones, 'CABA', 'Todo el país'].map((z) => <li class="whitespace-nowrap">{z} ✱</li>)}
+          </ul>
+        ))}
+      </div>
+    </div>
+
+    <!-- Work -->
+    <section id="trabajos" class="br-wrap py-16 md:py-24">
+      <h2 class="br-h2" data-reveal>Trabajos <span class="br-count">{FEATURED_PROJECTS.length}</span></h2>
+      <div class="grid md:grid-cols-3 gap-6 md:gap-8 mt-10">
+        {FEATURED_PROJECTS.map((p, i) => (
+          <a href={p.url} target="_blank" rel="noopener noreferrer" class="br-card group" data-reveal style={`--d:${i * 0.08}s`}>
+            <div class="border-b-[3px] border-black overflow-hidden">
+              <img src={p.shotDesktop} alt={`Página de ${p.client}`} loading="lazy" decoding="async" class="w-full aspect-[16/10] object-cover object-top" />
+            </div>
+            <div class="p-5">
+              <p class="text-xs font-bold uppercase">{p.client} · {p.location}</p>
+              <h3 class="br-h3 mt-3">{p.title}</h3>
+              <p class="mt-3 text-sm leading-relaxed">{p.summary}</p>
+              <p class="mt-4 font-bold underline decoration-[3px] underline-offset-4">{p.displayUrl} ↗</p>
+            </div>
+          </a>
+        ))}
+      </div>
+
+      <h2 class="br-h2 mt-20 md:mt-28" data-reveal>Prototipos <span class="br-count br-count-pink">{PROTOTYPES.length}</span></h2>
+      <p class="mt-4 max-w-2xl" data-reveal>Propuestas funcionando para negocios de la zona. Todavía no tienen su dominio, pero se pueden recorrer.</p>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mt-10">
+        {PROTOTYPES.map((p, i) => (
+          <a href={p.url} target="_blank" rel="noopener noreferrer" class="br-card relative" data-reveal style={`--d:${(i % 3) * 0.08}s`}>
+            <span class="br-proto" style={`transform: rotate(${i % 2 ? 4 : -4}deg)`}>Prototipo</span>
+            <div class="border-b-[3px] border-black overflow-hidden">
+              <img src={p.shotDesktop} alt={`Prototipo de ${p.client}`} loading="lazy" decoding="async" class="w-full aspect-[16/10] object-cover object-top" />
+            </div>
+            <div class="p-5">
+              <h3 class="br-h3">{p.client}</h3>
+              <p class="text-xs font-bold uppercase mt-1">{p.sector} · {p.location}</p>
+              <p class="mt-3 text-sm leading-relaxed">{p.summary}</p>
+            </div>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section id="servicios" class="br-wrap py-16 md:py-24">
+      <h2 class="br-h2" data-reveal>Qué hago</h2>
+      <div class="grid md:grid-cols-3 gap-6 md:gap-8 mt-10">
+        {SERVICES.map((s, i) => (
+          <article class="br-box p-6 md:p-8" data-reveal style={`--d:${i * 0.08}s; background:${serviceColors[i]}`}>
+            <p class="br-num">0{i + 1}</p>
+            <h3 class="br-h3 mt-4">{s.title}</h3>
+            <p class="mt-3 leading-relaxed text-sm">{s.desc}</p>
+            <ul class="mt-5 space-y-2 text-sm font-bold">
+              {s.items.map((it) => <li>→ {it}</li>)}
+            </ul>
+          </article>
+        ))}
+      </div>
+      <div class="br-box bg-white mt-8 p-5 flex flex-wrap gap-3 items-center" data-reveal>
+        <span class="font-bold uppercase mr-2">Siempre incluido:</span>
+        {INCLUDED.map((it) => <span class="br-chip">✓ {it}</span>)}
+      </div>
+    </section>
+
+    <!-- Process -->
+    <section id="proceso" class="br-wrap py-16 md:py-24">
+      <h2 class="br-h2" data-reveal>Cómo trabajo</h2>
+      <ol class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-10">
+        {STEPS.map((s, i) => (
+          <li class="br-box bg-white p-6 relative" data-reveal style={`--d:${i * 0.08}s`}>
+            <span class="br-step">{i + 1}</span>
+            <h3 class="br-h3 mt-5">{s.title}</h3>
+            <p class="mt-2 text-sm leading-relaxed">{s.desc}</p>
+          </li>
+        ))}
+      </ol>
+    </section>
+
+    <!-- About -->
+    <section class="br-wrap py-16 md:py-24">
+      <div class="br-box bg-white p-6 sm:p-10 grid md:grid-cols-12 gap-8" data-reveal>
+        <div class="md:col-span-7">
+          <h2 class="br-h2">{ABOUT.title}</h2>
+          {ABOUT.paragraphs.map((t) => <p class="mt-5 leading-relaxed">{t}</p>)}
+        </div>
+        <ul class="md:col-span-5 grid gap-4">
+          {REASONS.map((r) => (
+            <li class="border-[3px] border-black p-4 bg-[#fff6c2]">
+              <h3 class="font-bold uppercase">{r.title}</h3>
+              <p class="text-sm mt-1">{r.desc}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="br-wrap py-16 md:py-24">
+      <h2 class="br-h2" data-reveal>Preguntas</h2>
+      <div class="mt-10 grid gap-4">
+        {FAQS.map((f, i) => (
+          <details class="br-faq" open={i === 0} data-reveal>
+            <summary class="flex justify-between items-center gap-4 p-5 cursor-pointer font-bold">
+              <span>{f.q}</span>
+              <span class="br-plus" aria-hidden="true">+</span>
+            </summary>
+            <p class="px-5 pb-5 leading-relaxed">{f.a}</p>
+          </details>
+        ))}
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contacto" class="br-wrap pb-24">
+      <div class="br-box bg-black text-white p-6 sm:p-10 md:p-14 grid md:grid-cols-2 gap-10" data-reveal>
+        <div>
+          <h2 class="br-display !text-white">Contame qué necesitás<span class="text-[#ffde21]">.</span></h2>
+          <p class="mt-6 leading-relaxed max-w-md">Escribime con tu idea, aunque sea un borrador. Te respondo con preguntas o un presupuesto.</p>
+          <a href={`mailto:${SITE_CONFIG.email}`} class="inline-block mt-6 font-bold text-[#ffde21] underline decoration-[3px] underline-offset-4 break-all">{SITE_CONFIG.email}</a>
+        </div>
+        <form data-contact-form action={SITE_CONFIG.contactFormEndpoint} method="POST" class="grid gap-4 text-black">
+          <ContactHidden />
+          <input name="name" required placeholder="Tu nombre" autocomplete="name" class="br-input" aria-label="Nombre" />
+          <input name="email" type="email" required placeholder="tu@email.com" autocomplete="email" class="br-input" aria-label="Email" />
+          <select name="tipo" class="br-input" aria-label="Qué necesitás">
+            {CONTACT_OPTIONS.map((o) => <option>{o}</option>)}
+          </select>
+          <textarea name="message" rows="4" required placeholder="Contame sobre tu negocio" class="br-input resize-none" aria-label="Mensaje"></textarea>
+          <button type="submit" class="br-btn br-btn-yellow justify-center"><span data-submit-label>Enviar mensaje →</span></button>
+          <p data-status role="status" aria-live="polite" class="text-sm text-white"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t-[3px] border-black bg-[#ffde21] pb-24">
+    <div class="br-wrap py-6 flex flex-col sm:flex-row justify-between gap-3 font-bold text-sm uppercase">
+      <p>© {new Date().getFullYear()} Hernán Solis</p>
+      <p class="flex gap-5">
+        <a href={SITE_CONFIG.linkedin} target="_blank" rel="noopener noreferrer" class="underline">LinkedIn</a>
+        <a href={SITE_CONFIG.github} target="_blank" rel="noopener noreferrer" class="underline">GitHub</a>
+        <a href={`mailto:${SITE_CONFIG.email}`} class="underline">Email</a>
+      </p>
+    </div>
+  </footer>
+
+  <DesignSwitcher current="brutalista" />
+</Layout>
+
+<style is:global>
+  body.d-brut {
+    background: #f4f0e6;
+    color: #111;
+    font-family: 'Space Mono', ui-monospace, monospace;
+    font-size: 15px;
+  }
+  html:has(body.d-brut) { background: #f4f0e6; color-scheme: light; }
+  body.d-brut ::selection { background: #111; color: #ffde21; }
+  .d-brut h1, .d-brut h2, .d-brut h3 { font-family: 'Archivo Black', Impact, sans-serif; letter-spacing: -0.01em; font-weight: 400; }
+  .d-brut .br-wrap { max-width: 78rem; margin-inline: auto; padding-inline: 1rem; }
+  @media (min-width: 640px) { .d-brut .br-wrap { padding-inline: 1.5rem; } }
+  .d-brut .br-nav { position: sticky; top: 0; z-index: 50; background: #f4f0e6; border-bottom: 3px solid #111; }
+  .d-brut .br-logo { display: grid; place-items: center; width: 42px; height: 42px; background: #111; color: #ffde21; font-family: 'Archivo Black'; font-size: 15px; }
+  .d-brut .br-navlink { position: relative; }
+  .d-brut .br-navlink:hover { background: #ffde21; box-shadow: 0 0 0 4px #ffde21; }
+  .d-brut .br-box { border: 3px solid #111; box-shadow: 6px 6px 0 #111; }
+  .d-brut .br-yellow { background: #ffde21; }
+  .d-brut .br-display { font-family: 'Archivo Black', Impact, sans-serif; text-transform: uppercase; font-size: clamp(2.2rem, 6.4vw, 5.4rem); line-height: 0.95; color: #111; }
+  .d-brut .br-hl { background: #111; color: #ffde21; padding: 0 0.15em; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
+  .d-brut .br-tag { display: inline-block; background: #111; color: #fff; font-size: 12px; font-weight: 700; text-transform: uppercase; padding: 6px 10px; }
+  .d-brut .br-btn {
+    display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.9rem 1.4rem;
+    border: 3px solid #111; font-weight: 700; text-transform: uppercase; box-shadow: 4px 4px 0 #111;
+    transition: transform 0.15s, box-shadow 0.15s;
+  }
+  .d-brut .br-btn:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 #111; }
+  .d-brut .br-btn:active { transform: translate(4px, 4px); box-shadow: 0 0 0 #111; }
+  .d-brut .br-btn-black { background: #111; color: #ffde21; }
+  .d-brut .br-btn-white { background: #fff; color: #111; }
+  .d-brut .br-btn-yellow { background: #ffde21; color: #111; }
+  .d-brut .br-sticker { position: absolute; right: 8px; bottom: -22px; width: 96px; height: 96px; border-radius: 999px; background: #ff8fd8; border: 3px solid #111; display: grid; place-items: center; }
+  .d-brut .br-sticker svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .d-brut .br-sticker span { font-family: 'Archivo Black'; font-size: 22px; }
+  .d-brut .br-spin { animation: spin 14s linear infinite; }
+  .d-brut .br-dot { width: 12px; height: 12px; border-radius: 999px; background: #22c55e; box-shadow: 0 0 0 0 rgba(34,197,94,.7); animation: brPulse 1.6s infinite; }
+  @keyframes brPulse { 70% { box-shadow: 0 0 0 10px rgba(34,197,94,0); } 100% { box-shadow: 0 0 0 0 rgba(34,197,94,0); } }
+  .d-brut .br-marquee { background: #111; color: #ffde21; border-block: 3px solid #111; transform: rotate(-1.5deg); margin-block: 1rem; padding: 0.9rem 0; font-family: 'Archivo Black'; font-size: clamp(1.2rem, 3vw, 2rem); text-transform: uppercase; }
+  .d-brut .br-marquee .marquee { mask-image: none; -webkit-mask-image: none; }
+  .d-brut .br-h2 { font-size: clamp(2.2rem, 6vw, 4.5rem); text-transform: uppercase; line-height: 1; display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
+  .d-brut .br-h3 { font-size: 1.35rem; line-height: 1.15; }
+  .d-brut .br-count { display: inline-grid; place-items: center; min-width: 1.4em; height: 1.4em; font-size: 0.5em; background: #ffde21; border: 3px solid #111; border-radius: 999px; }
+  .d-brut .br-count-pink { background: #ff8fd8; }
+  .d-brut .br-card { display: block; background: #fff; border: 3px solid #111; box-shadow: 6px 6px 0 #111; transition: transform 0.2s, box-shadow 0.2s; }
+  .d-brut .br-card:hover { transform: translate(-4px, -4px); box-shadow: 10px 10px 0 #111; }
+  .d-brut .br-proto { position: absolute; top: -12px; right: 12px; z-index: 2; background: #ff8fd8; border: 3px solid #111; padding: 4px 10px; font-weight: 700; text-transform: uppercase; font-size: 12px; }
+  .d-brut .br-num { font-family: 'Archivo Black'; font-size: 3rem; line-height: 1; }
+  .d-brut .br-chip { border: 2px solid #111; padding: 4px 10px; font-size: 13px; background: #fff6c2; }
+  .d-brut .br-step { display: grid; place-items: center; width: 48px; height: 48px; background: #ffde21; border: 3px solid #111; font-family: 'Archivo Black'; font-size: 1.4rem; }
+  .d-brut .br-faq { background: #fff; border: 3px solid #111; box-shadow: 4px 4px 0 #111; }
+  .d-brut .br-faq[open] { background: #ffde21; }
+  .d-brut .br-faq summary { list-style: none; }
+  .d-brut .br-faq summary::-webkit-details-marker { display: none; }
+  .d-brut .br-plus { display: grid; place-items: center; width: 34px; height: 34px; border: 3px solid #111; background: #fff; font-size: 20px; flex-shrink: 0; transition: transform 0.25s; }
+  .d-brut .br-faq[open] .br-plus { transform: rotate(45deg); }
+  .d-brut .br-input { width: 100%; background: #fff; border: 3px solid #111; padding: 0.8rem 1rem; font: inherit; border-radius: 0; }
+  .d-brut .br-input:focus { outline: none; box-shadow: 4px 4px 0 #ffde21; }
+  .d-brut [data-status][data-state='ok'] { color: #ffde21; }
+  .d-brut [data-status][data-state='error'] { color: #ff8fd8; }
+  @media (min-width: 1024px) { .d-brut .br-sticker { right: -18px; width: 112px; height: 112px; } }
+  @media (prefers-reduced-motion: reduce) { .d-brut .br-spin, .d-brut .br-dot { animation: none; } }
+</style>
+
+<script>
+  import { bindContactForms } from '../../scripts/contact-form';
+  bindContactForms();
+</script>
